@@ -2,7 +2,7 @@ import { useNavigate, useLocation } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faInstagram, faLinkedinIn, faRedditAlien } from '@fortawesome/free-brands-svg-icons';
 
-const logoImg = '/logo-transparent.png';
+const logoImg = './logo-transparent.png';
 
 export function SharedNav() {
   const navigate = useNavigate();

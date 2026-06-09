@@ -28,14 +28,14 @@ const team = [
     name: 'Priya Hebbal',
     bio: 'Co-founder of StableDPP, focused on the trust layer for India\'s exports. Priya is building the verifiable proof layer that every producer, consumer and other stakeholders in the circular economy can trust on — enabling each sustainability claim to be verified, never just believed, giving brands, buyers and recyclers a record they can rely on.',
     initials: 'PH',
-    image: '/IMG2.jpg',
+    image: './IMG2.jpg',
   },
   {
     role: 'CO-FOUNDER',
     name: 'Sudhanva Bhandolkar',
     bio: 'Co-founder of StableDPP, building the blockchain infrastructure behind every passport. Sudhanva has pioneered Trust as Infrastructure (TAS), a blockchain-based verification layer that enables one-scan verification of product data provenance through permanently recorded and tamper-resistant audit trails.',
     initials: 'SB',
-    image: '/IMG1.jpg',
+    image: './IMG1.jpg',
     
   },
 ];

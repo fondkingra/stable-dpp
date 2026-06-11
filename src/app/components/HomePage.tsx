@@ -1,24 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import { ArrowRight, ChevronDown, ChevronUp, Globe, Check, Shield } from 'lucide-react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXTwitter, faInstagram, faLinkedinIn, faRedditAlien } from '@fortawesome/free-brands-svg-icons';
+import { ArrowRight, ChevronDown, ChevronUp, Check, Shield } from 'lucide-react';
 import { TShirt3D, Jeans3D } from './Clothing3D';
+import { SharedFooter } from './SharedNav';
 import { updatePageSEO } from '../utils/seo';
 import { Icon } from '../utils/icons';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { 
   APP_CONFIG, 
   NAVIGATION_LINKS, 
-  TICKER_ITEMS, 
-  FEATURES, 
-  HOW_IT_WORKS_STEPS, 
-  FAQS, 
-  TRUSTED_BRANDS, 
-  COMPLIANCE_BADGES, 
   TRUST_BADGES, 
-  STATS, 
-  PRODUCT_CATEGORIES 
+  STATS 
 } from '../constants';
 
 export function HomePage() {
@@ -31,13 +23,6 @@ export function HomePage() {
   useEffect(() => {
     updatePageSEO('home');
   }, []);
-
-  const socialLinks = [
-    { icon: faXTwitter, url: 'https://x.com/stabledpp', label: 'X' },
-    { icon: faInstagram, url: 'https://www.instagram.com/stabledpp/', label: 'Instagram' },
-    { icon: faLinkedinIn, url: 'https://www.linkedin.com/company/stable-dpp/', label: 'LinkedIn' },
-    { icon: faRedditAlien, url: 'https://www.reddit.com/user/stable-dpp/', label: 'Reddit' },
-  ];
 
   return (
     <div style={{ fontFamily: 'var(--font-primary)', background: '#fafaf8', minHeight: '100vh' }}>
@@ -282,100 +267,7 @@ export function HomePage() {
       </section>
 
 
-      <footer style={{ background: '#060d1a', padding: '60px 0 32px' }}>
-        <div className="max-w-7xl mx-auto px-8">
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: '48px', marginBottom: '48px' }}>
-            <div>
-              <img src={APP_CONFIG.logo} alt={APP_CONFIG.name} style={{ height: '70px', width: 'auto', objectFit: 'contain', marginBottom: '16px', display: 'block' }} />
-              <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '14px', lineHeight: 1.8, maxWidth: '280px', marginBottom: '8px' }}>Give every product a passport. Make every claim verifiable.</p>
-              <p style={{ color: 'rgba(255,255,255,0.2)', fontSize: '13px', lineHeight: 1.7, maxWidth: '280px', marginBottom: '20px' }}>Digital Product Passports for Fashion · EU ESPR 2024 Compliant</p>
-              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                {TRUST_BADGES.map(b => (
-                  <span key={b} style={{ background: 'rgba(26,200,176,0.08)', border: '1px solid rgba(26,200,176,0.15)', borderRadius: '6px', padding: '4px 10px', fontSize: '10px', fontWeight: 700, color: 'rgba(26,200,176,0.7)', letterSpacing: '0.07em' }}>{b}</span>
-                ))}
-              </div>
-            </div>
-            
-            <div>
-              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', marginBottom: '18px' }}>Product</p>
-              {[{ label: 'How it Works', href: '/#how-it-works' }, { label: 'Solutions', href: '/solutions' }].map(l => (
-                <p key={l.label} onClick={() => navigate(l.href)} style={{ color: 'rgba(255,255,255,0.28)', fontSize: '14px', marginBottom: '11px', cursor: 'pointer', transition: 'color 0.15s' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.65)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.28)')}
-                >{l.label}</p>
-              ))}
-            </div>
-            
-            <div>
-              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', marginBottom: '18px' }}>Company</p>
-              {[{ label: 'About Us', href: '/company' }, { label: 'Privacy Policy', href: '/terms#privacy' }, { label: 'Terms of Service', href: '/terms#terms' }].map(l => (
-                <p key={l.label} onClick={() => navigate(l.href)} style={{ color: 'rgba(255,255,255,0.28)', fontSize: '14px', marginBottom: '11px', cursor: 'pointer', transition: 'color 0.15s' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.65)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.28)')}
-                >{l.label}</p>
-              ))}
-            </div>
-            
-            <div>
-              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', marginBottom: '18px' }}>Follow Us</p>
-              
-              {/* Social Links */}
-              <div style={{ display: 'flex', gap: '10px', marginBottom: '16px', flexWrap: 'wrap' }}>
-                {socialLinks.map(({ icon, url, label }) => (
-                  <a
-                    key={label}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: '36px',
-                      height: '36px',
-                      borderRadius: '8px',
-                      background: 'rgba(26,200,176,0.08)',
-                      border: '1px solid rgba(26,200,176,0.15)',
-                      color: '#1ac8b0',
-                      transition: 'all 0.2s',
-                      textDecoration: 'none'
-                    }}
-                    onMouseEnter={e => {
-                      (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(26,200,176,0.15)';
-                      (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(26,200,176,0.3)';
-                      (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-2px)';
-                    }}
-                    onMouseLeave={e => {
-                      (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(26,200,176,0.08)';
-                      (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(26,200,176,0.15)';
-                      (e.currentTarget as HTMLAnchorElement).style.transform = 'none';
-                    }}
-                  >
-                    <FontAwesomeIcon icon={icon} style={{ width: '16px', height: '16px' }} />
-                  </a>
-                ))}
-              </div>
-              
-              {/* Regular Links */}
-              {[{ label: 'Book a Demo', href: '/book-a-demo' }, { label: 'hello@stabledpp.com', href: 'mailto:hello@stabledpp.com' }].map(l => (
-                <p key={l.label} onClick={() => navigate(l.href)} style={{ color: 'rgba(255,255,255,0.28)', fontSize: '14px', marginBottom: '11px', cursor: 'pointer', transition: 'color 0.15s' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.65)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.28)')}
-                >{l.label}</p>
-              ))}
-            </div>
-          </div>
-          
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <p style={{ color: 'rgba(255,255,255,0.2)', fontSize: '13px' }}>© 2026 StableDPP · Digital Product Passports for Fashion · EU ESPR Compliant</p>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'rgba(255,255,255,0.2)' }}>
-              <Globe style={{ width: 13, height: 13 }} />
-              <span style={{ fontSize: '13px' }}>🌐 English</span>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SharedFooter />
 
       <style>{`
         @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }

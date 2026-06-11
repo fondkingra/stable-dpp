@@ -3,9 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <script>
-      // Redirect to index with the path encoded as a query param
-      const path = window.location.pathname.replace('/stable-dpp', '') + window.location.search + window.location.hash;
-      window.location.replace('/stable-dpp/?p=' + encodeURIComponent(path));
+      const path = window.location.pathname + window.location.search + window.location.hash;
+      window.location.replace('/?p=' + encodeURIComponent(path));
     </script>
   </head>
   <body></body>

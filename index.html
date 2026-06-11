@@ -141,7 +141,7 @@
       (function() {
         const p = new URLSearchParams(window.location.search).get('p');
         if (p) {
-          window.history.replaceState(null, '', '/stable-dpp' + p);
+          window.history.replaceState(null, '', p);
         }
       })();
     </script>

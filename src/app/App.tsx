@@ -15,7 +15,7 @@ import { ComingSoonPage } from './components/ComingSoonPage';
 
 export default function App() {
   return (
-    <BrowserRouter basename="/stable-dpp">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/create/:productType" element={<ProductCreator />} />

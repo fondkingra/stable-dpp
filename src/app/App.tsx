@@ -11,7 +11,7 @@ import { GetStartedPage } from './components/GetStartedPage';
 import { TermsAndConditionsPage } from './components/TermsAndConditionsPage';
 import { TestGLB } from './components/TestGLB';
 import { NotFoundPage } from './components/NotFoundPage';
-import { ComingSoonPage } from './components/ComingSoonPage';
+
 
 export default function App() {
   return (
@@ -22,7 +22,6 @@ export default function App() {
         <Route path="/passport/:productType" element={<PassportView />} />
         <Route path="/product" element={<ProductPage />} />
         <Route path="/solutions" element={<SolutionsPage />} />
-        <Route path="/resources" element={<ComingSoonPage />} />
         <Route path="/company" element={<CompanyPage />} />
         <Route path="/book-a-demo" element={<BookDemoPage />} />
         <Route path="/signin" element={<SignInPage />} />

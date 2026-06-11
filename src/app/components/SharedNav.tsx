@@ -11,7 +11,6 @@ export function SharedNav() {
   const navLinks = [
     { label: 'Product', path: '/product' },
     { label: 'Solutions', path: '/solutions' },
-    { label: 'Resources', path: '/resources' },
     { label: 'Company', path: '/company' },
   ];
 
@@ -172,7 +171,7 @@ export function SharedFooter() {
           {[
             { title: 'Platform', links: [['Product', '/product'], ['Get Started', '/get-started']] },
             { title: 'Solutions', links: [['Fashion Brands', '/solutions'], ['Manufacturers', '/solutions'], ['Retailers', '/solutions']] },
-            { title: 'Company', links: [['About', '/company'], ['Resources', '/resources'], ['Book a Demo', '/book-a-demo']] },
+            { title: 'Company', links: [['About', '/company'], ['Book a Demo', '/book-a-demo']] },
           ].map(col => (
             <div key={col.title}>
               <div style={{ color: '#fff', fontFamily: 'Inter, sans-serif', fontSize: '13px', fontWeight: 600, marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{col.title}</div>

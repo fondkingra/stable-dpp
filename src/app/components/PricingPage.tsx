@@ -11,7 +11,7 @@ const tiers = [
     features: [
       '10 Digital Product Passports/month',
       'QR code generation',
-      'Blockchain anchoring (Ethereum)',
+      'Blockchain anchoring',
       'ESPR compliance check',
       'Public passport viewer',
       'Email support',
@@ -61,11 +61,11 @@ const tiers = [
 const faqs = [
   {
     q: 'Can I try StableDPP for free?',
-    a: 'Yes — our Starter plan is permanently free. No time limit. No credit card. Create up to 10 Digital Product Passports per month, all blockchain-anchored on Ethereum Mainnet, with QR codes and ESPR compliance checking included. When you are ready to scale, upgrade in one click.',
+    a: 'Yes — our Starter plan is permanently free. No time limit. No credit card. Create up to 10 Digital Product Passports per month, all blockchain-anchored on blockchain, with QR codes and ESPR compliance checking included. When you are ready to scale, upgrade in one click.',
   },
   {
     q: 'What does blockchain anchoring include?',
-    a: 'Every DPP you create is cryptographically hashed and recorded on Ethereum Mainnet, creating a permanent, tamper-proof record. The blockchain hash appears on your passport and can be independently verified by any buyer, regulator, or consumer at any time — at zero additional cost on all plans.',
+    a: 'Every DPP you create is cryptographically hashed and recorded on blockchain, creating a permanent, tamper-proof record. The blockchain hash appears on your passport and can be independently verified by any buyer, regulator, or consumer at any time — at zero additional cost on all plans.',
   },
   {
     q: 'Is StableDPP GDPR compliant?',

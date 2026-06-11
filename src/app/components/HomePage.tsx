@@ -108,7 +108,7 @@ export function HomePage() {
 
               {/* Trust signals */}
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                {['◆  EU ESPR 2024 Compliant', '◆  Ethereum Mainnet verified', '◆  GS1 Digital Link aligned', '◆  Your first DPP live in minutes'].map(b => (
+                {['◆  EU ESPR 2024 Compliant', '◆  Blockchain Verified', '◆  GS1 Digital Link aligned', '◆  Your first DPP live in minutes'].map(b => (
                   <span key={b} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)', borderRadius: '100px', padding: '5px 13px', color: 'rgba(255,255,255,0.5)', fontSize: '12px', fontFamily: 'JetBrains Mono, monospace' }}>
                     {b}
                   </span>
@@ -186,7 +186,7 @@ export function HomePage() {
             <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(26,200,176,0.08)' }} />
             <Icon name="shield-check" className="w-8 h-8 text-teal-600 mb-4" />
             <h3 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '19px', fontWeight: 700, color: '#0f172a', marginBottom: '12px' }}>Blockchain Verified</h3>
-            <p style={{ color: '#475569', fontSize: '15px', lineHeight: 1.6 }}>Every passport you issue is locked to the Ethereum blockchain — timestamped the moment it is created and impossible to alter after the fact.</p>
+            <p style={{ color: '#475569', fontSize: '15px', lineHeight: 1.6 }}>Every passport you issue is locked to the blockchain — timestamped the moment it is created and impossible to alter after the fact.</p>
           </div>
           <div style={{ background: 'linear-gradient(135deg, #fefdf8 0%, #ffffff 100%)', padding: '28px', borderRadius: '20px', border: '1px solid #fef3cd', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(34,197,94,0.08)' }} />
@@ -231,7 +231,7 @@ export function HomePage() {
             <div style={{ textAlign: 'center' }}>
               <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-heading)', fontSize: '24px', fontWeight: 800, margin: '0 auto 24px' }}>03</div>
               <h3 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '16px' }}>Get Your Blockchain-Verified Passport</h3>
-              <p style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.6 }}>Your EU ESPR-compliant Digital Product Passport is generated instantly — anchored on Ethereum Mainnet with a tamper-proof blockchain hash and a GS1 Digital Link-ready QR code. Done in minutes.</p>
+              <p style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.6 }}>Your EU ESPR-compliant Digital Product Passport is generated instantly — anchored on-chain with a tamper-proof blockchain hash and a GS1 Digital Link-ready QR code. Done in minutes.</p>
             </div>
           </div>
         </div>
@@ -298,7 +298,7 @@ export function HomePage() {
             
             <div>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', marginBottom: '18px' }}>Product</p>
-              {[{ label: 'How it Works', href: '/#how-it-works' }, { label: 'Solutions', href: '/solutions' }, { label: 'ESPR Checklist', href: '/resources' }].map(l => (
+              {[{ label: 'How it Works', href: '/#how-it-works' }, { label: 'Solutions', href: '/solutions' }].map(l => (
                 <p key={l.label} onClick={() => navigate(l.href)} style={{ color: 'rgba(255,255,255,0.28)', fontSize: '14px', marginBottom: '11px', cursor: 'pointer', transition: 'color 0.15s' }}
                   onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.65)')}
                   onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.28)')}
@@ -308,7 +308,7 @@ export function HomePage() {
             
             <div>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', marginBottom: '18px' }}>Company</p>
-              {[{ label: 'About Us', href: '/company' }, { label: 'Resources', href: '/resources' }, { label: 'Privacy Policy', href: '/terms#privacy' }, { label: 'Terms of Service', href: '/terms#terms' }].map(l => (
+              {[{ label: 'About Us', href: '/company' }, { label: 'Privacy Policy', href: '/terms#privacy' }, { label: 'Terms of Service', href: '/terms#terms' }].map(l => (
                 <p key={l.label} onClick={() => navigate(l.href)} style={{ color: 'rgba(255,255,255,0.28)', fontSize: '14px', marginBottom: '11px', cursor: 'pointer', transition: 'color 0.15s' }}
                   onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.65)')}
                   onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.28)')}

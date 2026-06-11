@@ -299,7 +299,7 @@ export function BookDemoPage() {
                 </div>
                 <div style={{ textAlign: 'center', padding: '16px', background: '#fafaf8', borderRadius: '12px' }}>
                   <div style={{ fontFamily: 'var(--font-heading)', fontSize: '24px', fontWeight: 800, color: '#1ac8b0' }}>⟁</div>
-                  <div style={{ color: '#5a6a7a', fontSize: '12px' }}>Ethereum Mainnet verified</div>
+                  <div style={{ color: '#5a6a7a', fontSize: '12px' }}>Blockchain Verified</div>
                 </div>
                 <div style={{ textAlign: 'center', padding: '16px', background: '#fafaf8', borderRadius: '12px' }}>
                   <div style={{ fontFamily: 'var(--font-heading)', fontSize: '24px', fontWeight: 800, color: '#0a1f3c' }}>30+</div>

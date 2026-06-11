@@ -40,9 +40,10 @@ export type IconName = keyof typeof iconMap;
 interface IconProps {
   name: IconName;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-export function Icon({ name, className = 'w-6 h-6' }: IconProps) {
+export function Icon({ name, className = 'w-6 h-6', style }: IconProps) {
   const IconComponent = iconMap[name];
-  return <IconComponent className={className} />;
+  return <IconComponent className={className} style={style} />;
 }

@@ -103,40 +103,36 @@ export function SolutionsPage() {
       </section>
 
       {/* Compliance Focus */}
-      <section style={{ background: '#fff', padding: '80px 24px', borderTop: '1px solid #ede8e3' }}>
+      <section style={{ background: '#0a1f3c', padding: '80px 24px' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 800, color: '#0a1f3c', marginBottom: '16px' }}>Stay Ahead of Every Regulation — StableDPP Monitors So You Don't Have To</h2>
-            <p style={{ color: '#5a6a7a', fontSize: '16px', lineHeight: 1.7, maxWidth: '700px', margin: '0 auto' }}>
-              Regulations governing fashion sustainability are accelerating. StableDPP's compliance engine is continuously updated as requirements evolve — so your Digital Product Passports stay compliant without any manual monitoring on your side.
+            <div style={{ color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', marginBottom: '12px' }}>COMPLIANCE COVERAGE</div>
+            <h2 style={{ fontFamily: 'Merriweather, serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, color: '#fff', marginBottom: '16px' }}>Stay Ahead of Every Regulation</h2>
+            <p style={{ color: '#7a8a98', fontSize: '16px', lineHeight: 1.7, maxWidth: '600px', margin: '0 auto' }}>
+              StableDPP's compliance engine is continuously updated as requirements evolve — your passports stay compliant without any manual monitoring.
             </p>
           </div>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
-            <div style={{ background: '#fafaf8', padding: '32px', borderRadius: '16px', border: '1px solid #ede8e3' }}>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '18px', fontWeight: 700, color: '#0a1f3c', marginBottom: '12px' }}>EU ESPR 2024</h3>
-              <p style={{ color: '#5a6a7a', fontSize: '14px', lineHeight: 1.6 }}>All DPP data fields fully mapped and auto-validated. Compliance gaps flagged before publication.</p>
-            </div>
-            
-            <div style={{ background: '#fafaf8', padding: '32px', borderRadius: '16px', border: '1px solid #ede8e3' }}>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '18px', fontWeight: 700, color: '#0a1f3c', marginBottom: '12px' }}>EU Green Claims Directive</h3>
-              <p style={{ color: '#5a6a7a', fontSize: '14px', lineHeight: 1.6 }}>Every claim in your passport is verified, third-party-anchored, and defensible against regulatory challenge.</p>
-            </div>
-            
-            <div style={{ background: '#fafaf8', padding: '32px', borderRadius: '16px', border: '1px solid #ede8e3' }}>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '18px', fontWeight: 700, color: '#0a1f3c', marginBottom: '12px' }}>GS1 Digital Link</h3>
-              <p style={{ color: '#5a6a7a', fontSize: '14px', lineHeight: 1.6 }}>Globally interoperable QR infrastructure — your passport works everywhere your products are sold.</p>
-            </div>
-            
-            <div style={{ background: '#fafaf8', padding: '32px', borderRadius: '16px', border: '1px solid #ede8e3' }}>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '18px', fontWeight: 700, color: '#0a1f3c', marginBottom: '12px' }}>ISO 14001</h3>
-              <p style={{ color: '#5a6a7a', fontSize: '14px', lineHeight: 1.6 }}>Environmental management system data aligned and reportable in one click.</p>
-            </div>
-            
-            <div style={{ background: '#fafaf8', padding: '32px', borderRadius: '16px', border: '1px solid #ede8e3' }}>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '18px', fontWeight: 700, color: '#0a1f3c', marginBottom: '12px' }}>GDPR</h3>
-              <p style={{ color: '#5a6a7a', fontSize: '14px', lineHeight: 1.6 }}>EU data residency, AES-256 encryption, role-based access controls, and data minimisation by design.</p>
-            </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+            {[
+              { emoji: '🇪🇺', title: 'EU ESPR 2024', color: '#1ac8b0', border: 'rgba(26,200,176,0.25)', bg: 'rgba(26,200,176,0.06)', desc: 'All DPP data fields fully mapped and auto-validated. Compliance gaps flagged before publication.' },
+              { emoji: '🌿', title: 'EU Green Claims Directive', color: '#22c55e', border: 'rgba(34,197,94,0.25)', bg: 'rgba(34,197,94,0.06)', desc: 'Every claim is verified, third-party-anchored, and defensible against regulatory challenge.' },
+              { emoji: '📡', title: 'GS1 Digital Link', color: '#38bdf8', border: 'rgba(56,189,248,0.25)', bg: 'rgba(56,189,248,0.06)', desc: 'Globally interoperable QR infrastructure — your passport works everywhere your products are sold.' },
+              { emoji: '🌱', title: 'ISO 14001', color: '#a78bfa', border: 'rgba(167,139,250,0.25)', bg: 'rgba(167,139,250,0.06)', desc: 'Environmental management system data aligned and reportable in one click.' },
+              { emoji: '🔒', title: 'GDPR', color: '#fb923c', border: 'rgba(251,146,60,0.25)', bg: 'rgba(251,146,60,0.06)', desc: 'EU data residency, AES-256 encryption, role-based access controls, and data minimisation by design.' },
+            ].map(({ emoji, title, color, border, bg, desc }) => (
+              <div key={title} style={{ background: bg, border: `1px solid ${border}`, borderRadius: '20px', padding: '28px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
+                  <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: `${color}18`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '22px', flexShrink: 0 }}>{emoji}</div>
+                  <h3 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '16px', fontWeight: 700, color: '#fff', lineHeight: 1.2 }}>{title}</h3>
+                </div>
+                <p style={{ color: '#7a8a98', fontSize: '14px', lineHeight: 1.7 }}>{desc}</p>
+                <div style={{ marginTop: '16px', display: 'inline-flex', alignItems: 'center', gap: '6px', background: `${color}15`, border: `1px solid ${color}30`, borderRadius: '100px', padding: '4px 12px' }}>
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: color, display: 'inline-block' }} />
+                  <span style={{ color, fontSize: '11px', fontWeight: 700, letterSpacing: '0.06em' }}>ACTIVE COVERAGE</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

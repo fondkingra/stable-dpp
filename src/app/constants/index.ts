@@ -12,7 +12,6 @@ export const APP_CONFIG = {
 export const NAVIGATION_LINKS = [
   { label: 'Product', href: '/product' },
   { label: 'Solutions', href: '/solutions' },
-  { label: 'Resources', href: '/resources' },
   { label: 'Company', href: '/company' },
 ] as const;
 
@@ -29,7 +28,7 @@ export const COUNTRIES = [
 
 export const COMPLIANCE_BADGES = [
   '● EU ESPR 2024',
-  '● Ethereum Mainnet', 
+  '● Blockchain Verified', 
   '● ISO 14001',
   '● GDPR Compliant',
   '● GS1 Digital Link'
@@ -56,7 +55,7 @@ export const TICKER_ITEMS = [
   'BATTERIES', 
   'ELECTRONICS',
   'GS1 DIGITAL LINK',
-  'HYPERLEDGER FABRIC',
+  'BLOCKCHAIN VERIFIED',
   'QR · NFC · RFID',
   'CIRCULAR ECONOMY',
   'CARBON TRACEABILITY',
@@ -79,7 +78,7 @@ export const FEATURES = [
   {
     icon: "shield-check" as const,
     title: "Blockchain Verified",
-    desc: "Every passport you issue is locked to the Ethereum blockchain — timestamped the moment it is created and impossible to alter after the fact. Your sustainability claims stop being promises and become proof anyone can check.",
+    desc: "Every passport you issue is locked to the blockchain — timestamped the moment it is created and impossible to alter after the fact. Your sustainability claims stop being promises and become proof anyone can check.",
   },
   {
     icon: "leaf" as const, 
@@ -115,7 +114,7 @@ export const HOW_IT_WORKS_STEPS = [
     num: '03', 
     icon: 'mobile' as const, 
     title: 'Get Your Blockchain-Verified Passport', 
-    desc: 'Your EU ESPR-compliant Digital Product Passport is generated instantly — anchored on Ethereum Mainnet with a tamper-proof blockchain hash and a GS1 Digital Link-ready QR code. Done in minutes.' 
+    desc: 'Your EU ESPR-compliant Digital Product Passport is generated instantly — anchored on-chain with a tamper-proof blockchain hash and a GS1 Digital Link-ready QR code. Done in minutes.' 
   },
 ] as const;
 

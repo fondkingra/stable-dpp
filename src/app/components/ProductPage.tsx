@@ -4,6 +4,15 @@ import { SharedNav, SharedFooter } from './SharedNav';
 import { updatePageSEO } from '../utils/seo';
 import { Icon } from '../utils/icons';
 
+const features = [
+  { icon: 'link' as const, iconColor: '#1ac8b0', bg: 'linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%)', border: '#a7f3d0', iconBg: 'rgba(26,200,176,0.1)', title: 'Blockchain Anchoring — Tamper-Proof by Design', body: 'Every Digital Product Passport you create is anchored to an immutable blockchain record. Your sustainability claims are permanently timestamped, independently verifiable, and impossible to falsify.' },
+  { icon: 'leaf' as const, iconColor: '#16a34a', bg: 'linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%)', border: '#bbf7d0', iconBg: 'rgba(34,197,94,0.1)', title: 'Component-Level Tracking — Every Material, Accounted For', body: 'Go beyond product-level data. StableDPP lets you attach individual component DPPs to every material in your product — fabric origin, button sourcing, collar certification, thread dye compliance.' },
+  { icon: 'clipboard' as const, iconColor: '#2563eb', bg: 'linear-gradient(135deg, #eff6ff 0%, #ffffff 100%)', border: '#bfdbfe', iconBg: 'rgba(59,130,246,0.1)', title: 'ESPR & Global Compliance Engine — Built for Every Regulation', body: 'Purpose-built for EU ESPR 2024. Our compliance engine auto-validates your DPP data against all ESPR data fields, flags missing information, and ensures GS1 Digital Link compliance.' },
+  { icon: 'mobile' as const, iconColor: '#7c3aed', bg: 'linear-gradient(135deg, #f5f3ff 0%, #ffffff 100%)', border: '#d8b4fe', iconBg: 'rgba(147,51,234,0.1)', title: 'Instant QR Code Generation — GS1 Digital Link Ready', body: 'When your Digital Product Passport is ready, StableDPP generates a GS1 Digital Link-compliant QR code instantly — ready to embed on garment labels, hang tags, or packaging.' },
+  { icon: 'chart-line' as const, iconColor: '#d97706', bg: 'linear-gradient(135deg, #fefce8 0%, #ffffff 100%)', border: '#fde68a', iconBg: 'rgba(245,158,11,0.1)', title: 'Sustainability Data Dashboard — Track Everything, Report Anything', body: 'Monitor sustainability performance across your entire product catalogue. Track CO₂ equivalent, water consumption, recycled-material percentages, and export compliance reports.' },
+  { icon: 'lock' as const, iconColor: '#db2777', bg: 'linear-gradient(135deg, #fdf2f8 0%, #ffffff 100%)', border: '#fbcfe8', iconBg: 'rgba(236,72,153,0.1)', title: 'GDPR-Compliant Data Infrastructure — Your Data, Your Control', body: 'Your supply chain data is commercially sensitive. StableDPP is fully GDPR compliant — all data encrypted at rest and in transit, with EU-regulated cloud infrastructure.' },
+];
+
 export function ProductPage() {
   const navigate = useNavigate();
 
@@ -40,73 +49,16 @@ export function ProductPage() {
           <div style={{ color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', marginBottom: '12px' }}>CORE FEATURES</div>
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 800, color: '#0a1f3c', marginBottom: '20px' }}>Everything You Need to Issue, Manage, and Prove Your Digital Product Passports</h2>
         </div>
-        
-        <div style={{ display: 'grid', gap: '32px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '32px' }}>
-            <div style={{ background: 'linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%)', padding: '40px', borderRadius: '24px', border: '1px solid #a7f3d0', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', top: '20px', right: '20px', width: '60px', height: '60px', borderRadius: '12px', background: 'rgba(26,200,176,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Icon name="link" className="w-6 h-6 text-teal-600" />
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '28px' }}>
+          {features.map(({ icon, iconColor, bg, border, iconBg, title, body }) => (
+            <div key={title} style={{ background: bg, padding: '36px', borderRadius: '24px', border: `1px solid ${border}` }}>
+              <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: iconBg, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', flexShrink: 0 }}>
+                <Icon name={icon} className="" style={{ width: '28px', height: '28px', color: iconColor, strokeWidth: 1.5 }} />
               </div>
-              <h3 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '24px', fontWeight: 700, color: '#0f172a', marginBottom: '16px' }}>Blockchain Anchoring — Tamper-Proof by Design</h3>
-              <p style={{ color: '#475569', fontSize: '16px', lineHeight: 1.7 }}>
-                Every Digital Product Passport you create is anchored to an immutable record on Ethereum Mainnet. Your sustainability claims are permanently timestamped, independently verifiable, and impossible to falsify.
-              </p>
+              <h3 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '18px', fontWeight: 700, color: '#0f172a', marginBottom: '12px', lineHeight: 1.3 }}>{title}</h3>
+              <p style={{ color: '#475569', fontSize: '15px', lineHeight: 1.7 }}>{body}</p>
             </div>
-
-            <div style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%)', padding: '40px', borderRadius: '24px', border: '1px solid #bbf7d0', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', top: '20px', right: '20px', width: '60px', height: '60px', borderRadius: '12px', background: 'rgba(34,197,94,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Icon name="leaf" className="w-6 h-6 text-green-600" />
-              </div>
-              <h3 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '24px', fontWeight: 700, color: '#0f172a', marginBottom: '16px' }}>Component-Level Tracking — Every Material, Accounted For</h3>
-              <p style={{ color: '#475569', fontSize: '16px', lineHeight: 1.7 }}>
-                Go beyond product-level data. StableDPP lets you attach individual component DPPs to every material in your product — fabric origin, button sourcing, collar certification, thread dye compliance.
-              </p>
-            </div>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '32px' }}>
-            <div style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #ffffff 100%)', padding: '40px', borderRadius: '24px', border: '1px solid #bfdbfe', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', top: '20px', right: '20px', width: '60px', height: '60px', borderRadius: '12px', background: 'rgba(59,130,246,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Icon name="clipboard" className="w-6 h-6 text-blue-600" />
-              </div>
-              <h3 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '24px', fontWeight: 700, color: '#0f172a', marginBottom: '16px' }}>ESPR & Global Compliance Engine — Built for Every Regulation</h3>
-              <p style={{ color: '#475569', fontSize: '16px', lineHeight: 1.7 }}>
-                Purpose-built for EU ESPR 2024. Our compliance engine auto-validates your DPP data against all ESPR data fields, flags missing information, and ensures GS1 Digital Link compliance.
-              </p>
-            </div>
-
-            <div style={{ background: 'linear-gradient(135deg, #f5f3ff 0%, #ffffff 100%)', padding: '40px', borderRadius: '24px', border: '1px solid #d8b4fe', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', top: '20px', right: '20px', width: '60px', height: '60px', borderRadius: '12px', background: 'rgba(147,51,234,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Icon name="mobile" className="w-6 h-6 text-purple-600" />
-              </div>
-              <h3 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '24px', fontWeight: 700, color: '#0f172a', marginBottom: '16px' }}>Instant QR Code Generation — GS1 Digital Link Ready</h3>
-              <p style={{ color: '#475569', fontSize: '16px', lineHeight: 1.7 }}>
-                When your Digital Product Passport is ready, StableDPP generates a GS1 Digital Link-compliant QR code instantly — ready to embed on garment labels, hang tags, or packaging.
-              </p>
-            </div>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '32px' }}>
-            <div style={{ background: 'linear-gradient(135deg, #fefce8 0%, #ffffff 100%)', padding: '40px', borderRadius: '24px', border: '1px solid #fde68a', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', top: '20px', right: '20px', width: '60px', height: '60px', borderRadius: '12px', background: 'rgba(245,158,11,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Icon name="chart-line" className="w-6 h-6 text-amber-600" />
-              </div>
-              <h3 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '24px', fontWeight: 700, color: '#0f172a', marginBottom: '16px' }}>Sustainability Data Dashboard — Track Everything, Report Anything</h3>
-              <p style={{ color: '#475569', fontSize: '16px', lineHeight: 1.7 }}>
-                Monitor sustainability performance across your entire product catalogue. Track CO₂ equivalent, water consumption, recycled-material percentages, and export compliance reports.
-              </p>
-            </div>
-
-            <div style={{ background: 'linear-gradient(135deg, #fdf2f8 0%, #ffffff 100%)', padding: '40px', borderRadius: '24px', border: '1px solid #fbcfe8', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', top: '20px', right: '20px', width: '60px', height: '60px', borderRadius: '12px', background: 'rgba(236,72,153,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Icon name="lock" className="w-6 h-6 text-pink-600" />
-              </div>
-              <h3 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '24px', fontWeight: 700, color: '#0f172a', marginBottom: '16px' }}>GDPR-Compliant Data Infrastructure — Your Data, Your Control</h3>
-              <p style={{ color: '#475569', fontSize: '16px', lineHeight: 1.7 }}>
-                Your supply chain data is commercially sensitive. StableDPP is fully GDPR compliant — all data encrypted at rest and in transit, with EU-regulated cloud infrastructure.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 

@@ -108,7 +108,7 @@ export function HomePage() {
 
               {/* Trust signals */}
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                {['◆  EU ESPR 2024 Compliant', '◆  Ethereum Mainnet verified', '◆  GS1 Digital Link aligned', '◆  Your first DPP live in minutes'].map(b => (
+                {['◆  EU ESPR 2024 Compliant', '◆  Blockchain Verified', '◆  GS1 Digital Link aligned', '◆  Your first DPP live in minutes'].map(b => (
                   <span key={b} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)', borderRadius: '100px', padding: '5px 13px', color: 'rgba(255,255,255,0.5)', fontSize: '12px', fontFamily: 'JetBrains Mono, monospace' }}>
                     {b}
                   </span>

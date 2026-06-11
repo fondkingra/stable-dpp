@@ -67,7 +67,7 @@ export function CompanyPage() {
             StableDPP was built to change that. We believe every fashion product deserves a tamper-proof, independently verifiable record of its sustainability story — from the cotton field to the retail shelf. A record that cannot be altered, cannot be gamed, and can be trusted by anyone who scans it.
           </p>
           <p style={{ color: '#a8bcc8', fontSize: '17px', lineHeight: 1.8 }}>
-            By anchoring Digital Product Passports to the Ethereum blockchain and engineering our platform to meet EU ESPR 2024 requirements from day one, we give fashion brands the compliance infrastructure and credibility credentials they need to compete in a market where transparency is no longer optional.
+            By anchoring Digital Product Passports to the blockchain and engineering our platform to meet EU ESPR 2024 requirements from day one, we give fashion brands the compliance infrastructure and credibility credentials they need to compete in a market where transparency is no longer optional.
           </p>
         </div>
       </section>

@@ -33,7 +33,7 @@ export function SignInPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Sign in:', formData);
+    
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

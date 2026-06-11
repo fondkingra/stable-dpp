@@ -22,7 +22,7 @@ export function GetStartedPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle account creation
-    console.log('Account creation:', formData);
+    
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {

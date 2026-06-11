@@ -1,24 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import { ArrowRight, ChevronDown, ChevronUp, Check, Shield } from 'lucide-react';
+import { ArrowRight, Check, Shield } from 'lucide-react';
 import { TShirt3D, Jeans3D } from './Clothing3D';
 import { SharedFooter } from './SharedNav';
 import { updatePageSEO } from '../utils/seo';
 import { Icon } from '../utils/icons';
-import { useScrollReveal } from '../hooks/useScrollReveal';
-import { 
-  APP_CONFIG, 
-  NAVIGATION_LINKS, 
-  TRUST_BADGES, 
-  STATS 
-} from '../constants';
+import { APP_CONFIG, NAVIGATION_LINKS, STATS } from '../constants';
 
 export function HomePage() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [featuresRef, featuresVisible] = useScrollReveal();
-  const [stepsRef, stepsVisible] = useScrollReveal();
 
   useEffect(() => {
     updatePageSEO('home');

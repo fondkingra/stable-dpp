@@ -47,7 +47,6 @@ function useGLTFScene(glbPath: string, cameraZ: number) {
     loader.load(
       glbPath,
       (gltf) => {
-        console.log('GLB loaded successfully:', glbPath, gltf);
         model = gltf.scene;
         
         // Center and scale the model
@@ -55,8 +54,6 @@ function useGLTFScene(glbPath: string, cameraZ: number) {
         const size = box.getSize(new THREE.Vector3());
         const center = box.getCenter(new THREE.Vector3());
         
-        console.log('Model size:', size);
-        console.log('Model center:', center);
         
         // Scale model to reasonable size
         const maxDim = Math.max(size.x, size.y, size.z);
@@ -86,7 +83,6 @@ function useGLTFScene(glbPath: string, cameraZ: number) {
         animate();
       },
       (progress) => {
-        console.log('Loading progress:', glbPath, progress);
       },
       (error) => {
         console.error('Error loading GLB:', glbPath, error);

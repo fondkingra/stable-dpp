@@ -2,7 +2,7 @@ import { useNavigate, useLocation } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faInstagram, faLinkedinIn, faRedditAlien } from '@fortawesome/free-brands-svg-icons';
 
-const logoImg = './logo-transparent.png';
+const logoImg = import.meta.env.BASE_URL + 'logo-transparent.png';
 
 export function SharedNav() {
   const navigate = useNavigate();
@@ -192,8 +192,8 @@ export function SharedFooter() {
             © 2026 StableDPP · Digital Product Passports for Fashion · EU ESPR Compliant
           </span>
           <div style={{ display: 'flex', gap: '20px' }}>
-            {['Privacy Policy', 'Terms of Service'].map(t => (
-              <button key={t} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#4a5a68', fontFamily: 'Inter, sans-serif', fontSize: '13px', transition: 'color 0.2s' }}
+            {([['Privacy Policy', '/terms#privacy'], ['Terms of Service', '/terms#terms']] as [string, string][]).map(([t, path]) => (
+              <button key={t} onClick={() => navigate(path)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#4a5a68', fontFamily: 'Inter, sans-serif', fontSize: '13px', transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget.style.color = '#7a8a98')}
                 onMouseLeave={e => (e.currentTarget.style.color = '#4a5a68')}
               >{t}</button>

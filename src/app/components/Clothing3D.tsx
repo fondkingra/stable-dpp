@@ -131,7 +131,7 @@ function useGLTFScene(glbPath: string, cameraZ: number) {
 }
 
 export function TShirt3D() {
-  const { mountRef, error, loading } = useGLTFScene('/t-shirt.glb', 4.8);
+  const { mountRef, error, loading } = useGLTFScene(import.meta.env.BASE_URL + 't-shirt.glb', 4.8);
   
   return (
     <div style={{ width: '100%', height: '100%', position: 'relative' }}>
@@ -167,7 +167,7 @@ export function TShirt3D() {
 }
 
 export function Jeans3D() {
-  const { mountRef, error, loading } = useGLTFScene('/jeans.glb', 5.0);
+  const { mountRef, error, loading } = useGLTFScene(import.meta.env.BASE_URL + 'jeans.glb', 5.0);
   
   return (
     <div style={{ width: '100%', height: '100%', position: 'relative' }}>

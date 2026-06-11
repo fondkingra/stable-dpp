@@ -8,6 +8,7 @@ import { CompanyPage } from './components/CompanyPage';
 import { BookDemoPage } from './components/BookDemoPage';
 import { SignInPage } from './components/SignInPage';
 import { GetStartedPage } from './components/GetStartedPage';
+import { TermsAndConditionsPage } from './components/TermsAndConditionsPage';
 import { TestGLB } from './components/TestGLB';
 import { NotFoundPage } from './components/NotFoundPage';
 import { ComingSoonPage } from './components/ComingSoonPage';
@@ -26,6 +27,8 @@ export default function App() {
         <Route path="/book-a-demo" element={<BookDemoPage />} />
         <Route path="/signin" element={<SignInPage />} />
         <Route path="/get-started" element={<GetStartedPage />} />
+        <Route path="/terms" element={<TermsAndConditionsPage />} />
+        <Route path="/privacy" element={<TermsAndConditionsPage />} />
         <Route path="/test-3d" element={<div style={{padding: '50px'}}><TestGLB /></div>} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

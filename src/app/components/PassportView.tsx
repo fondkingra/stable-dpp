@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { ArrowLeft, Check, ExternalLink, Shield, Clock, Hash, Leaf, Droplets, Zap, Wind, Thermometer } from 'lucide-react';
 import QRCode from 'react-qr-code';
-const logoImg = '/logo.png';
+const logoImg = import.meta.env.BASE_URL + 'logo-transparent.png';
 
 interface ComponentDPP {
   id: string;
@@ -224,7 +224,7 @@ export function PassportView() {
                 <h3 className="text-base font-bold text-[#0d2340]" style={{ fontFamily: 'Syne, sans-serif' }}>Blockchain Verified</h3>
               </div>
               <p className="text-[#6b8fa8] text-xs mb-4 leading-relaxed">
-                Cryptographically anchored to the Ethereum network
+                Cryptographically anchored to the blockchain
               </p>
               <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-50 border border-gray-100 mb-4">
                 <Hash className="w-3 h-3 text-[#1ac8b0] flex-shrink-0" />
@@ -391,7 +391,7 @@ export function PassportView() {
               </div>
               <div className="text-right">
                 <p className="text-[#6b8fa8] text-xs font-mono">{passportData.blockchainHash.substring(0, 14)}…</p>
-                <p className="text-gray-300 text-xs mt-0.5">Ethereum Mainnet</p>
+                <p className="text-gray-300 text-xs mt-0.5">Blockchain Verified</p>
               </div>
             </div>
           </div>

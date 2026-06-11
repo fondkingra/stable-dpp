@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
 import { updatePageSEO } from '../utils/seo';
 
@@ -261,7 +262,7 @@ export function BookDemoPage() {
               </button>
 
               <p style={{ color: '#94a3b8', fontSize: '12px', lineHeight: 1.5 }}>
-                Your data is handled in accordance with our Privacy Policy and EU GDPR guidelines. We never sell or share your information.
+                Your data is handled in accordance with our <Link to="/terms#privacy" style={{ color: '#1ac8b0' }}>Privacy Policy</Link> and EU GDPR guidelines. We never sell or share your information.
               </p>
             </form>
           </div>

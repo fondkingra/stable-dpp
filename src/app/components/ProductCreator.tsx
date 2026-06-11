@@ -4,7 +4,7 @@ import {
   ArrowLeft, Upload, Check, Image as ImageIcon,
   User, Package, Leaf, Droplets, Zap, Wind, Thermometer,
 } from 'lucide-react';
-const logoImg = './logo.png';
+const logoImg = import.meta.env.BASE_URL + 'logo-transparent.png';
 
 interface ComponentDPP {
   id: string;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, Link } from 'react-router';
 import { updatePageSEO } from '../utils/seo';
 import { APP_CONFIG } from '../constants';
 
@@ -214,13 +214,9 @@ export function GetStartedPage() {
               />
               <span style={{ color: '#5a6a7a', fontSize: '14px', lineHeight: 1.5 }}>
                 I agree to the{' '}
-                <button type="button" style={{ background: 'none', border: 'none', color: '#1ac8b0', textDecoration: 'underline', cursor: 'pointer' }}>
-                  Terms of Service
-                </button>
+                <Link to="/terms#terms" style={{ color: '#1ac8b0', textDecoration: 'underline' }}>Terms of Service</Link>
                 {' '}and{' '}
-                <button type="button" style={{ background: 'none', border: 'none', color: '#1ac8b0', textDecoration: 'underline', cursor: 'pointer' }}>
-                  Privacy Policy
-                </button> *
+                <Link to="/terms#privacy" style={{ color: '#1ac8b0', textDecoration: 'underline' }}>Privacy Policy</Link> *
               </span>
             </label>
           </div>

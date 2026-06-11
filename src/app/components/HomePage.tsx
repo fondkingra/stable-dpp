@@ -165,18 +165,12 @@ export function HomePage() {
       </div>
 
       {/* Compliance Trust Bar */}
-      <section style={{ background: '#fff', padding: '24px', borderTop: '1px solid #ede8e3', borderBottom: '1px solid #ede8e3' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px' }}>
-          <div style={{ color: '#5a6a7a', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', fontWeight: 600 }}>
-            COMPLIANT WITH
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '32px', flexWrap: 'wrap' }}>
-            <span style={{ color: '#1ac8b0', fontSize: '14px', fontWeight: 600 }}>●  EU ESPR 2024</span>
-            <span style={{ color: '#1ac8b0', fontSize: '14px', fontWeight: 600 }}>●  Ethereum Mainnet</span>
-            <span style={{ color: '#1ac8b0', fontSize: '14px', fontWeight: 600 }}>●  ISO 14001</span>
-            <span style={{ color: '#1ac8b0', fontSize: '14px', fontWeight: 600 }}>●  GDPR Compliant</span>
-            <span style={{ color: '#1ac8b0', fontSize: '14px', fontWeight: 600 }}>●  GS1 Digital Link</span>
-          </div>
+      <section style={{ background: '#fff', padding: '20px 24px', borderTop: '1px solid #ede8e3', borderBottom: '1px solid #ede8e3' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '8px 32px' }}>
+          <span style={{ color: '#5a6a7a', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', fontWeight: 600 }}>COMPLIANT WITH</span>
+          {['EU ESPR 2024', 'Blockchain Verified', 'GS1 Standards', 'ISO 14001', 'GDPR Compliant', 'GS1 Digital Link'].map(b => (
+            <span key={b} style={{ color: '#1ac8b0', fontSize: '13px', fontWeight: 600 }}>●  {b}</span>
+          ))}
         </div>
       </section>
 
@@ -314,7 +308,7 @@ export function HomePage() {
             
             <div>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', marginBottom: '18px' }}>Company</p>
-              {[{ label: 'About Us', href: '/company' }, { label: 'Resources', href: '/resources' }, { label: 'Privacy Policy', href: '#' }, { label: 'Terms of Service', href: '#' }].map(l => (
+              {[{ label: 'About Us', href: '/company' }, { label: 'Resources', href: '/resources' }, { label: 'Privacy Policy', href: '/terms#privacy' }, { label: 'Terms of Service', href: '/terms#terms' }].map(l => (
                 <p key={l.label} onClick={() => navigate(l.href)} style={{ color: 'rgba(255,255,255,0.28)', fontSize: '14px', marginBottom: '11px', cursor: 'pointer', transition: 'color 0.15s' }}
                   onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.65)')}
                   onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.28)')}

@@ -136,6 +136,15 @@
     }
     </script>
     
+    <!-- GitHub Pages SPA redirect handler -->
+    <script>
+      (function() {
+        const p = new URLSearchParams(window.location.search).get('p');
+        if (p) {
+          window.history.replaceState(null, '', '/stable-dpp' + p);
+        }
+      })();
+    </script>
     <!-- Performance & Styling -->
     <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
   </head>

@@ -339,7 +339,7 @@ export function BookDemoPage() {
               </h3>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div style={{ textAlign: 'center', padding: '16px', background: '#fafaf8', borderRadius: '12px' }}>
-                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: '24px', fontWeight: 800, color: '#0a1f3c' }}>500+</div>
+                  <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '28px', fontWeight: 700, color: '#0a1f3c' }}>500+</div>
                   <div style={{ color: '#5a6a7a', fontSize: '12px' }}>Digital Product Passports issued</div>
                 </div>
                 <div style={{ textAlign: 'center', padding: '16px', background: '#fafaf8', borderRadius: '12px' }}>
@@ -351,7 +351,7 @@ export function BookDemoPage() {
                   <div style={{ color: '#5a6a7a', fontSize: '12px' }}>Blockchain Verified</div>
                 </div>
                 <div style={{ textAlign: 'center', padding: '16px', background: '#fafaf8', borderRadius: '12px' }}>
-                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: '24px', fontWeight: 800, color: '#0a1f3c' }}>30+</div>
+                  <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '28px', fontWeight: 700, color: '#0a1f3c' }}>30+</div>
                   <div style={{ color: '#5a6a7a', fontSize: '12px' }}>fashion brands onboarded</div>
                 </div>
               </div>

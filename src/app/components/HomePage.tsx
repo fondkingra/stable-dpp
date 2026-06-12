@@ -194,17 +194,17 @@ export function HomePage() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-heading)', fontSize: '24px', fontWeight: 800, margin: '0 auto 24px' }}>01</div>
+              <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Playfair Display, serif', fontSize: '28px', fontWeight: 900, margin: '0 auto 24px' }}>01</div>
               <h3 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '16px' }}>Select Your Product</h3>
               <p style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.6 }}>Choose your garment type — T-shirt, jeans, jacket, footwear — and select the component DPPs that make up your product. Each component (fabric, dye, hardware, lining) gets its own traceable record.</p>
             </div>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-heading)', fontSize: '24px', fontWeight: 800, margin: '0 auto 24px' }}>02</div>
+              <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Playfair Display, serif', fontSize: '28px', fontWeight: 900, margin: '0 auto 24px' }}>02</div>
               <h3 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '16px' }}>Fill Your Sustainability Data</h3>
               <p style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.6 }}>Upload a product image and enter your material composition, certifications (GOTS, Oeko-Tex, GRS), sustainability metrics, and supply chain provenance. Our compliance engine guides every field.</p>
             </div>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-heading)', fontSize: '24px', fontWeight: 800, margin: '0 auto 24px' }}>03</div>
+              <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Playfair Display, serif', fontSize: '28px', fontWeight: 900, margin: '0 auto 24px' }}>03</div>
               <h3 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '16px' }}>Get Your Blockchain-Verified Passport</h3>
               <p style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.6 }}>Your EU ESPR-compliant Digital Product Passport is generated instantly — anchored on-chain with a tamper-proof blockchain hash and a GS1 Digital Link-ready QR code. Done in minutes.</p>
             </div>

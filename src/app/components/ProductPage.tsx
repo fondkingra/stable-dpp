@@ -47,7 +47,7 @@ export function ProductPage() {
       <section id="features" style={{ padding: '80px 24px', maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
           <div style={{ color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', marginBottom: '12px' }}>CORE FEATURES</div>
-          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 800, color: '#0a1f3c', marginBottom: '20px' }}>Everything You Need to Issue, Manage, and Prove Your Digital Product Passports</h2>
+          <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 900, color: '#0a1f3c', marginBottom: '20px', fontStyle: 'italic' }}>Everything You Need to Issue, Manage, and Prove Your Digital Product Passports</h2>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '28px' }}>
           {features.map(({ icon, iconColor, bg, border, iconBg, title, body }) => (

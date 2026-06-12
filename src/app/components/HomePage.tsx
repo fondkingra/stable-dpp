@@ -131,8 +131,8 @@ export function HomePage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', marginTop: '56px', paddingTop: '40px', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
             {STATS.map((s, i) => (
               <div key={s.label} style={{ textAlign: 'center', padding: '0 24px', borderLeft: i > 0 ? '1px solid rgba(255,255,255,0.07)' : 'none' }}>
-                <p style={{ fontFamily: 'Syne, sans-serif', fontSize: '32px', fontWeight: 800, color: '#fff', lineHeight: 1, marginBottom: '6px' }}>{s.value}</p>
-                <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '13px' }}>{s.label}</p>
+                <p style={{ fontFamily: 'Playfair Display, serif', fontSize: '40px', fontWeight: 900, color: '#fff', lineHeight: 1, marginBottom: '6px', letterSpacing: '-0.02em' }}>{s.value}</p>
+                <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '12px', fontFamily: 'Inter, sans-serif', fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase' }}>{s.label}</p>
               </div>
             ))}
           </div>

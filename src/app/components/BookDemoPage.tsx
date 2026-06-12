@@ -1,28 +1,60 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router';
+import emailjs from '@emailjs/browser';
 import { SharedNav, SharedFooter } from './SharedNav';
 import { updatePageSEO } from '../utils/seo';
+
+const EMAILJS_SERVICE_ID = 'service_ht3l9bf';
+const EMAILJS_TEMPLATE_ID = 'template_v82jwei';
+const EMAILJS_PUBLIC_KEY = 'XnXXIfbHW-tQw42I1';
 
 export function BookDemoPage() {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
+    phone: '',
     company: '',
     jobTitle: '',
     numberOfProducts: '',
     primaryMarket: '',
     message: ''
   });
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
+  const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     updatePageSEO('demo');
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    
+    setLoading(true);
+    setError('');
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: `${formData.firstName} ${formData.lastName}`,
+          from_email: formData.email,
+          phone: formData.phone || 'Not provided',
+          company: formData.company,
+          job_title: formData.jobTitle || 'Not specified',
+          num_products: formData.numberOfProducts || 'Not specified',
+          primary_market: formData.primaryMarket || 'Not specified',
+          message: formData.message || 'No message provided',
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setSubmitted(true);
+    } catch (err) {
+      setError('Something went wrong. Please email us directly at info@stabledpp.com');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -53,7 +85,14 @@ export function BookDemoPage() {
           
           {/* Form */}
           <div style={{ background: '#fff', padding: '40px', borderRadius: '16px', border: '1px solid #ede8e3' }}>
-            <form onSubmit={handleSubmit}>
+            {submitted ? (
+              <div style={{ textAlign: 'center', padding: '40px 0' }}>
+                <div style={{ fontSize: '52px', marginBottom: '20px' }}>🎉</div>
+                <h2 style={{ fontFamily: 'Merriweather, serif', fontSize: '22px', fontWeight: 900, color: '#0a1f3c', marginBottom: '12px' }}>Request Received!</h2>
+                <p style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.7 }}>Thanks! We'll be in touch within 24 hours to confirm your demo time.</p>
+              </div>
+            ) : (
+            <form ref={formRef} onSubmit={handleSubmit}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
                 <div>
                   <label style={{ display: 'block', fontFamily: 'var(--font-heading)', fontSize: '14px', fontWeight: 600, color: '#0a1f3c', marginBottom: '8px' }}>
@@ -109,15 +148,21 @@ export function BookDemoPage() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  style={{
-                    width: '100%',
-                    padding: '12px 16px',
-                    borderRadius: '8px',
-                    border: '1px solid #ede8e3',
-                    fontSize: '14px',
-                    fontFamily: 'var(--font-primary)',
-                    outline: 'none'
-                  }}
+                  style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #ede8e3', fontSize: '14px', fontFamily: 'var(--font-primary)', outline: 'none' }}
+                />
+              </div>
+
+              <div style={{ marginBottom: '20px' }}>
+                <label style={{ display: 'block', fontFamily: 'var(--font-heading)', fontSize: '14px', fontWeight: 600, color: '#0a1f3c', marginBottom: '8px' }}>
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="+1 234 567 8900"
+                  style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #ede8e3', fontSize: '14px', fontFamily: 'var(--font-primary)', outline: 'none' }}
                 />
               </div>
 
@@ -244,8 +289,9 @@ export function BookDemoPage() {
 
               <button
                 type="submit"
+                disabled={loading}
                 style={{
-                  background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)',
+                  background: loading ? '#94a3b8' : 'linear-gradient(135deg, #1ac8b0, #0ea58c)',
                   color: '#071528',
                   border: 'none',
                   padding: '16px 32px',
@@ -253,18 +299,21 @@ export function BookDemoPage() {
                   fontFamily: 'var(--font-primary)',
                   fontSize: '16px',
                   fontWeight: 700,
-                  cursor: 'pointer',
+                  cursor: loading ? 'not-allowed' : 'pointer',
                   width: '100%',
                   marginBottom: '16px'
                 }}
               >
-                Book My Free Demo →
+                {loading ? 'Sending...' : 'Book My Free Demo →'}
               </button>
+
+              {error && <p style={{ color: '#dc2626', fontSize: '13px', marginBottom: '12px', textAlign: 'center' }}>{error}</p>}
 
               <p style={{ color: '#94a3b8', fontSize: '12px', lineHeight: 1.5 }}>
                 Your data is handled in accordance with our <Link to="/terms#privacy" style={{ color: '#1ac8b0' }}>Privacy Policy</Link> and EU GDPR guidelines. We never sell or share your information.
               </p>
             </form>
+            )}
           </div>
 
           {/* Trust Elements & Social Proof */}

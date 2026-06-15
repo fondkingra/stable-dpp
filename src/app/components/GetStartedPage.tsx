@@ -33,7 +33,7 @@ export function GetStartedPage() {
     setLoading(true);
     setError('');
     try {
-      await signUp(formData.firstName, formData.lastName, formData.email, formData.password);
+      await signUp(formData.firstName, formData.lastName, formData.email, formData.password, formData.company, formData.country);
       setSubmitted(true);
     } catch (err: any) {
       setError(err.message || 'Something went wrong. Please try again.');

@@ -212,41 +212,6 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* Product Type Selector */}
-      <section style={{ padding: '80px 24px', background: '#fafaf8' }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <div style={{ color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', marginBottom: '12px' }}>GET STARTED</div>
-            <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(28px, 4vw, 38px)', fontWeight: 800, color: '#0a1f3c', lineHeight: 1.2, marginBottom: '16px' }}>Select Your Product Type. Start Your Digital Product Passport.</h2>
-            <p style={{ color: '#5a6a7a', fontSize: '16px', lineHeight: 1.6, maxWidth: '600px', margin: '0 auto' }}>Choose your garment category to begin creating a blockchain-verified Digital Product Passport — EU ESPR 2024 compliant, GS1 Digital Link ready, and live in minutes.</p>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
-            <div style={{ background: '#fff', padding: '32px', borderRadius: '16px', border: '1px solid #ede8e3', textAlign: 'center', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
-                <TShirt3D />
-              </div>
-              <h3 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '16px' }}>T-Shirt</h3>
-              <p style={{ color: '#5a6a7a', fontSize: '14px', lineHeight: 1.6, marginBottom: '24px', flex: 1 }}>Full component tracking for shirt products with end-to-end supply chain visibility — fabric, collar, buttons, threads, and labels.</p>
-              <button onClick={() => navigate('/create/shirt')} style={{ background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', color: '#071528', border: 'none', padding: '12px 24px', borderRadius: '100px', fontFamily: 'var(--font-primary)', fontSize: '14px', fontWeight: 600, cursor: 'pointer' }}>Create T-Shirt DPP →</button>
-            </div>
-            <div style={{ background: '#fff', padding: '32px', borderRadius: '16px', border: '1px solid #ede8e3', textAlign: 'center', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
-                <Jeans3D />
-              </div>
-              <h3 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '16px' }}>Jeans</h3>
-              <p style={{ color: '#5a6a7a', fontSize: '14px', lineHeight: 1.6, marginBottom: '24px', flex: 1 }}>Denim supply chain verification with complete material provenance — cotton sourcing, dye processes, hardware, and wash compliance.</p>
-              <button onClick={() => navigate('/create/jeans')} style={{ background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', color: '#071528', border: 'none', padding: '12px 24px', borderRadius: '100px', fontFamily: 'var(--font-primary)', fontSize: '14px', fontWeight: 600, cursor: 'pointer' }}>Create Jeans DPP →</button>
-            </div>
-            <div style={{ background: '#fff', padding: '32px', borderRadius: '16px', border: '1px solid #ede8e3', textAlign: 'center', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px', fontSize: '48px' }}>➕</div>
-              <h3 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '16px' }}>+ More Categories</h3>
-              <p style={{ color: '#5a6a7a', fontSize: '14px', lineHeight: 1.6, marginBottom: '24px', flex: 1 }}>Jackets, footwear, accessories, and more — contact us to add your category to the StableDPP platform.</p>
-              <button onClick={() => navigate('/book-a-demo')} style={{ background: 'none', color: '#1ac8b0', border: '1px solid #1ac8b0', padding: '12px 24px', borderRadius: '100px', fontFamily: 'var(--font-primary)', fontSize: '14px', fontWeight: 600, cursor: 'pointer' }}>Contact Us</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Footer CTA Banner */}
       <section style={{ background: '#0a1f3c', padding: '80px 24px', textAlign: 'center' }}>
         <div style={{ maxWidth: '700px', margin: '0 auto' }}>

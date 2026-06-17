@@ -11,9 +11,10 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "strict": true,
+    "rootDirs": [".", "./.react-router/types"],
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", ".react-router/types/**/*"]
 }

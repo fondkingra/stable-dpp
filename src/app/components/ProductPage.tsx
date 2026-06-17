@@ -1,7 +1,5 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
-import { updatePageSEO } from '../utils/seo';
 import { Icon } from '../utils/icons';
 
 const features = [
@@ -15,10 +13,6 @@ const features = [
 
 export function ProductPage() {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    updatePageSEO('product');
-  }, []);
 
   return (
     <div style={{ minHeight: '100vh', background: '#fafaf8', fontFamily: 'var(--font-primary)' }}>

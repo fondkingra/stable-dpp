@@ -28,7 +28,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
       "StableDPP is the most trusted Digital Product Passport platform for fashion brands. Blockchain anchoring, ESPR compliance engine, instant QR codes, and a sustainability dashboard — free to start.",
     keywords:
       "Digital Product Passport platform fashion, blockchain DPP fashion, ESPR compliance engine, fashion sustainability dashboard, GS1 Digital Link QR",
-    canonical: "https://www.stabledpp.com/product",
+    canonical: "https://stabledpp.com/product",
   },
   solutions: {
     title:
@@ -37,7 +37,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
       "Tailored Digital Product Passport solutions for fashion brands, textile manufacturers, and retailers. EU ESPR 2024 compliant. GS1 Digital Link aligned. Built for every supply chain.",
     keywords:
       "DPP solutions fashion brands, textile manufacturer DPP, retail DPP compliance, EU ESPR supply chain, Green Claims Directive",
-    canonical: "https://www.stabledpp.com/solutions",
+    canonical: "https://stabledpp.com/solutions",
   },
   resources: {
     title:
@@ -46,7 +46,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
       "Free guides, articles, and webinars on EU ESPR 2024, Digital Product Passports, and sustainable fashion supply chains. Everything fashion brands need to navigate DPP compliance in 2026.",
     keywords:
       "EU ESPR guide fashion DPP, Digital Product Passport explainer, ESPR compliance webinar, sustainable fashion guides, DPP implementation tutorial",
-    canonical: "https://www.stabledpp.com/resources",
+    canonical: "https://stabledpp.com/resources",
   },
   company: {
     title: "About StableDPP | Built for Transparency and Trust in Fashion",
@@ -54,7 +54,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
       "StableDPP is on a mission to make every fashion product verifiably sustainable. Learn about our blockchain-first approach to Digital Product Passports, EU ESPR compliance, and supply chain transparency.",
     keywords:
       "StableDPP fashion DPP platform, blockchain fashion transparency, sustainable fashion company, DPP mission values, fashion compliance team",
-    canonical: "https://www.stabledpp.com/company",
+    canonical: "https://stabledpp.com/company",
   },
   demo: {
     title:
@@ -63,7 +63,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
       "Book a 30-minute personalised Digital Product Passport demo with the StableDPP team. We will build a live DPP for your products, walk through ESPR compliance, and create a tailored roadmap for your brand.",
     keywords:
       "StableDPP demo, Digital Product Passport demo, ESPR compliance demo, fashion DPP consultation, blockchain passport demo",
-    canonical: "https://www.stabledpp.com/book-a-demo",
+    canonical: "https://stabledpp.com/book-a-demo",
   },
   signin: {
     title: "Sign In to StableDPP | Your Digital Product Passport Dashboard",
@@ -71,7 +71,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
       "Sign in to your StableDPP account to manage, publish, and track your Digital Product Passports. Secured by 256-bit encryption. GDPR compliant.",
     keywords:
       "StableDPP login, DPP dashboard, Digital Product Passport account, fashion DPP management, ESPR compliance dashboard",
-    canonical: "https://www.stabledpp.com/signin",
+    canonical: "https://stabledpp.com/signin",
   },
   getStarted: {
     title:
@@ -80,15 +80,44 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
       "Start issuing blockchain-verified Digital Product Passports in minutes. Free to start. EU ESPR 2024 compliant from your first passport. No credit card required.",
     keywords:
       "create StableDPP account, free Digital Product Passport account, fashion DPP signup, ESPR compliance registration, blockchain passport account",
-    canonical: "https://www.stabledpp.com/get-started",
+    canonical: "https://stabledpp.com/get-started",
   },
   comingSoon: {
     title: "Coming Soon | StableDPP",
     description: "This feature is coming soon. Stay tuned for updates.",
     keywords: "coming soon, updates",
-    canonical: "https://www.stabledpp.com/resources",
+    canonical: "https://stabledpp.com/resources",
   },
 };
+
+type MetaDescriptor =
+  | { title: string }
+  | { name: string; content: string }
+  | { property: string; content: string }
+  | { tagName: string; [key: string]: string | undefined };
+
+export function buildRouteMeta(
+  pageKey: keyof typeof SEO_CONFIG,
+): MetaDescriptor[] {
+  const config = SEO_CONFIG[pageKey];
+  const tags: MetaDescriptor[] = [
+    { title: config.title },
+    { name: "description", content: config.description },
+    { name: "keywords", content: config.keywords },
+    { tagName: "link", rel: "canonical", href: config.canonical },
+    { property: "og:url", content: config.canonical },
+    { property: "og:type", content: "website" },
+  ];
+
+  if (config.ogTitle) {
+    tags.push({ property: "og:title", content: config.ogTitle });
+  }
+  if (config.ogDescription) {
+    tags.push({ property: "og:description", content: config.ogDescription });
+  }
+
+  return tags;
+}
 
 export function updateSEO(pageKey: keyof typeof SEO_CONFIG) {
   updatePageSEO(pageKey);
@@ -139,13 +168,11 @@ export function updatePageSEO(pageKey: keyof typeof SEO_CONFIG) {
     }
   }
 
-  // Add breadcrumb structured data for sub-pages
   if (pageKey !== "home") {
     updateBreadcrumbSchema(pageKey, config);
   }
 }
 
-// Add breadcrumb structured data
 function updateBreadcrumbSchema(pageKey: string, config: PageSEO) {
   const breadcrumbMap: Record<string, string> = {
     product: "Product",
@@ -165,7 +192,7 @@ function updateBreadcrumbSchema(pageKey: string, config: PageSEO) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.stabledpp.com/",
+        item: "https://stabledpp.com/",
       },
       {
         "@type": "ListItem",
@@ -176,7 +203,6 @@ function updateBreadcrumbSchema(pageKey: string, config: PageSEO) {
     ],
   };
 
-  // Remove existing breadcrumb schema if present
   const existingBreadcrumb = document.querySelector(
     'script[type="application/ld+json"][data-breadcrumb]',
   );
@@ -184,7 +210,6 @@ function updateBreadcrumbSchema(pageKey: string, config: PageSEO) {
     existingBreadcrumb.remove();
   }
 
-  // Add new breadcrumb schema
   const script = document.createElement("script");
   script.type = "application/ld+json";
   script.setAttribute("data-breadcrumb", "true");

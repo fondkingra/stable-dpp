@@ -2,7 +2,7 @@ import { useNavigate, Link } from 'react-router';
 import { ArrowRight, Check, Shield } from 'lucide-react';
 import { SharedFooter } from './SharedNav';
 import { Icon } from '../utils/icons';
-import { APP_CONFIG, NAVIGATION_LINKS, STATS, PRODUCT_CATEGORIES } from '../constants';
+import { APP_CONFIG, NAVIGATION_LINKS, STATS } from '../constants';
 
 export function HomePage() {
   const navigate = useNavigate();
@@ -203,84 +203,6 @@ export function HomePage() {
               <h3 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '16px' }}>Get Your Blockchain-Verified Passport</h3>
               <p style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.6 }}>Your EU ESPR-compliant Digital Product Passport is generated instantly — anchored on-chain with a tamper-proof blockchain hash and a GS1 Digital Link-ready QR code. Done in minutes.</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Product Type Selector */}
-      <section style={{ padding: '80px 24px', background: '#fafaf8' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <div style={{ color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', marginBottom: '12px' }}>GET STARTED</div>
-            <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(28px, 4vw, 38px)', fontWeight: 800, color: '#0a1f3c', lineHeight: 1.2, marginBottom: '16px' }}>
-              Select Your Product Type. Start Your Digital Product Passport.
-            </h2>
-            <p style={{ color: '#5a6a7a', fontSize: '16px', lineHeight: 1.7, maxWidth: '640px', margin: '0 auto' }}>
-              Choose your garment category to begin creating a blockchain-verified Digital Product Passport — EU ESPR 2024 compliant, GS1 Digital Link ready, and live in minutes.
-            </p>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
-            {PRODUCT_CATEGORIES.map((cat) => (
-              <div
-                key={cat.title}
-                style={{
-                  background: '#fff',
-                  padding: '32px',
-                  borderRadius: '20px',
-                  border: '1px solid #ede8e3',
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
-              >
-                <h3 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '12px' }}>
-                  {cat.title}
-                </h3>
-                <p style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.6, marginBottom: '16px', flex: 1 }}>
-                  {cat.desc}
-                </p>
-                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '20px' }}>
-                  {cat.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      style={{
-                        background: '#e8faf7',
-                        border: '1px solid #b3ede6',
-                        borderRadius: '100px',
-                        padding: '2px 10px',
-                        fontSize: '11px',
-                        fontWeight: 600,
-                        color: '#1ac8b0',
-                      }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <button
-                  onClick={() =>
-                    cat.type
-                      ? navigate(`/create/${cat.type}`)
-                      : navigate('/book-a-demo')
-                  }
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    background: cat.type ? '#1ac8b0' : 'transparent',
-                    color: cat.type ? '#071528' : '#1ac8b0',
-                    fontWeight: 700,
-                    fontSize: '14px',
-                    padding: '12px 24px',
-                    borderRadius: '100px',
-                    border: cat.type ? 'none' : '1px solid #1ac8b0',
-                    cursor: 'pointer',
-                    alignSelf: 'flex-start',
-                  }}
-                >
-                  {cat.cta} <ArrowRight style={{ width: 14, height: 14 }} />
-                </button>
-              </div>
-            ))}
           </div>
         </div>
       </section>

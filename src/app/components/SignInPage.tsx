@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate, Link } from 'react-router';
-import { updatePageSEO } from '../utils/seo';
 import { APP_CONFIG } from '../constants';
 import { signIn } from '../utils/frappe';
 
@@ -35,8 +34,6 @@ export function SignInPage() {
   const [forgotEmail, setForgotEmail] = useState('');
   const [forgotSent, setForgotSent] = useState(false);
   const [forgotLoading, setForgotLoading] = useState(false);
-
-  useEffect(() => { updatePageSEO('signin'); }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

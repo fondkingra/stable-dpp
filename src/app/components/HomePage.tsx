@@ -1,18 +1,11 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, Link } from 'react-router';
 import { ArrowRight, Check, Shield } from 'lucide-react';
-import { TShirt3D, Jeans3D } from './Clothing3D';
 import { SharedFooter } from './SharedNav';
-import { updatePageSEO } from '../utils/seo';
 import { Icon } from '../utils/icons';
-import { APP_CONFIG, NAVIGATION_LINKS, STATS } from '../constants';
+import { APP_CONFIG, NAVIGATION_LINKS, STATS, PRODUCT_CATEGORIES } from '../constants';
 
 export function HomePage() {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    updatePageSEO('home');
-  }, []);
 
   return (
     <div style={{ fontFamily: 'var(--font-primary)', background: '#fafaf8', minHeight: '100vh' }}>
@@ -24,10 +17,10 @@ export function HomePage() {
           <img src={APP_CONFIG.logo} alt={APP_CONFIG.name} style={{ height: '80px', width: 'auto', display: 'block', objectFit: 'contain' }} />
           <div className="hidden md:flex items-center">
             {NAVIGATION_LINKS.map(item => (
-              <button key={item.label} onClick={() => navigate(item.href)} style={{ padding: '8px 16px', color: 'rgba(255,255,255,0.55)', fontSize: '14px', fontWeight: 500, background: 'none', border: 'none', cursor: 'pointer', transition: 'color 0.15s', borderRadius: '8px' }}
+              <Link key={item.label} to={item.href} style={{ padding: '8px 16px', color: 'rgba(255,255,255,0.55)', fontSize: '14px', fontWeight: 500, textDecoration: 'none', transition: 'color 0.15s', borderRadius: '8px' }}
                 onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
-              >{item.label}</button>
+              >{item.label}</Link>
             ))}
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -55,10 +48,12 @@ export function HomePage() {
               </div>
 
               {/* H1 */}
-              <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(34px, 4vw, 56px)', fontWeight: 900, color: '#fff', lineHeight: 1.12, letterSpacing: '-0.02em', marginBottom: '28px' }}>
-                Every Fashion Product. One Verified Passport.{' '}
-                <span style={{ color: '#1ac8b0', fontStyle: 'italic', fontFamily: 'Space Grotesk, sans-serif' }}>Prove it. On-chain.</span>
+              <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(34px, 4vw, 56px)', fontWeight: 900, color: '#fff', lineHeight: 1.12, letterSpacing: '-0.02em', marginBottom: '12px' }}>
+                Every Fashion Product. One Verified Passport.
               </h1>
+              <p style={{ color: '#1ac8b0', fontStyle: 'italic', fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(20px, 2.5vw, 28px)', fontWeight: 600, marginBottom: '28px' }}>
+                Prove it. On-chain.
+              </p>
 
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '18px', lineHeight: 1.7, maxWidth: '500px', marginBottom: '36px', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
                 StableDPP gives every fashion brand a blockchain-verified Digital Product Passport — the EU ESPR 2024 compliant record that proves fibre origin, material sustainability, certifications, and supply chain transparency. One QR scan. Every claim verified. Every stakeholder convinced.
@@ -154,7 +149,7 @@ export function HomePage() {
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
             <div style={{ color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', marginBottom: '12px' }}>WHY STABLEDPP</div>
-            <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, color: '#0a1f3c', lineHeight: 1.2 }}>Built for the Future of Fashion — and the Regulations Already Here.</h2>
+            <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, color: '#0a1f3c', lineHeight: 1.2 }}>Built for the Future of Fashion — and the Regulations Already Here</h2>
           </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
           <div style={{ background: 'linear-gradient(135deg, #f8fdfc 0%, #ffffff 100%)', padding: '28px', borderRadius: '20px', border: '1px solid #e0f2f1', position: 'relative', overflow: 'hidden' }}>
@@ -208,6 +203,84 @@ export function HomePage() {
               <h3 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '16px' }}>Get Your Blockchain-Verified Passport</h3>
               <p style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.6 }}>Your EU ESPR-compliant Digital Product Passport is generated instantly — anchored on-chain with a tamper-proof blockchain hash and a GS1 Digital Link-ready QR code. Done in minutes.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Type Selector */}
+      <section style={{ padding: '80px 24px', background: '#fafaf8' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div style={{ color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', marginBottom: '12px' }}>GET STARTED</div>
+            <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(28px, 4vw, 38px)', fontWeight: 800, color: '#0a1f3c', lineHeight: 1.2, marginBottom: '16px' }}>
+              Select Your Product Type. Start Your Digital Product Passport.
+            </h2>
+            <p style={{ color: '#5a6a7a', fontSize: '16px', lineHeight: 1.7, maxWidth: '640px', margin: '0 auto' }}>
+              Choose your garment category to begin creating a blockchain-verified Digital Product Passport — EU ESPR 2024 compliant, GS1 Digital Link ready, and live in minutes.
+            </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+            {PRODUCT_CATEGORIES.map((cat) => (
+              <div
+                key={cat.title}
+                style={{
+                  background: '#fff',
+                  padding: '32px',
+                  borderRadius: '20px',
+                  border: '1px solid #ede8e3',
+                  display: 'flex',
+                  flexDirection: 'column',
+                }}
+              >
+                <h3 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '12px' }}>
+                  {cat.title}
+                </h3>
+                <p style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.6, marginBottom: '16px', flex: 1 }}>
+                  {cat.desc}
+                </p>
+                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '20px' }}>
+                  {cat.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      style={{
+                        background: '#e8faf7',
+                        border: '1px solid #b3ede6',
+                        borderRadius: '100px',
+                        padding: '2px 10px',
+                        fontSize: '11px',
+                        fontWeight: 600,
+                        color: '#1ac8b0',
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <button
+                  onClick={() =>
+                    cat.type
+                      ? navigate(`/create/${cat.type}`)
+                      : navigate('/book-a-demo')
+                  }
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    background: cat.type ? '#1ac8b0' : 'transparent',
+                    color: cat.type ? '#071528' : '#1ac8b0',
+                    fontWeight: 700,
+                    fontSize: '14px',
+                    padding: '12px 24px',
+                    borderRadius: '100px',
+                    border: cat.type ? 'none' : '1px solid #1ac8b0',
+                    cursor: 'pointer',
+                    alignSelf: 'flex-start',
+                  }}
+                >
+                  {cat.cta} <ArrowRight style={{ width: 14, height: 14 }} />
+                </button>
+              </div>
+            ))}
           </div>
         </div>
       </section>

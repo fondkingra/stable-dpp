@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate, Link } from 'react-router';
-import { updatePageSEO } from '../utils/seo';
 import { APP_CONFIG } from '../constants';
 import { signUp } from '../utils/frappe';
 
@@ -19,10 +18,6 @@ export function GetStartedPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [submitted, setSubmitted] = useState(false);
-
-  useEffect(() => {
-    updatePageSEO('getStarted');
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

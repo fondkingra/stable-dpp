@@ -1,8 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { Link } from 'react-router';
 import emailjs from '@emailjs/browser';
 import { SharedNav, SharedFooter } from './SharedNav';
-import { updatePageSEO } from '../utils/seo';
 
 const EMAILJS_SERVICE_ID = 'service_ht3l9bf';
 const EMAILJS_TEMPLATE_ID = 'template_v82jwei';
@@ -24,10 +23,6 @@ export function BookDemoPage() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
-
-  useEffect(() => {
-    updatePageSEO('demo');
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -1,15 +1,9 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
-import { updatePageSEO } from '../utils/seo';
 
 
 export function SolutionsPage() {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    updatePageSEO('solutions');
-  }, []);
 
   return (
     <div style={{ minHeight: '100vh', background: '#fafaf8', fontFamily: 'var(--font-primary)' }}>

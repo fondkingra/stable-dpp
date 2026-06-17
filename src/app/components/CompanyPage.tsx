@@ -1,7 +1,5 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
-import { updatePageSEO } from '../utils/seo';
 import { Icon } from '../utils/icons';
 
 const values = [
@@ -42,10 +40,6 @@ const team = [
 
 export function CompanyPage() {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    updatePageSEO('company');
-  }, []);
 
   return (
     <div style={{ minHeight: '100vh', background: '#fafaf8', fontFamily: 'Inter, sans-serif' }}>

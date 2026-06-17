@@ -2,7 +2,7 @@
 export const APP_CONFIG = {
   name: 'StableDPP',
   logo: import.meta.env.BASE_URL + 'logo-transparent.png',
-  baseUrl: 'https://www.stabledpp.com',
+  baseUrl: 'https://stabledpp.com/',
   supportEmail: 'hello@stabledpp.com',
   demoUrl: '/book-a-demo',
   signupUrl: '/get-started',

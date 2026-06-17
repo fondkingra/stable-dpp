@@ -154,7 +154,7 @@ export function HomePage() {
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
             <div style={{ color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', marginBottom: '12px' }}>WHY STABLEDPP</div>
-            <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, color: '#0a1f3c', lineHeight: 1.2 }}>Built for the Future of Fashion — and the Regulations Already Here.</h2>
+            <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, color: '#0a1f3c', lineHeight: 1.2 }}>Built for the Future of Fashion — and the Regulations Already Here</h2>
           </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
           <div style={{ background: 'linear-gradient(135deg, #f8fdfc 0%, #ffffff 100%)', padding: '28px', borderRadius: '20px', border: '1px solid #e0f2f1', position: 'relative', overflow: 'hidden' }}>

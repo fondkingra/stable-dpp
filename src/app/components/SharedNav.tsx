@@ -1,12 +1,22 @@
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faInstagram, faLinkedinIn, faRedditAlien } from '@fortawesome/free-brands-svg-icons';
+import { getUser, signOut } from '../utils/frappe';
 
 const logoImg = import.meta.env.BASE_URL + 'logo-transparent.png';
 
 export function SharedNav() {
   const navigate = useNavigate();
   const location = useLocation();
+  const [user, setUser] = useState(getUser());
+
+  useEffect(() => {
+    setUser(getUser());
+    const onStorage = () => setUser(getUser());
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
+  }, [location.pathname]);
 
   const navLinks = [
     { label: 'Product', path: '/product' },
@@ -68,40 +78,63 @@ export function SharedNav() {
         </div>
 
         <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0 }}>
-          <button
-            onClick={() => navigate('/signin')}
-            style={{
-              background: 'none',
-              border: '1px solid rgba(200,216,232,0.3)',
-              cursor: 'pointer',
-              color: '#c8d8e8',
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '14px',
-              fontWeight: 500,
-              padding: '8px 16px',
-              borderRadius: '8px',
-              transition: 'all 0.2s',
-            }}
-          >
-            Sign In
-          </button>
-          <button
-            onClick={() => navigate('/book-a-demo')}
-            style={{
-              background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)',
-              border: 'none',
-              cursor: 'pointer',
-              color: '#071528',
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '14px',
-              fontWeight: 700,
-              padding: '9px 18px',
-              borderRadius: '8px',
-              transition: 'all 0.2s',
-            }}
-          >
-            Book a Demo
-          </button>
+          {user ? (
+            <>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(26,200,176,0.08)', border: '1px solid rgba(26,200,176,0.2)', borderRadius: '100px', padding: '6px 14px 6px 8px' }}>
+                <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Inter, sans-serif', fontSize: '12px', fontWeight: 700, color: '#071528', flexShrink: 0 }}>
+                  {(user.full_name || user.email).charAt(0).toUpperCase()}
+                </div>
+                <span style={{ color: '#e0eaf4', fontFamily: 'Inter, sans-serif', fontSize: '13px', fontWeight: 500 }}>
+                  {user.full_name || user.email}
+                </span>
+              </div>
+              <button
+                onClick={() => { signOut(); setUser(null); navigate('/signin'); }}
+                style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', cursor: 'pointer', color: '#f87171', fontFamily: 'Inter, sans-serif', fontSize: '13px', fontWeight: 600, padding: '8px 14px', borderRadius: '8px', transition: 'all 0.2s' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = 'rgba(239,68,68,0.2)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = 'rgba(239,68,68,0.1)'; }}
+              >
+                Sign Out
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                onClick={() => navigate('/signin')}
+                style={{
+                  background: 'none',
+                  border: '1px solid rgba(200,216,232,0.3)',
+                  cursor: 'pointer',
+                  color: '#c8d8e8',
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '14px',
+                  fontWeight: 500,
+                  padding: '8px 16px',
+                  borderRadius: '8px',
+                  transition: 'all 0.2s',
+                }}
+              >
+                Sign In
+              </button>
+              <button
+                onClick={() => navigate('/book-a-demo')}
+                style={{
+                  background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: '#071528',
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '14px',
+                  fontWeight: 700,
+                  padding: '9px 18px',
+                  borderRadius: '8px',
+                  transition: 'all 0.2s',
+                }}
+              >
+                Book a Demo
+              </button>
+            </>
+          )}
         </div>
       </div>
     </nav>

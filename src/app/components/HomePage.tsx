@@ -1,6 +1,6 @@
 import { useNavigate, Link } from 'react-router';
 import { ArrowRight, Check, Shield } from 'lucide-react';
-import { SharedFooter } from './SharedNav';
+import { SharedNav, SharedFooter } from './SharedNav';
 import { Icon } from '../utils/icons';
 import { APP_CONFIG, NAVIGATION_LINKS, STATS } from '../constants';
 
@@ -10,28 +10,7 @@ export function HomePage() {
   return (
     <div style={{ fontFamily: 'var(--font-primary)', background: '#fafaf8', minHeight: '100vh' }}>
 
-      {/* ── Nav ── */}
-      <nav style={{ background: '#0a1f3c', position: 'sticky', top: 0, zIndex: 50, boxShadow: '0 1px 0 rgba(26,200,176,0.15)' }}>
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, #1ac8b0 25%, #67e8f9 55%, #1ac8b0 75%, transparent)' }} />
-        <div className="max-w-7xl mx-auto px-8 flex items-center justify-between" style={{ height: '100px', position: 'relative' }}>
-          <img src={APP_CONFIG.logo} alt={APP_CONFIG.name} style={{ height: '80px', width: 'auto', display: 'block', objectFit: 'contain' }} />
-          <div className="hidden md:flex items-center">
-            {NAVIGATION_LINKS.map(item => (
-              <Link key={item.label} to={item.href} style={{ padding: '8px 16px', color: 'rgba(255,255,255,0.55)', fontSize: '14px', fontWeight: 500, textDecoration: 'none', transition: 'color 0.15s', borderRadius: '8px' }}
-                onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
-              >{item.label}</Link>
-            ))}
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <button onClick={() => navigate(APP_CONFIG.signinUrl)} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', fontWeight: 500, background: 'none', border: 'none', cursor: 'pointer' }}>Sign In</button>
-            <button onClick={() => navigate(APP_CONFIG.demoUrl)}
-              style={{ background: '#1ac8b0', color: '#0a1f3c', fontSize: '14px', fontWeight: 700, padding: '9px 22px', borderRadius: '100px', border: 'none', cursor: 'pointer', boxShadow: '0 0 20px rgba(26,200,176,0.35)', transition: 'all 0.2s' }}
-              aria-label="Book a 30-minute Digital Product Passport demo"
-            >Book a Demo</button>
-          </div>
-        </div>
-      </nav>
+      <SharedNav />
 
       {/* ── Hero ── */}
       <div style={{ background: 'linear-gradient(160deg, #071528 0%, #0d2a4a 55%, #0a2535 100%)', position: 'relative', overflow: 'hidden' }}>
@@ -151,7 +130,7 @@ export function HomePage() {
             <div style={{ color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', marginBottom: '12px' }}>WHY STABLEDPP</div>
             <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, color: '#0a1f3c', lineHeight: 1.2 }}>Built for the Future of Fashion — and the Regulations Already Here</h2>
           </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
           <div style={{ background: 'linear-gradient(135deg, #f8fdfc 0%, #ffffff 100%)', padding: '28px', borderRadius: '20px', border: '1px solid #e0f2f1', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(26,200,176,0.08)' }} />
             <Icon name="shield-check" className="w-8 h-8 text-teal-600 mb-4" />

@@ -45,6 +45,7 @@ export async function signIn(email: string, password: string) {
   const res = await frappeCall('dpp_signin', { email, password });
   if (res.message === 'Logged In') {
     localStorage.setItem('stabledpp_user', JSON.stringify(res.user));
+    window.dispatchEvent(new Event('storage'));
     return res.user;
   }
   throw new Error('Invalid email or password');
@@ -55,11 +56,13 @@ export async function forgotPassword(email: string) {
 }
 
 export function getUser() {
+  if (typeof window === 'undefined') return null;
   const u = localStorage.getItem('stabledpp_user');
   return u ? JSON.parse(u) : null;
 }
 
 export function signOut() {
+  if (typeof window === 'undefined') return;
   localStorage.removeItem('stabledpp_user');
   fetch(`${FRAPPE_URL}/api/method/logout`, { method: 'POST', credentials: 'include' }).catch(() => {});
 }

@@ -22,22 +22,26 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
       "Give every fashion product a verifiable digital identity. StableDPP's blockchain-secured passports prove sustainability claims and build consumer trust. Free to start. EU ESPR 2024 compliant.",
   },
   product: {
-    title:
-      "StableDPP Product | Blockchain-Verified Digital Product Passport Platform for Fashion",
+    title: "DPP Platform for Fashion | Blockchain-Verified | StableDPP",
     description:
-      "StableDPP is the most trusted Digital Product Passport platform for fashion brands. Blockchain anchoring, ESPR compliance engine, instant QR codes, and a sustainability dashboard — free to start.",
+      "The most trusted Digital Product Passport platform for fashion. Blockchain anchoring, ESPR compliance engine, instant QR codes, sustainability dashboard.",
     keywords:
       "Digital Product Passport platform fashion, blockchain DPP fashion, ESPR compliance engine, fashion sustainability dashboard, GS1 Digital Link QR",
     canonical: "https://stabledpp.com/product",
+    ogTitle: "DPP Platform for Fashion | Blockchain-Verified | StableDPP",
+    ogDescription:
+      "The most trusted Digital Product Passport platform for fashion. Blockchain anchoring, ESPR compliance engine, instant QR codes, sustainability dashboard.",
   },
   solutions: {
-    title:
-      "StableDPP Solutions | Digital Product Passports for Brands, Manufacturers & Retailers",
+    title: "DPP Solutions | Brands, Manufacturers & Retailers | StableDPP",
     description:
-      "Tailored Digital Product Passport solutions for fashion brands, textile manufacturers, and retailers. EU ESPR 2024 compliant. GS1 Digital Link aligned. Built for every supply chain.",
+      "Tailored Digital Product Passport solutions for fashion brands, textile manufacturers, and retailers. EU ESPR 2024 and GS1 Digital Link compliant.",
     keywords:
       "DPP solutions fashion brands, textile manufacturer DPP, retail DPP compliance, EU ESPR supply chain, Green Claims Directive",
     canonical: "https://stabledpp.com/solutions",
+    ogTitle: "DPP Solutions | Brands, Manufacturers & Retailers | StableDPP",
+    ogDescription:
+      "Tailored Digital Product Passport solutions for fashion brands, textile manufacturers, and retailers. EU ESPR 2024 and GS1 Digital Link compliant.",
   },
   resources: {
     title:
@@ -95,6 +99,46 @@ type MetaDescriptor =
   | { name: string; content: string }
   | { property: string; content: string }
   | { tagName: string; [key: string]: string | undefined };
+
+export const PRODUCT_PAGE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "StableDPP Digital Product Passport Platform",
+  description:
+    "The most trusted Digital Product Passport platform for fashion. Blockchain anchoring, ESPR compliance engine, instant QR codes, sustainability dashboard.",
+  brand: {
+    "@type": "Brand",
+    name: "StableDPP",
+  },
+  url: "https://stabledpp.com/product",
+  category: "Business Software",
+  offers: {
+    "@type": "Offer",
+    url: "https://stabledpp.com/get-started",
+    price: "0",
+    priceCurrency: "EUR",
+    availability: "https://schema.org/InStock",
+  },
+};
+
+export const SOLUTIONS_PAGE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "StableDPP Digital Product Passport Solutions",
+  description:
+    "Tailored Digital Product Passport solutions for fashion brands, textile manufacturers, and retailers. EU ESPR 2024 and GS1 Digital Link compliant.",
+  provider: {
+    "@type": "Organization",
+    name: "StableDPP",
+    url: "https://stabledpp.com",
+  },
+  url: "https://stabledpp.com/solutions",
+  serviceType: "Digital Product Passport Solutions",
+  areaServed: {
+    "@type": "Place",
+    name: "European Union",
+  },
+};
 
 export function buildRouteMeta(
   pageKey: keyof typeof SEO_CONFIG,

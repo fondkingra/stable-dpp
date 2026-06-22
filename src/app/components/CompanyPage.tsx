@@ -23,7 +23,7 @@ const values = [
 
 const team = [
   {
-    role: 'CO-FOUNDER',
+    role: 'Co-Founder',
     name: 'Priya Hebbal',
     bio: 'Co-founder of StableDPP, focused on the trust layer for India\'s exports. Priya is building the verifiable proof layer that every producer, consumer and other stakeholders in the circular economy can trust on — enabling each sustainability claim to be verified, never just believed, giving brands, buyers and recyclers a record they can rely on.',
     initials: 'PH',
@@ -33,7 +33,7 @@ const team = [
     imageScaleOrigin: '50% 18%',
   },
   {
-    role: 'CO-FOUNDER',
+    role: 'Co-Founder',
     name: 'Sudhanva Bhandolkar',
     bio: 'Co-founder of StableDPP, building the blockchain infrastructure behind every passport. Sudhanva has pioneered Trust as Infrastructure (TAS), a blockchain-based verification layer that enables one-scan verification of product data provenance through permanently recorded and tamper-resistant audit trails.',
     initials: 'SB',
@@ -89,7 +89,7 @@ export function CompanyPage() {
       <section style={{ background: '#fff', padding: '80px 24px', borderTop: '1px solid #ede8e3' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <div style={{ color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', marginBottom: '10px' }}>THE TEAM</div>
+            <div className="section-eyebrow">THE TEAM</div>
             <h2 style={{ ...pageH2OnLight }}>Built by Fashion & Blockchain Experts</h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px', maxWidth: '800px', margin: '0 auto' }}>
@@ -147,7 +147,7 @@ export function CompanyPage() {
                     </span>
                   )}
                 </div>
-                <div style={{ color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', marginBottom: '8px', textTransform: 'uppercase' }}>{member.role}</div>
+                <div className="team-member-role">{member.role}</div>
                 <h3 style={cardH3}>{member.name}</h3>
                 <p style={{ color: '#5a6a7a', fontSize: '14px', lineHeight: 1.7 }}>{member.bio}</p>
               </div>

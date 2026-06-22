@@ -3,7 +3,7 @@ import { ArrowRight, Check, Shield } from 'lucide-react';
 import { SharedNav, SharedFooter } from './SharedNav';
 import { Icon } from '../utils/icons';
 import { APP_CONFIG, STATS } from '../constants';
-import { pageH1OnDark, pageH2OnLight, pageH2OnDark, cardH3, cardBody, heroLead, heroSubtitle, sectionLabel, passportCardBrand, passportCardTitle, passportCardMeta, passportCardTag, passportCardBadge, passportCardMonoMuted, passportCardMonoAccent } from '../styles/typography';
+import { pageH1OnDark, pageH2OnLight, pageH2OnDark, cardH3, cardBody, heroLead, heroSubtitle, passportCardBrand, passportCardTitle, passportCardMeta, passportCardTag, passportCardBadge, passportCardMonoMuted, passportCardMonoAccent } from '../styles/typography';
 
 export function HomePage() {
   const navigate = useNavigate();
@@ -128,7 +128,7 @@ export function HomePage() {
       <section style={{ padding: '80px 24px', background: '#fafaf8' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <div style={sectionLabel}>WHY STABLEDPP</div>
+            <div className="section-eyebrow">WHY STABLEDPP</div>
             <h2 style={{ ...pageH2OnLight, textAlign: 'center' }}>Built for the Future of Fashion — and the Regulations Already Here</h2>
           </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
@@ -164,7 +164,7 @@ export function HomePage() {
       <section id="how-it-works" style={{ padding: '80px 24px', background: '#fff' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <div style={sectionLabel}>SIMPLE PROCESS</div>
+            <div className="section-eyebrow">SIMPLE PROCESS</div>
             <h2 style={{ ...pageH2OnLight, textAlign: 'center' }}>How StableDPP Creates Your Digital Product Passport in 3 Steps</h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>

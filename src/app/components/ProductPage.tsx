@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
 import { Icon } from '../utils/icons';
-import { pageH1OnDark, pageH2OnLight, pageH2OnDark, cardH3, cardBody, heroEyebrow, heroLead, sectionLabel } from '../styles/typography';
+import { pageH1OnDark, pageH2OnDark, heroEyebrow, heroLead } from '../styles/typography';
 
 const features = [
   { icon: 'link' as const, iconColor: '#1ac8b0', bg: 'linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%)', border: '#a7f3d0', iconBg: 'rgba(26,200,176,0.1)', title: 'Blockchain Anchoring — Tamper-Proof by Design', body: 'Every Digital Product Passport you create is anchored to an immutable blockchain record. Your sustainability claims are permanently timestamped, independently verifiable, and impossible to falsify.' },
@@ -39,21 +39,29 @@ export function ProductPage() {
       </section>
 
       {/* Core Features */}
-      <section id="features" style={{ padding: '80px 24px', maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-          <div style={{ ...sectionLabel, textAlign: 'center' }}>CORE FEATURES</div>
-          <h2 style={{ ...pageH2OnLight, textAlign: 'center', marginBottom: '20px' }}>Everything You Need to Issue, Manage, and Prove Your Digital Product Passports</h2>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '28px' }}>
-          {features.map(({ icon, iconColor, bg, border, iconBg, title, body }) => (
-            <div key={title} style={{ background: bg, padding: '36px', borderRadius: '24px', border: `1px solid ${border}` }}>
-              <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: iconBg, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', flexShrink: 0 }}>
-                <Icon name={icon} className="" style={{ width: '28px', height: '28px', color: iconColor, strokeWidth: 1.5 }} />
+      <section id="features" className="product-features-section">
+        <div className="product-features-container">
+          <div className="product-features-header">
+            <h2 className="product-features-heading">Everything Needed for Digital Product Passports</h2>
+            <p className="product-features-subheading">
+              Create, manage, verify, and distribute EU ESPR-compliant Digital Product Passports with blockchain-backed trust, supply-chain transparency, and automated compliance.
+            </p>
+          </div>
+          <div className="product-features-grid">
+            {features.map(({ icon, iconColor, bg, border, iconBg, title, body }) => (
+              <div
+                key={title}
+                className="product-feature-card"
+                style={{ background: bg, border: `1px solid ${border}` }}
+              >
+                <div className="product-feature-card__icon" style={{ background: iconBg }}>
+                  <Icon name={icon} className="" style={{ width: '26px', height: '26px', color: iconColor, strokeWidth: 1.5 }} />
+                </div>
+                <h3 className="product-feature-card__title">{title}</h3>
+                <p className="product-feature-card__body">{body}</p>
               </div>
-              <h3 style={cardH3}>{title}</h3>
-              <p style={cardBody}>{body}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 

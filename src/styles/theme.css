@@ -2,7 +2,7 @@
 
 :root {
   --font-size: 16px;
-  --font-heading: 'Syne', sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --background: #ffffff;
@@ -141,15 +141,18 @@
   }
 
   h1 {
-    font-size: var(--text-2xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
   }
 
   h2 {
-    font-size: var(--text-xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 800;
+    line-height: 1.2;
   }
 
   h3 {

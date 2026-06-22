@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
+import { pageH1OnDark, legalH2 } from '../styles/typography';
 
 const s = { color: '#8a9aaa', fontSize: '15px', lineHeight: 1.8, marginBottom: '12px' } as const;
-const h2 = { fontFamily: 'Inter, sans-serif', fontSize: '17px', fontWeight: 700, color: '#e0eaf4', marginBottom: '10px', marginTop: '32px' } as const;
+const h2 = legalH2;
 const li = { marginBottom: '6px' } as const;
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -40,7 +41,7 @@ export function TermsAndConditionsPage() {
         {/* ── PRIVACY POLICY ── */}
         <div id="privacy">
           <p style={{ color: '#1ac8b0', fontSize: '13px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '12px' }}>Legal</p>
-          <h1 style={{ fontFamily: 'Merriweather, serif', fontSize: '36px', fontWeight: 900, color: '#fff', marginBottom: '8px' }}>Privacy Policy</h1>
+          <h1 style={{ ...pageH1OnDark, fontSize: '36px', marginBottom: '8px' }}>Privacy Policy</h1>
           <p style={{ color: '#1ac8b0', fontSize: '14px', fontStyle: 'italic', marginBottom: '6px' }}>How StableDPP collects, uses, safeguards, and shares information</p>
           <p style={{ color: '#7a8a98', fontSize: '13px', marginBottom: '40px' }}>Effective date: 09 June 2026 · Last updated: 09 June 2026</p>
           <P>This Privacy Policy explains how StableDPP ("we", "us", "our") handles information when you visit our website, create an account, or use our digital product passport services (the "Platform"). By using the Platform, you agree to the practices described here.</P>
@@ -122,7 +123,7 @@ export function TermsAndConditionsPage() {
         {/* ── TERMS AND CONDITIONS ── */}
         <div id="terms">
           <p style={{ color: '#1ac8b0', fontSize: '13px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '12px' }}>Legal</p>
-          <h1 style={{ fontFamily: 'Merriweather, serif', fontSize: '36px', fontWeight: 900, color: '#fff', marginBottom: '8px' }}>Terms &amp; Conditions</h1>
+          <h1 style={{ ...pageH1OnDark, fontSize: '36px', marginBottom: '8px' }}>Terms &amp; Conditions</h1>
           <p style={{ color: '#1ac8b0', fontSize: '14px', fontStyle: 'italic', marginBottom: '6px' }}>The agreement governing your use of the StableDPP Platform</p>
           <p style={{ color: '#7a8a98', fontSize: '13px', marginBottom: '40px' }}>Effective date: 09 June 2026 · Last updated: 09 June 2026</p>
           <P>These Terms and Conditions ("Terms") form a binding agreement between you and StableDPP ("we", "us", "our") and govern your access to and use of our website and digital product passport services (the "Platform"). By creating an account or otherwise using the Platform, you confirm that you accept these Terms.</P>

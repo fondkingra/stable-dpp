@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router';
 import { APP_CONFIG } from '../constants';
 import { signIn } from '../utils/frappe';
+import { formH1, formH2, logoHeaderStyle } from '../styles/typography';
 
 function GoogleIcon() {
   return (
@@ -68,7 +69,7 @@ export function SignInPage() {
       <div style={{ width: '100%', maxWidth: '420px' }}>
 
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-          <img src={APP_CONFIG.logo} alt={APP_CONFIG.name} style={{ height: '90px', width: 'auto', objectFit: 'contain' }} />
+          <img src={APP_CONFIG.logo} alt={APP_CONFIG.name} style={logoHeaderStyle} />
         </div>
 
         <div style={{ background: '#fff', borderRadius: '20px', padding: '40px' }}>
@@ -76,7 +77,7 @@ export function SignInPage() {
           {/* Forgot Password Modal */}
           {showForgot ? (
             <>
-              <h2 style={{ fontFamily: 'Merriweather, serif', fontSize: '20px', fontWeight: 900, color: '#0a1f3c', marginBottom: '8px' }}>Reset Password</h2>
+              <h2 style={{ ...formH2, textAlign: 'left', marginBottom: '8px' }}>Reset Password</h2>
               <p style={{ color: '#7a8a98', fontSize: '13px', marginBottom: '24px' }}>Enter your email and we'll send you a reset link.</p>
               {forgotSent ? (
                 <div style={{ background: '#e6faf7', border: '1px solid #1ac8b0', borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
@@ -100,7 +101,7 @@ export function SignInPage() {
             </>
           ) : (
             <>
-              <h1 style={{ fontFamily: 'Merriweather, serif', fontSize: '22px', fontWeight: 900, color: '#0a1f3c', textAlign: 'center', marginBottom: '6px' }}>Welcome back</h1>
+              <h1 style={{ ...formH1, marginBottom: '6px' }}>Welcome back</h1>
               <p style={{ color: '#7a8a98', fontSize: '14px', textAlign: 'center', marginBottom: '28px' }}>Sign in to manage your Digital Product Passports</p>
 
               {error && (

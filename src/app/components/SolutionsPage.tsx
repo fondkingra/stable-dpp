@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
-
-
+import { pageH1OnDark, pageH2OnLight, pageH2OnDark, cardH3, heroEyebrow, heroLead } from '../styles/typography';
 export function SolutionsPage() {
   const navigate = useNavigate();
 
@@ -12,13 +11,13 @@ export function SolutionsPage() {
       {/* Hero */}
       <section style={{ background: 'linear-gradient(160deg, #071528 0%, #0a1f3c 60%, #0d2a4a 100%)', padding: '96px 24px 80px' }}>
         <div style={{ maxWidth: '820px', margin: '0 auto' }}>
-          <div style={{ display: 'inline-block', background: 'rgba(26,200,176,0.12)', border: '1px solid rgba(26,200,176,0.3)', color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', padding: '6px 14px', borderRadius: '100px', marginBottom: '24px' }}>
+          <div style={heroEyebrow}>
             SOLUTIONS
           </div>
-          <h1 style={{ fontFamily: 'Merriweather, serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 900, color: '#fff', lineHeight: 1.15, marginBottom: '28px' }}>
+          <h1 style={{ ...pageH1OnDark, marginBottom: '28px' }}>
             One DPP Platform. Every Fashion Supply Chain Challenge Solved.
           </h1>
-          <p style={{ color: '#a8bcc8', fontSize: '17px', lineHeight: 1.8, marginBottom: '20px' }}>
+          <p style={heroLead}>
             Whether you are a global fashion house, a sustainable emerging brand, or a multi-tier textile manufacturer — StableDPP has a Digital Product Passport solution architected for your supply chain complexity and EU ESPR 2024 compliance requirements.
           </p>
         </div>
@@ -34,7 +33,7 @@ export function SolutionsPage() {
               <div style={{ width: '52px', height: '52px', borderRadius: '16px', background: '#1ac8b0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', flexShrink: 0 }}>🏷️</div>
               <div>
                 <span style={{ background: '#1ac8b0', color: '#071528', fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', padding: '3px 10px', borderRadius: '100px' }}>FASHION BRANDS</span>
-                <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '26px', fontWeight: 800, color: '#0f172a', marginTop: '8px', marginBottom: '4px' }}>Turn Compliance Into a Competitive Advantage</h2>
+                <h2 style={{ ...pageH2OnLight, fontSize: 'clamp(20px, 2.5vw, 28px)', marginTop: '8px', marginBottom: '4px' }}>Turn Compliance Into a Competitive Advantage</h2>
               </div>
             </div>
             <div style={{ padding: '28px 40px 36px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', alignItems: 'start' }}>
@@ -56,7 +55,7 @@ export function SolutionsPage() {
               <div style={{ width: '52px', height: '52px', borderRadius: '16px', background: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', flexShrink: 0 }}>🏭</div>
               <div>
                 <span style={{ background: '#3b82f6', color: '#fff', fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', padding: '3px 10px', borderRadius: '100px' }}>MANUFACTURERS</span>
-                <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '26px', fontWeight: 800, color: '#0f172a', marginTop: '8px', marginBottom: '4px' }}>Become the Verified Partner Brands Want</h2>
+                <h2 style={{ ...pageH2OnLight, fontSize: 'clamp(20px, 2.5vw, 28px)', marginTop: '8px', marginBottom: '4px' }}>Become the Verified Partner Brands Want</h2>
               </div>
             </div>
             <div style={{ padding: '28px 40px 36px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', alignItems: 'start' }}>
@@ -78,7 +77,7 @@ export function SolutionsPage() {
               <div style={{ width: '52px', height: '52px', borderRadius: '16px', background: '#9333ea', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', flexShrink: 0 }}>🛍️</div>
               <div>
                 <span style={{ background: '#9333ea', color: '#fff', fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', padding: '3px 10px', borderRadius: '100px' }}>RETAILERS</span>
-                <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '26px', fontWeight: 800, color: '#0f172a', marginTop: '8px', marginBottom: '4px' }}>Verified Product Data at Every Point of Sale</h2>
+                <h2 style={{ ...pageH2OnLight, fontSize: 'clamp(20px, 2.5vw, 28px)', marginTop: '8px', marginBottom: '4px' }}>Verified Product Data at Every Point of Sale</h2>
               </div>
             </div>
             <div style={{ padding: '28px 40px 36px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', alignItems: 'start' }}>
@@ -101,7 +100,7 @@ export function SolutionsPage() {
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
             <div style={{ color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', marginBottom: '12px' }}>COMPLIANCE COVERAGE</div>
-            <h2 style={{ fontFamily: 'Merriweather, serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, color: '#fff', marginBottom: '16px' }}>Stay Ahead of Every Regulation</h2>
+            <h2 style={{ ...pageH2OnDark, textAlign: 'center', marginBottom: '16px' }}>Stay Ahead of Every Regulation</h2>
             <p style={{ color: '#7a8a98', fontSize: '16px', lineHeight: 1.7, maxWidth: '600px', margin: '0 auto' }}>
               StableDPP's compliance engine is continuously updated as requirements evolve — your passports stay compliant without any manual monitoring.
             </p>
@@ -118,7 +117,7 @@ export function SolutionsPage() {
               <div key={title} style={{ background: bg, border: `1px solid ${border}`, borderRadius: '20px', padding: '28px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
                   <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: `${color}18`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '22px', flexShrink: 0 }}>{emoji}</div>
-                  <h3 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '16px', fontWeight: 700, color: '#fff', lineHeight: 1.2 }}>{title}</h3>
+                  <h3 style={{ ...cardH3, fontSize: '16px', color: '#fff', lineHeight: 1.2 }}>{title}</h3>
                 </div>
                 <p style={{ color: '#7a8a98', fontSize: '14px', lineHeight: 1.7 }}>{desc}</p>
                 <div style={{ marginTop: '16px', display: 'inline-flex', alignItems: 'center', gap: '6px', background: `${color}15`, border: `1px solid ${color}30`, borderRadius: '100px', padding: '4px 12px' }}>
@@ -134,7 +133,7 @@ export function SolutionsPage() {
       {/* CTA */}
       <section style={{ background: '#0a1f3c', padding: '72px 24px', textAlign: 'center' }}>
         <div style={{ maxWidth: '680px', margin: '0 auto' }}>
-          <h2 style={{ fontFamily: 'Merriweather, serif', fontSize: 'clamp(20px, 3vw, 30px)', fontWeight: 900, color: '#fff', lineHeight: 1.35, marginBottom: '14px' }}>
+          <h2 style={{ ...pageH2OnDark, textAlign: 'center', marginBottom: '14px' }}>
             Not sure which DPP solution is right for your supply chain?
           </h2>
           <p style={{ color: '#7a8a98', fontSize: '16px', marginBottom: '28px' }}>Our team works with fashion brands of every size — from emerging labels to global manufacturers. Book a 30-minute call and we will build a bespoke DPP roadmap for your products and markets.</p>

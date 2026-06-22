@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
+import { pageH1OnDark, pageH2OnLight, heroEyebrow, heroLead } from '../styles/typography';
 
 const tiers = [
   {
@@ -92,13 +93,13 @@ export function PricingPage() {
       {/* Hero */}
       <section style={{ background: 'linear-gradient(160deg, #071528 0%, #0a1f3c 100%)', padding: '80px 24px 64px', textAlign: 'center' }}>
         <div style={{ maxWidth: '720px', margin: '0 auto' }}>
-          <div style={{ display: 'inline-block', background: 'rgba(26,200,176,0.12)', border: '1px solid rgba(26,200,176,0.3)', color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', padding: '6px 14px', borderRadius: '100px', marginBottom: '24px' }}>
+          <div style={heroEyebrow}>
             PRICING
           </div>
-          <h1 style={{ fontFamily: 'Merriweather, serif', fontSize: 'clamp(26px, 4vw, 44px)', fontWeight: 900, color: '#fff', lineHeight: 1.2, marginBottom: '20px' }}>
+          <h1 style={{ ...pageH1OnDark, marginBottom: '20px' }}>
             Simple, Transparent Digital Product Passport Pricing. Like Your Supply Chain Should Be.
           </h1>
-          <p style={{ color: '#a8bcc8', fontSize: '16px', lineHeight: 1.7 }}>
+          <p style={heroLead}>
             Start free and scale your Digital Product Passport programme as your catalogue grows. All plans include blockchain anchoring and EU ESPR 2024 compliance. No hidden fees. No long-term contracts. Upgrade, downgrade, or cancel anytime.
           </p>
         </div>
@@ -159,7 +160,7 @@ export function PricingPage() {
 
       {/* FAQ */}
       <section style={{ padding: '64px 24px', maxWidth: '760px', margin: '0 auto' }}>
-        <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 'clamp(20px, 3vw, 30px)', fontWeight: 800, color: '#0a1f3c', textAlign: 'center', marginBottom: '40px' }}>
+        <h2 style={{ ...pageH2OnLight, textAlign: 'center', marginBottom: '40px' }}>
           Frequently Asked Questions About StableDPP Pricing
         </h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -169,7 +170,7 @@ export function PricingPage() {
                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 style={{ width: '100%', background: 'none', border: 'none', cursor: 'pointer', padding: '18px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', textAlign: 'left' }}
               >
-                <span style={{ fontFamily: 'Syne, sans-serif', fontSize: '15px', fontWeight: 600, color: '#0a1f3c', paddingRight: '16px' }}>{faq.q}</span>
+                <span style={{ fontFamily: 'var(--font-heading)', fontSize: '15px', fontWeight: 600, color: '#0a1f3c', paddingRight: '16px' }}>{faq.q}</span>
                 <span style={{ color: '#1ac8b0', fontSize: '18px', flexShrink: 0, transition: 'transform 0.2s', transform: openFaq === i ? 'rotate(45deg)' : 'none' }}>+</span>
               </button>
               {openFaq === i && (

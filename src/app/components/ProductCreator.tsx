@@ -4,7 +4,8 @@ import {
   ArrowLeft, Upload, Check, Image as ImageIcon,
   User, Package, Leaf, Droplets, Zap, Wind, Thermometer,
 } from 'lucide-react';
-const logoImg = import.meta.env.BASE_URL + 'logo-transparent.png';
+import { APP_CONFIG } from '../constants';
+import { LOGO, logoHeaderStyle, pageH1OnLight } from '../styles/typography';
 
 interface ComponentDPP {
   id: string;
@@ -139,10 +140,9 @@ export function ProductCreator() {
     <div className="min-h-screen bg-[#f8fefe]" style={{ fontFamily: 'Inter, sans-serif' }}>
 
       {/* Nav */}
-      <nav style={{ background: '#0a1f3c', position: 'sticky', top: 0, zIndex: 20, height: '100px', display: 'flex', alignItems: 'center', boxShadow: '0 1px 0 rgba(26,200,176,0.2), 0 4px 24px rgba(0,0,0,0.2)' }}>
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, #1ac8b0 25%, #67e8f9 55%, #1ac8b0 75%, transparent)' }} />
-        <div className="max-w-7xl mx-auto px-8 w-full flex items-center justify-between" style={{ position: 'relative' }}>
-          <img src={logoImg} alt="StableDPP" style={{ width: '200px', height: 'auto', display: 'block', background: '#fff', borderRadius: '12px', padding: '8px' }} />
+      <nav style={{ background: '#0a1f3c', position: 'sticky', top: 0, zIndex: 20, height: LOGO.navHeight, display: 'flex', alignItems: 'center', borderBottom: '1px solid rgba(26,200,176,0.15)' }}>
+        <div className="max-w-7xl mx-auto px-6 w-full flex items-center justify-between">
+          <img src={APP_CONFIG.logo} alt="StableDPP" style={logoHeaderStyle} />
           <button onClick={() => navigate('/')} style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'rgba(255,255,255,0.6)', fontSize: '14px', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', transition: 'color 0.15s' }}
             onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
             onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}
@@ -158,7 +158,7 @@ export function ProductCreator() {
         {/* Header */}
         <div className="text-center mb-10">
           <p className="text-[#1ac8b0] text-xs font-semibold uppercase tracking-widest mb-3">Create Your Passport</p>
-          <h1 className="text-4xl font-extrabold text-[#0d2340] leading-tight mb-3" style={{ fontFamily: 'Syne, sans-serif' }}>
+          <h1 className="mb-3" style={{ ...pageH1OnLight, textAlign: 'center', fontSize: 'clamp(24px, 3vw, 36px)' }}>
             {productTitle} <span className="text-[#1ac8b0]">DPP</span>
           </h1>
           <p className="text-[#6b8fa8]">Fill in product info, components, and environmental data</p>

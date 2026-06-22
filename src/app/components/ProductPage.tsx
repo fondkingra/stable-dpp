@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
 import { Icon } from '../utils/icons';
+import { pageH1OnDark, pageH2OnLight, pageH2OnDark, cardH3, cardBody, heroEyebrow, heroLead, sectionLabel } from '../styles/typography';
 
 const features = [
   { icon: 'link' as const, iconColor: '#1ac8b0', bg: 'linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%)', border: '#a7f3d0', iconBg: 'rgba(26,200,176,0.1)', title: 'Blockchain Anchoring — Tamper-Proof by Design', body: 'Every Digital Product Passport you create is anchored to an immutable blockchain record. Your sustainability claims are permanently timestamped, independently verifiable, and impossible to falsify.' },
@@ -15,19 +16,19 @@ export function ProductPage() {
   const navigate = useNavigate();
 
   return (
-    <div style={{ minHeight: '100vh', background: '#fafaf8', fontFamily: 'var(--font-primary)' }}>
+    <div style={{ minHeight: '100vh', background: '#fafaf8', fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}>
       <SharedNav />
 
       {/* Hero */}
       <section style={{ background: 'linear-gradient(160deg, #071528 0%, #0a1f3c 60%, #0d2a4a 100%)', padding: '96px 24px 80px' }}>
         <div style={{ maxWidth: '820px', margin: '0 auto' }}>
-          <div style={{ display: 'inline-block', background: 'rgba(26,200,176,0.12)', border: '1px solid rgba(26,200,176,0.3)', color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', padding: '6px 14px', borderRadius: '100px', marginBottom: '24px' }}>
+          <div style={heroEyebrow}>
             THE PLATFORM
           </div>
-          <h1 style={{ fontFamily: 'Merriweather, serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 900, color: '#fff', lineHeight: 1.15, marginBottom: '28px' }}>
+          <h1 style={{ ...pageH1OnDark, marginBottom: '28px' }}>
             The Most Trusted Digital Product Passport Platform for Fashion Brands.
           </h1>
-          <p style={{ color: '#a8bcc8', fontSize: '17px', lineHeight: 1.8, marginBottom: '36px' }}>
+          <p style={{ ...heroLead, marginBottom: '36px' }}>
             StableDPP gives fashion brands, textile manufacturers, and retailers a single platform to create, manage, and publish blockchain-verified Digital Product Passports — fully compliant with EU ESPR 2024 and aligned to every global sustainability standard that matters.
           </p>
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
@@ -40,8 +41,8 @@ export function ProductPage() {
       {/* Core Features */}
       <section id="features" style={{ padding: '80px 24px', maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-          <div style={{ color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', marginBottom: '12px' }}>CORE FEATURES</div>
-          <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 900, color: '#0a1f3c', marginBottom: '20px', fontStyle: 'italic' }}>Everything You Need to Issue, Manage, and Prove Your Digital Product Passports</h2>
+          <div style={{ ...sectionLabel, textAlign: 'center' }}>CORE FEATURES</div>
+          <h2 style={{ ...pageH2OnLight, textAlign: 'center', marginBottom: '20px' }}>Everything You Need to Issue, Manage, and Prove Your Digital Product Passports</h2>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '28px' }}>
           {features.map(({ icon, iconColor, bg, border, iconBg, title, body }) => (
@@ -49,8 +50,8 @@ export function ProductPage() {
               <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: iconBg, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', flexShrink: 0 }}>
                 <Icon name={icon} className="" style={{ width: '28px', height: '28px', color: iconColor, strokeWidth: 1.5 }} />
               </div>
-              <h3 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '18px', fontWeight: 700, color: '#0f172a', marginBottom: '12px', lineHeight: 1.3 }}>{title}</h3>
-              <p style={{ color: '#475569', fontSize: '15px', lineHeight: 1.7 }}>{body}</p>
+              <h3 style={cardH3}>{title}</h3>
+              <p style={cardBody}>{body}</p>
             </div>
           ))}
         </div>
@@ -59,7 +60,7 @@ export function ProductPage() {
       {/* CTA */}
       <section style={{ background: '#0a1f3c', padding: '72px 24px', textAlign: 'center' }}>
         <div style={{ maxWidth: '680px', margin: '0 auto' }}>
-          <h2 style={{ fontFamily: 'Merriweather, serif', fontSize: 'clamp(20px, 3vw, 32px)', fontWeight: 900, color: '#fff', lineHeight: 1.35, marginBottom: '16px' }}>
+          <h2 style={{ ...pageH2OnDark, textAlign: 'center', marginBottom: '16px' }}>
             Start issuing blockchain-verified Digital Product Passports today — no technical setup, no credit card required.
           </h2>
           <div style={{ color: '#7a8a98', fontSize: '14px', marginBottom: '28px', display: 'flex', gap: '24px', justifyContent: 'center', flexWrap: 'wrap' }}>

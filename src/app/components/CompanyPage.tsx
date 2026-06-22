@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
 import { Icon } from '../utils/icons';
+import { pageH1OnDark, pageH2OnLight, pageH2OnDark, cardH3, cardBody, heroEyebrow, heroLead } from '../styles/typography';
 
 const values = [
   {
@@ -42,25 +43,25 @@ export function CompanyPage() {
   const navigate = useNavigate();
 
   return (
-    <div style={{ minHeight: '100vh', background: '#fafaf8', fontFamily: 'Inter, sans-serif' }}>
+    <div style={{ minHeight: '100vh', background: '#fafaf8', fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}>
       <SharedNav />
 
       {/* Mission */}
       <section style={{ background: 'linear-gradient(160deg, #071528 0%, #0a1f3c 60%, #0d2a4a 100%)', padding: '96px 24px 80px' }}>
         <div style={{ maxWidth: '820px', margin: '0 auto' }}>
-          <div style={{ display: 'inline-block', background: 'rgba(26,200,176,0.12)', border: '1px solid rgba(26,200,176,0.3)', color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', padding: '6px 14px', borderRadius: '100px', marginBottom: '24px' }}>
+          <div style={heroEyebrow}>
             OUR MISSION
           </div>
-          <h1 style={{ fontFamily: 'Merriweather, serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 900, color: '#fff', lineHeight: 1.15, marginBottom: '28px' }}>
+          <h1 style={{ ...pageH1OnDark, marginBottom: '28px' }}>
             We Built StableDPP Because Fashion Deserves Proof — Not Just Promises.
           </h1>
-          <p style={{ color: '#a8bcc8', fontSize: '17px', lineHeight: 1.8, marginBottom: '20px' }}>
+          <p style={{ ...heroLead, marginBottom: '20px' }}>
             The fashion industry generates $2.5 trillion in annual revenue — yet the majority of sustainability claims made by fashion brands remain unverifiable by any buyer, regulator, or consumer who wants to check them.
           </p>
-          <p style={{ color: '#a8bcc8', fontSize: '17px', lineHeight: 1.8, marginBottom: '20px' }}>
+          <p style={{ ...heroLead, marginBottom: '20px' }}>
             StableDPP was built to change that. We believe every fashion product deserves a tamper-proof, independently verifiable record of its sustainability story — from the cotton field to the retail shelf. A record that cannot be altered, cannot be gamed, and can be trusted by anyone who scans it.
           </p>
-          <p style={{ color: '#a8bcc8', fontSize: '17px', lineHeight: 1.8 }}>
+          <p style={heroLead}>
             By anchoring Digital Product Passports to the blockchain and engineering our platform to meet EU ESPR 2024 requirements from day one, we give fashion brands the compliance infrastructure and credibility credentials they need to compete in a market where transparency is no longer optional.
           </p>
         </div>
@@ -69,14 +70,14 @@ export function CompanyPage() {
       {/* Values */}
       <section style={{ padding: '80px 24px', maxWidth: '1100px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-          <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 900, color: '#0a1f3c', fontStyle: 'italic' }}>What We Stand For</h2>
+          <h2 style={{ ...pageH2OnLight, textAlign: 'center' }}>What We Stand For</h2>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
           {values.map((v, i) => (
             <div key={i} style={{ background: '#fff', border: '1px solid #ede8e3', borderRadius: '16px', padding: '32px' }}>
               <Icon name={v.icon} className="w-8 h-8 text-slate-600 mb-3" />
-              <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: '18px', fontWeight: 700, color: '#0a1f3c', marginBottom: '10px' }}>{v.title}</h3>
-              <p style={{ color: '#5a6a7a', fontSize: '14px', lineHeight: 1.75 }}>{v.body}</p>
+              <h3 style={cardH3}>{v.title}</h3>
+              <p style={cardBody}>{v.body}</p>
             </div>
           ))}
         </div>
@@ -87,7 +88,7 @@ export function CompanyPage() {
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
             <div style={{ color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', marginBottom: '10px' }}>THE TEAM</div>
-            <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 900, color: '#0a1f3c', fontStyle: 'italic' }}>Built by Fashion & Blockchain Experts</h2>
+            <h2 style={{ ...pageH2OnLight }}>Built by Fashion & Blockchain Experts</h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px', maxWidth: '800px', margin: '0 auto' }}>
             {team.map((member, i) => (
@@ -139,7 +140,7 @@ export function CompanyPage() {
                   )}
                 </div>
                 <div style={{ color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', marginBottom: '8px', textTransform: 'uppercase' }}>{member.role}</div>
-                <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: '18px', fontWeight: 700, color: '#0a1f3c', marginBottom: '12px' }}>{member.name}</h3>
+                <h3 style={cardH3}>{member.name}</h3>
                 <p style={{ color: '#5a6a7a', fontSize: '14px', lineHeight: 1.7 }}>{member.bio}</p>
               </div>
             ))}
@@ -150,7 +151,7 @@ export function CompanyPage() {
       {/* CTA */}
       <section style={{ background: '#0a1f3c', padding: '72px 24px', textAlign: 'center' }}>
         <div style={{ maxWidth: '580px', margin: '0 auto' }}>
-          <h2 style={{ fontFamily: 'Merriweather, serif', fontSize: 'clamp(20px, 3vw, 30px)', fontWeight: 900, color: '#fff', lineHeight: 1.35, marginBottom: '14px' }}>
+          <h2 style={{ ...pageH2OnDark, textAlign: 'center', marginBottom: '14px' }}>
             Want to know more? We love talking DPPs — and the fashion industry's sustainability future.
           </h2>
           <p style={{ color: '#7a8a98', fontSize: '14px', marginBottom: '28px' }}>Our team responds within 24 hours.</p>

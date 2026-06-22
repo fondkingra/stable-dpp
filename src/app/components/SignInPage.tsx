@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router';
+import { ArrowLeft } from 'lucide-react';
 import { APP_CONFIG } from '../constants';
 import { signIn } from '../utils/frappe';
 import { formH1, formH2, logoHeaderStyle } from '../styles/typography';
@@ -72,7 +73,37 @@ export function SignInPage() {
           <img src={APP_CONFIG.logo} alt={APP_CONFIG.name} style={logoHeaderStyle} />
         </div>
 
-        <div style={{ background: '#fff', borderRadius: '20px', padding: '40px' }}>
+        <div style={{ background: '#fff', borderRadius: '20px', padding: '40px', position: 'relative' }}>
+          <button
+            type="button"
+            onClick={() => {
+              if (showForgot) {
+                setShowForgot(false);
+                setForgotSent(false);
+                setForgotEmail('');
+              } else {
+                navigate('/');
+              }
+            }}
+            aria-label={showForgot ? 'Back to sign in' : 'Back to home'}
+            style={{
+              position: 'absolute',
+              top: '20px',
+              left: '20px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '36px',
+              height: '36px',
+              borderRadius: '10px',
+              border: '1px solid #dde5ec',
+              background: '#fff',
+              color: '#5a6a7a',
+              cursor: 'pointer',
+            }}
+          >
+            <ArrowLeft className="w-4 h-4" />
+          </button>
 
           {/* Forgot Password Modal */}
           {showForgot ? (

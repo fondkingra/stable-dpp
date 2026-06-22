@@ -28,6 +28,9 @@ const team = [
     bio: 'Co-founder of StableDPP, focused on the trust layer for India\'s exports. Priya is building the verifiable proof layer that every producer, consumer and other stakeholders in the circular economy can trust on — enabling each sustainability claim to be verified, never just believed, giving brands, buyers and recyclers a record they can rely on.',
     initials: 'PH',
     image: import.meta.env.BASE_URL + 'IMG2.jpg',
+    imagePosition: '50% 0%',
+    imageScale: 1.55,
+    imageScaleOrigin: '50% 18%',
   },
   {
     role: 'CO-FOUNDER',
@@ -35,7 +38,6 @@ const team = [
     bio: 'Co-founder of StableDPP, building the blockchain infrastructure behind every passport. Sudhanva has pioneered Trust as Infrastructure (TAS), a blockchain-based verification layer that enables one-scan verification of product data provenance through permanently recorded and tamper-resistant audit trails.',
     initials: 'SB',
     image: import.meta.env.BASE_URL + 'IMG1.jpg',
-    
   },
 ];
 
@@ -105,16 +107,22 @@ export function CompanyPage() {
                   overflow: 'hidden',
                   border: '4px solid #fff',
                   boxShadow: '0 4px 20px rgba(26,200,176,0.15)',
+                  position: 'relative',
                 }}>
                   {member.image ? (
                     <img 
                       src={member.image} 
                       alt={member.name}
                       style={{
+                        position: 'absolute',
+                        inset: 0,
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        borderRadius: '50%'
+                        objectPosition: member.imagePosition ?? 'center',
+                        transform: member.imageScale ? `scale(${member.imageScale})` : undefined,
+                        transformOrigin: member.imageScaleOrigin ?? 'center',
+                        borderRadius: '50%',
                       }}
                       onError={(e) => {
                         // Fallback to initials if image fails to load

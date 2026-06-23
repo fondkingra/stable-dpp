@@ -131,7 +131,7 @@ export function HomePage() {
             <div className="section-eyebrow">WHY STABLEDPP</div>
             <h2 style={{ ...pageH2OnLight, textAlign: 'center' }}>Built for the Future of Fashion — and the Regulations Already Here</h2>
           </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
           <div style={{ background: 'linear-gradient(135deg, #f8fdfc 0%, #ffffff 100%)', padding: '28px', borderRadius: '20px', border: '1px solid #e0f2f1', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(26,200,176,0.08)' }} />
             <Icon name="shield-check" className="w-8 h-8 text-teal-600 mb-4" />

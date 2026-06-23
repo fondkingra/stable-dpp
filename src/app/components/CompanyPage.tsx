@@ -10,7 +10,7 @@ const values = [
     icon: 'link' as const,
   },
   {
-    title: 'Regulation as an Opportunity',
+    title: 'Regulation as Opportunity',
     body: 'EU ESPR 2024 and the Green Claims Directive are not burdens — they are an opportunity to separate genuine sustainability leaders from greenwashers. We track every regulatory development so you can turn compliance into competitive advantage.',
     icon: 'scale' as const,
   },
@@ -55,8 +55,11 @@ export function CompanyPage() {
             OUR MISSION
           </div>
           <h1 style={{ ...pageH1OnDark, marginBottom: '28px' }}>
-            We Built StableDPP Because Fashion Deserves Proof — Not Just Promises.
+            Built by Fashion &amp; Blockchain Experts
           </h1>
+          <h2 style={{ ...pageH2OnDark, marginBottom: '28px' }}>
+            We Built StableDPP Because Fashion Deserves Proof — Not Just Promises
+          </h2>
           <p style={{ ...heroLead, marginBottom: '20px' }}>
             The fashion industry generates $2.5 trillion in annual revenue — yet the majority of sustainability claims made by fashion brands remain unverifiable by any buyer, regulator, or consumer who wants to check them.
           </p>
@@ -69,10 +72,10 @@ export function CompanyPage() {
         </div>
       </section>
 
-      {/* Values */}
+      {/* Principles */}
       <section style={{ padding: '80px 24px', maxWidth: '1100px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-          <h2 style={{ ...pageH2OnLight, textAlign: 'center' }}>What We Stand For</h2>
+          <h2 style={{ ...pageH2OnLight, textAlign: 'center' }}>Three Principles That Drive Every Decision We Make</h2>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
           {values.map((v, i) => (
@@ -90,7 +93,7 @@ export function CompanyPage() {
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
             <div className="section-eyebrow">THE TEAM</div>
-            <h2 style={{ ...pageH2OnLight }}>Built by Fashion & Blockchain Experts</h2>
+            <h2 style={{ ...pageH2OnLight }}>Meet the Co-Founders</h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px', maxWidth: '800px', margin: '0 auto' }}>
             {team.map((member, i) => (
@@ -110,8 +113,8 @@ export function CompanyPage() {
                   position: 'relative',
                 }}>
                   {member.image ? (
-                    <img 
-                      src={member.image} 
+                    <img
+                      src={member.image}
                       alt={member.name}
                       style={{
                         position: 'absolute',
@@ -159,9 +162,9 @@ export function CompanyPage() {
       {/* CTA */}
       <section style={{ background: '#0a1f3c', padding: '72px 24px', textAlign: 'center' }}>
         <div style={{ maxWidth: '580px', margin: '0 auto' }}>
-          <h2 style={{ ...pageH2OnDark, textAlign: 'center', marginBottom: '14px' }}>
-            Want to know more? We love talking DPPs — and the fashion industry's sustainability future.
-          </h2>
+          <p style={{ ...pageH2OnDark, textAlign: 'center', marginBottom: '14px' }}>
+            Want to know more? We love talking DPPs — and the fashion industry&apos;s sustainability future.
+          </p>
           <p style={{ color: '#7a8a98', fontSize: '14px', marginBottom: '28px' }}>Our team responds within 24 hours.</p>
           <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <button onClick={() => navigate('/book-a-demo')} style={{ background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', border: 'none', cursor: 'pointer', color: '#071528', fontFamily: 'Inter, sans-serif', fontSize: '15px', fontWeight: 700, padding: '14px 28px', borderRadius: '100px' }}>Book a Demo →</button>

@@ -53,12 +53,15 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     canonical: "https://stabledpp.com/resources",
   },
   company: {
-    title: "About StableDPP | Built for Transparency and Trust in Fashion",
+    title: "About StableDPP | Transparency and Trust in Fashion",
     description:
-      "StableDPP is on a mission to make every fashion product verifiably sustainable. Learn about our blockchain-first approach to Digital Product Passports, EU ESPR compliance, and supply chain transparency.",
+      "StableDPP's mission: make every fashion product verifiably sustainable. Blockchain-first Digital Product Passports for EU ESPR 2024 compliance.",
     keywords:
       "StableDPP fashion DPP platform, blockchain fashion transparency, sustainable fashion company, DPP mission values, fashion compliance team",
     canonical: "https://stabledpp.com/company",
+    ogTitle: "About StableDPP | Transparency and Trust in Fashion",
+    ogDescription:
+      "StableDPP's mission: make every fashion product verifiably sustainable. Blockchain-first Digital Product Passports for EU ESPR 2024 compliance.",
   },
   demo: {
     title:
@@ -119,6 +122,65 @@ export const PRODUCT_PAGE_SCHEMA = {
     priceCurrency: "EUR",
     availability: "https://schema.org/InStock",
   },
+};
+
+export const COMPANY_PAGE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://stabledpp.com/company/#webpage",
+      name: "About StableDPP",
+      description:
+        "StableDPP's mission: make every fashion product verifiably sustainable. Blockchain-first Digital Product Passports for EU ESPR 2024 compliance.",
+      url: "https://stabledpp.com/company",
+      mainEntity: {
+        "@id": "https://stabledpp.com/company/#organization",
+      },
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://stabledpp.com/company/#organization",
+      name: "StableDPP",
+      description:
+        "EU ESPR 2024 compliant Digital Product Passport platform for fashion brands",
+      url: "https://stabledpp.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://stabledpp.com/logo.png",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        email: "hello@stabledpp.com",
+      },
+      knowsAbout: [
+        "Digital Product Passport",
+        "EU ESPR Regulation",
+        "Blockchain",
+        "Fashion Supply Chain",
+        "GS1 Digital Link",
+      ],
+      founder: [
+        {
+          "@type": "Person",
+          name: "Priya Hebbal",
+          jobTitle: "Co-Founder",
+          image: "https://stabledpp.com/IMG2.jpg",
+          description:
+            "Co-founder of StableDPP, focused on the trust layer for India's exports and building verifiable proof for sustainability claims in the circular economy.",
+        },
+        {
+          "@type": "Person",
+          name: "Sudhanva Bhandolkar",
+          jobTitle: "Co-Founder",
+          image: "https://stabledpp.com/IMG1.jpg",
+          description:
+            "Co-founder of StableDPP, building the blockchain infrastructure behind every passport with Trust as Infrastructure (TAS) verification.",
+        },
+      ],
+    },
+  ],
 };
 
 export const SOLUTIONS_PAGE_SCHEMA = {

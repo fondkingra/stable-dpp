@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { Link } from 'react-router';
 import emailjs from '@emailjs/browser';
 import { SharedNav, SharedFooter } from './SharedNav';
+import { pageH1OnDark, formH2, heroLead, pageH2OnLight } from '../styles/typography';
 
 const EMAILJS_SERVICE_ID = 'service_ht3l9bf';
 const EMAILJS_TEMPLATE_ID = 'template_v82jwei';
@@ -66,10 +67,10 @@ export function BookDemoPage() {
       {/* Hero */}
       <section style={{ background: 'linear-gradient(160deg, #071528 0%, #0a1f3c 60%, #0d2a4a 100%)', padding: '96px 24px 80px' }}>
         <div style={{ maxWidth: '820px', margin: '0 auto', textAlign: 'center' }}>
-          <h1 style={{ fontFamily: 'Merriweather, serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 900, color: '#fff', lineHeight: 1.15, marginBottom: '28px' }}>
-            See Your Products' Digital Product Passport — Live, in 30 Minutes.
+          <h1 style={{ ...pageH1OnDark, marginBottom: '28px' }}>
+            See Your Products' Digital Product Passport — Live in 30 Minutes
           </h1>
-          <p style={{ color: '#a8bcc8', fontSize: '17px', lineHeight: 1.8, maxWidth: '600px', margin: '0 auto' }}>
+          <p style={{ ...heroLead, maxWidth: '600px', margin: '0 auto' }}>
             Book a personalised 30-minute demo with the StableDPP product team. We will build a live Digital Product Passport for one of your actual products, walk through every ESPR 2024 compliance requirement for your supply chain, and leave you with a clear, actionable roadmap to get your full catalogue DPP-ready.
           </p>
         </div>
@@ -79,11 +80,13 @@ export function BookDemoPage() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start' }}>
           
           {/* Form */}
-          <div style={{ background: '#fff', padding: '40px', borderRadius: '16px', border: '1px solid #ede8e3' }}>
+          <div>
+            <div style={{ background: '#fff', padding: '40px', borderRadius: '16px', border: '1px solid #ede8e3' }}>
+            <h2 style={{ ...pageH2OnLight, fontSize: 'clamp(20px, 2.5vw, 28px)', marginBottom: '24px' }}>Fill In Your Details</h2>
             {submitted ? (
               <div style={{ textAlign: 'center', padding: '40px 0' }}>
                 <div style={{ fontSize: '52px', marginBottom: '20px' }}>🎉</div>
-                <h2 style={{ fontFamily: 'Merriweather, serif', fontSize: '22px', fontWeight: 900, color: '#0a1f3c', marginBottom: '12px' }}>Request Received!</h2>
+                <p style={{ ...formH2, marginBottom: '12px' }}>Request Received!</p>
                 <p style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.7 }}>Thanks! We'll be in touch within 24 hours to confirm your demo time.</p>
               </div>
             ) : (
@@ -305,19 +308,18 @@ export function BookDemoPage() {
               {error && <p style={{ color: '#dc2626', fontSize: '13px', marginBottom: '12px', textAlign: 'center' }}>{error}</p>}
 
               <p style={{ color: '#94a3b8', fontSize: '12px', lineHeight: 1.5 }}>
-                Your data is handled in accordance with our <Link to="/terms#privacy" style={{ color: '#1ac8b0' }}>Privacy Policy</Link> and EU GDPR guidelines. We never sell or share your information.
+                Your data is handled in accordance with our <Link to="/privacy-policy" style={{ color: '#1ac8b0' }}>Privacy Policy</Link> and EU GDPR guidelines. We never sell or share your information.
               </p>
             </form>
             )}
+            </div>
           </div>
 
           {/* Trust Elements & Social Proof */}
           <div>
             <div style={{ background: '#fff', padding: '32px', borderRadius: '16px', border: '1px solid #ede8e3', marginBottom: '32px' }}>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '20px' }}>
-                What you will get from your 30 minutes:
-              </h3>
-              <ul style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.7, paddingLeft: '20px' }}>
+              <h2 style={{ ...pageH2OnLight, fontSize: 'clamp(20px, 2.5vw, 28px)', marginBottom: '20px' }}>What You Will Get From Your 30 Minutes</h2>
+              <ul style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.7, paddingLeft: '20px', margin: 0 }}>
                 <li style={{ marginBottom: '8px' }}>A live Digital Product Passport built for one of your actual products</li>
                 <li style={{ marginBottom: '8px' }}>A full ESPR 2024 compliance gap assessment for your supply chain</li>
                 <li style={{ marginBottom: '8px' }}>A personalised DPP rollout roadmap for your product catalogue</li>
@@ -329,7 +331,7 @@ export function BookDemoPage() {
             </div>
 
             <div style={{ background: '#fff', padding: '32px', borderRadius: '16px', border: '1px solid #ede8e3' }}>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '20px' }}>
+              <h3 style={{ ...pageH2OnLight, fontSize: 'clamp(20px, 2.5vw, 28px)', marginBottom: '20px' }}>
                 Trusted by forward-thinking fashion brands building transparent, EU ESPR-compliant supply chains.
               </h3>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>

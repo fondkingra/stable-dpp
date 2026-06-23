@@ -7,10 +7,10 @@ export function meta() {
       name: "description",
       content: "StableDPP privacy policy — how we collect, use, and protect your data.",
     },
-    { tagName: "link", rel: "canonical", href: "https://stabledpp.com/privacy" },
+    { tagName: "link", rel: "canonical", href: "https://stabledpp.com/privacy-policy" },
   ];
 }
 
 export default function Component() {
-  return <TermsAndConditionsPage />;
+  return <TermsAndConditionsPage page="privacy" />;
 }

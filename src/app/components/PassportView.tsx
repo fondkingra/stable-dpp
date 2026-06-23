@@ -2,7 +2,8 @@ import { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { ArrowLeft, Check, ExternalLink, Shield, Clock, Hash, Leaf, Droplets, Zap, Wind, Thermometer } from 'lucide-react';
 import QRCode from 'react-qr-code';
-const logoImg = import.meta.env.BASE_URL + 'logo-transparent.png';
+import { APP_CONFIG } from '../constants';
+import { LOGO, logoHeaderStyle, pageH1OnDark, pageH2OnLight } from '../styles/typography';
 
 interface ComponentDPP {
   id: string;
@@ -121,10 +122,9 @@ export function PassportView() {
       )}
 
       {/* Nav */}
-      <nav style={{ background: '#0a1f3c', position: 'sticky', top: 0, zIndex: 20, height: '100px', display: 'flex', alignItems: 'center', boxShadow: '0 1px 0 rgba(26,200,176,0.2), 0 4px 24px rgba(0,0,0,0.2)' }}>
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, #1ac8b0 25%, #67e8f9 55%, #1ac8b0 75%, transparent)' }} />
-        <div className="max-w-7xl mx-auto px-8 w-full flex items-center justify-between" style={{ position: 'relative' }}>
-          <img src={logoImg} alt="StableDPP" style={{ width: '200px', height: 'auto', display: 'block', background: '#fff', borderRadius: '12px', padding: '8px' }} />
+      <nav style={{ background: '#0a1f3c', position: 'sticky', top: 0, zIndex: 20, height: LOGO.navHeight, display: 'flex', alignItems: 'center', borderBottom: '1px solid rgba(26,200,176,0.15)' }}>
+        <div className="max-w-7xl mx-auto px-6 w-full flex items-center justify-between">
+          <img src={APP_CONFIG.logo} alt="StableDPP" style={logoHeaderStyle} />
           <button onClick={() => navigate('/')} style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'rgba(255,255,255,0.6)', fontSize: '14px', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', transition: 'color 0.15s' }}
             onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
             onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}
@@ -145,7 +145,7 @@ export function PassportView() {
             <Shield className="w-3 h-3" />
             Blockchain-Verified Digital Product Passport
           </div>
-          <h1 className="text-5xl mb-3 text-white leading-tight" style={{ fontFamily: 'Merriweather, serif', fontWeight: 900, letterSpacing: '-0.01em' }}>
+          <h1 className="mb-3" style={{ ...pageH1OnDark, textAlign: 'center' }}>
             Digital{' '}
             <span className="text-[#1ac8b0]">Product</span>{' '}
             Passport
@@ -194,7 +194,7 @@ export function PassportView() {
               <div className="relative mb-4 rounded-xl overflow-hidden bg-gray-50">
                 <img src={passportData.imagePreview} alt={passportData.productName} className="w-full aspect-square object-contain" />
               </div>
-              <h2 className="text-lg font-bold text-[#0d2340] mb-1" style={{ fontFamily: 'Syne, sans-serif' }}>{passportData.productName}</h2>
+              <h2 className="mb-1" style={{ ...pageH2OnLight, fontSize: '18px' }}>{passportData.productName}</h2>
               <p className="text-[#6b8fa8] text-sm mb-3">by {passportData.userName}</p>
               <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-[#1ac8b0] bg-[#e6faf7] border border-[#b3ede6]">
                 {productTitle} DPP

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { APP_CONFIG } from '../constants';
+import { LOGO, logoHeaderStyle, logoFooterStyle } from '../styles/typography';
 import { faXTwitter, faInstagram, faLinkedinIn, faRedditAlien } from '@fortawesome/free-brands-svg-icons';
 import { getUser, signOut } from '../utils/frappe';
 
@@ -36,7 +38,7 @@ export function SharedNav() {
         maxWidth: '1200px',
         margin: '0 auto',
         padding: '0 24px',
-        height: '72px',
+        height: LOGO.navHeight,
         display: 'flex',
         alignItems: 'center',
         gap: '32px',
@@ -46,9 +48,9 @@ export function SharedNav() {
           style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, flexShrink: 0, display: 'flex', alignItems: 'center' }}
         >
           <img
-            src={logoImg}
+            src={APP_CONFIG.logo}
             alt="StableDPP"
-            style={{ height: '72px', width: 'auto', display: 'block', objectFit: 'contain' }}
+            style={logoHeaderStyle}
           />
         </button>
 
@@ -148,7 +150,6 @@ export function SharedFooter() {
     { icon: faXTwitter, url: 'https://x.com/stabledpp', label: 'X' },
     { icon: faInstagram, url: 'https://www.instagram.com/stabledpp/', label: 'Instagram' },
     { icon: faLinkedinIn, url: 'https://www.linkedin.com/company/stable-dpp/', label: 'LinkedIn' },
-    { icon: faRedditAlien, url: 'https://www.reddit.com/user/stable-dpp/', label: 'Reddit' },
   ];
 
   return (
@@ -156,7 +157,7 @@ export function SharedFooter() {
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '32px', marginBottom: '40px' }}>
           <div>
-            <img src={logoImg} alt="StableDPP" style={{ height: '70px', width: 'auto', objectFit: 'contain', marginBottom: '12px' }} />
+            <img src={APP_CONFIG.logo} alt="StableDPP" style={logoFooterStyle} />
             <p style={{ color: '#7a8a98', fontFamily: 'Inter, sans-serif', fontSize: '13px', lineHeight: 1.6, marginBottom: '16px' }}>
               Give every product a passport. Make every claim verifiable.
             </p>
@@ -224,7 +225,7 @@ export function SharedFooter() {
             © 2026 StableDPP · Digital Product Passports for Fashion · EU ESPR Compliant
           </span>
           <div style={{ display: 'flex', gap: '20px' }}>
-            {([['Privacy Policy', '/terms#privacy'], ['Terms of Service', '/terms#terms']] as [string, string][]).map(([t, path]) => (
+            {([['Privacy Policy', '/privacy-policy'], ['Terms and Conditions', '/terms']] as [string, string][]).map(([t, path]) => (
               <button key={t} onClick={() => navigate(path)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#4a5a68', fontFamily: 'Inter, sans-serif', fontSize: '13px', transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget.style.color = '#7a8a98')}
                 onMouseLeave={e => (e.currentTarget.style.color = '#4a5a68')}

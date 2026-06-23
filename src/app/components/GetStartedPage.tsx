@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router';
 import { APP_CONFIG } from '../constants';
 import { signUp } from '../utils/frappe';
+import { formH1, formH2, logoHeaderStyle } from '../styles/typography';
 
 export function GetStartedPage() {
   const navigate = useNavigate();
@@ -50,13 +51,13 @@ export function GetStartedPage() {
       <div style={{ background: '#fff', padding: '48px', borderRadius: '16px', border: '1px solid #ede8e3', maxWidth: '500px', width: '100%' }}>
         
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-          <img src={APP_CONFIG.logo} alt={APP_CONFIG.name} style={{ height: '80px', width: 'auto', objectFit: 'contain' }} />
+          <img src={APP_CONFIG.logo} alt={APP_CONFIG.name} style={logoHeaderStyle} />
         </div>
 
         {submitted ? (
           <div style={{ textAlign: 'center', padding: '24px 0' }}>
             <div style={{ fontSize: '52px', marginBottom: '20px' }}>🎉</div>
-            <h2 style={{ fontFamily: 'Merriweather, serif', fontSize: '22px', fontWeight: 900, color: '#0a1f3c', marginBottom: '12px' }}>Account Created!</h2>
+            <h2 style={{ ...formH2, marginBottom: '12px' }}>Account Created!</h2>
             <p style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.7, marginBottom: '24px' }}>Check your inbox — we've sent a verification email. Click the link to activate your account.</p>
             <button onClick={() => navigate('/signin')} style={{ background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', border: 'none', cursor: 'pointer', color: '#071528', fontFamily: 'var(--font-primary)', fontSize: '15px', fontWeight: 700, padding: '14px 32px', borderRadius: '100px' }}>
               Go to Sign In →
@@ -64,7 +65,7 @@ export function GetStartedPage() {
           </div>
         ) : (
           <>
-        <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '24px', fontWeight: 800, color: '#0a1f3c', textAlign: 'center', marginBottom: '8px' }}>
+        <h1 style={{ ...formH1, marginBottom: '8px' }}>
           Create Your Free Account
         </h1>
         
@@ -272,9 +273,9 @@ export function GetStartedPage() {
               />
               <span style={{ color: '#5a6a7a', fontSize: '14px', lineHeight: 1.5 }}>
                 I agree to the{' '}
-                <Link to="/terms#terms" style={{ color: '#1ac8b0', textDecoration: 'underline' }}>Terms of Service</Link>
+                <Link to="/terms" style={{ color: '#1ac8b0', textDecoration: 'underline' }}>Terms and Conditions</Link>
                 {' '}and{' '}
-                <Link to="/terms#privacy" style={{ color: '#1ac8b0', textDecoration: 'underline' }}>Privacy Policy</Link> *
+                <Link to="/privacy-policy" style={{ color: '#1ac8b0', textDecoration: 'underline' }}>Privacy Policy</Link> *
               </span>
             </label>
           </div>

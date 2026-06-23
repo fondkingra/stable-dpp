@@ -1,8 +1,9 @@
-import { useNavigate, Link } from 'react-router';
+import { useNavigate } from 'react-router';
 import { ArrowRight, Check, Shield } from 'lucide-react';
 import { SharedNav, SharedFooter } from './SharedNav';
 import { Icon } from '../utils/icons';
-import { APP_CONFIG, NAVIGATION_LINKS, STATS } from '../constants';
+import { APP_CONFIG, STATS } from '../constants';
+import { pageH1OnDark, pageH2OnLight, pageH2OnDark, cardH3, cardBody, heroLead, heroSubtitle, passportCardBrand, passportCardTitle, passportCardMeta, passportCardTag, passportCardBadge, passportCardMonoMuted, passportCardMonoAccent } from '../styles/typography';
 
 export function HomePage() {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ export function HomePage() {
         <div style={{ position: 'absolute', top: '-120px', right: '10%', width: '700px', height: '700px', background: 'radial-gradient(circle, rgba(26,200,176,0.09) 0%, transparent 65%)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: '-80px', left: '-60px', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(103,232,249,0.05) 0%, transparent 65%)', pointerEvents: 'none' }} />
 
-        <section className="max-w-7xl mx-auto px-8 pt-20 pb-24" style={{ position: 'relative' }}>
+        <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '80px 24px 96px', position: 'relative' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '72px' }}>
             <div style={{ flex: 1 }}>
               {/* Eyebrow */}
@@ -27,14 +28,14 @@ export function HomePage() {
               </div>
 
               {/* H1 */}
-              <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(34px, 4vw, 56px)', fontWeight: 900, color: '#fff', lineHeight: 1.12, letterSpacing: '-0.02em', marginBottom: '12px' }}>
+              <h1 style={{ ...pageH1OnDark, marginBottom: '12px' }}>
                 Every Fashion Product. One Verified Passport.
               </h1>
-              <p style={{ color: '#1ac8b0', fontStyle: 'italic', fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(20px, 2.5vw, 28px)', fontWeight: 600, marginBottom: '28px' }}>
+              <p style={{ ...heroSubtitle, marginBottom: '28px' }}>
                 Prove it. On-chain.
               </p>
 
-              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '18px', lineHeight: 1.7, maxWidth: '500px', marginBottom: '36px', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
+              <p style={{ ...heroLead, color: 'rgba(255,255,255,0.65)', maxWidth: '500px', marginBottom: '36px' }}>
                 StableDPP gives every fashion brand a blockchain-verified Digital Product Passport — the EU ESPR 2024 compliant record that proves fibre origin, material sustainability, certifications, and supply chain transparency. One QR scan. Every claim verified. Every stakeholder convinced.
               </p>
 
@@ -75,22 +76,22 @@ export function HomePage() {
                       <div style={{ width: 26, height: 26, borderRadius: '8px', background: '#0a1f3c', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <Shield style={{ width: 13, height: 13, color: '#1ac8b0' }} />
                       </div>
-                      <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '13px', color: '#0a1f3c' }}>StableDPP</span>
+                      <span style={passportCardBrand}>StableDPP</span>
                     </div>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', background: '#e8faf7', border: '1px solid #b3ede6', borderRadius: '100px', padding: '3px 10px', fontSize: '10px', fontWeight: 700, color: '#1ac8b0' }}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', background: '#e8faf7', border: '1px solid #b3ede6', borderRadius: '100px', padding: '3px 10px', ...passportCardBadge }}>
                       <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#1ac8b0', display: 'inline-block' }} /> Verified
                     </span>
                   </div>
-                  <p style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '15px', color: '#0a1f3c', marginBottom: '2px' }}>Organic Cotton T-Shirt</p>
-                  <p style={{ fontSize: '12px', color: '#94a3b8', marginBottom: '14px' }}>by Jane Smith · T-Shirt DPP</p>
+                  <p style={passportCardTitle}>Organic Cotton T-Shirt</p>
+                  <p style={passportCardMeta}>by Jane Smith · T-Shirt DPP</p>
                   <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '14px' }}>
                     {['Fabric', 'Buttons', 'Collar', 'Threads'].map(t => (
-                      <span key={t} style={{ background: '#e8faf7', border: '1px solid #b3ede6', borderRadius: '100px', padding: '2px 10px', fontSize: '11px', fontWeight: 600, color: '#1ac8b0' }}>{t}</span>
+                      <span key={t} style={{ background: '#e8faf7', border: '1px solid #b3ede6', borderRadius: '100px', padding: '2px 10px', ...passportCardTag }}>{t}</span>
                     ))}
                   </div>
                   <div style={{ paddingTop: '12px', borderTop: '1px solid #f0f4f8', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: '#94a3b8' }}>Blockchain Hash</div>
-                    <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: '#1ac8b0', fontWeight: 600 }}>0x3f8a…c291</div>
+                    <div style={passportCardMonoMuted}>Blockchain Hash</div>
+                    <div style={passportCardMonoAccent}>0x3f8a…c291</div>
                     <div style={{ marginLeft: 'auto', width: 20, height: 20, borderRadius: '50%', background: '#1ac8b0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <Check style={{ width: 10, height: 10, color: '#fff' }} />
                     </div>
@@ -127,33 +128,33 @@ export function HomePage() {
       <section style={{ padding: '80px 24px', background: '#fafaf8' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <div style={{ color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', marginBottom: '12px' }}>WHY STABLEDPP</div>
-            <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, color: '#0a1f3c', lineHeight: 1.2 }}>Built for the Future of Fashion — and the Regulations Already Here</h2>
+            <div className="section-eyebrow">WHY STABLEDPP</div>
+            <h2 style={{ ...pageH2OnLight, textAlign: 'center' }}>Built for the Future of Fashion — and the Regulations Already Here</h2>
           </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
           <div style={{ background: 'linear-gradient(135deg, #f8fdfc 0%, #ffffff 100%)', padding: '28px', borderRadius: '20px', border: '1px solid #e0f2f1', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(26,200,176,0.08)' }} />
             <Icon name="shield-check" className="w-8 h-8 text-teal-600 mb-4" />
-            <h3 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '19px', fontWeight: 700, color: '#0f172a', marginBottom: '12px' }}>Blockchain Verified</h3>
-            <p style={{ color: '#475569', fontSize: '15px', lineHeight: 1.6 }}>Every passport you issue is locked to the blockchain — timestamped the moment it is created and impossible to alter after the fact.</p>
+            <h3 style={cardH3}>Blockchain Verified</h3>
+            <p style={cardBody}>Every passport you issue is locked to the blockchain — timestamped the moment it is created and impossible to alter after the fact.</p>
           </div>
           <div style={{ background: 'linear-gradient(135deg, #fefdf8 0%, #ffffff 100%)', padding: '28px', borderRadius: '20px', border: '1px solid #fef3cd', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(34,197,94,0.08)' }} />
             <Icon name="leaf" className="w-8 h-8 text-green-600 mb-4" />
-            <h3 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '19px', fontWeight: 700, color: '#0f172a', marginBottom: '12px' }}>Sustainability Proof</h3>
-            <p style={{ color: '#475569', fontSize: '15px', lineHeight: 1.6 }}>Quantify, disclose, and prove your environmental impact across your entire supply chain. Every metric verified on-chain.</p>
+            <h3 style={cardH3}>Sustainability Proof</h3>
+            <p style={cardBody}>Quantify, disclose, and prove your environmental impact across your entire supply chain. Every metric verified on-chain.</p>
           </div>
           <div style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)', padding: '28px', borderRadius: '20px', border: '1px solid #e2e8f0', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(59,130,246,0.08)' }} />
             <Icon name="lock" className="w-8 h-8 text-blue-600 mb-4" />
-            <h3 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '19px', fontWeight: 700, color: '#0f172a', marginBottom: '12px' }}>ESPR Compliant</h3>
-            <p style={{ color: '#475569', fontSize: '15px', lineHeight: 1.6 }}>Purpose-built for EU regulations. Auto-validates data fields and flags missing information before publication.</p>
+            <h3 style={cardH3}>ESPR Compliant</h3>
+            <p style={cardBody}>Purpose-built for EU regulations. Auto-validates data fields and flags missing information before publication.</p>
           </div>
           <div style={{ background: 'linear-gradient(135deg, #fdf4ff 0%, #ffffff 100%)', padding: '28px', borderRadius: '20px', border: '1px solid #f3e8ff', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(147,51,234,0.08)' }} />
             <Icon name="globe" className="w-8 h-8 text-purple-600 mb-4" />
-            <h3 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '19px', fontWeight: 700, color: '#0f172a', marginBottom: '12px' }}>Global Standards</h3>
-            <p style={{ color: '#475569', fontSize: '15px', lineHeight: 1.6 }}>Fully aligned with GS1 Digital Link, ISO 14001, and EU Textile Strategy. Works everywhere buyers expect it to.</p>
+            <h3 style={cardH3}>Global Standards</h3>
+            <p style={cardBody}>Fully aligned with GS1 Digital Link, ISO 14001, and EU Textile Strategy. Works everywhere buyers expect it to.</p>
           </div>
         </div>
         </div>
@@ -163,23 +164,23 @@ export function HomePage() {
       <section id="how-it-works" style={{ padding: '80px 24px', background: '#fff' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <div style={{ color: '#1ac8b0', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', marginBottom: '12px' }}>SIMPLE PROCESS</div>
-            <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(28px, 4vw, 38px)', fontWeight: 800, color: '#0a1f3c', lineHeight: 1.2 }}>How StableDPP Creates Your Digital Product Passport in 3 Steps</h2>
+            <div className="section-eyebrow">SIMPLE PROCESS</div>
+            <h2 style={{ ...pageH2OnLight, textAlign: 'center' }}>How StableDPP Creates Your Digital Product Passport in 3 Steps</h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
             <div style={{ textAlign: 'center' }}>
               <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'JetBrains Mono, monospace', fontSize: '24px', fontWeight: 700, margin: '0 auto 24px' }}>01</div>
-              <h3 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '16px' }}>Select Your Product</h3>
+              <h3 style={{ ...cardH3, textAlign: 'center', marginBottom: '16px' }}>Select Your Product</h3>
               <p style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.6 }}>Choose your garment type — T-shirt, jeans, jacket, footwear — and select the component DPPs that make up your product. Each component (fabric, dye, hardware, lining) gets its own traceable record.</p>
             </div>
             <div style={{ textAlign: 'center' }}>
               <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'JetBrains Mono, monospace', fontSize: '24px', fontWeight: 700, margin: '0 auto 24px' }}>02</div>
-              <h3 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '16px' }}>Fill Your Sustainability Data</h3>
+              <h3 style={{ ...cardH3, textAlign: 'center', marginBottom: '16px' }}>Fill Your Sustainability Data</h3>
               <p style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.6 }}>Upload a product image and enter your material composition, certifications (GOTS, Oeko-Tex, GRS), sustainability metrics, and supply chain provenance. Our compliance engine guides every field.</p>
             </div>
             <div style={{ textAlign: 'center' }}>
               <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'JetBrains Mono, monospace', fontSize: '24px', fontWeight: 700, margin: '0 auto 24px' }}>03</div>
-              <h3 style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '16px' }}>Get Your Blockchain-Verified Passport</h3>
+              <h3 style={{ ...cardH3, textAlign: 'center', marginBottom: '16px' }}>Get Your Blockchain-Verified Passport</h3>
               <p style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.6 }}>Your EU ESPR-compliant Digital Product Passport is generated instantly — anchored on-chain with a tamper-proof blockchain hash and a GS1 Digital Link-ready QR code. Done in minutes.</p>
             </div>
           </div>
@@ -189,7 +190,7 @@ export function HomePage() {
       {/* Footer CTA Banner */}
       <section style={{ background: '#0a1f3c', padding: '80px 24px', textAlign: 'center' }}>
         <div style={{ maxWidth: '700px', margin: '0 auto' }}>
-          <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 800, color: '#fff', lineHeight: 1.3, marginBottom: '16px' }}>Ready to Issue Your First Digital Product Passport?</h2>
+          <h2 style={{ ...pageH2OnDark, textAlign: 'center', marginBottom: '16px' }}>Ready to Issue Your First Digital Product Passport?</h2>
           <p style={{ color: '#a8bcc8', fontSize: '16px', lineHeight: 1.6, marginBottom: '32px' }}>Join the 30+ forward-thinking fashion brands building transparent, EU ESPR-compliant supply chains with StableDPP.</p>
           <button onClick={() => navigate('/get-started')} style={{ background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', color: '#071528', border: 'none', padding: '16px 32px', borderRadius: '100px', fontFamily: 'var(--font-primary)', fontSize: '16px', fontWeight: 700, cursor: 'pointer' }}>Create Your First DPP →</button>
         </div>

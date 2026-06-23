@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
 import { ERROR_404 } from '../utils/messages';
+import { pageH1OnLight } from '../styles/typography';
 
 export function NotFoundPage() {
   const navigate = useNavigate();
@@ -20,14 +21,7 @@ export function NotFoundPage() {
         justifyContent: 'center'
       }}>
         <div style={{ fontSize: '120px', marginBottom: '32px' }}>🔍</div>
-        <h1 style={{ 
-          fontFamily: 'Merriweather, serif', 
-          fontSize: 'clamp(24px, 3vw, 36px)', 
-          fontWeight: 900, 
-          color: '#0a1f3c', 
-          marginBottom: '16px',
-          lineHeight: 1.3
-        }}>
+        <h1 style={{ ...pageH1OnLight, marginBottom: '16px' }}>
           {ERROR_404.headline}
         </h1>
         <p style={{ 

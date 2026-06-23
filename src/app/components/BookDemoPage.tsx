@@ -81,19 +81,15 @@ export function BookDemoPage() {
           
           {/* Form */}
           <div>
-            <h2 style={{ ...pageH2OnLight, marginBottom: '24px' }}>Fill In Your Details</h2>
             <div style={{ background: '#fff', padding: '40px', borderRadius: '16px', border: '1px solid #ede8e3' }}>
+            <h2 style={{ ...pageH2OnLight, fontSize: 'clamp(20px, 2.5vw, 28px)', marginBottom: '24px' }}>Fill In Your Details</h2>
             {submitted ? (
               <div style={{ textAlign: 'center', padding: '40px 0' }}>
                 <div style={{ fontSize: '52px', marginBottom: '20px' }}>🎉</div>
-                <h2 style={{ ...formH2, marginBottom: '12px' }}>Request Received!</h2>
+                <p style={{ ...formH2, marginBottom: '12px' }}>Request Received!</p>
                 <p style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.7 }}>Thanks! We'll be in touch within 24 hours to confirm your demo time.</p>
               </div>
             ) : (
-            <>
-            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '24px' }}>
-              Booking form
-            </h3>
             <form ref={formRef} onSubmit={handleSubmit}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
                 <div>
@@ -315,19 +311,15 @@ export function BookDemoPage() {
                 Your data is handled in accordance with our <Link to="/privacy-policy" style={{ color: '#1ac8b0' }}>Privacy Policy</Link> and EU GDPR guidelines. We never sell or share your information.
               </p>
             </form>
-            </>
             )}
             </div>
           </div>
 
           {/* Trust Elements & Social Proof */}
           <div>
-            <h2 style={{ ...pageH2OnLight, marginBottom: '24px' }}>What You Will Get From Your 30 Minutes</h2>
             <div style={{ background: '#fff', padding: '32px', borderRadius: '16px', border: '1px solid #ede8e3', marginBottom: '32px' }}>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '20px' }}>
-                What to expect
-              </h3>
-              <ul style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.7, paddingLeft: '20px' }}>
+              <h2 style={{ ...pageH2OnLight, fontSize: 'clamp(20px, 2.5vw, 28px)', marginBottom: '20px' }}>What You Will Get From Your 30 Minutes</h2>
+              <ul style={{ color: '#5a6a7a', fontSize: '15px', lineHeight: 1.7, paddingLeft: '20px', margin: 0 }}>
                 <li style={{ marginBottom: '8px' }}>A live Digital Product Passport built for one of your actual products</li>
                 <li style={{ marginBottom: '8px' }}>A full ESPR 2024 compliance gap assessment for your supply chain</li>
                 <li style={{ marginBottom: '8px' }}>A personalised DPP rollout roadmap for your product catalogue</li>
@@ -339,7 +331,7 @@ export function BookDemoPage() {
             </div>
 
             <div style={{ background: '#fff', padding: '32px', borderRadius: '16px', border: '1px solid #ede8e3' }}>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '20px', fontWeight: 700, color: '#0a1f3c', marginBottom: '20px' }}>
+              <h3 style={{ ...pageH2OnLight, fontSize: 'clamp(20px, 2.5vw, 28px)', marginBottom: '20px' }}>
                 Trusted by forward-thinking fashion brands building transparent, EU ESPR-compliant supply chains.
               </h3>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
@@ -363,13 +355,6 @@ export function BookDemoPage() {
             </div>
           </div>
         </div>
-      </section>
-
-      <section style={{ padding: '0 24px 80px', maxWidth: '1200px', margin: '0 auto' }}>
-        <h2 style={{ ...pageH2OnLight, marginBottom: '24px' }}>Frequently Asked Questions About the Demo</h2>
-        <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '20px', fontWeight: 700, color: '#0a1f3c' }}>
-          Demo FAQ
-        </h3>
       </section>
 
       <SharedFooter />

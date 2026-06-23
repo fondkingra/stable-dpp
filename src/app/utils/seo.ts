@@ -205,36 +205,6 @@ export const DEMO_PAGE_SCHEMA = {
         },
       },
     },
-    {
-      "@type": "FAQPage",
-      "@id": "https://stabledpp.com/book-a-demo/#faq",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "How long is the StableDPP demo?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Book a personalised 30-minute demo with the StableDPP product team. We will build a live Digital Product Passport for one of your actual products, walk through every ESPR 2024 compliance requirement for your supply chain, and leave you with a clear, actionable roadmap to get your full catalogue DPP-ready.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "What you will get from your 30 minutes?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "A live Digital Product Passport built for one of your actual products. A full ESPR 2024 compliance gap assessment for your supply chain. A personalised DPP rollout roadmap for your product catalogue. Answers to every compliance and technical question you have. No obligation. No credit card. No pressure.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "How is my data handled when I book a demo?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Your data is handled in accordance with our Privacy Policy and EU GDPR guidelines. We never sell or share your information.",
-          },
-        },
-      ],
-    },
   ],
 };
 

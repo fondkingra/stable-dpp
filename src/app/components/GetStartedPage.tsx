@@ -273,9 +273,9 @@ export function GetStartedPage() {
               />
               <span style={{ color: '#5a6a7a', fontSize: '14px', lineHeight: 1.5 }}>
                 I agree to the{' '}
-                <Link to="/terms#terms" style={{ color: '#1ac8b0', textDecoration: 'underline' }}>Terms of Service</Link>
+                <Link to="/terms" style={{ color: '#1ac8b0', textDecoration: 'underline' }}>Terms and Conditions</Link>
                 {' '}and{' '}
-                <Link to="/terms#privacy" style={{ color: '#1ac8b0', textDecoration: 'underline' }}>Privacy Policy</Link> *
+                <Link to="/privacy-policy" style={{ color: '#1ac8b0', textDecoration: 'underline' }}>Privacy Policy</Link> *
               </span>
             </label>
           </div>

@@ -2,7 +2,7 @@ import { TermsAndConditionsPage } from "../app/components/TermsAndConditionsPage
 
 export function meta() {
   return [
-    { title: "Terms & Conditions | StableDPP" },
+    { title: "Terms and Conditions | StableDPP" },
     {
       name: "description",
       content: "StableDPP terms and conditions for using our Digital Product Passport platform.",
@@ -12,5 +12,5 @@ export function meta() {
 }
 
 export default function Component() {
-  return <TermsAndConditionsPage />;
+  return <TermsAndConditionsPage page="terms" />;
 }

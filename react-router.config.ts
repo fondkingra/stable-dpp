@@ -9,7 +9,7 @@ const SEO_ROUTES = [
   "/get-started",
   "/signin",
   "/terms",
-  "/privacy",
+  "/privacy-policy",
 ] as const;
 
 export default {

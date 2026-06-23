@@ -20,7 +20,7 @@ function P({ children }: { children: React.ReactNode }) {
   return <p style={s}>{children}</p>;
 }
 
-export function TermsAndConditionsPage() {
+export function TermsAndConditionsPage({ page }: { page: 'privacy' | 'terms' }) {
   const location = useLocation();
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export function TermsAndConditionsPage() {
 
       <div style={{ flex: 1, maxWidth: '800px', margin: '0 auto', padding: '64px 24px 80px' }}>
 
-        {/* ── PRIVACY POLICY ── */}
+        {page === 'privacy' && (
         <div id="privacy">
           <p style={{ color: '#1ac8b0', fontSize: '13px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '12px' }}>Legal</p>
           <h1 style={{ ...pageH1OnDark, fontSize: '36px', marginBottom: '8px' }}>Privacy Policy</h1>
@@ -116,11 +116,9 @@ export function TermsAndConditionsPage() {
             <P>Email: <span style={{ color: '#1ac8b0' }}>info@stabledpp.com</span><br />Subject line: Privacy Enquiry</P>
           </Section>
         </div>
+        )}
 
-        {/* ── DIVIDER ── */}
-        <div style={{ borderTop: '1px solid rgba(26,200,176,0.15)', margin: '64px 0' }} />
-
-        {/* ── TERMS AND CONDITIONS ── */}
+        {page === 'terms' && (
         <div id="terms">
           <p style={{ color: '#1ac8b0', fontSize: '13px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '12px' }}>Legal</p>
           <h1 style={{ ...pageH1OnDark, fontSize: '36px', marginBottom: '8px' }}>Terms &amp; Conditions</h1>
@@ -213,6 +211,7 @@ export function TermsAndConditionsPage() {
             <P>Email: <span style={{ color: '#1ac8b0' }}>info@stabledpp.com</span><br />Subject line: Terms Enquiry</P>
           </Section>
         </div>
+        )}
 
       </div>
 

@@ -190,7 +190,7 @@ export function SharedFooter() {
             © 2026 StableDPP · Digital Product Passports for Fashion · EU ESPR Compliant
           </span>
           <div style={{ display: 'flex', gap: '20px' }}>
-            {([['Privacy Policy', '/terms#privacy'], ['Terms of Service', '/terms#terms']] as [string, string][]).map(([t, path]) => (
+            {([['Privacy Policy', '/privacy-policy'], ['Terms and Conditions', '/terms']] as [string, string][]).map(([t, path]) => (
               <button key={t} onClick={() => navigate(path)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#4a5a68', fontFamily: 'Inter, sans-serif', fontSize: '13px', transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget.style.color = '#7a8a98')}
                 onMouseLeave={e => (e.currentTarget.style.color = '#4a5a68')}

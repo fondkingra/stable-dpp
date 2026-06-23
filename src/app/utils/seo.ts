@@ -64,10 +64,9 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
       "StableDPP's mission: make every fashion product verifiably sustainable. Blockchain-first Digital Product Passports for EU ESPR 2024 compliance.",
   },
   demo: {
-    title:
-      "Book a StableDPP Demo | See Digital Product Passports for Fashion in Action",
+    title: "Book a StableDPP Demo | See DPPs in Action",
     description:
-      "Book a 30-minute personalised Digital Product Passport demo with the StableDPP team. We will build a live DPP for your products, walk through ESPR compliance, and create a tailored roadmap for your brand.",
+      "Book a free 30-minute personalised Digital Product Passport demo. We build a live DPP for your products and create your ESPR compliance roadmap.",
     keywords:
       "StableDPP demo, Digital Product Passport demo, ESPR compliance demo, fashion DPP consultation, blockchain passport demo",
     canonical: "https://stabledpp.com/book-a-demo",
@@ -177,6 +176,62 @@ export const COMPANY_PAGE_SCHEMA = {
           image: "https://stabledpp.com/IMG1.jpg",
           description:
             "Co-founder of StableDPP, building the blockchain infrastructure behind every passport with Trust as Infrastructure (TAS) verification.",
+        },
+      ],
+    },
+  ],
+};
+
+export const DEMO_PAGE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "@id": "https://stabledpp.com/book-a-demo/#webpage",
+      name: "Book a StableDPP Demo",
+      description:
+        "Book a free 30-minute personalised Digital Product Passport demo. We build a live DPP for your products and create your ESPR compliance roadmap.",
+      url: "https://stabledpp.com/book-a-demo",
+      mainEntity: {
+        "@type": "Organization",
+        "@id": "https://stabledpp.com/#organization",
+        name: "StableDPP",
+        url: "https://stabledpp.com",
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "sales",
+          email: "hello@stabledpp.com",
+          availableLanguage: "English",
+        },
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://stabledpp.com/book-a-demo/#faq",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "How long is the StableDPP demo?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Book a personalised 30-minute demo with the StableDPP product team. We will build a live Digital Product Passport for one of your actual products, walk through every ESPR 2024 compliance requirement for your supply chain, and leave you with a clear, actionable roadmap to get your full catalogue DPP-ready.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What you will get from your 30 minutes?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "A live Digital Product Passport built for one of your actual products. A full ESPR 2024 compliance gap assessment for your supply chain. A personalised DPP rollout roadmap for your product catalogue. Answers to every compliance and technical question you have. No obligation. No credit card. No pressure.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How is my data handled when I book a demo?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Your data is handled in accordance with our Privacy Policy and EU GDPR guidelines. We never sell or share your information.",
+          },
         },
       ],
     },

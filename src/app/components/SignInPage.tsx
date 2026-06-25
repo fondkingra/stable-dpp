@@ -43,6 +43,7 @@ export function SignInPage() {
     setError('');
     try {
       await signIn(formData.email, formData.password);
+      window.open('https://frontend.aiwthc.com/', '_blank');
       navigate('/');
     } catch (err: any) {
       setError(err.message || 'Invalid email or password');

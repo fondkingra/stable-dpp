@@ -29,8 +29,8 @@ const team = [
     initials: 'PH',
     image: import.meta.env.BASE_URL + 'IMG2.jpg',
     imagePosition: '50% 0%',
-    imageScale: 1.55,
-    imageScaleOrigin: '50% 18%',
+    imageScale: 1.4,
+    imageScaleOrigin: '50% 0%',
   },
   {
     role: 'Co-Founder',

@@ -132,6 +132,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         />
         <Meta />
         <Links />
+
         <style>{`html, body { height: 100%; margin: 0; }`}</style>
       </head>
       <body>

@@ -1,9 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link } from 'react-router';
 import { ArrowLeft, Check, Shield, Zap, Globe } from 'lucide-react';
 import { APP_CONFIG } from '../constants';
 import { signUp } from '../utils/frappe';
 import { pageH1OnDark, heroLead, LOGO } from '../styles/typography';
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (el: HTMLElement, opts: any) => string;
+      reset: (widgetId: string) => void;
+    };
+  }
+}
+
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY;
 
 export function GetStartedPage() {
   const navigate = useNavigate();
@@ -14,10 +25,36 @@ export function GetStartedPage() {
   const [error, setError] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [backHover, setBackHover] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string>('');
+
+  useEffect(() => {
+    // Dynamically load Turnstile script
+    if (!document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+      script.async = true;
+      document.head.appendChild(script);
+    }
+    const interval = setInterval(() => {
+      if (window.turnstile && turnstileRef.current && !widgetIdRef.current) {
+        widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (token: string) => setTurnstileToken(token),
+          'expired-callback': () => setTurnstileToken(''),
+          theme: 'light',
+        });
+        clearInterval(interval);
+      }
+    }, 100);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!/\d/.test(formData.password)) { setError('Password must contain at least one number.'); return; }
+    if (!turnstileToken) { setError('Please complete the verification.'); return; }
     setLoading(true);
     setError('');
     try {
@@ -164,8 +201,11 @@ export function GetStartedPage() {
                       </label>
                     </div>
 
-                    <button type="submit" disabled={!formData.agreeToTerms || loading}
-                      style={{ width: '100%', background: formData.agreeToTerms && !loading ? 'linear-gradient(135deg, #1ac8b0, #0ea58c)' : '#94a3b8', border: 'none', cursor: formData.agreeToTerms && !loading ? 'pointer' : 'not-allowed', color: '#071528', fontSize: '15px', fontWeight: 700, padding: '12px', borderRadius: '100px', marginBottom: '14px' }}>
+                    {/* Cloudflare Turnstile */}
+                    <div ref={turnstileRef} style={{ marginBottom: '16px', display: 'flex', justifyContent: 'center' }} />
+
+                    <button type="submit" disabled={!formData.agreeToTerms || !turnstileToken || loading}
+                      style={{ width: '100%', background: formData.agreeToTerms && turnstileToken && !loading ? 'linear-gradient(135deg, #1ac8b0, #0ea58c)' : '#94a3b8', border: 'none', cursor: formData.agreeToTerms && turnstileToken && !loading ? 'pointer' : 'not-allowed', color: '#071528', fontSize: '15px', fontWeight: 700, padding: '12px', borderRadius: '100px', marginBottom: '14px' }}>
                       {loading ? 'Creating Account...' : 'Create Free Account →'}
                     </button>
                   </form>

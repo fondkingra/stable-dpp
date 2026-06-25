@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { APP_CONFIG } from '../constants';
 import { LOGO, logoHeaderStyle, pageH1OnLight } from '../styles/typography';
+import { blockchainApi } from '../utils/blockchainApi';
 
 interface ComponentDPP {
   id: string;
@@ -117,19 +118,52 @@ export function ProductCreator() {
         : [...prev.greenPractices, id],
     }));
 
-  const handleCreateDPP = () => {
+  const [error, setError] = useState('');
+
+  const handleCreateDPP = async () => {
     setIsCreating(true);
-    const dppData = {
-      productType, productName, userName, email, imagePreview,
-      components: components.filter((c) => c.selected),
-      envData,
-      createdAt: new Date().toISOString(),
-      blockchainHash: `0x${Math.random().toString(16).substring(2, 66)}`,
-    };
-    setTimeout(() => {
-      localStorage.setItem('currentPassport', JSON.stringify(dppData));
+    setError('');
+
+    try {
+      const selectedComponents = components.filter((c) => c.selected);
+      const response = await blockchainApi.createDPP(
+        {
+          dppId: `${productType}-${Date.now()}`,
+          productName,
+          productType: productType || 'shirt',
+          manufacturer: userName,
+          email,
+          components: selectedComponents.map(c => ({ id: c.id, name: c.name })),
+          environmentalData: {
+            co2Emissions: envData.co2Emissions,
+            waterUse: envData.waterUse,
+            fossilEnergy: envData.fossilEnergy,
+            pefScore: envData.pefScore,
+            careInstructions: envData.careInstructions,
+            greenPractices: envData.greenPractices,
+          },
+        },
+        imageFile || undefined,
+      );
+
+      // Store passport data with real blockchain hash for the passport view
+      const passportData = {
+        productType, productName, userName, email, imagePreview,
+        components: selectedComponents,
+        envData,
+        createdAt: new Date().toISOString(),
+        blockchainHash: response.transactionHash || response.transactionId,
+        dppId: response.dppId,
+        blockchain: response.blockchain,
+      };
+      localStorage.setItem('currentPassport', JSON.stringify(passportData));
       navigate(`/passport/${productType}`);
-    }, 2000);
+    } catch (err: any) {
+      console.error('DPP creation failed:', err);
+      setError(err.message || 'Failed to create DPP. Please try again.');
+    } finally {
+      setIsCreating(false);
+    }
   };
 
   const isFormValid = productName && userName && email && imageFile && components.some((c) => c.selected);
@@ -387,7 +421,11 @@ export function ProductCreator() {
             )}
           </button>
 
-          {!isFormValid && !isCreating && (
+          {error && (
+            <p className="text-center text-red-500 text-sm font-medium bg-red-50 border border-red-200 rounded-xl px-4 py-3">{error}</p>
+          )}
+
+          {!isFormValid && !isCreating && !error && (
             <p className="text-center text-gray-400 text-xs">Fill all required fields and select at least one component</p>
           )}
         </div>

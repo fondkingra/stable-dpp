@@ -192,7 +192,7 @@ export function HomePage() {
         <div style={{ maxWidth: '700px', margin: '0 auto' }}>
           <h2 style={{ ...pageH2OnDark, textAlign: 'center', marginBottom: '16px' }}>Ready to Issue Your First Digital Product Passport?</h2>
           <p style={{ color: '#a8bcc8', fontSize: '16px', lineHeight: 1.6, marginBottom: '32px' }}>Join the 30+ forward-thinking fashion brands building transparent, EU ESPR-compliant supply chains with StableDPP.</p>
-          <button onClick={() => navigate('/get-started')} style={{ background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', color: '#071528', border: 'none', padding: '16px 32px', borderRadius: '100px', fontFamily: 'var(--font-primary)', fontSize: '16px', fontWeight: 700, cursor: 'pointer' }}>Create Your First DPP →</button>
+          <button onClick={() => navigate('/create-dpp')} style={{ background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', color: '#071528', border: 'none', padding: '16px 32px', borderRadius: '100px', fontFamily: 'var(--font-primary)', fontSize: '16px', fontWeight: 700, cursor: 'pointer' }}>Create Your First DPP →</button>
         </div>
       </section>
 

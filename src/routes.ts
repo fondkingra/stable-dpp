@@ -10,6 +10,7 @@ export default [
   route("get-started", "routes/get-started.tsx"),
   route("terms", "routes/terms.tsx"),
   route("privacy-policy", "routes/privacy-policy.tsx"),
+  route("create-dpp", "routes/create-dpp.tsx"),
   route("create/:productType", "routes/create.tsx"),
   route("passport/:productType", "routes/passport.tsx"),
   route("test-3d", "routes/test-3d.tsx"),

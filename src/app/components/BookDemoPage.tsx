@@ -82,7 +82,7 @@ export function BookDemoPage() {
           {/* Form */}
           <div>
             <div style={{ background: '#fff', padding: '40px', borderRadius: '16px', border: '1px solid #ede8e3' }}>
-            <h2 style={{ ...pageH2OnLight, fontSize: 'clamp(20px, 2.5vw, 28px)', marginBottom: '24px' }}>Fill In Your Details</h2>
+            <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '28px', fontWeight: 800, color: '#0a1f3c', marginBottom: '24px' }}>Request a Demo</h2>
             {submitted ? (
               <div style={{ textAlign: 'center', padding: '40px 0' }}>
                 <div style={{ fontSize: '52px', marginBottom: '20px' }}>🎉</div>

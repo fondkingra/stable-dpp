@@ -94,7 +94,7 @@ export function PassportView() {
   }
 
   const passportUrl = window.location.href;
-  const blockchainExplorerUrl = `https://etherscan.io/tx/${passportData.blockchainHash}`;
+  const blockchainExplorerUrl = `http://explorer.52.172.89.46.nip.io/#/transactions`;
   const productTitle = productType === 'shirt' ? 'T-Shirt' : 'Jeans';
   const shortHash = `${passportData.blockchainHash.substring(0, 10)}…${passportData.blockchainHash.substring(58)}`;
   const hasEnv = passportData.envData && (

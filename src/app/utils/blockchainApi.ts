@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_BLOCKCHAIN_API_URL || 'http://backend.52.172.89.46.nip.io';
+const API_URL = import.meta.env.VITE_BLOCKCHAIN_API_URL || 'https://backend.52.172.89.46.nip.io';
 
 export interface CreateDPPPayload {
   dppId: string;

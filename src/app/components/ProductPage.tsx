@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
 import { Icon } from '../utils/icons';
+import { PRODUCT_PRIVACY_FAQS } from '../utils/seo';
 import { pageH1OnDark, pageH2OnDark, heroEyebrow, heroLead } from '../styles/typography';
 
 const features = [
@@ -149,6 +151,7 @@ const privacySafeguards = [
 
 export function ProductPage() {
   const navigate = useNavigate();
+  const [openPrivacyFaq, setOpenPrivacyFaq] = useState<number | null>(0);
 
   return (
     <div style={{ minHeight: '100vh', background: '#fafaf8', fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}>
@@ -229,7 +232,8 @@ export function ProductPage() {
         <div className="product-privacy-content">
           <header className="product-privacy-header">
             <div className="section-eyebrow">DATA PRIVACY &amp; SUPPLIER CONFIDENTIALITY</div>
-            <h2 className="product-features-heading">Your Data Stays Yours — Public Transparency, Private Protection</h2>
+            <h2 className="product-features-heading">Data Privacy &amp; Supplier Confidentiality</h2>
+            <p className="product-privacy-lead">Your Data Stays Yours — Public Transparency, Private Protection</p>
             <p className="product-features-subheading">
               A Digital Product Passport is built to prove what matters to customers and regulators — without exposing the confidential information that runs your business. StableDPP draws a clear line between what is shared publicly and what stays private, and you control exactly where that line sits.
             </p>
@@ -237,13 +241,15 @@ export function ProductPage() {
 
           <div className="product-privacy-columns">
             <div className="product-privacy-block">
-              <h3 className="product-privacy-block__heading">What the public sees through the QR code</h3>
+              <h3 className="product-privacy-block__heading">Data Privacy</h3>
+              <p className="product-privacy-block__subheading">What the public sees through the QR code</p>
               <p className="product-privacy-block__body">
                 When a customer or retailer scans the QR code, they see only the information you have chosen to publish — typically the product&apos;s material composition, events of manufacturing and supply chain, sustainability credentials, certifications, care and repair guidance, and recycling information. This is the data that builds trust and meets EU ESPR 2024 requirements.
               </p>
             </div>
             <div className="product-privacy-block">
-              <h3 className="product-privacy-block__heading">What stays private and protected</h3>
+              <h3 className="product-privacy-block__heading">Supplier Confidentiality</h3>
+              <p className="product-privacy-block__subheading">What stays private and protected</p>
               <p className="product-privacy-block__body">
                 Your sensitive commercial data is never automatically exposed. Supplier identities, factory locations, pricing, contracts, and proprietary sourcing details remain confidential — stored securely, encrypted, and shared only with the specific participants who are authorised to see them. The public QR code never reveals them.
               </p>
@@ -257,6 +263,41 @@ export function ProductPage() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
+          </div>
+
+          <div className="product-privacy-faq" id="data-privacy-faq">
+            <h3 className="product-privacy-faq__title">Frequently Asked Questions — Data Privacy</h3>
+            <div className="product-privacy-faq__accordion">
+              {PRODUCT_PRIVACY_FAQS.map(({ q, a }, index) => {
+                const isOpen = openPrivacyFaq === index;
+                const panelId = `privacy-faq-panel-${index}`;
+                const triggerId = `privacy-faq-trigger-${index}`;
+                return (
+                  <div key={q} className={`product-privacy-faq__row${isOpen ? ' is-open' : ''}`}>
+                    <button
+                      type="button"
+                      id={triggerId}
+                      className="product-privacy-faq__trigger"
+                      onClick={() => setOpenPrivacyFaq(isOpen ? null : index)}
+                      aria-expanded={isOpen}
+                      aria-controls={panelId}
+                    >
+                      <span className="product-privacy-faq__question">Q. {q}</span>
+                      <span className="product-privacy-faq__chevron" aria-hidden="true" />
+                    </button>
+                    <div
+                      id={panelId}
+                      className={`product-privacy-faq__panel${isOpen ? ' is-open' : ''}`}
+                      role="region"
+                      aria-labelledby={triggerId}
+                      hidden={!isOpen}
+                    >
+                      <p className="product-privacy-faq__answer">A. {a}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>

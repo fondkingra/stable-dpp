@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
+import { Icon } from '../utils/icons';
 import { pageH1OnDark, pageH2OnLight, pageH2OnDark, heroEyebrow, heroLead } from '../styles/typography';
 
 const solutions = [
@@ -62,6 +63,63 @@ const solutions = [
       'Green Claims compliance',
       'Multi-brand dashboards',
     ],
+  },
+];
+
+const valuePropositions = [
+  {
+    heading: 'Enhanced Market Access — Through Compliance to EU ESPR',
+    body: 'Since the sale of batteries / textile products in the EU will be mandatory since 2027, non-compliance to DPP embedded products would effectively deny you market access to the EU countries. Compliance to DPP embedded products would help in gaining market access. Act now and gain first mover advantage by adopting StableDPP, a blockchain based Solution for DPPs.',
+    accent: '#1ac8b0',
+    border: '#a7f3d0',
+  },
+  {
+    heading: 'Regulatory Leadership — EU ESPR 2024 & Beyond',
+    body: 'Achieve effortless compliance with EU ESPR 2024 — the Ecodesign for Sustainable Products Regulation (EU) 2024/1781 — and the upcoming delegated acts: batteries in 2027, followed by textiles and electronics. Stay ahead of the phased rollout running through 2030 with a Digital Product Passport platform that evolves as the regulations do.',
+    accent: '#2563eb',
+    border: '#bfdbfe',
+  },
+  {
+    heading: 'Sustainability Impact — Circular Economy in Action',
+    body: 'Accelerate the circular economy for fashion. StableDPP helps brands boost recycling rates, extend product lifecycles, and measurably reduce carbon footprints — turning sustainability from a reporting burden into a verifiable, blockchain-backed outcome buyers can trust.',
+    accent: '#16a34a',
+    border: '#bbf7d0',
+  },
+];
+
+const services = [
+  {
+    icon: 'clipboard' as const,
+    iconColor: '#1ac8b0',
+    iconBg: 'rgba(26,200,176,0.1)',
+    border: '#a7f3d0',
+    title: 'Consulting',
+    body: 'ESPR readiness assessment, strategy, and a clear roadmap to Digital Product Passport compliance.',
+  },
+  {
+    icon: 'factory' as const,
+    iconColor: '#2563eb',
+    iconBg: 'rgba(59,130,246,0.1)',
+    border: '#bfdbfe',
+    title: 'Implementation',
+    body: 'Hands-on setup, system integration, and onboarding of your products. We support both on-prem DPP implementation and cloud based DPP implementation.',
+  
+  },
+  {
+    icon: 'link' as const,
+    iconColor: '#7c3aed',
+    iconBg: 'rgba(147,51,234,0.1)',
+    border: '#d8b4fe',
+    title: 'BaaS Hosting',
+    body: 'Fully managed Blockchain-as-a-Service, so you deploy DPPs without building infrastructure from scratch.',
+  },
+  {
+    icon: 'check-circle' as const,
+    iconColor: '#16a34a',
+    iconBg: 'rgba(34,197,94,0.1)',
+    border: '#bbf7d0',
+    title: 'Ongoing Support',
+    body: 'Continuous guidance and updates as EU ESPR regulations and your needs evolve.',
   },
 ];
 
@@ -150,6 +208,68 @@ export function SolutionsPage() {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      {/* Value Propositions */}
+      <section id="value-propositions" className="solutions-value-section">
+        <div className="solutions-value-container">
+          <header className="solutions-value-header">
+            <div className="section-eyebrow">VALUE PROPOSITIONS</div>
+          </header>
+          <div className="solutions-value-grid">
+            {valuePropositions.map(({ heading, body, accent, border }) => (
+              <article
+                key={heading}
+                className="solutions-value-card"
+                style={{ borderColor: border }}
+              >
+                <div className="solutions-value-card__accent" style={{ background: accent }} aria-hidden="true" />
+                <h2 className="solutions-value-card__title">{heading}</h2>
+                <p className="solutions-value-card__body">{body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Services */}
+      <section id="services" className="solutions-services-section" aria-label="Our Services">
+        <div className="solutions-services-container">
+          <header className="solutions-services-header">
+            <div className="section-eyebrow">Our Services</div>
+            <h2 className="product-features-heading">More Than a Platform — Your End-to-End Digital Product Passport Partner.</h2>
+            <p className="product-features-subheading">
+              StableDPP provides complete, end-to-end services across Blockchain, AI, Digital Product Passports, and EU ESPR compliance. From first consultation to long-term implementation and maintenance of DPP projects, we support fashion brands and textile manufacturers &amp; exporters at every stage:
+            </p>
+          </header>
+
+          <div className="solutions-services-grid">
+            {services.map(({ icon, iconColor, iconBg, border, title, body, subItems }) => (
+              <article
+                key={title}
+                className="solutions-service-card"
+                style={{ borderColor: border }}
+              >
+                <div className="solutions-service-card__icon" style={{ background: iconBg }}>
+                  <Icon name={icon} className="" style={{ width: '24px', height: '24px', color: iconColor, strokeWidth: 1.6 }} />
+                </div>
+                <h3 className="solutions-service-card__title">{title}</h3>
+                <p className="solutions-service-card__body">{body}</p>
+                {subItems && (
+                  <ul className="solutions-service-card__sublist">
+                    {subItems.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                )}
+              </article>
+            ))}
+          </div>
+
+          <p className="solutions-services-footer">
+            Whether you need a guiding hand or a fully managed solution, our team takes you from where you are to fully ESPR-ready.
+          </p>
         </div>
       </section>
 

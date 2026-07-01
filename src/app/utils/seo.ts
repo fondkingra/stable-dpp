@@ -35,13 +35,13 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   solutions: {
     title: "DPP Solutions | Brands, Manufacturers & Retailers | StableDPP",
     description:
-      "Tailored Digital Product Passport solutions for fashion brands, textile manufacturers, and retailers. EU ESPR 2024 and GS1 Digital Link compliant.",
+      "EU ESPR compliance, market access, and end-to-end Digital Product Passport services for fashion brands and textile manufacturers. Consulting, implementation, BaaS hosting, and ongoing support.",
     keywords:
-      "DPP solutions fashion brands, textile manufacturer DPP, retail DPP compliance, EU ESPR supply chain, Green Claims Directive",
+      "DPP solutions fashion brands, EU ESPR compliance, market access EU, circular economy fashion, DPP consulting, blockchain-as-a-service, textile manufacturer DPP",
     canonical: "https://stabledpp.com/solutions",
     ogTitle: "DPP Solutions | Brands, Manufacturers & Retailers | StableDPP",
     ogDescription:
-      "Tailored Digital Product Passport solutions for fashion brands, textile manufacturers, and retailers. EU ESPR 2024 and GS1 Digital Link compliant.",
+      "EU ESPR compliance, market access, and end-to-end Digital Product Passport services for fashion brands and textile manufacturers. Consulting, implementation, BaaS hosting, and ongoing support.",
   },
   resources: {
     title:
@@ -121,6 +121,39 @@ export const PRODUCT_PAGE_SCHEMA = {
     priceCurrency: "EUR",
     availability: "https://schema.org/InStock",
   },
+};
+
+export const PRODUCT_PRIVACY_FAQS = [
+  {
+    q: "Will all our supplier data be visible to the public through the QR code?",
+    a: "No. The public QR code shows only the information you choose to publish — such as materials and sustainability data. Supplier identities, pricing, and sourcing details stay private and are never automatically exposed.",
+  },
+  {
+    q: "How does StableDPP protect supplier confidentiality?",
+    a: "Through Private Data Collections and role-based access, suppliers share only what compliance requires. Their commercially sensitive data stays hidden from the public, competitors, and other participants on the network.",
+  },
+  {
+    q: "Is StableDPP GDPR-compliant?",
+    a: "Yes. StableDPP is GDPR-compliant, with data encrypted in transit and at rest, and strict access controls over who can view each part of a Digital Product Passport.",
+  },
+  {
+    q: "Who decides what information becomes public?",
+    a: "You do. Nothing is published to the public passport unless you explicitly choose to share it. You control the line between public transparency and private, confidential data at all times.",
+  },
+] as const;
+
+export const PRODUCT_PRIVACY_FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://stabledpp.com/product#data-privacy-faq",
+  mainEntity: PRODUCT_PRIVACY_FAQS.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: a,
+    },
+  })),
 };
 
 export const COMPANY_PAGE_SCHEMA = {
@@ -213,7 +246,7 @@ export const SOLUTIONS_PAGE_SCHEMA = {
   "@type": "Service",
   name: "StableDPP Digital Product Passport Solutions",
   description:
-    "Tailored Digital Product Passport solutions for fashion brands, textile manufacturers, and retailers. EU ESPR 2024 and GS1 Digital Link compliant.",
+    "EU ESPR compliance, market access, and end-to-end Digital Product Passport services for fashion brands and textile manufacturers. Consulting, implementation, BaaS hosting, and ongoing support.",
   provider: {
     "@type": "Organization",
     name: "StableDPP",

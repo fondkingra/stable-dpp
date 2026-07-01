@@ -60,6 +60,86 @@ const features = [
   },
 ];
 
+const capabilities = [
+  {
+    icon: 'shield-check' as const,
+    iconColor: '#1ac8b0',
+    accentBg: 'rgba(26,200,176,0.1)',
+    heading: 'Secure Blockchain-Based Application',
+    body: 'StableDPP is a secure, blockchain-based Digital Product Passport platform built on permissioned blockchain infrastructure. Every passport and transaction is cryptographically protected end-to-end, giving fashion and textile brands enterprise-grade security at the core.',
+  },
+  {
+    icon: 'link' as const,
+    iconColor: '#2563eb',
+    accentBg: 'rgba(59,130,246,0.1)',
+    heading: 'Immutable Lifecycle Tracking',
+    body: 'Capture every event in a product\'s life — manufacture, certification, sale, repair, resale, and recycling — as a permanent, tamper-proof record on the blockchain. Once written, lifecycle data cannot be edited or deleted, giving every Digital Product Passport a trustworthy, immutable history.',
+  },
+  {
+    icon: 'lock' as const,
+    iconColor: '#db2777',
+    accentBg: 'rgba(236,72,153,0.1)',
+    heading: 'Role-Based Access Control',
+    body: 'Control exactly who can see and edit each Digital Product Passport. Granular, role-based permissions let brands, suppliers, auditors, and regulators access only the data relevant to them — keeping commercially sensitive supply-chain information protected.',
+  },
+  {
+    icon: 'factory' as const,
+    iconColor: '#7c3aed',
+    accentBg: 'rgba(147,51,234,0.1)',
+    heading: 'Smart Contract Configuration & Automation',
+    body: 'Automate compliance and lifecycle rules with configurable smart contracts. Trigger validations and updates across every Digital Product Passport automatically — reducing manual work and enforcing EU ESPR rules consistently at scale.',
+  },
+  {
+    icon: 'package' as const,
+    iconColor: '#d97706',
+    accentBg: 'rgba(245,158,11,0.1)',
+    heading: 'RWA Tokenization Integration',
+    body: 'Represent physical fashion products, batches of products, materials, or assets as digital tokens on the blockchain. Real-World Asset (RWA) tokenization turns each Digital Product Passport into a programmable asset — unlocking potential fractional ownership, liquidity, and new circular-economy business models.',
+  },
+  {
+    icon: 'globe' as const,
+    iconColor: '#16a34a',
+    accentBg: 'rgba(34,197,94,0.1)',
+    heading: 'Seamless Interoperability',
+    body: 'Aligned with GS1 Digital Link and global standards, StableDPP Digital Product Passports work across systems, platforms, and borders. Your passports are recognised everywhere EU buyers, retailers, and regulators expect them. The data stored on StableDPP\'s blockchain can be shared bidirectionally to other such systems through access controlled APIs for interoperability.',
+  },
+  {
+    icon: 'shield-check' as const,
+    iconColor: '#0d9488',
+    accentBg: 'rgba(13,148,136,0.1)',
+    heading: 'Privacy-First, GDPR-Compliant Design',
+    body: 'Privacy is built into every Digital Product Passport. Fully GDPR-compliant, StableDPP encrypts data at rest and in transit, while Private Data Collections let chosen participants share confidential supply-chain data among themselves and keep it hidden from everyone else on the network. The StableDPP system allows configuring of access control permissions at various levels and to various roles.',
+  },
+  {
+    icon: 'chart-line' as const,
+    iconColor: '#ea580c',
+    accentBg: 'rgba(234,88,12,0.1)',
+    heading: 'Analytics & Sustainability Insights',
+    body: 'Turn Digital Product Passport data into intelligence. Track carbon footprint, recycled content, certifications, and ESPR compliance status across your fashion catalogue — and export audit-ready sustainability reports for regulators, retail partners, and stakeholders. The data is based on UNTP\'s data model for Digital Product Passport.',
+  },
+  {
+    icon: 'building' as const,
+    iconColor: '#4f46e5',
+    accentBg: 'rgba(79,70,229,0.1)',
+    heading: 'Private Data Collections',
+    body: 'StableDPP\'s high-performance blockchain lets a subset of participants share confidential data among themselves while keeping it hidden from others on the network — ideal for commercially sensitive Digital Product Passport information across a fashion supply chain.',
+  },
+  {
+    icon: 'scale' as const,
+    iconColor: '#0891b2',
+    accentBg: 'rgba(8,145,178,0.1)',
+    heading: 'Data Privacy by Design',
+    body: 'Data privacy is a founding principle of StableDPP, not an afterthought. Every Digital Product Passport separates public information from private records: only the data a brand chooses to share is ever made visible, while everything else stays encrypted and access-controlled. You decide exactly what the world sees through the QR code — and what stays private.',
+  },
+  {
+    icon: 'check-circle' as const,
+    iconColor: '#16a34a',
+    accentBg: 'rgba(34,197,94,0.1)',
+    heading: 'Supplier Confidentiality Protected',
+    body: 'StableDPP safeguards supplier confidentiality at every step. Sensitive supplier identities, pricing, and sourcing details are never automatically published to the public passport. Through Private Data Collections and role-based access, suppliers share only what is required for compliance — and their commercially sensitive data remains hidden from competitors, the public, and even other participants on the network.',
+  },
+];
+
 export function ProductPage() {
   const navigate = useNavigate();
 
@@ -110,6 +190,29 @@ export function ProductPage() {
                 <p className="product-feature-card__body">{body}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Platform Capabilities */}
+      <section id="capabilities" className="product-capabilities-section">
+        <div className="product-capabilities-intro">
+          <h2 className="product-capabilities-heading">Digital Product Passport Platform Capabilities</h2>
+        </div>
+        <div className="product-capabilities-body">
+          <div className="product-capabilities-panel">
+            <div className="product-capabilities-grid">
+              {capabilities.map(({ icon, iconColor, accentBg, heading, body }) => (
+                <article key={heading} className="product-capability-card">
+                  <div className="product-capability-card__blob" style={{ background: accentBg }} aria-hidden="true" />
+                  <div className="product-capability-card__icon" style={{ background: accentBg }}>
+                    <Icon name={icon} className="" style={{ width: '24px', height: '24px', color: iconColor, strokeWidth: 1.6 }} />
+                  </div>
+                  <h3 className="product-capability-card__title">{heading}</h3>
+                  <p className="product-capability-card__body">{body}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>

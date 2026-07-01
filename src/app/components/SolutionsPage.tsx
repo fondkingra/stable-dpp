@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
-import { Icon } from '../utils/icons';
+import { Icon, type IconName } from '../utils/icons';
 import { pageH1OnDark, pageH2OnLight, pageH2OnDark, heroEyebrow, heroLead } from '../styles/typography';
 
 const solutions = [
@@ -87,9 +87,19 @@ const valuePropositions = [
   },
 ];
 
-const services = [
+type ServiceOffering = {
+  icon: IconName;
+  iconColor: string;
+  iconBg: string;
+  border: string;
+  title: string;
+  body: string;
+  subItems?: string[];
+};
+
+const services: ServiceOffering[] = [
   {
-    icon: 'clipboard' as const,
+    icon: 'clipboard',
     iconColor: '#1ac8b0',
     iconBg: 'rgba(26,200,176,0.1)',
     border: '#a7f3d0',
@@ -97,16 +107,18 @@ const services = [
     body: 'ESPR readiness assessment, strategy, and a clear roadmap to Digital Product Passport compliance.',
   },
   {
-    icon: 'factory' as const,
+    icon: 'factory',
     iconColor: '#2563eb',
     iconBg: 'rgba(59,130,246,0.1)',
     border: '#bfdbfe',
     title: 'Implementation',
     body: 'Hands-on setup, system integration, and onboarding of your products. We support both on-prem DPP implementation and cloud based DPP implementation.',
-  
+    subItems: [
+      'Integration with your existing systems for data interchange needed for DPP implementation.',
+    ],
   },
   {
-    icon: 'link' as const,
+    icon: 'link',
     iconColor: '#7c3aed',
     iconBg: 'rgba(147,51,234,0.1)',
     border: '#d8b4fe',
@@ -114,7 +126,7 @@ const services = [
     body: 'Fully managed Blockchain-as-a-Service, so you deploy DPPs without building infrastructure from scratch.',
   },
   {
-    icon: 'check-circle' as const,
+    icon: 'check-circle',
     iconColor: '#16a34a',
     iconBg: 'rgba(34,197,94,0.1)',
     border: '#bbf7d0',

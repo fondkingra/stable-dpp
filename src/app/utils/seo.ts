@@ -45,12 +45,16 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   resources: {
     title:
-      "StableDPP Resources | EU ESPR Guides, DPP Explainers & Compliance Webinars for Fashion",
+      "Resources | EU Digital Product Passport & ESPR 2024 Glossary | StableDPP",
     description:
-      "Free guides, articles, and webinars on EU ESPR 2024, Digital Product Passports, and sustainable fashion supply chains. Everything fashion brands need to navigate DPP compliance in 2026.",
+      "Learn what the EU Digital Product Passport and ESPR 2024 mean for fashion. Clear explainers and a DPP & blockchain glossary with answers to the questions brands ask.",
     keywords:
-      "EU ESPR guide fashion DPP, Digital Product Passport explainer, ESPR compliance webinar, sustainable fashion guides, DPP implementation tutorial",
+      "what is a digital product passport, eu digital product passport, eu espr 2024, ecodesign for sustainable products regulation, digital product passport explained, espr explained, blockchain product passport, fashion product traceability",
     canonical: "https://stabledpp.com/resources",
+    ogTitle:
+      "Resources | EU Digital Product Passport & ESPR 2024 Glossary | StableDPP",
+    ogDescription:
+      "Learn what the EU Digital Product Passport and ESPR 2024 mean for fashion. Clear explainers and a DPP & blockchain glossary with answers to the questions brands ask.",
   },
   company: {
     title: "About StableDPP | Transparency and Trust in Fashion",
@@ -239,6 +243,93 @@ export const DEMO_PAGE_SCHEMA = {
       },
     },
   ],
+};
+
+export const RESOURCES_ESPR_EXPLAINER = [
+  {
+    q: "What is the EU Digital Product Passport (DPP)?",
+    a: "The EU Digital Product Passport (DPP) is a structured digital record that captures a product's full lifecycle — materials, origin, processes, transformations, certifications, repairability, and sustainability data — accessible through a single QR, NFC, or RFID scan. It is the EU's mechanism for enforcing supply-chain transparency, and it becomes mandatory for textiles and apparel sold in the EU.",
+  },
+  {
+    q: "What is EU ESPR 2024?",
+    a: "EU ESPR 2024 — the Ecodesign for Sustainable Products Regulation, Regulation (EU) 2024/1781 — has been in effect since July 2024. It establishes the legal framework for Digital Product Passports and sets ecodesign requirements that promote sustainable products and circular-economy practices across the EU. The rules roll out in phases: batteries from 2027, followed by textiles, electronics, and further categories through 2030.",
+  },
+] as const;
+
+export const RESOURCES_GLOSSARY = [
+  {
+    q: "What is EU ESPR 2024?",
+    a: "EU ESPR 2024 is the Ecodesign for Sustainable Products Regulation — Regulation (EU) 2024/1781 — effective since July 2024. It establishes the framework for Digital Product Passports and sets ecodesign requirements that promote sustainable products and circular-economy practices across the EU.",
+  },
+  {
+    q: "What is a Digital Product Passport (DPP)?",
+    a: "A Digital Product Passport is a structured digital record capturing a product's full lifecycle — materials, origin, certifications, repairability, and sustainability data — accessible through a single QR, NFC, or RFID scan.",
+  },
+  {
+    q: "What is RWA Tokenization?",
+    a: "RWA (Real-World Asset) tokenization is the process of representing physical or traditional financial assets — such as products, invoices, materials, or carbon credits — as digital tokens on a blockchain. It enables fractional ownership, liquidity, and programmability.",
+  },
+  {
+    q: "What is an NFT?",
+    a: "An NFT (Non-Fungible Token) is a unique digital token representing ownership or proof of a specific asset. In Digital Product Passport contexts, an NFT is often used as a 'digital twin' for an individual product.",
+  },
+  {
+    q: "What is a Soulbound Token?",
+    a: "A Soulbound Token is a non-transferable NFT tied to a specific identity or product. It is ideal for immutable Digital Product Passport records that should not be sold or transferred separately from the asset itself.",
+  },
+  {
+    q: "What is a Digital Twin?",
+    a: "A Digital Twin is a virtual representation of a physical product that mirrors its real-world characteristics, lifecycle events, and data in real time.",
+  },
+  {
+    q: "What is Data Provenance?",
+    a: "Data provenance is the verifiable record of the origin, history, and custody of a product or material throughout its supply chain. Blockchain provides immutable provenance that cannot be altered.",
+  },
+  {
+    q: "What is Traceability?",
+    a: "Traceability is the ability to track a product's journey from raw materials to end user, including all transformations and movements along the way. It is critical for EU compliance and fraud prevention.",
+  },
+  {
+    q: "What is BaaS (Blockchain-as-a-Service)?",
+    a: "BaaS (Blockchain-as-a-Service) refers to cloud-based services that let enterprises deploy and manage blockchain networks without building the infrastructure from scratch.",
+  },
+  {
+    q: "What are Private Data Collections?",
+    a: "Private Data Collections are a blockchain capability that allows a subset of participants to share confidential data among themselves while keeping it hidden from others on the same network.",
+  },
+] as const;
+
+const RESOURCES_ALL_FAQS = [
+  ...RESOURCES_ESPR_EXPLAINER,
+  ...RESOURCES_GLOSSARY,
+];
+
+export const RESOURCES_FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://stabledpp.com/resources#faq",
+  mainEntity: RESOURCES_ALL_FAQS.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: a,
+    },
+  })),
+};
+
+export const RESOURCES_DEFINED_TERM_SET_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://stabledpp.com/resources#glossary",
+  name: "DPP & Blockchain Glossary",
+  description:
+    "Clear answers to the key questions behind Digital Product Passports, blockchain, and EU sustainability regulation.",
+  hasDefinedTerm: RESOURCES_GLOSSARY.map(({ q, a }) => ({
+    "@type": "DefinedTerm",
+    name: q,
+    description: a,
+  })),
 };
 
 export const SOLUTIONS_PAGE_SCHEMA = {

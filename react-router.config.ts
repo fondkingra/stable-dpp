@@ -4,6 +4,7 @@ const SEO_ROUTES = [
   "/",
   "/product",
   "/solutions",
+  "/resources",
   "/company",
   "/book-a-demo",
   "/get-started",

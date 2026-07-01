@@ -772,6 +772,169 @@
   }
 }
 
+/* Resources page */
+.resources-intro-section {
+  padding: 80px 24px;
+  background: #fff;
+}
+
+.resources-intro-container {
+  max-width: 780px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 28px;
+}
+
+.resources-intro-accent {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 4px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #1ac8b0 0%, #0a1f3c 100%);
+}
+
+.resources-intro-body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #475569;
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.resources-explainer-section {
+  padding: 80px 24px;
+  background: #fafaf8;
+  border-top: 1px solid #e8edf2;
+}
+
+.resources-explainer-container,
+.resources-glossary-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.resources-explainer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .resources-explainer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.resources-explainer-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 24px rgba(10, 31, 60, 0.04);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resources-explainer-card:hover {
+  border-color: rgba(26, 200, 176, 0.35);
+  box-shadow: 0 8px 32px rgba(26, 200, 176, 0.08);
+}
+
+.resources-explainer-card__title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: #0a1f3c;
+  margin: 0 0 16px;
+}
+
+.resources-explainer-card__body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #475569;
+  margin: 0;
+}
+
+.resources-glossary-section {
+  padding: 80px 24px 96px;
+  background: #fff;
+  border-top: 1px solid #e8edf2;
+}
+
+.resources-glossary__accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.resources-glossary__row {
+  background: #f8fafc;
+  border: 1px solid #e8edf2;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.resources-glossary__row.is-open {
+  border-color: rgba(26, 200, 176, 0.4);
+  background: #f4fbfb;
+}
+
+.resources-glossary__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+.resources-glossary__question {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #0a1f3c;
+  margin: 0;
+}
+
+.resources-glossary__chevron {
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid #64748b;
+  border-bottom: 2px solid #64748b;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+  margin-top: -3px;
+}
+
+.resources-glossary__row.is-open .resources-glossary__chevron {
+  transform: rotate(-135deg);
+  margin-top: 3px;
+}
+
+.resources-glossary__panel {
+  padding: 0 22px 20px;
+}
+
+.resources-glossary__answer {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #475569;
+  margin: 0;
+}
+
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {

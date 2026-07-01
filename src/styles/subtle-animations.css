@@ -319,6 +319,103 @@
   flex: 1;
 }
 
+/* Data privacy & supplier confidentiality */
+.product-privacy-section {
+  padding: 96px 24px;
+  background: #fafaf8;
+  border-top: 1px solid #ede8e3;
+}
+
+.product-privacy-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.product-privacy-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.product-privacy-header .product-features-heading {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-privacy-header .product-features-subheading {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-privacy-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .product-privacy-columns {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .product-privacy-block:first-child {
+    padding-right: 40px;
+    border-right: 1px solid #e2e8f0;
+  }
+
+  .product-privacy-block:last-child {
+    padding-left: 40px;
+  }
+}
+
+.product-privacy-block__heading {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: #0a1f3c;
+  margin: 0 0 14px;
+  padding-left: 16px;
+  border-left: 3px solid #1ac8b0;
+}
+
+.product-privacy-block__body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.product-privacy-safeguards {
+  padding-top: 48px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.product-privacy-list {
+  list-style: disc;
+  margin: 16px 0 0;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 14px;
+}
+
+.product-privacy-list li {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.75;
+  padding-left: 4px;
+}
+
+.product-privacy-list li::marker {
+  color: #1ac8b0;
+}
+
 .solutions-compliance-table {
   width: 100%;
   border-collapse: collapse;

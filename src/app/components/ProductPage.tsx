@@ -140,6 +140,13 @@ const capabilities = [
   },
 ];
 
+const privacySafeguards = [
+  'Private Data Collections — confidential data is shared only among chosen participants and hidden from everyone else on the network, including the public.',
+  'Role-Based Access Control — brands, suppliers, auditors, and regulators each see only the data relevant to them, and nothing more.',
+  'You control publication — nothing becomes public unless you explicitly choose to publish it. Compliance data can be verified by regulators privately, without being shown to the world.',
+  'GDPR-compliant and encrypted — all data is encrypted in transit and at rest, in line with GDPR and best-practice data privacy.',
+];
+
 export function ProductPage() {
   const navigate = useNavigate();
 
@@ -213,6 +220,43 @@ export function ProductPage() {
                 </article>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Data Privacy & Supplier Confidentiality */}
+      <section id="data-privacy" className="product-privacy-section">
+        <div className="product-privacy-content">
+          <header className="product-privacy-header">
+            <div className="section-eyebrow">DATA PRIVACY &amp; SUPPLIER CONFIDENTIALITY</div>
+            <h2 className="product-features-heading">Your Data Stays Yours — Public Transparency, Private Protection</h2>
+            <p className="product-features-subheading">
+              A Digital Product Passport is built to prove what matters to customers and regulators — without exposing the confidential information that runs your business. StableDPP draws a clear line between what is shared publicly and what stays private, and you control exactly where that line sits.
+            </p>
+          </header>
+
+          <div className="product-privacy-columns">
+            <div className="product-privacy-block">
+              <h3 className="product-privacy-block__heading">What the public sees through the QR code</h3>
+              <p className="product-privacy-block__body">
+                When a customer or retailer scans the QR code, they see only the information you have chosen to publish — typically the product&apos;s material composition, events of manufacturing and supply chain, sustainability credentials, certifications, care and repair guidance, and recycling information. This is the data that builds trust and meets EU ESPR 2024 requirements.
+              </p>
+            </div>
+            <div className="product-privacy-block">
+              <h3 className="product-privacy-block__heading">What stays private and protected</h3>
+              <p className="product-privacy-block__body">
+                Your sensitive commercial data is never automatically exposed. Supplier identities, factory locations, pricing, contracts, and proprietary sourcing details remain confidential — stored securely, encrypted, and shared only with the specific participants who are authorised to see them. The public QR code never reveals them.
+              </p>
+            </div>
+          </div>
+
+          <div className="product-privacy-safeguards">
+            <h3 className="product-privacy-block__heading">How StableDPP keeps it that way</h3>
+            <ul className="product-privacy-list">
+              {privacySafeguards.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

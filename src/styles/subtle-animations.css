@@ -439,23 +439,6 @@
   color: #1ac8b0;
 }
 
-.product-privacy-faq {
-  padding-top: 56px;
-  margin-top: 48px;
-  border-top: 1px solid #e2e8f0;
-}
-
-.product-privacy-faq__title {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: clamp(24px, 3vw, 32px);
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: #0a1f3c;
-  text-align: center;
-  margin: 0 0 32px;
-}
-
 .product-privacy-faq__accordion {
   display: flex;
   flex-direction: column;
@@ -466,6 +449,8 @@
   background: #f1f1f1;
   border-radius: 12px;
   overflow: hidden;
+  border: 1px solid transparent;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .product-privacy-faq__trigger {
@@ -770,6 +755,95 @@
   .solutions-compliance-table tbody td {
     padding-top: 8px;
   }
+}
+
+/* Page FAQ sections */
+.page-faq-section {
+  padding: 80px 24px;
+  background: #fff;
+  border-top: 1px solid #e8edf2;
+}
+
+.page-faq-section--embedded {
+  padding: 56px 0 0;
+  margin-top: 48px;
+  border-top: 1px solid #e2e8f0;
+  background: transparent;
+}
+
+.page-faq-section--embedded.page-faq-section--platform {
+  margin-top: 56px;
+  padding-top: 0;
+  border-top: none;
+}
+
+.page-faq-section--platform {
+  background: #fafaf8;
+}
+
+.page-faq-container {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.page-faq-container--embedded {
+  max-width: 100%;
+}
+
+.page-faq-header--embedded {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.page-faq-title--embedded {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(22px, 2.8vw, 28px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #0a1f3c;
+  margin: 0;
+}
+
+.page-faq__question {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #0a1f3c;
+  margin: 0;
+  text-align: left;
+}
+
+/* Privacy tone — nested in editorial section, indigo accent */
+.page-faq-accordion--privacy .product-privacy-faq__row {
+  background: #f4f6f8;
+  border-color: #e8edf2;
+}
+
+.page-faq-accordion--privacy .product-privacy-faq__row.is-open {
+  background: #f5f3ff;
+  border-color: #c7d2fe;
+}
+
+.page-faq-accordion--privacy .product-privacy-faq__row.is-open .product-privacy-faq__chevron {
+  border-color: #6366f1;
+}
+
+/* Platform tone — standalone section, teal accent */
+.page-faq-accordion--platform .product-privacy-faq__row {
+  background: #fff;
+  border-color: #e2e8f0;
+  box-shadow: 0 1px 4px rgba(10, 31, 60, 0.04);
+}
+
+.page-faq-accordion--platform .product-privacy-faq__row.is-open {
+  background: #f0fdfa;
+  border-color: #99f6e4;
+}
+
+.page-faq-accordion--platform .product-privacy-faq__row.is-open .product-privacy-faq__chevron {
+  border-color: #1ac8b0;
 }
 
 /* Resources page */

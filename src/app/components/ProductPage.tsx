@@ -1,8 +1,8 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
 import { Icon } from '../utils/icons';
-import { PRODUCT_PRIVACY_FAQS } from '../utils/seo';
+import { PRODUCT_PRIVACY_FAQS, PRODUCT_PAGE_FAQS } from '../utils/seo';
+import { PageFAQ } from './PageFAQ';
 import { pageH1OnDark, pageH2OnDark, heroEyebrow, heroLead } from '../styles/typography';
 
 const features = [
@@ -151,7 +151,6 @@ const privacySafeguards = [
 
 export function ProductPage() {
   const navigate = useNavigate();
-  const [openPrivacyFaq, setOpenPrivacyFaq] = useState<number | null>(0);
 
   return (
     <div style={{ minHeight: '100vh', background: '#fafaf8', fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}>
@@ -265,40 +264,23 @@ export function ProductPage() {
             </ul>
           </div>
 
-          <div className="product-privacy-faq" id="data-privacy-faq">
-            <h3 className="product-privacy-faq__title">Frequently Asked Questions — Data Privacy</h3>
-            <div className="product-privacy-faq__accordion">
-              {PRODUCT_PRIVACY_FAQS.map(({ q, a }, index) => {
-                const isOpen = openPrivacyFaq === index;
-                const panelId = `privacy-faq-panel-${index}`;
-                const triggerId = `privacy-faq-trigger-${index}`;
-                return (
-                  <div key={q} className={`product-privacy-faq__row${isOpen ? ' is-open' : ''}`}>
-                    <button
-                      type="button"
-                      id={triggerId}
-                      className="product-privacy-faq__trigger"
-                      onClick={() => setOpenPrivacyFaq(isOpen ? null : index)}
-                      aria-expanded={isOpen}
-                      aria-controls={panelId}
-                    >
-                      <span className="product-privacy-faq__question">Q. {q}</span>
-                      <span className="product-privacy-faq__chevron" aria-hidden="true" />
-                    </button>
-                    <div
-                      id={panelId}
-                      className={`product-privacy-faq__panel${isOpen ? ' is-open' : ''}`}
-                      role="region"
-                      aria-labelledby={triggerId}
-                      hidden={!isOpen}
-                    >
-                      <p className="product-privacy-faq__answer">A. {a}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          <PageFAQ
+            embedded
+            id="data-privacy-faq"
+            tone="privacy"
+            title="Data Privacy FAQ"
+            faqs={PRODUCT_PRIVACY_FAQS}
+            defaultOpen={0}
+            showQaPrefix
+          />
+
+          <PageFAQ
+            embedded
+            id="faq"
+            faqs={PRODUCT_PAGE_FAQS}
+            tone="platform"
+            title="Frequently Asked Questions about the StableDPP Platform"
+          />
         </div>
       </section>
 

@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
+import { PageFAQ } from './PageFAQ';
 import { Icon, type IconName } from '../utils/icons';
+import { SOLUTIONS_PAGE_FAQS } from '../utils/seo';
 import { pageH1OnDark, pageH2OnLight, pageH2OnDark, heroEyebrow, heroLead } from '../styles/typography';
 
 const solutions = [
@@ -113,9 +115,6 @@ const services: ServiceOffering[] = [
     border: '#bfdbfe',
     title: 'Implementation',
     body: 'Hands-on setup, system integration, and onboarding of your products. We support both on-prem DPP implementation and cloud based DPP implementation.',
-    subItems: [
-      'Integration with your existing systems for data interchange needed for DPP implementation.',
-    ],
   },
   {
     icon: 'link',
@@ -318,6 +317,8 @@ export function SolutionsPage() {
           </div>
         </div>
       </section>
+
+      <PageFAQ id="faq" faqs={SOLUTIONS_PAGE_FAQS} />
 
       {/* CTA */}
       <section style={{ background: '#0a1f3c', padding: '72px 24px', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.08)' }}>

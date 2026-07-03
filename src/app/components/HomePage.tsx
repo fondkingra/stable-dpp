@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router';
 import { ArrowRight, Check, Shield } from 'lucide-react';
 import { SharedNav, SharedFooter } from './SharedNav';
+import { PageFAQ } from './PageFAQ';
 import { Icon } from '../utils/icons';
 import { APP_CONFIG, STATS } from '../constants';
+import { HOME_PAGE_FAQS } from '../utils/seo';
 import { pageH1OnDark, pageH2OnLight, pageH2OnDark, cardH3, cardBody, heroLead, heroSubtitle, passportCardBrand, passportCardTitle, passportCardMeta, passportCardTag, passportCardBadge, passportCardMonoMuted, passportCardMonoAccent } from '../styles/typography';
 
 export function HomePage() {
@@ -186,6 +188,8 @@ export function HomePage() {
           </div>
         </div>
       </section>
+
+      <PageFAQ id="faq" faqs={HOME_PAGE_FAQS} />
 
       {/* Footer CTA Banner */}
       <section style={{ background: '#0a1f3c', padding: '80px 24px', textAlign: 'center' }}>

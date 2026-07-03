@@ -160,6 +160,173 @@ export const PRODUCT_PRIVACY_FAQ_SCHEMA = {
   })),
 };
 
+export function buildFaqSchema(
+  id: string,
+  faqs: readonly { q: string; a: string }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": id,
+    mainEntity: faqs.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: a,
+      },
+    })),
+  };
+}
+
+export const HOME_PAGE_FAQS = [
+  {
+    q: "What is a Digital Product Passport?",
+    a: "A Digital Product Passport is a verifiable digital record of a product's materials, origin, certifications, and sustainability data, accessible by a single QR scan. It is required under EU ESPR 2024.",
+  },
+  {
+    q: "Do fashion brands need a Digital Product Passport?",
+    a: "Yes. Under EU ESPR 2024, fashion and textile products sold in the EU must carry a compliant Digital Product Passport, with requirements rolling out through 2027 and beyond.",
+  },
+  {
+    q: "Is StableDPP EU ESPR 2024 compliant?",
+    a: "Yes. StableDPP is built specifically for EU ESPR 2024 (Regulation EU 2024/1781). It auto-validates the required data fields and flags missing information before a passport is published.",
+  },
+  {
+    q: "Why does StableDPP use blockchain?",
+    a: "Blockchain makes every data point in a passport tamper-proof and independently verifiable. Regulators and buyers can trust the data as cryptographic proof, rather than relying on a brand's word alone.",
+  },
+  {
+    q: "How fast can we go live?",
+    a: "Your first Digital Product Passport can be live in minutes. There is no technical setup and no credit card needed to start.",
+  },
+] as const;
+
+export const HOME_PAGE_FAQ_SCHEMA = buildFaqSchema(
+  "https://stabledpp.com/#faq",
+  HOME_PAGE_FAQS,
+);
+
+export const PRODUCT_PAGE_FAQS = [
+  {
+    q: "What can the StableDPP platform do?",
+    a: "StableDPP lets you issue, manage, and verify blockchain-backed Digital Product Passports — with lifecycle tracking, an ESPR compliance engine, instant QR codes, role-based access, and a sustainability dashboard.",
+  },
+  {
+    q: "How does blockchain anchoring work?",
+    a: "When a passport is finalised, a cryptographic summary of its data is written to the blockchain. This timestamped record cannot be altered, making every claim independently verifiable.",
+  },
+  {
+    q: "Does StableDPP integrate with our existing systems?",
+    a: "Yes. StableDPP supports portal upload, CSV/bulk upload, and API, ERP, and PLM integration, so you can bring product data in whatever format you already use.",
+  },
+  {
+    q: "Is our data private and GDPR-compliant?",
+    a: "Yes. StableDPP is GDPR-compliant, with encryption in transit and at rest. Private Data Collections let you share confidential supply-chain data only with chosen participants.",
+  },
+  {
+    q: "Can we track a product's full lifecycle?",
+    a: "Yes. Immutable Lifecycle Tracking records every event — manufacture, certification, sale, repair, resale, and recycling — as a permanent, tamper-proof history on the blockchain.",
+  },
+] as const;
+
+export const PRODUCT_PAGE_FAQ_SCHEMA = buildFaqSchema(
+  "https://stabledpp.com/product#faq",
+  PRODUCT_PAGE_FAQS,
+);
+
+export const SOLUTIONS_PAGE_FAQS = [
+  {
+    q: "Who is StableDPP for?",
+    a: "StableDPP serves fashion brands, textile manufacturers, and retailers who need EU ESPR 2024 compliant Digital Product Passports and verifiable supply-chain transparency.",
+  },
+  {
+    q: "How does StableDPP help with ESPR compliance?",
+    a: "StableDPP's compliance engine maps to EU ESPR 2024 requirements, auto-validates the required data fields, flags gaps, and keeps your passports aligned as delegated acts roll out through 2030.",
+  },
+  {
+    q: "When is the ESPR deadline for textiles?",
+    a: "EU ESPR 2024 has been in force since July 2024. Digital Product Passport requirements roll out in phases — batteries from 2027, with textiles and other categories following through 2030.",
+  },
+  {
+    q: "Do you offer implementation services?",
+    a: "Yes. StableDPP provides end-to-end services — consulting, implementation, BaaS hosting, and ongoing support — to take you from ESPR readiness assessment to a fully managed solution.",
+  },
+  {
+    q: "What is BaaS hosting?",
+    a: "BaaS (Blockchain-as-a-Service) is fully managed blockchain hosting, so you can deploy and run Digital Product Passports without building or maintaining blockchain infrastructure yourself.",
+  },
+] as const;
+
+export const SOLUTIONS_PAGE_FAQ_SCHEMA = buildFaqSchema(
+  "https://stabledpp.com/solutions#faq",
+  SOLUTIONS_PAGE_FAQS,
+);
+
+export const RESOURCES_PAGE_FAQS = [
+  {
+    q: "What is the difference between ESPR and a DPP?",
+    a: "ESPR is the EU regulation (Regulation EU 2024/1781) that sets the rules; a Digital Product Passport (DPP) is the digital record that fulfils those rules by carrying a product's verified data.",
+  },
+  {
+    q: "Is EU ESPR mandatory?",
+    a: "Yes. EU ESPR 2024 is binding regulation. Products sold in the EU must meet its ecodesign and Digital Product Passport requirements as they phase in by product category through 2030.",
+  },
+  {
+    q: "Where should I start learning about Digital Product Passports?",
+    a: "Start with our DPP Glossary and EU ESPR 2024 guide on this page. They explain the key terms, the regulation, deadlines, and what fashion brands need to do to comply.",
+  },
+] as const;
+
+export const RESOURCES_PAGE_FAQ_SCHEMA = buildFaqSchema(
+  "https://stabledpp.com/resources#faq",
+  RESOURCES_PAGE_FAQS,
+);
+
+export const COMPANY_PAGE_FAQS = [
+  {
+    q: "Who founded StableDPP?",
+    a: "StableDPP was co-founded by Priya Hebbal and Sudhanva Bhandolkar, combining expertise in fashion supply-chain trust and blockchain infrastructure.",
+  },
+  {
+    q: "What is StableDPP's mission?",
+    a: "StableDPP's mission is to make every fashion product verifiably sustainable — replacing unverified claims with blockchain-backed proof that brands, buyers, and regulators can trust.",
+  },
+  {
+    q: "Is StableDPP a startup?",
+    a: "Yes. StableDPP is an early-stage technology company building blockchain-powered Digital Product Passport infrastructure for fashion and textile brands preparing for EU ESPR 2024.",
+  },
+] as const;
+
+export const COMPANY_PAGE_FAQ_SCHEMA = buildFaqSchema(
+  "https://stabledpp.com/company#faq",
+  COMPANY_PAGE_FAQS,
+);
+
+export const DEMO_PAGE_FAQS = [
+  {
+    q: "What happens in a StableDPP demo?",
+    a: "In a 30-minute demo we build a live Digital Product Passport for one of your products and walk you through an ESPR compliance roadmap tailored to your brand.",
+  },
+  {
+    q: "How long is the demo?",
+    a: "The demo takes about 30 minutes — enough to see a live passport created, ask questions, and understand your path to EU ESPR 2024 compliance.",
+  },
+  {
+    q: "Is the demo free?",
+    a: "Yes. The demo is completely free, with no credit card required and no obligation to continue.",
+  },
+  {
+    q: "Do I need to prepare anything for the demo?",
+    a: "No preparation is required. If you have a product's material details handy, we can build a more tailored passport, but it is not essential.",
+  },
+] as const;
+
+export const DEMO_PAGE_FAQ_SCHEMA = buildFaqSchema(
+  "https://stabledpp.com/book-a-demo#faq",
+  DEMO_PAGE_FAQS,
+);
+
 export const COMPANY_PAGE_SCHEMA = {
   "@context": "https://schema.org",
   "@graph": [
@@ -298,25 +465,6 @@ export const RESOURCES_GLOSSARY = [
     a: "Private Data Collections are a blockchain capability that allows a subset of participants to share confidential data among themselves while keeping it hidden from others on the same network.",
   },
 ] as const;
-
-const RESOURCES_ALL_FAQS = [
-  ...RESOURCES_ESPR_EXPLAINER,
-  ...RESOURCES_GLOSSARY,
-];
-
-export const RESOURCES_FAQ_SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "@id": "https://stabledpp.com/resources#faq",
-  mainEntity: RESOURCES_ALL_FAQS.map(({ q, a }) => ({
-    "@type": "Question",
-    name: q,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: a,
-    },
-  })),
-};
 
 export const RESOURCES_DEFINED_TERM_SET_SCHEMA = {
   "@context": "https://schema.org",

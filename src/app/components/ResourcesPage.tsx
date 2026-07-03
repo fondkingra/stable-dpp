@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
+import { PageFAQ } from './PageFAQ';
 import {
   pageH1OnDark,
   pageH2OnLight,
@@ -11,6 +12,7 @@ import {
 import {
   RESOURCES_ESPR_EXPLAINER,
   RESOURCES_GLOSSARY,
+  RESOURCES_PAGE_FAQS,
 } from '../utils/seo';
 
 export function ResourcesPage() {
@@ -138,6 +140,8 @@ export function ResourcesPage() {
           </div>
         </div>
       </section>
+
+      <PageFAQ id="faq" faqs={RESOURCES_PAGE_FAQS} />
 
       {/* CTA */}
       <section

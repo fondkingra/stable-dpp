@@ -2,7 +2,7 @@ import { ResourcesPage } from "../app/components/ResourcesPage";
 import {
   buildRouteMeta,
   RESOURCES_DEFINED_TERM_SET_SCHEMA,
-  RESOURCES_FAQ_SCHEMA,
+  RESOURCES_PAGE_FAQ_SCHEMA,
 } from "../app/utils/seo";
 
 export function meta() {
@@ -16,7 +16,7 @@ export default function Component() {
         type="application/ld+json"
         data-resources-faq-schema
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(RESOURCES_FAQ_SCHEMA),
+          __html: JSON.stringify(RESOURCES_PAGE_FAQ_SCHEMA),
         }}
       />
       <script

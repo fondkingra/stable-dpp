@@ -6,6 +6,7 @@ import {
   ScrollRestoration,
 } from "react-router";
 import "./styles/index.css";
+import { HOME_PAGE_FAQ_SCHEMA } from "./app/utils/seo";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -48,52 +49,7 @@ const structuredData = {
         "@id": "https://stabledpp.com/#organization",
       },
     },
-    {
-      "@type": "FAQPage",
-      "@id": "https://stabledpp.com/#faq",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "What exactly is a Digital Product Passport?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "A DPP is a structured digital record capturing a product's full lifecycle — materials, origin, certifications, repairability, and sustainability data — accessible via a single QR, NFC, or RFID scan. It's the EU's mechanism to enforce transparency across supply chains.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Do fashion brands really need this?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes. Under EU ESPR 2024, any fashion product sold in Europe must carry a compliant Digital Product Passport by 2027. Without it, products risk being held at customs or excluded from EU shelves entirely.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "How fast can we go live?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Our platform gets your first passport live in minutes. No technical setup required. No credit card needed to start.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Why blockchain?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Blockchain ensures every data point in the passport is tamper-proof and independently verifiable. Regulators and buyers can trust the data without relying on your word alone — turning claims into cryptographic proof.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Does it integrate with our existing systems?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes. We support portal upload, CSV/bulk upload, and API/ERP/PLM integration on the Enterprise plan. You bring the data in whatever format works — we handle the rest.",
-          },
-        },
-      ],
-    },
+    HOME_PAGE_FAQ_SCHEMA,
     {
       "@type": "BreadcrumbList",
       "@id": "https://stabledpp.com/#breadcrumb",

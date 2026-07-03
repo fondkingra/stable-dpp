@@ -2,6 +2,8 @@ import { useState, useRef } from 'react';
 import { Link } from 'react-router';
 import emailjs from '@emailjs/browser';
 import { SharedNav, SharedFooter } from './SharedNav';
+import { PageFAQ } from './PageFAQ';
+import { DEMO_PAGE_FAQS } from '../utils/seo';
 import { pageH1OnDark, formH2, heroLead, pageH2OnLight } from '../styles/typography';
 
 const EMAILJS_SERVICE_ID = 'service_ht3l9bf';
@@ -356,6 +358,8 @@ export function BookDemoPage() {
           </div>
         </div>
       </section>
+
+      <PageFAQ id="faq" faqs={DEMO_PAGE_FAQS} />
 
       <SharedFooter />
     </div>

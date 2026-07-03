@@ -12,6 +12,7 @@ export const APP_CONFIG = {
 export const NAVIGATION_LINKS = [
   { label: 'Product', href: '/product' },
   { label: 'Solutions', href: '/solutions' },
+  { label: 'Resources', href: '/resources' },
   { label: 'Company', href: '/company' },
 ] as const;
 

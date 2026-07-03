@@ -14,6 +14,7 @@ export function SharedNav() {
   const navLinks = [
     { label: 'Product', path: '/product' },
     { label: 'Solutions', path: '/solutions' },
+    { label: 'Resources', path: '/resources' },
     { label: 'Company', path: '/company' },
   ];
 
@@ -173,7 +174,7 @@ export function SharedFooter() {
             </div>
           </div>
           {[
-            { title: 'Platform', links: [['Product', '/product'], ['Get Started', '/get-started']] },
+            { title: 'Platform', links: [['Product', '/product'], ['Resources', '/resources'], ['Get Started', '/get-started']] },
             { title: 'Solutions', links: [['Fashion Brands', '/solutions'], ['Manufacturers', '/solutions'], ['Retailers', '/solutions']] },
             { title: 'Company', links: [['About', '/company'], ['Book a Demo', '/book-a-demo']] },
           ].map(col => (

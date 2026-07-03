@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
+import { PageFAQ } from './PageFAQ';
 import { Icon } from '../utils/icons';
+import { COMPANY_PAGE_FAQS } from '../utils/seo';
 import { pageH1OnDark, pageH2OnLight, pageH2OnDark, cardH3, cardBody, heroEyebrow, heroLead } from '../styles/typography';
 
 const values = [
@@ -158,6 +160,8 @@ export function CompanyPage() {
           </div>
         </div>
       </section>
+
+      <PageFAQ id="faq" faqs={COMPANY_PAGE_FAQS} />
 
       {/* CTA */}
       <section style={{ background: '#0a1f3c', padding: '72px 24px', textAlign: 'center' }}>

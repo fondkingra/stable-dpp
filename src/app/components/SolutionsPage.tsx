@@ -318,8 +318,6 @@ export function SolutionsPage() {
         </div>
       </section>
 
-      <PageFAQ id="faq" faqs={SOLUTIONS_PAGE_FAQS} />
-
       {/* CTA */}
       <section style={{ background: '#0a1f3c', padding: '72px 24px', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div style={{ maxWidth: '680px', margin: '0 auto' }}>
@@ -335,6 +333,8 @@ export function SolutionsPage() {
           </div>
         </div>
       </section>
+
+      <PageFAQ id="faq" faqs={SOLUTIONS_PAGE_FAQS} />
 
       <SharedFooter />
     </div>

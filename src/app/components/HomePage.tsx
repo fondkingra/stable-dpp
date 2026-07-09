@@ -189,8 +189,6 @@ export function HomePage() {
         </div>
       </section>
 
-      <PageFAQ id="faq" faqs={HOME_PAGE_FAQS} />
-
       {/* Footer CTA Banner */}
       <section style={{ background: '#0a1f3c', padding: '80px 24px', textAlign: 'center' }}>
         <div style={{ maxWidth: '700px', margin: '0 auto' }}>
@@ -199,6 +197,8 @@ export function HomePage() {
           <button onClick={() => navigate('/create-dpp')} style={{ background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', color: '#071528', border: 'none', padding: '16px 32px', borderRadius: '100px', fontFamily: 'var(--font-primary)', fontSize: '16px', fontWeight: 700, cursor: 'pointer' }}>Create Your First DPP →</button>
         </div>
       </section>
+
+      <PageFAQ id="faq" faqs={HOME_PAGE_FAQS} />
 
 
       <SharedFooter />

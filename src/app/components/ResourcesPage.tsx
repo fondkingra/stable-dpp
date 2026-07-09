@@ -98,51 +98,6 @@ export function ResourcesPage() {
         </div>
       </section>
 
-      {/* Glossary */}
-      <section className="resources-glossary-section" id="glossary">
-        <div className="resources-glossary-container">
-          <header className="product-features-header">
-            <div className="section-eyebrow">DPP GLOSSARY</div>
-            <h2 className="product-features-heading">
-              DPP &amp; Blockchain Glossary
-            </h2>
-            <p className="product-features-subheading">
-              Clear answers to the key questions behind Digital Product
-              Passports, blockchain, and EU sustainability regulation.
-            </p>
-          </header>
-
-          <div className="resources-glossary__accordion">
-            {RESOURCES_GLOSSARY.map((item, index) => {
-              const isOpen = openGlossary === index;
-              return (
-                <div
-                  key={item.q}
-                  className={`resources-glossary__row${isOpen ? ' is-open' : ''}`}
-                >
-                  <button
-                    type="button"
-                    className="resources-glossary__trigger"
-                    onClick={() => toggleGlossary(index)}
-                    aria-expanded={isOpen}
-                  >
-                    <h3 className="resources-glossary__question">{item.q}</h3>
-                    <span className="resources-glossary__chevron" aria-hidden="true" />
-                  </button>
-                  {isOpen && (
-                    <div className="resources-glossary__panel">
-                      <p className="resources-glossary__answer">{item.a}</p>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <PageFAQ id="faq" faqs={RESOURCES_PAGE_FAQS} />
-
       {/* CTA */}
       <section
         style={{
@@ -232,6 +187,51 @@ export function ResourcesPage() {
           </div>
         </div>
       </section>
+
+      {/* Glossary */}
+      <section className="resources-glossary-section" id="glossary">
+        <div className="resources-glossary-container">
+          <header className="product-features-header">
+            <div className="section-eyebrow">DPP GLOSSARY</div>
+            <h2 className="product-features-heading">
+              DPP &amp; Blockchain Glossary
+            </h2>
+            <p className="product-features-subheading">
+              Clear answers to the key questions behind Digital Product
+              Passports, blockchain, and EU sustainability regulation.
+            </p>
+          </header>
+
+          <div className="resources-glossary__accordion">
+            {RESOURCES_GLOSSARY.map((item, index) => {
+              const isOpen = openGlossary === index;
+              return (
+                <div
+                  key={item.q}
+                  className={`resources-glossary__row${isOpen ? ' is-open' : ''}`}
+                >
+                  <button
+                    type="button"
+                    className="resources-glossary__trigger"
+                    onClick={() => toggleGlossary(index)}
+                    aria-expanded={isOpen}
+                  >
+                    <h3 className="resources-glossary__question">{item.q}</h3>
+                    <span className="resources-glossary__chevron" aria-hidden="true" />
+                  </button>
+                  {isOpen && (
+                    <div className="resources-glossary__panel">
+                      <p className="resources-glossary__answer">{item.a}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <PageFAQ id="faq" faqs={RESOURCES_PAGE_FAQS} />
 
       <SharedFooter />
     </div>

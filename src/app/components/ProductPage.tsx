@@ -264,23 +264,6 @@ export function ProductPage() {
             </ul>
           </div>
 
-          <PageFAQ
-            embedded
-            id="data-privacy-faq"
-            tone="privacy"
-            title="Data Privacy FAQ"
-            faqs={PRODUCT_PRIVACY_FAQS}
-            defaultOpen={0}
-            showQaPrefix
-          />
-
-          <PageFAQ
-            embedded
-            id="faq"
-            faqs={PRODUCT_PAGE_FAQS}
-            tone="platform"
-            title="Frequently Asked Questions about the StableDPP Platform"
-          />
         </div>
       </section>
 
@@ -302,6 +285,22 @@ export function ProductPage() {
           <button onClick={() => navigate('/get-started')} style={{ background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', border: 'none', cursor: 'pointer', color: '#071528', fontFamily: 'var(--font-primary)', fontSize: '15px', fontWeight: 700, padding: '16px 32px', borderRadius: '100px' }}>Get Started Free →</button>
         </div>
       </section>
+
+      <PageFAQ
+        id="data-privacy-faq"
+        tone="privacy"
+        title="Data Privacy FAQ"
+        faqs={PRODUCT_PRIVACY_FAQS}
+        defaultOpen={0}
+        showQaPrefix
+      />
+
+      <PageFAQ
+        id="faq"
+        faqs={PRODUCT_PAGE_FAQS}
+        tone="platform"
+        title="Frequently Asked Questions about the StableDPP Platform"
+      />
 
       <SharedFooter />
     </div>

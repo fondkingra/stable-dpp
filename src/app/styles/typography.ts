@@ -1,17 +1,14 @@
 import type { CSSProperties } from 'react';
 
-// Logo PNG is 1080×1080 with ~75px transparent padding on the left edge.
-const LOGO_ASSET_LEFT_INSET = 75;
-const LOGO_ASSET_WIDTH = 1080;
-const HEADER_WIDTH = 140;
-const FOOTER_WIDTH = 125;
+const HEADER_WIDTH = 120;
+const FOOTER_WIDTH = 130;
 
 export const LOGO = {
   headerWidth: `${HEADER_WIDTH}px`,
   footerWidth: `${FOOTER_WIDTH}px`,
   navHeight: '72px',
-  headerOffsetX: `${-(HEADER_WIDTH * LOGO_ASSET_LEFT_INSET) / LOGO_ASSET_WIDTH}px`,
-  footerOffsetX: `${-(FOOTER_WIDTH * LOGO_ASSET_LEFT_INSET) / LOGO_ASSET_WIDTH}px`,
+  headerOffsetX: '0px',
+  footerOffsetX: '0px',
 } as const;
 
 export const pageH1: CSSProperties = {

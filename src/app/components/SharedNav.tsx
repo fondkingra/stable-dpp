@@ -114,10 +114,10 @@ export function SharedNav() {
           </button>
           {/* Mobile hamburger */}
           <button
-            className="md:hidden"
+            className="md:hidden flex flex-col"
             onClick={() => setMobileOpen(v => !v)}
             aria-label="Toggle menu"
-            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px', display: 'flex', flexDirection: 'column', gap: '5px' }}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px', gap: '5px' }}
           >
             <span style={{ width: '22px', height: '2px', background: '#c8d8e8', borderRadius: '2px', transition: 'all 0.2s', transform: mobileOpen ? 'rotate(45deg) translateY(7px)' : 'none' }} />
             <span style={{ width: '22px', height: '2px', background: '#c8d8e8', borderRadius: '2px', transition: 'all 0.2s', opacity: mobileOpen ? 0 : 1 }} />
@@ -128,7 +128,7 @@ export function SharedNav() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden" style={{ background: '#0a1f3c', borderTop: '1px solid rgba(26,200,176,0.1)', padding: '16px 24px 20px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+        <div className="md:hidden flex flex-col" style={{ background: '#0a1f3c', borderTop: '1px solid rgba(26,200,176,0.1)', padding: '16px 24px 20px', gap: '4px' }}>
           {navLinks.map(link => (
             <button
               key={link.path}

@@ -81,21 +81,19 @@ export function SignInPage() {
     boxSizing: 'border-box' as const,
   };
 
+  const backButtonLabel = showForgot ? 'Back to sign in' : 'Back to home';
+  const handleBack = () => {
+    if (showForgot) { setShowForgot(false); setForgotSent(false); setForgotEmail(''); }
+    else { navigate('/'); }
+  };
+
   const backButton = (
     <button
       type="button"
-      onClick={() => {
-        if (showForgot) {
-          setShowForgot(false);
-          setForgotSent(false);
-          setForgotEmail('');
-        } else {
-          navigate('/');
-        }
-      }}
+      onClick={handleBack}
       onMouseEnter={() => setBackHover(true)}
       onMouseLeave={() => setBackHover(false)}
-      aria-label={showForgot ? 'Back to sign in' : 'Back to home'}
+      aria-label={backButtonLabel}
       style={{
         display: 'inline-flex',
         alignItems: 'center',
@@ -128,67 +126,73 @@ export function SignInPage() {
       >
         <ArrowLeft size={15} strokeWidth={2.25} />
       </span>
-      {showForgot ? 'Back to sign in' : 'Back to home'}
+      {backButtonLabel}
+    </button>
+  );
+
+  const mobileBackButton = (
+    <button
+      type="button"
+      onClick={handleBack}
+      aria-label={backButtonLabel}
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '8px',
+        padding: 0,
+        border: 'none',
+        background: 'none',
+        color: 'rgba(255,255,255,0.7)',
+        fontSize: '13px',
+        fontWeight: 500,
+        cursor: 'pointer',
+      }}
+    >
+      <ArrowLeft size={14} strokeWidth={2} />
+      {backButtonLabel}
     </button>
   );
 
   return (
-    <div style={{ height: '100vh', overflow: 'hidden', boxSizing: 'border-box', background: 'linear-gradient(160deg, #071528 0%, #0a1f3c 100%)', fontFamily: 'Inter, sans-serif', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
-      <div style={{ width: '100%', maxWidth: showForgot ? '440px' : '920px', height: 'calc(100vh - 48px)', maxHeight: '720px' }}>
-        <div style={{
-          display: 'flex',
-          flexWrap: 'nowrap',
-          background: '#fff',
-          borderRadius: '20px',
-          overflow: 'hidden',
-          boxShadow: '0 24px 64px rgba(0,0,0,0.35)',
-          height: '100%',
-        }}>
+    <div className="signin-wrapper">
+      <div style={{ width: '100%', maxWidth: showForgot ? '440px' : '920px', height: 'calc(100vh - 48px)', maxHeight: '720px' }} className="signin-container">
+        <div className="signin-card">
+
+          {/* Mobile-only back button — above the left panel */}
+          <div className="signin-back-btn-mobile">
+            {mobileBackButton}
+          </div>
 
           {!showForgot && (
-            <div style={{
-              flex: '0 0 42%',
-              background: 'linear-gradient(165deg, #071528 0%, #0d2a4a 100%)',
-              padding: '40px 36px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              position: 'relative',
-            }}>
+            <div className="signin-left">
               <div style={{ position: 'absolute', top: '-80px', right: '-40px', width: '240px', height: '240px', background: 'radial-gradient(circle, rgba(26,200,176,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
               <img
                 src={APP_CONFIG.logo}
                 alt={APP_CONFIG.name}
+                className="signin-logo"
                 style={{
                   width: LOGO.headerWidth,
                   height: 'auto',
                   display: 'block',
-                  marginBottom: '24px',
+                  marginBottom: '0',
+                  marginTop: '-20px',
                   objectFit: 'contain',
                 }}
               />
-              <h1 style={{ ...pageH1OnDark, fontSize: 'clamp(22px, 2.5vw, 30px)', marginBottom: '12px', lineHeight: 1.2 }}>
+              <h1 style={{ ...pageH1OnDark, fontSize: 'clamp(22px, 2.5vw, 30px)', marginBottom: '8px', lineHeight: 1.2 }}>
                 Welcome back to StableDPP
               </h1>
-              <p style={{ ...heroLead, fontSize: '15px', lineHeight: 1.6, margin: 0, maxWidth: '280px' }}>
+              <p style={{ ...heroLead, fontSize: '14px', lineHeight: 1.6, margin: 0, maxWidth: '280px' }}>
                 Sign in to continue managing your Digital Product Passports.
               </p>
-              <p style={{ color: '#4a6a7a', fontSize: '12px', marginTop: '24px', marginBottom: 0, lineHeight: 1.5 }}>
+              <p className="hidden md:block" style={{ color: '#4a6a7a', fontSize: '12px', marginTop: '20px', marginBottom: 0, lineHeight: 1.5 }}>
                 🔒 256-bit encryption · GDPR compliant · EU data storage
               </p>
             </div>
           )}
 
-          <div style={{
-            flex: '1 1 auto',
-            padding: '36px 40px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            position: 'relative',
-          }}>
-            <div style={{ position: 'absolute', top: '20px', left: '20px' }}>
+          <div className="signin-right">
+            <div className="signin-back-btn">
               {backButton}
             </div>
 

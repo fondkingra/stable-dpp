@@ -10,6 +10,10 @@ const logoImg = import.meta.env.BASE_URL + 'logo-transparent.png';
 export function SharedNav() {
   const navigate = useNavigate();
   const location = useLocation();
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Close mobile menu on route change
+  useEffect(() => { setMobileOpen(false); }, [location.pathname]);
 
   const navLinks = [
     { label: 'Product', path: '/product' },
@@ -72,44 +76,95 @@ export function SharedNav() {
         </div>
 
         <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0 }}>
-            <>
-              <button
-                onClick={() => navigate('/signin')}
-                style={{
-                  background: 'none',
-                  border: '1px solid rgba(200,216,232,0.3)',
-                  cursor: 'pointer',
-                  color: '#c8d8e8',
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '14px',
-                  fontWeight: 500,
-                  padding: '8px 16px',
-                  borderRadius: '8px',
-                  transition: 'all 0.2s',
-                }}
-              >
-                Sign In
-              </button>
-              <button
-                onClick={() => navigate('/book-a-demo')}
-                style={{
-                  background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)',
-                  border: 'none',
-                  cursor: 'pointer',
-                  color: '#071528',
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '14px',
-                  fontWeight: 700,
-                  padding: '9px 18px',
-                  borderRadius: '8px',
-                  transition: 'all 0.2s',
-                }}
-              >
-                Book a Demo
-              </button>
-            </>
+          <button
+            onClick={() => navigate('/signin')}
+            className="hidden sm:inline-flex"
+            style={{
+              background: 'none',
+              border: '1px solid rgba(200,216,232,0.3)',
+              cursor: 'pointer',
+              color: '#c8d8e8',
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '14px',
+              fontWeight: 500,
+              padding: '8px 16px',
+              borderRadius: '8px',
+              transition: 'all 0.2s',
+            }}
+          >
+            Sign In
+          </button>
+          <button
+            onClick={() => navigate('/book-a-demo')}
+            className="hidden sm:inline-flex"
+            style={{
+              background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)',
+              border: 'none',
+              cursor: 'pointer',
+              color: '#071528',
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '14px',
+              fontWeight: 700,
+              padding: '9px 18px',
+              borderRadius: '8px',
+              transition: 'all 0.2s',
+            }}
+          >
+            Book a Demo
+          </button>
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden"
+            onClick={() => setMobileOpen(v => !v)}
+            aria-label="Toggle menu"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px', display: 'flex', flexDirection: 'column', gap: '5px' }}
+          >
+            <span style={{ width: '22px', height: '2px', background: '#c8d8e8', borderRadius: '2px', transition: 'all 0.2s', transform: mobileOpen ? 'rotate(45deg) translateY(7px)' : 'none' }} />
+            <span style={{ width: '22px', height: '2px', background: '#c8d8e8', borderRadius: '2px', transition: 'all 0.2s', opacity: mobileOpen ? 0 : 1 }} />
+            <span style={{ width: '22px', height: '2px', background: '#c8d8e8', borderRadius: '2px', transition: 'all 0.2s', transform: mobileOpen ? 'rotate(-45deg) translateY(-7px)' : 'none' }} />
+          </button>
         </div>
       </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="md:hidden" style={{ background: '#0a1f3c', borderTop: '1px solid rgba(26,200,176,0.1)', padding: '16px 24px 20px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          {navLinks.map(link => (
+            <button
+              key={link.path}
+              onClick={() => navigate(link.path)}
+              style={{
+                background: location.pathname === link.path ? 'rgba(26,200,176,0.12)' : 'none',
+                border: 'none',
+                cursor: 'pointer',
+                color: location.pathname === link.path ? '#1ac8b0' : '#c8d8e8',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '15px',
+                fontWeight: 500,
+                padding: '10px 14px',
+                borderRadius: '8px',
+                textAlign: 'left',
+              }}
+            >
+              {link.label}
+            </button>
+          ))}
+          <div style={{ display: 'flex', gap: '10px', marginTop: '12px', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+            <button
+              onClick={() => navigate('/signin')}
+              style={{ flex: 1, background: 'none', border: '1px solid rgba(200,216,232,0.3)', cursor: 'pointer', color: '#c8d8e8', fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 500, padding: '10px 16px', borderRadius: '8px' }}
+            >
+              Sign In
+            </button>
+            <button
+              onClick={() => navigate('/book-a-demo')}
+              style={{ flex: 1, background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', border: 'none', cursor: 'pointer', color: '#071528', fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 700, padding: '10px 18px', borderRadius: '8px' }}
+            >
+              Book a Demo
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

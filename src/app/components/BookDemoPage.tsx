@@ -79,7 +79,7 @@ export function BookDemoPage() {
       </section>
 
       <section style={{ padding: '80px 24px', maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start' }}>
+        <div className="demo-layout">
           
           {/* Form */}
           <div>
@@ -93,7 +93,7 @@ export function BookDemoPage() {
               </div>
             ) : (
             <form ref={formRef} onSubmit={handleSubmit}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
+              <div className="form-row-2col">
                 <div>
                   <label style={{ display: 'block', fontFamily: 'var(--font-heading)', fontSize: '14px', fontWeight: 600, color: '#0a1f3c', marginBottom: '8px' }}>
                     First Name *
@@ -209,7 +209,7 @@ export function BookDemoPage() {
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
+              <div className="form-row-2col">
                 <div>
                   <label style={{ display: 'block', fontFamily: 'var(--font-heading)', fontSize: '14px', fontWeight: 600, color: '#0a1f3c', marginBottom: '8px' }}>
                     Number of Products

@@ -96,7 +96,7 @@ export function CreateDPPPage() {
           </div>
 
           {/* Cards grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '32px' }}>
+          <div className="create-dpp-grid">
             {products.map(({ type, title, desc, tags, Model, gradient, accent }) => (
               <div
                 key={type}

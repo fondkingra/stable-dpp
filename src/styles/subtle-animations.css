@@ -1017,3 +1017,368 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* ═══ Responsive — Hero ═══ */
+.hero-section {
+  padding: 80px 24px 96px;
+}
+
+.hero-flex {
+  display: flex;
+  align-items: center;
+  gap: 72px;
+}
+
+@media (max-width: 1023px) {
+  .hero-flex {
+    flex-direction: column;
+    gap: 48px;
+    text-align: center;
+  }
+
+  .hero-flex > div:first-child {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    padding: 48px 16px 64px;
+  }
+}
+
+/* ═══ Responsive — Stats grid ═══ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.stats-item {
+  text-align: center;
+  padding: 0 24px;
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.stats-item:first-child {
+  border-left: none;
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .stats-item {
+    padding: 0 12px;
+    border-left: none;
+  }
+
+  .stats-item:nth-child(2n) {
+    border-left: 1px solid rgba(255, 255, 255, 0.07);
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+/* ═══ Responsive — Why StableDPP grid ═══ */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.why-grid > :last-child:nth-child(3n + 1) {
+  grid-column: 2;
+}
+
+@media (max-width: 1024px) {
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .why-grid > :last-child:nth-child(3n + 1) {
+    grid-column: auto;
+  }
+
+  .why-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 12px);
+    justify-self: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-grid > :last-child:nth-child(odd) {
+    grid-column: auto;
+    max-width: none;
+    justify-self: auto;
+  }
+}
+
+/* ═══ Responsive — Footer ═══ */
+@media (max-width: 640px) {
+  footer .solutions-compliance-table tbody th {
+    white-space: normal;
+  }
+}
+
+
+/* ═══ Responsive — Book Demo page ═══ */
+.demo-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .demo-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+  .form-row-2col {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ═══ Responsive — Get Started page ═══ */
+.get-started-wrapper {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(160deg, #071528 0%, #0a1f3c 100%);
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.get-started-container {
+  width: 100%;
+  max-width: 960px;
+  height: calc(100vh - 48px);
+  max-height: 740px;
+}
+
+.get-started-card {
+  display: flex;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+  height: 100%;
+}
+
+.get-started-left {
+  flex: 0 0 38%;
+  background: linear-gradient(165deg, #071528 0%, #0d2a4a 100%);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .get-started-wrapper {
+    height: auto;
+    min-height: 100vh;
+    overflow: auto;
+    padding: 16px;
+  }
+
+  .get-started-container {
+    height: auto;
+    max-height: none;
+  }
+
+  .get-started-card {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .get-started-left {
+    flex: none;
+    padding: 32px 24px;
+  }
+}
+
+
+/* ═══ Responsive — Sign In page ═══ */
+.signin-wrapper {
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: linear-gradient(160deg, #071528 0%, #0a1f3c 100%);
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.signin-container {
+  height: calc(100vh - 48px);
+  max-height: 720px;
+}
+
+.signin-card {
+  display: flex;
+  flex-wrap: nowrap;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+  height: 100%;
+}
+
+.signin-left {
+  flex: 0 0 42%;
+  background: linear-gradient(165deg, #071528 0%, #0d2a4a 100%);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .signin-wrapper {
+    height: auto;
+    min-height: 100vh;
+    overflow: auto;
+    padding: 16px;
+  }
+
+  .signin-container {
+    height: auto;
+    max-height: none;
+  }
+
+  .signin-card {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .signin-left {
+    flex: none;
+    padding: 32px 24px;
+  }
+}
+
+/* ═══ Responsive — Create DPP page ═══ */
+.create-dpp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .create-dpp-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+
+/* ═══ Responsive — General section padding ═══ */
+@media (max-width: 640px) {
+  section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+
+/* ═══ Sign In — right panel & back button ═══ */
+.signin-right {
+  flex: 1 1 auto;
+  padding: 36px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.signin-back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.signin-back-btn-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .signin-wrapper {
+    height: auto;
+    min-height: 100vh;
+    overflow: auto;
+    padding: 0;
+    align-items: flex-start;
+  }
+
+  .signin-container {
+    height: auto !important;
+    max-height: none !important;
+    max-width: 100% !important;
+  }
+
+  .signin-card {
+    flex-direction: column;
+    height: auto;
+    border-radius: 0;
+    min-height: 100vh;
+  }
+
+  .signin-left {
+    flex: none;
+    padding: 16px 20px;
+  }
+
+  .signin-right {
+    padding: 24px 20px;
+  }
+
+  .signin-back-btn {
+    display: none;
+  }
+
+  .signin-back-btn-mobile {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    background: linear-gradient(165deg, #071528 0%, #0d2a4a 100%);
+  }
+}
+
+

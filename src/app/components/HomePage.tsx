@@ -20,8 +20,8 @@ export function HomePage() {
         <div style={{ position: 'absolute', top: '-120px', right: '10%', width: '700px', height: '700px', background: 'radial-gradient(circle, rgba(26,200,176,0.09) 0%, transparent 65%)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: '-80px', left: '-60px', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(103,232,249,0.05) 0%, transparent 65%)', pointerEvents: 'none' }} />
 
-        <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '80px 24px 96px', position: 'relative' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '72px' }}>
+        <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '80px 24px 96px', position: 'relative' }} className="hero-section">
+          <div className="hero-flex">
             <div style={{ flex: 1 }}>
               {/* Eyebrow */}
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(26,200,176,0.1)', border: '1px solid rgba(26,200,176,0.2)', borderRadius: '100px', padding: '5px 14px', marginBottom: '28px' }}>
@@ -105,10 +105,10 @@ export function HomePage() {
           </div>
 
           {/* Stats */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', marginTop: '56px', paddingTop: '40px', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+          <div className="stats-grid">
             {STATS.map((s, i) => (
-              <div key={s.label} style={{ textAlign: 'center', padding: '0 24px', borderLeft: i > 0 ? '1px solid rgba(255,255,255,0.07)' : 'none' }}>
-                <p style={{ fontFamily: 'Playfair Display, serif', fontSize: '40px', fontWeight: 900, color: '#fff', lineHeight: 1, marginBottom: '6px', letterSpacing: '-0.02em' }}>{s.value}</p>
+              <div key={s.label} className="stats-item">
+                <p style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(28px, 5vw, 40px)', fontWeight: 900, color: '#fff', lineHeight: 1, marginBottom: '6px', letterSpacing: '-0.02em' }}>{s.value}</p>
                 <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '12px', fontFamily: 'Inter, sans-serif', fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase' }}>{s.label}</p>
               </div>
             ))}
@@ -133,7 +133,7 @@ export function HomePage() {
             <div className="section-eyebrow">WHY STABLEDPP</div>
             <h2 style={{ ...pageH2OnLight, textAlign: 'center' }}>Built for the Future of Fashion — and the Regulations Already Here</h2>
           </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
+        <div className="why-grid">
           <div style={{ background: 'linear-gradient(135deg, #f8fdfc 0%, #ffffff 100%)', padding: '28px', borderRadius: '20px', border: '1px solid #e0f2f1', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(26,200,176,0.08)' }} />
             <Icon name="shield-check" className="w-8 h-8 text-teal-600 mb-4" />

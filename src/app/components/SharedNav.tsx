@@ -183,7 +183,13 @@ export function SharedFooter() {
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '32px', marginBottom: '40px' }}>
           <div>
-            <img src={APP_CONFIG.logo} alt="StableDPP" style={logoFooterStyle} />
+            <button
+              onClick={() => navigate('/')}
+              aria-label="Go to StableDPP home"
+              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'block' }}
+            >
+              <img src={APP_CONFIG.logo} alt="StableDPP" style={logoFooterStyle} />
+            </button>
             <p style={{ color: '#7a8a98', fontFamily: 'Inter, sans-serif', fontSize: '13px', lineHeight: 1.6, marginBottom: '16px' }}>
               Give every product a passport. Make every claim verifiable.
             </p>

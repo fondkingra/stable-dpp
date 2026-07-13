@@ -78,15 +78,12 @@ export function GetStartedPage() {
   };
 
   return (
-    <div style={{ height: '100vh', overflow: 'hidden', background: 'linear-gradient(160deg, #071528 0%, #0a1f3c 100%)', fontFamily: 'Inter, sans-serif', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
-      <div style={{ width: '100%', maxWidth: '960px', height: 'calc(100vh - 48px)', maxHeight: '740px' }}>
-        <div style={{ display: 'flex', background: '#fff', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 24px 64px rgba(0,0,0,0.35)', height: '100%' }}>
+    <div className="get-started-wrapper">
+      <div className="get-started-container">
+        <div className="get-started-card">
 
           {/* Left panel */}
-          <div style={{
-            flex: '0 0 38%', background: 'linear-gradient(165deg, #071528 0%, #0d2a4a 100%)',
-            padding: '40px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative',
-          }}>
+          <div className="get-started-left">
             <div style={{ position: 'absolute', top: '-80px', right: '-40px', width: '240px', height: '240px', background: 'radial-gradient(circle, rgba(26,200,176,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
             <img src={APP_CONFIG.logo} alt={APP_CONFIG.name} style={{ width: LOGO.headerWidth, height: 'auto', display: 'block', marginBottom: '24px', objectFit: 'contain' }} />
             <h1 style={{ ...pageH1OnDark, fontSize: 'clamp(20px, 2.5vw, 28px)', marginBottom: '12px', lineHeight: 1.2 }}>

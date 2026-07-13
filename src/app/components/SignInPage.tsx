@@ -269,7 +269,7 @@ export function SignInPage() {
 
                 <p style={{ textAlign: 'center', color: '#7a8a98', fontSize: '13px', margin: '0 0 8px', lineHeight: 1.5 }}>
                   Don't have an account?{' '}
-                  <button type="button" onClick={() => navigate('/get-started')} style={{ background: 'none', border: 'none', color: '#1ac8b0', fontSize: '13px', fontWeight: 600, cursor: 'pointer' }}>
+                  <button type="button" onClick={() => navigate('/create-dpp')} style={{ background: 'none', border: 'none', color: '#1ac8b0', fontSize: '13px', fontWeight: 600, cursor: 'pointer' }}>
                     Get Started Free
                   </button>
                 </p>

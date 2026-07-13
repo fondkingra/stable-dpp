@@ -18,7 +18,7 @@ const tiers = [
       'Email support',
     ],
     cta: 'Get Started Free',
-    ctaPath: '/get-started',
+    ctaPath: '/create-dpp',
     highlight: false,
   },
   {
@@ -36,7 +36,7 @@ const tiers = [
       'ESPR compliance reports',
     ],
     cta: 'Start Growth Plan',
-    ctaPath: '/get-started',
+    ctaPath: '/create-dpp',
     highlight: true,
   },
   {

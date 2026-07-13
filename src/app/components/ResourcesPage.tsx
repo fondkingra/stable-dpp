@@ -130,7 +130,7 @@ export function ResourcesPage() {
           >
             <button
               type="button"
-              onClick={() => navigate('/get-started')}
+              onClick={() => navigate('/create-dpp')}
               style={{
                 background: '#1ac8b0',
                 color: '#071528',

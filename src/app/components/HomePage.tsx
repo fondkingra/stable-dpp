@@ -42,7 +42,7 @@ export function HomePage() {
               </p>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '40px', flexWrap: 'wrap' }}>
-                <button onClick={() => navigate(APP_CONFIG.signupUrl)}
+                <button onClick={() => navigate('/create-dpp')}
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#1ac8b0', color: '#071528', fontWeight: 700, fontSize: '15px', padding: '14px 28px', borderRadius: '100px', border: 'none', cursor: 'pointer', boxShadow: '0 6px 28px rgba(26,200,176,0.4)', transition: 'all 0.2s' }}
                   aria-label="Create your free Digital Product Passport account"
                   onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-2px)'; }}

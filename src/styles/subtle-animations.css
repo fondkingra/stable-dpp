@@ -1,5 +1,49 @@
 /* Subtle Professional Animations */
 
+/* Page breadcrumb trail (dark hero) */
+.breadcrumb {
+  margin: 0 0 20px;
+  font-family: var(--font-primary, 'Inter', system-ui, sans-serif);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: '>';
+  margin: 0 8px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.breadcrumb a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: #1ac8b0;
+}
+
+.breadcrumb li[aria-current="page"] {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 /* Smooth fade-in on scroll */
 @keyframes fadeInUp {
   from {

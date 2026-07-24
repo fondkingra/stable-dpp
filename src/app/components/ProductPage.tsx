@@ -12,7 +12,8 @@ const features = [
     bg: 'linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%)',
     border: '#a7f3d0',
     iconBg: 'rgba(26,200,176,0.1)',
-    heading: 'Blockchain Anchoring',
+    heading: 'Blockchain-Verified, Tamper-Evident Passports',
+    headingLevel: 'h2' as const,
     body: 'Every Digital Product Passport you create is anchored to an immutable blockchain record. Your sustainability claims are permanently timestamped, independently verifiable, and impossible to falsify.',
   },
   {
@@ -21,7 +22,8 @@ const features = [
     bg: 'linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%)',
     border: '#bbf7d0',
     iconBg: 'rgba(34,197,94,0.1)',
-    heading: 'Component-Level Tracking',
+    heading: 'Component-Level DPPs: Fabric, Dye, Hardware, Lining',
+    headingLevel: 'h2' as const,
     body: 'Go beyond product-level data. StableDPP lets you attach individual component DPPs to every material in your product — fabric origin, button sourcing, collar certification, thread dye compliance.',
   },
   {
@@ -30,7 +32,8 @@ const features = [
     bg: 'linear-gradient(135deg, #eff6ff 0%, #ffffff 100%)',
     border: '#bfdbfe',
     iconBg: 'rgba(59,130,246,0.1)',
-    heading: 'ESPR Compliance Engine',
+    heading: 'ESPR Compliance Engine — Every Data Field Auto-Validated',
+    headingLevel: 'h2' as const,
     body: 'Purpose-built for EU ESPR 2024. Our compliance engine auto-validates your DPP data against all ESPR data fields, flags missing information, and ensures GS1 Digital Link compliance.',
   },
   {
@@ -39,7 +42,8 @@ const features = [
     bg: 'linear-gradient(135deg, #f5f3ff 0%, #ffffff 100%)',
     border: '#d8b4fe',
     iconBg: 'rgba(147,51,234,0.1)',
-    heading: 'Instant QR Generation',
+    heading: 'GS1 Digital Link QR Codes on Every Product',
+    headingLevel: 'h2' as const,
     body: 'When your Digital Product Passport is ready, StableDPP generates a GS1 Digital Link-compliant QR code instantly — ready to embed on garment labels, hang tags, or packaging.',
   },
   {
@@ -49,6 +53,7 @@ const features = [
     border: '#fde68a',
     iconBg: 'rgba(245,158,11,0.1)',
     heading: 'Sustainability Dashboard',
+    headingLevel: 'h3' as const,
     body: 'Monitor sustainability performance across your entire product catalogue. Track CO₂ equivalent, water consumption, recycled-material percentages, and export compliance reports.',
   },
   {
@@ -58,6 +63,7 @@ const features = [
     border: '#fbcfe8',
     iconBg: 'rgba(236,72,153,0.1)',
     heading: 'GDPR Data Infrastructure',
+    headingLevel: 'h3' as const,
     body: 'Your supply chain data is commercially sensitive. StableDPP is fully GDPR compliant — all data encrypted at rest and in transit, with EU-regulated cloud infrastructure.',
   },
 ];
@@ -159,14 +165,20 @@ export function ProductPage() {
       {/* Hero */}
       <section style={{ background: 'linear-gradient(160deg, #071528 0%, #0a1f3c 60%, #0d2a4a 100%)', padding: '96px 24px 80px' }}>
         <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+          <nav className="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+              <li><a href="/">Home</a></li>
+              <li aria-current="page">Product</li>
+            </ol>
+          </nav>
           <div style={heroEyebrow}>
             THE PLATFORM
           </div>
           <h1 style={{ ...pageH1OnDark, marginBottom: '28px' }}>
-            The Most Trusted Digital Product Passport Platform for Fashion
+            The Digital Product Passport Software Built for Fashion Compliance
           </h1>
           <p style={{ ...heroLead, marginBottom: '36px' }}>
-            StableDPP gives fashion brands, textile manufacturers, and retailers a single platform to create, manage, and publish blockchain-verified Digital Product Passports — fully compliant with EU ESPR 2024 and aligned to every global sustainability standard that matters.
+            StableDPP is a digital product passport platform for fashion and textile brands, manufacturers, and retailers — a single place to create, manage, and publish blockchain-verified Digital Product Passports fully compliant with EU ESPR 2024 and aligned to every global sustainability standard that matters.
           </p>
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
             <button onClick={() => navigate('/create-dpp')} style={{ background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', border: 'none', cursor: 'pointer', color: '#071528', fontFamily: 'var(--font-primary)', fontSize: '15px', fontWeight: 700, padding: '14px 28px', borderRadius: '100px' }}>Start for Free →</button>
@@ -180,13 +192,15 @@ export function ProductPage() {
         <div className="product-features-container">
           <div className="product-features-header">
             <div className="section-eyebrow">CORE FEATURES</div>
-            <h2 className="product-features-heading">Everything You Need to Issue, Manage, and Prove Your Passports</h2>
+            <p className="product-features-heading">Everything You Need to Issue, Manage, and Prove Your Passports</p>
             <p className="product-features-subheading">
               Create, manage, verify, and distribute EU ESPR-compliant Digital Product Passports with blockchain-backed trust, supply-chain transparency, and automated compliance.
             </p>
           </div>
           <div className="product-features-grid">
-            {features.map(({ icon, iconColor, bg, border, iconBg, heading, body }) => (
+            {features.map(({ icon, iconColor, bg, border, iconBg, heading, headingLevel, body }) => {
+              const HeadingTag = headingLevel;
+              return (
               <div
                 key={heading}
                 className="product-feature-card"
@@ -195,10 +209,11 @@ export function ProductPage() {
                 <div className="product-feature-card__icon" style={{ background: iconBg }}>
                   <Icon name={icon} className="" style={{ width: '26px', height: '26px', color: iconColor, strokeWidth: 1.5 }} />
                 </div>
-                <h3 className="product-feature-card__title">{heading}</h3>
+                <HeadingTag className="product-feature-card__title">{heading}</HeadingTag>
                 <p className="product-feature-card__body">{body}</p>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -267,10 +282,13 @@ export function ProductPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA / Pricing */}
       <section style={{ background: '#0a1f3c', padding: '72px 24px', textAlign: 'center' }}>
         <div style={{ maxWidth: '680px', margin: '0 auto' }}>
-          <p style={{ ...pageH2OnDark, textAlign: 'center', marginBottom: '16px' }}>
+          <h2 style={{ ...pageH2OnDark, textAlign: 'center', marginBottom: '16px' }}>
+            StableDPP Pricing — Free to Start
+          </h2>
+          <p style={{ color: '#a8bcc8', fontSize: '16px', lineHeight: 1.7, marginBottom: '20px' }}>
             Start issuing blockchain-verified Digital Product Passports today — no technical setup, no credit card required.
           </p>
           <div style={{ color: '#7a8a98', fontSize: '14px', marginBottom: '28px', display: 'flex', gap: '24px', justifyContent: 'center', flexWrap: 'wrap' }}>

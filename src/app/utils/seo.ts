@@ -23,13 +23,14 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     ogImage: "https://stabledpp.com/og-home.png",
   },
   product: {
-    title: "DPP Platform for Fashion | Blockchain-Verified | StableDPP",
+    title: "Digital Product Passport Software for Fashion | StableDPP",
     description:
-      "The most trusted Digital Product Passport platform for fashion. Blockchain anchoring, ESPR compliance engine, instant QR codes, sustainability dashboard.",
+      "Issue blockchain-verified, EU ESPR-compliant Digital Product Passports in minutes. Component-level traceability, GS1 Digital Link QR codes, and an auto-validating compliance engine. Free to start.",
     canonical: "https://stabledpp.com/product",
-    ogTitle: "DPP Platform for Fashion | Blockchain-Verified | StableDPP",
+    ogTitle: "Digital Product Passport Software for Fashion | StableDPP",
     ogDescription:
-      "The most trusted Digital Product Passport platform for fashion. Blockchain anchoring, ESPR compliance engine, instant QR codes, sustainability dashboard.",
+      "Issue blockchain-verified, EU ESPR-compliant Digital Product Passports in minutes. Component-level traceability, GS1 Digital Link QR codes, and an auto-validating compliance engine. Free to start.",
+    ogImage: "https://stabledpp.com/og-product.png",
   },
   solutions: {
     title: "DPP Solutions | Brands, Manufacturers & Retailers | StableDPP",
@@ -97,7 +98,7 @@ export const PRODUCT_PAGE_SCHEMA = {
   "@type": "Product",
   name: "StableDPP Digital Product Passport Platform",
   description:
-    "The most trusted Digital Product Passport platform for fashion. Blockchain anchoring, ESPR compliance engine, instant QR codes, sustainability dashboard.",
+    "Issue blockchain-verified, EU ESPR-compliant Digital Product Passports in minutes. Component-level traceability, GS1 Digital Link QR codes, and an auto-validating compliance engine. Free to start.",
   brand: {
     "@type": "Brand",
     name: "StableDPP",
@@ -111,6 +112,40 @@ export const PRODUCT_PAGE_SCHEMA = {
     priceCurrency: "EUR",
     availability: "https://schema.org/InStock",
   },
+};
+
+/** Product-page SoftwareApplication schema (client sheet requirement). */
+export const PRODUCT_SOFTWARE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "StableDPP",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "EUR",
+    description: "Free to start",
+  },
+};
+
+export const PRODUCT_BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://stabledpp.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Product",
+      item: "https://stabledpp.com/product",
+    },
+  ],
 };
 
 export const PRODUCT_PRIVACY_FAQS = [

@@ -84,13 +84,13 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
       "Learn what the EU Digital Product Passport and ESPR 2024 mean for fashion. Clear explainers and a DPP & blockchain glossary with answers to the questions brands ask.",
   },
   company: {
-    title: "About StableDPP | Transparency and Trust in Fashion",
+    title: "About StableDPP | The Blockchain Digital Product Passport Company",
     description:
-      "StableDPP's mission: make every fashion product verifiably sustainable. Blockchain-first Digital Product Passports for EU ESPR 2024 compliance.",
+      "StableDPP (Stable DPP) builds blockchain-native Digital Product Passport infrastructure for fashion and textiles — tamper-evident verification that turns sustainability claims into on-chain proof.",
     canonical: "https://stabledpp.com/company",
-    ogTitle: "About StableDPP | Transparency and Trust in Fashion",
+    ogTitle: "About StableDPP | The Blockchain Digital Product Passport Company",
     ogDescription:
-      "StableDPP's mission: make every fashion product verifiably sustainable. Blockchain-first Digital Product Passports for EU ESPR 2024 compliance.",
+      "StableDPP (Stable DPP) builds blockchain-native Digital Product Passport infrastructure for fashion and textiles — tamper-evident verification that turns sustainability claims into on-chain proof.",
   },
   demo: {
     title: "Book a StableDPP Demo | See DPPs in Action",
@@ -440,6 +440,55 @@ export const DEMO_PAGE_FAQ_SCHEMA = buildFaqSchema(
   DEMO_PAGE_FAQS,
 );
 
+export const COMPANY_BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://stabledpp.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Company",
+      item: "https://stabledpp.com/company",
+    },
+  ],
+};
+
+/** Standalone Person schemas for E-E-A-T. LinkedIn sameAs omitted until confirmed profile URLs are provided. */
+export const COMPANY_FOUNDER_PERSON_SCHEMAS = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Sudhanva Bhandolkar",
+    jobTitle: "Co-Founder",
+    worksFor: {
+      "@type": "Organization",
+      name: "StableDPP",
+    },
+    image: "https://stabledpp.com/IMG1.jpg",
+    description:
+      "Co-founder of StableDPP, building the blockchain infrastructure behind every passport with Trust as Infrastructure (TAS) verification.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Priya Hebbal",
+    jobTitle: "Co-Founder",
+    worksFor: {
+      "@type": "Organization",
+      name: "StableDPP",
+    },
+    image: "https://stabledpp.com/IMG2.jpg",
+    description:
+      "Co-founder of StableDPP, focused on the trust layer for India's exports and building verifiable proof for sustainability claims in the circular economy.",
+  },
+] as const;
+
 export const COMPANY_PAGE_SCHEMA = {
   "@context": "https://schema.org",
   "@graph": [
@@ -448,7 +497,7 @@ export const COMPANY_PAGE_SCHEMA = {
       "@id": "https://stabledpp.com/company/#webpage",
       name: "About StableDPP",
       description:
-        "StableDPP's mission: make every fashion product verifiably sustainable. Blockchain-first Digital Product Passports for EU ESPR 2024 compliance.",
+        "StableDPP (Stable DPP) builds blockchain-native Digital Product Passport infrastructure for fashion and textiles — tamper-evident verification that turns sustainability claims into on-chain proof.",
       url: "https://stabledpp.com/company",
       mainEntity: {
         "@id": "https://stabledpp.com/company/#organization",
@@ -468,7 +517,7 @@ export const COMPANY_PAGE_SCHEMA = {
       contactPoint: {
         "@type": "ContactPoint",
         contactType: "customer service",
-        email: "hello@stabledpp.com",
+        email: "info@stabledpp.com",
       },
       knowsAbout: [
         "Digital Product Passport",
@@ -480,19 +529,19 @@ export const COMPANY_PAGE_SCHEMA = {
       founder: [
         {
           "@type": "Person",
-          name: "Priya Hebbal",
-          jobTitle: "Co-Founder",
-          image: "https://stabledpp.com/IMG2.jpg",
-          description:
-            "Co-founder of StableDPP, focused on the trust layer for India's exports and building verifiable proof for sustainability claims in the circular economy.",
-        },
-        {
-          "@type": "Person",
           name: "Sudhanva Bhandolkar",
           jobTitle: "Co-Founder",
           image: "https://stabledpp.com/IMG1.jpg",
           description:
             "Co-founder of StableDPP, building the blockchain infrastructure behind every passport with Trust as Infrastructure (TAS) verification.",
+        },
+        {
+          "@type": "Person",
+          name: "Priya Hebbal",
+          jobTitle: "Co-Founder",
+          image: "https://stabledpp.com/IMG2.jpg",
+          description:
+            "Co-founder of StableDPP, focused on the trust layer for India's exports and building verifiable proof for sustainability claims in the circular economy.",
         },
       ],
     },
@@ -517,7 +566,7 @@ export const DEMO_PAGE_SCHEMA = {
         contactPoint: {
           "@type": "ContactPoint",
           contactType: "sales",
-          email: "hello@stabledpp.com",
+          email: "info@stabledpp.com",
           availableLanguage: "English",
         },
       },

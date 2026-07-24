@@ -80,10 +80,11 @@ export interface NavLink {
 export interface PageSEO {
   title: string;
   description: string;
-  keywords: string;
+  keywords?: string;
   canonical: string;
   ogTitle?: string;
   ogDescription?: string;
+  ogImage?: string;
 }
 
 export type ProductType = 'shirt' | 'jeans';

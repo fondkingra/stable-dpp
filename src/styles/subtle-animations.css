@@ -453,6 +453,11 @@
   transition: border-color 0.2s ease, background 0.2s ease;
 }
 
+.product-privacy-faq__row[open],
+.product-privacy-faq__row.is-open {
+  border-color: rgba(26, 200, 176, 0.25);
+}
+
 .product-privacy-faq__trigger {
   width: 100%;
   display: flex;
@@ -465,6 +470,15 @@
   cursor: pointer;
   text-align: left;
   font-family: inherit;
+  list-style: none;
+}
+
+.product-privacy-faq__trigger::-webkit-details-marker {
+  display: none;
+}
+
+.product-privacy-faq__trigger::marker {
+  content: '';
 }
 
 .product-privacy-faq__question {
@@ -486,6 +500,7 @@
   margin-top: -3px;
 }
 
+.product-privacy-faq__row[open] .product-privacy-faq__chevron,
 .product-privacy-faq__row.is-open .product-privacy-faq__chevron {
   transform: rotate(-135deg);
   margin-top: 3px;
@@ -821,12 +836,14 @@
   border-color: #e8edf2;
 }
 
-.page-faq-accordion--privacy .product-privacy-faq__row.is-open {
+.page-faq-accordion--privacy .product-privacy-faq__row.is-open,
+.page-faq-accordion--privacy .product-privacy-faq__row[open] {
   background: #f5f3ff;
   border-color: #c7d2fe;
 }
 
-.page-faq-accordion--privacy .product-privacy-faq__row.is-open .product-privacy-faq__chevron {
+.page-faq-accordion--privacy .product-privacy-faq__row.is-open .product-privacy-faq__chevron,
+.page-faq-accordion--privacy .product-privacy-faq__row[open] .product-privacy-faq__chevron {
   border-color: #6366f1;
 }
 
@@ -837,12 +854,14 @@
   box-shadow: 0 1px 4px rgba(10, 31, 60, 0.04);
 }
 
-.page-faq-accordion--platform .product-privacy-faq__row.is-open {
+.page-faq-accordion--platform .product-privacy-faq__row.is-open,
+.page-faq-accordion--platform .product-privacy-faq__row[open] {
   background: #f0fdfa;
   border-color: #99f6e4;
 }
 
-.page-faq-accordion--platform .product-privacy-faq__row.is-open .product-privacy-faq__chevron {
+.page-faq-accordion--platform .product-privacy-faq__row.is-open .product-privacy-faq__chevron,
+.page-faq-accordion--platform .product-privacy-faq__row[open] .product-privacy-faq__chevron {
   border-color: #1ac8b0;
 }
 

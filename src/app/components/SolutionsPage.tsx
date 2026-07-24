@@ -7,6 +7,7 @@ import { pageH1OnDark, pageH2OnLight, pageH2OnDark, heroEyebrow, heroLead } from
 
 const solutions = [
   {
+    id: 'fashion-brands',
     emoji: '🏷️',
     badge: 'FASHION BRANDS',
     badgeBg: '#1ac8b0',
@@ -27,6 +28,7 @@ const solutions = [
     ],
   },
   {
+    id: 'manufacturers',
     emoji: '🏭',
     badge: 'MANUFACTURERS',
     badgeBg: '#3b82f6',
@@ -47,6 +49,7 @@ const solutions = [
     ],
   },
   {
+    id: 'retailers',
     emoji: '🛍️',
     badge: 'RETAILERS',
     badgeBg: '#9333ea',
@@ -182,13 +185,15 @@ export function SolutionsPage() {
         <div style={{ display: 'grid', gap: '28px' }}>
           {solutions.map((solution) => (
             <article
-              key={solution.heading}
+              key={solution.id}
+              id={solution.id}
               style={{
                 background: '#fff',
                 borderRadius: '24px',
                 border: `1px solid ${solution.border}`,
                 overflow: 'hidden',
                 boxShadow: solution.shadow,
+                scrollMarginTop: '96px',
               }}
             >
               <div style={{ background: solution.headerBg, padding: '32px 40px 0', display: 'flex', alignItems: 'center', gap: '16px' }}>

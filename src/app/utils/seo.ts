@@ -3,10 +3,12 @@
 export interface PageSEO {
   title: string;
   description: string;
-  keywords: string;
+  /** @deprecated Meta keywords are obsolete and must not be emitted. */
+  keywords?: string;
   canonical: string;
   ogTitle?: string;
   ogDescription?: string;
+  ogImage?: string;
 }
 
 export const SEO_CONFIG: Record<string, PageSEO> = {
@@ -14,19 +16,16 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     title: "StableDPP | Digital Product Passports for Fashion | EU ESPR 2024",
     description:
       "Create blockchain-verified Digital Product Passports that prove sustainability claims. EU ESPR 2024 compliant DPP platform for fashion. Free to start.",
-    keywords:
-      "Digital Product Passport fashion, EU ESPR 2024 compliance, blockchain DPP fashion brands, garment sustainability passport, fashion DPP platform",
     canonical: "https://stabledpp.com/",
     ogTitle: "StableDPP — Digital Product Passports for Fashion Brands",
     ogDescription:
       "Give every fashion product a verifiable digital identity. StableDPP's blockchain-secured passports prove sustainability claims and build consumer trust. Free to start. EU ESPR 2024 compliant.",
+    ogImage: "https://stabledpp.com/og-home.png",
   },
   product: {
     title: "DPP Platform for Fashion | Blockchain-Verified | StableDPP",
     description:
       "The most trusted Digital Product Passport platform for fashion. Blockchain anchoring, ESPR compliance engine, instant QR codes, sustainability dashboard.",
-    keywords:
-      "Digital Product Passport platform fashion, blockchain DPP fashion, ESPR compliance engine, fashion sustainability dashboard, GS1 Digital Link QR",
     canonical: "https://stabledpp.com/product",
     ogTitle: "DPP Platform for Fashion | Blockchain-Verified | StableDPP",
     ogDescription:
@@ -36,8 +35,6 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     title: "DPP Solutions | Brands, Manufacturers & Retailers | StableDPP",
     description:
       "EU ESPR compliance, market access, and end-to-end Digital Product Passport services for fashion brands and textile manufacturers. Consulting, implementation, BaaS hosting, and ongoing support.",
-    keywords:
-      "DPP solutions fashion brands, EU ESPR compliance, market access EU, circular economy fashion, DPP consulting, blockchain-as-a-service, textile manufacturer DPP",
     canonical: "https://stabledpp.com/solutions",
     ogTitle: "DPP Solutions | Brands, Manufacturers & Retailers | StableDPP",
     ogDescription:
@@ -48,8 +45,6 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
       "Resources | EU Digital Product Passport & ESPR 2024 Glossary | StableDPP",
     description:
       "Learn what the EU Digital Product Passport and ESPR 2024 mean for fashion. Clear explainers and a DPP & blockchain glossary with answers to the questions brands ask.",
-    keywords:
-      "what is a digital product passport, eu digital product passport, eu espr 2024, ecodesign for sustainable products regulation, digital product passport explained, espr explained, blockchain product passport, fashion product traceability",
     canonical: "https://stabledpp.com/resources",
     ogTitle:
       "Resources | EU Digital Product Passport & ESPR 2024 Glossary | StableDPP",
@@ -60,8 +55,6 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     title: "About StableDPP | Transparency and Trust in Fashion",
     description:
       "StableDPP's mission: make every fashion product verifiably sustainable. Blockchain-first Digital Product Passports for EU ESPR 2024 compliance.",
-    keywords:
-      "StableDPP fashion DPP platform, blockchain fashion transparency, sustainable fashion company, DPP mission values, fashion compliance team",
     canonical: "https://stabledpp.com/company",
     ogTitle: "About StableDPP | Transparency and Trust in Fashion",
     ogDescription:
@@ -71,16 +64,12 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     title: "Book a StableDPP Demo | See DPPs in Action",
     description:
       "Book a free 30-minute personalised Digital Product Passport demo. We build a live DPP for your products and create your ESPR compliance roadmap.",
-    keywords:
-      "StableDPP demo, Digital Product Passport demo, ESPR compliance demo, fashion DPP consultation, blockchain passport demo",
     canonical: "https://stabledpp.com/book-a-demo",
   },
   signin: {
     title: "Sign In to StableDPP | Your Digital Product Passport Dashboard",
     description:
       "Sign in to your StableDPP account to manage, publish, and track your Digital Product Passports. Secured by 256-bit encryption. GDPR compliant.",
-    keywords:
-      "StableDPP login, DPP dashboard, Digital Product Passport account, fashion DPP management, ESPR compliance dashboard",
     canonical: "https://stabledpp.com/signin",
   },
   getStarted: {
@@ -88,14 +77,11 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
       "Create Your Free StableDPP Account | Digital Product Passports for Fashion",
     description:
       "Start issuing blockchain-verified Digital Product Passports in minutes. Free to start. EU ESPR 2024 compliant from your first passport. No credit card required.",
-    keywords:
-      "create StableDPP account, free Digital Product Passport account, fashion DPP signup, ESPR compliance registration, blockchain passport account",
     canonical: "https://stabledpp.com/get-started",
   },
   comingSoon: {
     title: "Coming Soon | StableDPP",
     description: "This feature is coming soon. Stay tuned for updates.",
-    keywords: "coming soon, updates",
     canonical: "https://stabledpp.com/resources",
   },
 };
@@ -200,7 +186,68 @@ export const HOME_PAGE_FAQS = [
     q: "How fast can we go live?",
     a: "Your first Digital Product Passport can be live in minutes. There is no technical setup and no credit card needed to start.",
   },
+  {
+    q: "How much does StableDPP cost?",
+    a: "StableDPP is free to start — create your first Digital Product Passport at no cost. There is no credit card required, no technical setup, and blockchain anchoring is included from day one.",
+  },
+  {
+    q: "What does Stable DPP stand for?",
+    a: "StableDPP (Stable DPP) stands for stable, tamper-evident Digital Product Passports — blockchain-verified records that give every fashion product a permanent, independently verifiable digital identity.",
+  },
 ] as const;
+
+export const ORGANIZATION_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://stabledpp.com/#organization",
+  name: "StableDPP",
+  alternateName: ["Stable DPP", "Stable DPP Platform"],
+  description:
+    "EU ESPR 2024 compliant Digital Product Passport platform for fashion brands",
+  url: "https://stabledpp.com",
+  logo: "https://stabledpp.com/logo.png",
+  email: "info@stabledpp.com",
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    email: "info@stabledpp.com",
+  },
+  knowsAbout: [
+    "Digital Product Passport",
+    "EU ESPR Regulation",
+    "Blockchain",
+    "Fashion Supply Chain",
+    "GS1 Digital Link",
+  ],
+  sameAs: [
+    "https://x.com/stabledpp",
+    "https://www.instagram.com/stabledpp/",
+    "https://www.linkedin.com/company/stable-dpp/",
+  ],
+};
+
+export const WEBSITE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://stabledpp.com/#website",
+  name: "StableDPP",
+  alternateName: "Stable DPP",
+  url: "https://stabledpp.com",
+};
+
+export const HOME_BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://stabledpp.com/#breadcrumb",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://stabledpp.com/",
+    },
+  ],
+};
 
 export const HOME_PAGE_FAQ_SCHEMA = buildFaqSchema(
   "https://stabledpp.com/#faq",
@@ -506,7 +553,6 @@ export function buildRouteMeta(
   const tags: MetaDescriptor[] = [
     { title: config.title },
     { name: "description", content: config.description },
-    { name: "keywords", content: config.keywords },
     { tagName: "link", rel: "canonical", href: config.canonical },
     { property: "og:url", content: config.canonical },
     { property: "og:type", content: "website" },
@@ -517,6 +563,10 @@ export function buildRouteMeta(
   }
   if (config.ogDescription) {
     tags.push({ property: "og:description", content: config.ogDescription });
+  }
+  if (config.ogImage) {
+    tags.push({ property: "og:image", content: config.ogImage });
+    tags.push({ name: "twitter:image", content: config.ogImage });
   }
 
   return tags;
@@ -539,12 +589,8 @@ export function updatePageSEO(pageKey: keyof typeof SEO_CONFIG) {
     metaDesc.content = config.description;
   }
 
-  let metaKeywords = document.querySelector(
-    'meta[name="keywords"]',
-  ) as HTMLMetaElement;
-  if (metaKeywords) {
-    metaKeywords.content = config.keywords;
-  }
+  // Remove obsolete keywords meta if present (leaks SEO strategy).
+  document.querySelector('meta[name="keywords"]')?.remove();
 
   let canonical = document.querySelector(
     'link[rel="canonical"]',

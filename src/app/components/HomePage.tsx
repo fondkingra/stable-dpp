@@ -23,11 +23,11 @@ export function HomePage() {
         <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '80px 24px 96px', position: 'relative' }} className="hero-section">
           <div className="hero-flex">
             <div style={{ flex: 1 }}>
-              {/* Eyebrow */}
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(26,200,176,0.1)', border: '1px solid rgba(26,200,176,0.2)', borderRadius: '100px', padding: '5px 14px', marginBottom: '28px' }}>
+              {/* Eyebrow — styled text, not a heading */}
+              <p style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(26,200,176,0.1)', border: '1px solid rgba(26,200,176,0.2)', borderRadius: '100px', padding: '5px 14px', marginBottom: '28px', marginTop: 0 }}>
                 <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#1ac8b0', display: 'inline-block', animation: 'blink 2s ease-in-out infinite' }} />
-                <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: '12px', fontWeight: 700, letterSpacing: '0.08em', fontFamily: 'JetBrains Mono, monospace' }}>BLOCKCHAIN-POWERED TRANSPARENCY</span>
-              </div>
+                <span className="eyebrow" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '12px', fontWeight: 700, letterSpacing: '0.08em', fontFamily: 'JetBrains Mono, monospace' }}>BLOCKCHAIN-POWERED TRANSPARENCY</span>
+              </p>
 
               {/* H1 */}
               <h1 style={{ ...pageH1OnDark, marginBottom: '12px' }}>
@@ -69,7 +69,12 @@ export function HomePage() {
             </div>
 
             {/* Hero passport card */}
-            <div className="hidden lg:block shrink-0" style={{ width: '290px', position: 'relative' }}>
+            <div
+              className="hidden lg:block shrink-0"
+              style={{ width: '290px', position: 'relative' }}
+              role="img"
+              aria-label="StableDPP digital product passport example for an organic cotton t-shirt with blockchain verification hash"
+            >
               <div style={{ position: 'absolute', inset: '-40px', background: 'radial-gradient(circle, rgba(26,200,176,0.12) 0%, transparent 65%)', pointerEvents: 'none' }} />
               <div style={{ animation: 'float 4s ease-in-out infinite', position: 'relative' }}>
                 <div style={{ background: '#fff', borderRadius: '24px', padding: '24px', boxShadow: '0 32px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(26,200,176,0.08)' }}>
@@ -104,11 +109,20 @@ export function HomePage() {
             </div>
           </div>
 
-          {/* Stats */}
+          {/* Stats — numbers hardcoded in HTML for crawlability */}
           <div className="stats-grid">
-            {STATS.map((s, i) => (
+            {STATS.map((s) => (
               <div key={s.label} className="stats-item">
-                <p style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(28px, 5vw, 40px)', fontWeight: 900, color: '#fff', lineHeight: 1, marginBottom: '6px', letterSpacing: '-0.02em' }}>{s.value}</p>
+                <p style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(28px, 5vw, 40px)', fontWeight: 900, color: '#fff', lineHeight: 1, marginBottom: '6px', letterSpacing: '-0.02em' }}>
+                  {'unit' in s && s.unit ? (
+                    <>
+                      <span className="stat-num" data-count={s.count}>{s.value}</span>{' '}
+                      <span>{s.unit}</span>
+                    </>
+                  ) : (
+                    <span className="stat-num" data-count={s.count}>{s.value}</span>
+                  )}
+                </p>
                 <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '12px', fontFamily: 'Inter, sans-serif', fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase' }}>{s.label}</p>
               </div>
             ))}
@@ -119,7 +133,7 @@ export function HomePage() {
       {/* Compliance Trust Bar */}
       <section style={{ background: '#fff', padding: '20px 24px', borderTop: '1px solid #ede8e3', borderBottom: '1px solid #ede8e3' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '8px 32px' }}>
-          <span style={{ color: '#5a6a7a', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', fontWeight: 600 }}>COMPLIANT WITH</span>
+          <p className="eyebrow" style={{ color: '#5a6a7a', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.14em', fontWeight: 600, margin: 0 }}>COMPLIANT WITH</p>
           {['EU ESPR 2024', 'Blockchain Verified', 'GS1 Standards', 'ISO 14001', 'GDPR Compliant', 'GS1 Digital Link'].map(b => (
             <span key={b} style={{ color: '#1ac8b0', fontSize: '13px', fontWeight: 600 }}>●  {b}</span>
           ))}
@@ -130,7 +144,7 @@ export function HomePage() {
       <section style={{ padding: '80px 24px', background: '#fafaf8' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <div className="section-eyebrow">WHY STABLEDPP</div>
+            <p className="section-eyebrow eyebrow">WHY STABLEDPP</p>
             <h2 style={{ ...pageH2OnLight, textAlign: 'center' }}>Built for the Future of Fashion — and the Regulations Already Here</h2>
           </div>
         <div className="why-grid">
@@ -166,7 +180,7 @@ export function HomePage() {
       <section id="how-it-works" style={{ padding: '80px 24px', background: '#fff' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <div className="section-eyebrow">SIMPLE PROCESS</div>
+            <p className="section-eyebrow eyebrow">SIMPLE PROCESS</p>
             <h2 style={{ ...pageH2OnLight, textAlign: 'center' }}>How StableDPP Creates Your Digital Product Passport in 3 Steps</h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>

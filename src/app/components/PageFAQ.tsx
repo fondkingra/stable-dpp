@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 export type FaqItem = { q: string; a: string };
 
 type PageFAQProps = {
@@ -21,8 +19,6 @@ export function PageFAQ({
   embedded = false,
   showQaPrefix = false,
 }: PageFAQProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(defaultOpen);
-
   const sectionClass = [
     'page-faq-section',
     `page-faq-section--${tone}`,
@@ -54,21 +50,18 @@ export function PageFAQ({
 
       <div className={accordionClass}>
         {faqs.map(({ q, a }, index) => {
-          const isOpen = openIndex === index;
           const panelId = `${id}-panel-${index}`;
           const triggerId = `${id}-trigger-${index}`;
 
           return (
-            <div
+            <details
               key={q}
-              className={`product-privacy-faq__row${isOpen ? ' is-open' : ''}`}
+              className="product-privacy-faq__row"
+              open={defaultOpen === index ? true : undefined}
             >
-              <button
-                type="button"
+              <summary
                 id={triggerId}
                 className="product-privacy-faq__trigger"
-                onClick={() => setOpenIndex(isOpen ? null : index)}
-                aria-expanded={isOpen}
                 aria-controls={panelId}
               >
                 {showQaPrefix ? (
@@ -79,19 +72,18 @@ export function PageFAQ({
                   <h3 className="page-faq__question">{q}</h3>
                 )}
                 <span className="product-privacy-faq__chevron" aria-hidden="true" />
-              </button>
+              </summary>
               <div
                 id={panelId}
-                className={`product-privacy-faq__panel${isOpen ? ' is-open' : ''}`}
+                className="product-privacy-faq__panel is-open"
                 role="region"
                 aria-labelledby={triggerId}
-                hidden={!isOpen}
               >
                 <p className="product-privacy-faq__answer">
                   {showQaPrefix ? `A. ${a}` : a}
                 </p>
               </div>
-            </div>
+            </details>
           );
         })}
       </div>

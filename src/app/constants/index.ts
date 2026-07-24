@@ -69,10 +69,10 @@ export const PRODUCT_SELECT_OPTIONS = {
 };
 
 export const STATS = [
-  { value: '500+', label: 'Digital Product Passports issued' },
-  { value: 'mins', label: 'Sign-up to first passport' },
-  { value: '100%', label: 'ESPR 2024 data fields covered' },
-  { value: '30+', label: 'Fashion brands onboarded' },
+  { value: '500+', count: 500, label: 'Digital Product Passports issued' },
+  { value: '15', unit: 'mins', count: 15, label: 'Sign-up to first passport' },
+  { value: '100%', count: 100, label: 'ESPR 2024 data fields covered' },
+  { value: '30+', count: 30, label: 'Fashion brands onboarded' },
 ] as const;
 
 export const FEATURES = [

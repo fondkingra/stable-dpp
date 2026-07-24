@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
 import { PageFAQ } from './PageFAQ';
+import { PageBreadcrumb } from './PageBreadcrumb';
 import { Icon, type IconName } from '../utils/icons';
 import { SOLUTIONS_PAGE_FAQS, type SolutionSegmentId } from '../utils/seo';
 import { pageH1OnDark, pageH2OnLight, pageH2OnDark, heroEyebrow, heroLead } from '../styles/typography';
@@ -199,12 +200,9 @@ export function SolutionsPage() {
       {/* Hero */}
       <section style={{ background: 'linear-gradient(160deg, #071528 0%, #0a1f3c 60%, #0d2a4a 100%)', padding: '96px 24px 80px' }}>
         <div style={{ maxWidth: '820px', margin: '0 auto' }}>
-          <nav className="breadcrumb" aria-label="Breadcrumb">
-            <ol>
-              <li><a href="/">Home</a></li>
-              <li aria-current="page">Solutions</li>
-            </ol>
-          </nav>
+          <PageBreadcrumb
+            items={[{ label: "Home", href: "/" }, { label: "Solutions" }]}
+          />
           <div style={heroEyebrow}>SOLUTIONS</div>
           <h1 style={{ ...pageH1OnDark, marginBottom: '28px' }}>
             Digital Product Passport Solutions for the Fashion Supply Chain

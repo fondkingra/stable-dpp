@@ -737,6 +737,25 @@ export const RESOURCES_BREADCRUMB_SCHEMA = {
   ],
 };
 
+export const DEMO_BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://stabledpp.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Book a Demo",
+      item: "https://stabledpp.com/book-a-demo",
+    },
+  ],
+};
+
 export type SolutionSegmentId =
   | "fashion-brands"
   | "manufacturers"
@@ -883,6 +902,8 @@ function updateBreadcrumbSchema(pageKey: string, config: PageSEO) {
     demo: "Book a Demo",
     signin: "Sign In",
     getStarted: "Get Started",
+    privacy: "Privacy Policy",
+    terms: "Terms & Conditions",
   };
 
   const isSolutionChild =

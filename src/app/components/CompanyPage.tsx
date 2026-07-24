@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
 import { PageFAQ } from './PageFAQ';
+import { PageBreadcrumb } from './PageBreadcrumb';
 import { Icon } from '../utils/icons';
 import { COMPANY_PAGE_FAQS } from '../utils/seo';
 import { APP_CONFIG } from '../constants';
@@ -55,12 +56,9 @@ export function CompanyPage() {
       {/* Mission */}
       <section style={{ background: 'linear-gradient(160deg, #071528 0%, #0a1f3c 60%, #0d2a4a 100%)', padding: '96px 24px 80px' }}>
         <div style={{ maxWidth: '820px', margin: '0 auto' }}>
-          <nav className="breadcrumb" aria-label="Breadcrumb">
-            <ol>
-              <li><a href="/">Home</a></li>
-              <li aria-current="page">Company</li>
-            </ol>
-          </nav>
+          <PageBreadcrumb
+            items={[{ label: "Home", href: "/" }, { label: "Company" }]}
+          />
           <div style={heroEyebrow}>
             OUR MISSION
           </div>

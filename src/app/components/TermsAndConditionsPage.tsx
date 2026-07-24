@@ -40,6 +40,12 @@ export function TermsAndConditionsPage({ page }: { page: 'privacy' | 'terms' }) 
 
         {page === 'privacy' && (
         <div id="privacy">
+          <nav className="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+              <li><a href="/">Home</a></li>
+              <li aria-current="page">Privacy Policy</li>
+            </ol>
+          </nav>
           <p style={{ color: '#1ac8b0', fontSize: '13px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '12px' }}>Legal</p>
           <h1 style={{ ...pageH1OnDark, fontSize: '36px', marginBottom: '8px' }}>Privacy Policy</h1>
           <p style={{ color: '#1ac8b0', fontSize: '14px', fontStyle: 'italic', marginBottom: '6px' }}>How StableDPP collects, uses, safeguards, and shares information</p>
@@ -120,6 +126,12 @@ export function TermsAndConditionsPage({ page }: { page: 'privacy' | 'terms' }) 
 
         {page === 'terms' && (
         <div id="terms">
+          <nav className="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+              <li><a href="/">Home</a></li>
+              <li aria-current="page">Terms &amp; Conditions</li>
+            </ol>
+          </nav>
           <p style={{ color: '#1ac8b0', fontSize: '13px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '12px' }}>Legal</p>
           <h1 style={{ ...pageH1OnDark, fontSize: '36px', marginBottom: '8px' }}>Terms &amp; Conditions</h1>
           <p style={{ color: '#1ac8b0', fontSize: '14px', fontStyle: 'italic', marginBottom: '6px' }}>The agreement governing your use of the StableDPP Platform</p>

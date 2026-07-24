@@ -1,8 +1,9 @@
 import { TermsAndConditionsPage } from "../app/components/TermsAndConditionsPage";
+import { TERMS_BREADCRUMB_SCHEMA } from "../app/utils/seo";
 
 export function meta() {
   return [
-    { title: "Terms and Conditions | StableDPP" },
+    { title: "Terms & Conditions | StableDPP" },
     {
       name: "description",
       content: "StableDPP terms and conditions for using our Digital Product Passport platform.",
@@ -12,5 +13,16 @@ export function meta() {
 }
 
 export default function Component() {
-  return <TermsAndConditionsPage page="terms" />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        data-breadcrumb
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(TERMS_BREADCRUMB_SCHEMA),
+        }}
+      />
+      <TermsAndConditionsPage page="terms" />
+    </>
+  );
 }

@@ -459,6 +459,44 @@ export const COMPANY_BREADCRUMB_SCHEMA = {
   ],
 };
 
+export const PRIVACY_BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://stabledpp.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Privacy Policy",
+      item: "https://stabledpp.com/privacy-policy",
+    },
+  ],
+};
+
+export const TERMS_BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://stabledpp.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Terms & Conditions",
+      item: "https://stabledpp.com/terms",
+    },
+  ],
+};
+
 /** Standalone Person schemas for E-E-A-T. LinkedIn sameAs omitted until confirmed profile URLs are provided. */
 export const COMPANY_FOUNDER_PERSON_SCHEMAS = [
   {

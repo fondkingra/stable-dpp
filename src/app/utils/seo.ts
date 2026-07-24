@@ -718,6 +718,25 @@ export const SOLUTIONS_BREADCRUMB_SCHEMA = {
   ],
 };
 
+export const RESOURCES_BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://stabledpp.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Resources",
+      item: "https://stabledpp.com/resources",
+    },
+  ],
+};
+
 export type SolutionSegmentId =
   | "fashion-brands"
   | "manufacturers"

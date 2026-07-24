@@ -42,6 +42,12 @@ export function ResourcesPage() {
         }}
       >
         <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+          <nav className="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+              <li><a href="/">Home</a></li>
+              <li aria-current="page">Resources</li>
+            </ol>
+          </nav>
           <div style={heroEyebrow}>RESOURCES</div>
           <h1 style={{ ...pageH1OnDark, marginBottom: '24px' }}>
             Your Guide to EU Digital Product Passports &amp; ESPR Compliance

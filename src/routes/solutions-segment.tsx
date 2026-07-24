@@ -1,41 +1,43 @@
-import { useEffect } from "react";
-import { useParams, Navigate } from "react-router";
-import { SolutionsPage } from "../app/components/SolutionsPage";
-import { buildRouteMeta, SOLUTIONS_PAGE_FAQ_SCHEMA, SOLUTIONS_PAGE_SCHEMA } from "../app/utils/seo";
+import { Navigate, useParams } from "react-router";
+import { SolutionSegmentPage } from "../app/components/SolutionSegmentPage";
+import {
+  buildRouteMeta,
+  buildSolutionSegmentBreadcrumbSchema,
+  getSolutionSegmentSeoKey,
+  type SolutionSegmentId,
+} from "../app/utils/seo";
 
-const VALID_SEGMENTS = new Set(["fashion-brands", "manufacturers", "retailers"]);
+const VALID_SEGMENTS = new Set<SolutionSegmentId>([
+  "fashion-brands",
+  "manufacturers",
+  "retailers",
+]);
 
-export function meta() {
-  return buildRouteMeta("solutions");
+export function meta({ params }: { params: { segment?: string } }) {
+  const seoKey = getSolutionSegmentSeoKey(params.segment ?? "");
+  return buildRouteMeta(seoKey ?? "solutions");
 }
 
 export default function Component() {
   const { segment = "" } = useParams();
 
-  useEffect(() => {
-    if (!VALID_SEGMENTS.has(segment)) return;
-    requestAnimationFrame(() => {
-      document.getElementById(segment)?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  }, [segment]);
-
-  if (!VALID_SEGMENTS.has(segment)) {
+  if (!VALID_SEGMENTS.has(segment as SolutionSegmentId)) {
     return <Navigate to="/solutions" replace />;
   }
+
+  const typedSegment = segment as SolutionSegmentId;
+  const breadcrumbSchema = buildSolutionSegmentBreadcrumbSchema(typedSegment);
 
   return (
     <>
       <script
         type="application/ld+json"
-        data-service-schema
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(SOLUTIONS_PAGE_SCHEMA) }}
+        data-breadcrumb
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
       />
-      <script
-        type="application/ld+json"
-        data-page-faq-schema
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(SOLUTIONS_PAGE_FAQ_SCHEMA) }}
-      />
-      <SolutionsPage />
+      <SolutionSegmentPage segment={typedSegment} />
     </>
   );
 }

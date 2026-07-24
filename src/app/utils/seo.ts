@@ -33,13 +33,44 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     ogImage: "https://stabledpp.com/og-product.png",
   },
   solutions: {
-    title: "DPP Solutions | Brands, Manufacturers & Retailers | StableDPP",
+    title:
+      "DPP Solutions for Fashion Brands, Manufacturers & Retailers | StableDPP",
     description:
-      "EU ESPR compliance, market access, and end-to-end Digital Product Passport services for fashion brands and textile manufacturers. Consulting, implementation, BaaS hosting, and ongoing support.",
+      "ESPR compliance workflows for every role in the fashion supply chain — brands proving sustainability claims, manufacturers sharing component data, retailers verifying stock. One passport, every stakeholder.",
     canonical: "https://stabledpp.com/solutions",
-    ogTitle: "DPP Solutions | Brands, Manufacturers & Retailers | StableDPP",
+    ogTitle:
+      "DPP Solutions for Fashion Brands, Manufacturers & Retailers | StableDPP",
     ogDescription:
-      "EU ESPR compliance, market access, and end-to-end Digital Product Passport services for fashion brands and textile manufacturers. Consulting, implementation, BaaS hosting, and ongoing support.",
+      "ESPR compliance workflows for every role in the fashion supply chain — brands proving sustainability claims, manufacturers sharing component data, retailers verifying stock. One passport, every stakeholder.",
+  },
+  solutionsFashionBrands: {
+    title: "Digital Product Passports for Fashion Brands | StableDPP",
+    description:
+      "Prove every sustainability claim on-chain. Issue EU ESPR-compliant Digital Product Passports for fashion brands — component tracking, consumer QR codes, and verifiable transparency.",
+    canonical: "https://stabledpp.com/solutions/fashion-brands",
+    ogTitle: "Digital Product Passports for Fashion Brands | StableDPP",
+    ogDescription:
+      "Prove every sustainability claim on-chain. Issue EU ESPR-compliant Digital Product Passports for fashion brands — component tracking, consumer QR codes, and verifiable transparency.",
+  },
+  solutionsManufacturers: {
+    title:
+      "Digital Product Passports for Manufacturers & Textile Exporters | StableDPP",
+    description:
+      "Component DPPs your EU buyers can verify. Fibre origin tracking, supplier verification, and multi-brand data sharing for manufacturers and textile exporters.",
+    canonical: "https://stabledpp.com/solutions/manufacturers",
+    ogTitle:
+      "Digital Product Passports for Manufacturers & Textile Exporters | StableDPP",
+    ogDescription:
+      "Component DPPs your EU buyers can verify. Fibre origin tracking, supplier verification, and multi-brand data sharing for manufacturers and textile exporters.",
+  },
+  solutionsRetailers: {
+    title: "Digital Product Passports for Retailers | StableDPP",
+    description:
+      "Verify compliance before stock hits the shelf. DPP verification portal, Green Claims compliance, and multi-brand dashboards for fashion retailers.",
+    canonical: "https://stabledpp.com/solutions/retailers",
+    ogTitle: "Digital Product Passports for Retailers | StableDPP",
+    ogDescription:
+      "Verify compliance before stock hits the shelf. DPP verification portal, Green Claims compliance, and multi-brand dashboards for fashion retailers.",
   },
   resources: {
     title:
@@ -567,7 +598,7 @@ export const SOLUTIONS_PAGE_SCHEMA = {
   "@type": "Service",
   name: "StableDPP Digital Product Passport Solutions",
   description:
-    "EU ESPR compliance, market access, and end-to-end Digital Product Passport services for fashion brands and textile manufacturers. Consulting, implementation, BaaS hosting, and ongoing support.",
+    "ESPR compliance workflows for every role in the fashion supply chain — brands proving sustainability claims, manufacturers sharing component data, retailers verifying stock. One passport, every stakeholder.",
   provider: {
     "@type": "Organization",
     name: "StableDPP",
@@ -580,6 +611,83 @@ export const SOLUTIONS_PAGE_SCHEMA = {
     name: "European Union",
   },
 };
+
+export const SOLUTIONS_BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://stabledpp.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Solutions",
+      item: "https://stabledpp.com/solutions",
+    },
+  ],
+};
+
+export type SolutionSegmentId =
+  | "fashion-brands"
+  | "manufacturers"
+  | "retailers";
+
+const SOLUTION_SEGMENT_SEO_KEYS = {
+  "fashion-brands": "solutionsFashionBrands",
+  manufacturers: "solutionsManufacturers",
+  retailers: "solutionsRetailers",
+} as const satisfies Record<SolutionSegmentId, keyof typeof SEO_CONFIG>;
+
+const SOLUTION_SEGMENT_CRUMB_NAMES: Record<SolutionSegmentId, string> = {
+  "fashion-brands": "Fashion Brands",
+  manufacturers: "Manufacturers",
+  retailers: "Retailers",
+};
+
+export function getSolutionSegmentSeoKey(
+  segment: string,
+): keyof typeof SEO_CONFIG | null {
+  if (segment in SOLUTION_SEGMENT_SEO_KEYS) {
+    return SOLUTION_SEGMENT_SEO_KEYS[segment as SolutionSegmentId];
+  }
+  return null;
+}
+
+export function buildSolutionSegmentBreadcrumbSchema(segment: SolutionSegmentId) {
+  const config = SEO_CONFIG[SOLUTION_SEGMENT_SEO_KEYS[segment]];
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://stabledpp.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Solutions",
+        item: "https://stabledpp.com/solutions",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: SOLUTION_SEGMENT_CRUMB_NAMES[segment],
+        item: config.canonical,
+      },
+    ],
+  };
+}
+
+export function getSolutionSegmentCrumbName(segment: SolutionSegmentId) {
+  return SOLUTION_SEGMENT_CRUMB_NAMES[segment];
+}
 
 export function buildRouteMeta(
   pageKey: keyof typeof SEO_CONFIG,
@@ -661,6 +769,9 @@ function updateBreadcrumbSchema(pageKey: string, config: PageSEO) {
   const breadcrumbMap: Record<string, string> = {
     product: "Product",
     solutions: "Solutions",
+    solutionsFashionBrands: "Fashion Brands",
+    solutionsManufacturers: "Manufacturers",
+    solutionsRetailers: "Retailers",
     resources: "Resources",
     company: "Company",
     demo: "Book a Demo",
@@ -668,23 +779,47 @@ function updateBreadcrumbSchema(pageKey: string, config: PageSEO) {
     getStarted: "Get Started",
   };
 
+  const isSolutionChild =
+    pageKey === "solutionsFashionBrands" ||
+    pageKey === "solutionsManufacturers" ||
+    pageKey === "solutionsRetailers";
+
+  const itemListElement = [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://stabledpp.com/",
+    },
+    ...(isSolutionChild
+      ? [
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Solutions",
+            item: "https://stabledpp.com/solutions",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: breadcrumbMap[pageKey] || pageKey,
+            item: config.canonical,
+          },
+        ]
+      : [
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: breadcrumbMap[pageKey] || pageKey,
+            item: config.canonical,
+          },
+        ]),
+  ];
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://stabledpp.com/",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: breadcrumbMap[pageKey] || pageKey,
-        item: config.canonical,
-      },
-    ],
+    itemListElement,
   };
 
   const existingBreadcrumb = document.querySelector(

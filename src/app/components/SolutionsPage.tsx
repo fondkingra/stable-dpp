@@ -2,12 +2,32 @@ import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
 import { PageFAQ } from './PageFAQ';
 import { Icon, type IconName } from '../utils/icons';
-import { SOLUTIONS_PAGE_FAQS } from '../utils/seo';
+import { SOLUTIONS_PAGE_FAQS, type SolutionSegmentId } from '../utils/seo';
 import { pageH1OnDark, pageH2OnLight, pageH2OnDark, heroEyebrow, heroLead } from '../styles/typography';
 
-const solutions = [
+export type SolutionAudience = {
+  id: SolutionSegmentId;
+  path: string;
+  emoji: string;
+  badge: string;
+  badgeBg: string;
+  badgeColor: string;
+  border: string;
+  headerBg: string;
+  iconBg: string;
+  capabilityBg: string;
+  capabilityAccent: string;
+  shadow: string;
+  heading: string;
+  pageH1: string;
+  body: string;
+  capabilities: string[];
+};
+
+export const solutions: SolutionAudience[] = [
   {
     id: 'fashion-brands',
+    path: '/solutions/fashion-brands',
     emoji: '🏷️',
     badge: 'FASHION BRANDS',
     badgeBg: '#1ac8b0',
@@ -18,7 +38,8 @@ const solutions = [
     capabilityBg: '#e6faf7',
     capabilityAccent: '#1ac8b0',
     shadow: '0 4px 24px rgba(26,200,176,0.08)',
-    heading: 'For Fashion Brands — Turn Compliance Into a Competitive Advantage',
+    heading: 'For Fashion Brands: Prove Every Sustainability Claim On-Chain',
+    pageH1: 'Digital Product Passports for Fashion Brands',
     body: 'The EU ESPR 2024 mandate is not just a compliance obligation — it is an opportunity to prove what your brand stands for. StableDPP gives fashion brands the infrastructure to issue verified Digital Product Passports for every product.',
     capabilities: [
       'Full product DPP creation',
@@ -29,6 +50,7 @@ const solutions = [
   },
   {
     id: 'manufacturers',
+    path: '/solutions/manufacturers',
     emoji: '🏭',
     badge: 'MANUFACTURERS',
     badgeBg: '#3b82f6',
@@ -39,7 +61,8 @@ const solutions = [
     capabilityBg: '#eff6ff',
     capabilityAccent: '#3b82f6',
     shadow: '0 4px 24px rgba(59,130,246,0.07)',
-    heading: 'For Textile Manufacturers — Become the Verified Partner Brands Want',
+    heading: 'For Manufacturers & Textile Exporters: Component DPPs Your EU Buyers Can Verify',
+    pageH1: 'Digital Product Passports for Manufacturers & Textile Exporters',
     body: 'Brands increasingly require verified sustainability data from every supplier in their chain. StableDPP lets textile manufacturers issue component DPPs for every material they produce — giving brand partners the verified data they need.',
     capabilities: [
       'Component DPP issuance',
@@ -50,6 +73,7 @@ const solutions = [
   },
   {
     id: 'retailers',
+    path: '/solutions/retailers',
     emoji: '🛍️',
     badge: 'RETAILERS',
     badgeBg: '#9333ea',
@@ -60,7 +84,8 @@ const solutions = [
     capabilityBg: '#f5f3ff',
     capabilityAccent: '#9333ea',
     shadow: '0 4px 24px rgba(147,51,234,0.07)',
-    heading: 'For Retailers — Verified Product Data at Every Point of Sale',
+    heading: 'For Retailers: Verify Compliance Before Stock Hits the Shelf',
+    pageH1: 'Digital Product Passports for Retailers',
     body: 'The EU Green Claims Directive requires retailers to substantiate every sustainability claim at the shelf. StableDPP gives retail partners access to verified DPP data from their entire brand and supplier network.',
     capabilities: [
       'DPP verification portal',
@@ -70,6 +95,10 @@ const solutions = [
     ],
   },
 ];
+
+export function getSolutionBySegment(segment: string): SolutionAudience | undefined {
+  return solutions.find((solution) => solution.id === segment);
+}
 
 const valuePropositions = [
   {
@@ -170,9 +199,15 @@ export function SolutionsPage() {
       {/* Hero */}
       <section style={{ background: 'linear-gradient(160deg, #071528 0%, #0a1f3c 60%, #0d2a4a 100%)', padding: '96px 24px 80px' }}>
         <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+          <nav className="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+              <li><a href="/">Home</a></li>
+              <li aria-current="page">Solutions</li>
+            </ol>
+          </nav>
           <div style={heroEyebrow}>SOLUTIONS</div>
           <h1 style={{ ...pageH1OnDark, marginBottom: '28px' }}>
-            One Platform. Every Fashion Supply Chain Solved.
+            Digital Product Passport Solutions for the Fashion Supply Chain
           </h1>
           <p style={heroLead}>
             Whether you are a global fashion house, a sustainable emerging brand, or a multi-tier textile manufacturer — StableDPP has a Digital Product Passport solution architected for your supply chain complexity and EU ESPR 2024 compliance requirements.
@@ -205,7 +240,14 @@ export function SolutionsPage() {
                     {solution.badge}
                   </span>
                   <h2 style={{ ...pageH2OnLight, fontSize: 'clamp(20px, 2.5vw, 28px)', marginTop: '8px', marginBottom: '4px' }}>
-                    {solution.heading}
+                    <a
+                      href={solution.path}
+                      style={{ color: 'inherit', textDecoration: 'none' }}
+                      onMouseEnter={(e) => { e.currentTarget.style.color = solution.capabilityAccent; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.color = 'inherit'; }}
+                    >
+                      {solution.heading}
+                    </a>
                   </h2>
                 </div>
               </div>

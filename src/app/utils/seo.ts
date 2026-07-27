@@ -92,6 +92,93 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     ogDescription:
       "StableDPP (Stable DPP) builds blockchain-native Digital Product Passport infrastructure for fashion and textiles — tamper-evident verification that turns sustainability claims into on-chain proof.",
   },
+  blog: {
+    title: "Blog | Digital Product Passport Guides & ESPR Insights | StableDPP",
+    description:
+      "Guides on Digital Product Passports, EU ESPR 2024, and how fashion brands create verified product data — from what a DPP is to step-by-step setup.",
+    canonical: "https://stabledpp.com/blog",
+    ogTitle: "Blog | Digital Product Passport Guides & ESPR Insights | StableDPP",
+    ogDescription:
+      "Guides on Digital Product Passports, EU ESPR 2024, and how fashion brands create verified product data — from what a DPP is to step-by-step setup.",
+    ogImage: "https://stabledpp.com/blog/blog-1-what-is-dpp.png",
+  },
+  blogWhatIsDpp: {
+    title:
+      "What Is a Digital Product Passport? The Complete Guide | StableDPP",
+    description:
+      "A Digital Product Passport (DPP) is a digital record of a product’s materials, origin, and sustainability data, accessed via QR code. Learn how DPPs work, why the EU requires them, and how to create one.",
+    canonical:
+      "https://stabledpp.com/blog/what-is-a-digital-product-passport",
+    ogTitle:
+      "What Is a Digital Product Passport? The Complete Guide | StableDPP",
+    ogDescription:
+      "A Digital Product Passport (DPP) is a digital record of a product’s materials, origin, and sustainability data, accessed via QR code. Learn how DPPs work, why the EU requires them, and how to create one.",
+    ogImage: "https://stabledpp.com/blog/blog-1-what-is-dpp.png",
+  },
+  blogEsprGuide: {
+    title:
+      "EU ESPR 2024 Explained: What Regulation 2024/1781 Requires From Fashion Brands | StableDPP",
+    description:
+      "EU ESPR 2024 (Regulation EU 2024/1781) makes Digital Product Passports mandatory for products sold in the EU. Here is what it requires, when it applies to textiles, and how to prepare.",
+    canonical:
+      "https://stabledpp.com/blog/espr-regulation-2024-1781-explained",
+    ogTitle:
+      "EU ESPR 2024 Explained: What Regulation 2024/1781 Requires From Fashion Brands | StableDPP",
+    ogDescription:
+      "EU ESPR 2024 (Regulation EU 2024/1781) makes Digital Product Passports mandatory for products sold in the EU. Here is what it requires, when it applies to textiles, and how to prepare.",
+    ogImage: "https://stabledpp.com/blog/blog-2-espr-2024.png",
+  },
+  blogHowToCreate: {
+    title:
+      "How to Create a Digital Product Passport (Step by Step) | StableDPP",
+    description:
+      "Learn how to create a Digital Product Passport in 5 simple steps — from gathering product data to generating a blockchain-verified, ESPR-compliant QR code.",
+    canonical:
+      "https://stabledpp.com/blog/how-to-create-a-digital-product-passport",
+    ogTitle:
+      "How to Create a Digital Product Passport (Step by Step) | StableDPP",
+    ogDescription:
+      "Learn how to create a Digital Product Passport in 5 simple steps — from gathering product data to generating a blockchain-verified, ESPR-compliant QR code.",
+    ogImage: "https://stabledpp.com/blog/blog-3-how-to-create-dpp.png",
+  },
+  blogDppCost: {
+    title:
+      "How Much Does a Digital Product Passport Cost? (2026 Guide) | StableDPP",
+    description:
+      "Digital Product Passport costs range from free self-serve tiers to enterprise contracts. See what actually drives the price, and how to budget for ESPR compliance in 2026.",
+    canonical: "https://stabledpp.com/blog/digital-product-passport-cost",
+    ogTitle:
+      "How Much Does a Digital Product Passport Cost? (2026 Guide) | StableDPP",
+    ogDescription:
+      "Digital Product Passport costs range from free self-serve tiers to enterprise contracts. See what actually drives the price, and how to budget for ESPR compliance in 2026.",
+    ogImage: "https://stabledpp.com/blog/blog-4-dpp-cost.png",
+  },
+  blogTextileManufacturers: {
+    title:
+      "Digital Product Passport for Textile Manufacturers: Complete Guide | StableDPP",
+    description:
+      "A practical guide for textile manufacturers and exporters: what a Digital Product Passport requires, how to prepare supply-chain data, and how to stay ahead of EU ESPR.",
+    canonical:
+      "https://stabledpp.com/blog/digital-product-passport-for-textile-manufacturers",
+    ogTitle:
+      "Digital Product Passport for Textile Manufacturers: Complete Guide | StableDPP",
+    ogDescription:
+      "A practical guide for textile manufacturers and exporters: what a Digital Product Passport requires, how to prepare supply-chain data, and how to stay ahead of EU ESPR.",
+    ogImage: "https://stabledpp.com/blog/blog-5-textile-manufacturers.png",
+  },
+  blogGs1DigitalLink: {
+    title:
+      "What Is GS1 Digital Link? How It Powers Digital Product Passports | StableDPP",
+    description:
+      "GS1 Digital Link is the QR standard connecting products to their Digital Product Passport data. Learn how it works, why ESPR favors it, and what brands need to use it.",
+    canonical:
+      "https://stabledpp.com/blog/gs1-digital-link-digital-product-passport",
+    ogTitle:
+      "What Is GS1 Digital Link? How It Powers Digital Product Passports | StableDPP",
+    ogDescription:
+      "GS1 Digital Link is the QR standard connecting products to their Digital Product Passport data. Learn how it works, why ESPR favors it, and what brands need to use it.",
+    ogImage: "https://stabledpp.com/blog/blog-6-gs1-digital-link.png",
+  },
   demo: {
     title: "Book a StableDPP Demo | See DPPs in Action",
     description:
@@ -737,6 +824,137 @@ export const RESOURCES_BREADCRUMB_SCHEMA = {
   ],
 };
 
+export const BLOG_BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://stabledpp.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Blog",
+      item: "https://stabledpp.com/blog",
+    },
+  ],
+};
+
+export type BlogSeoKey =
+  | "blogWhatIsDpp"
+  | "blogEsprGuide"
+  | "blogHowToCreate"
+  | "blogDppCost"
+  | "blogTextileManufacturers"
+  | "blogGs1DigitalLink";
+
+const BLOG_SLUG_SEO_KEYS = {
+  "what-is-a-digital-product-passport": "blogWhatIsDpp",
+  "espr-regulation-2024-1781-explained": "blogEsprGuide",
+  "how-to-create-a-digital-product-passport": "blogHowToCreate",
+  "digital-product-passport-cost": "blogDppCost",
+  "digital-product-passport-for-textile-manufacturers":
+    "blogTextileManufacturers",
+  "gs1-digital-link-digital-product-passport": "blogGs1DigitalLink",
+} as const satisfies Record<string, BlogSeoKey>;
+
+export function getBlogSeoKey(slug: string): BlogSeoKey | null {
+  if (slug in BLOG_SLUG_SEO_KEYS) {
+    return BLOG_SLUG_SEO_KEYS[slug as keyof typeof BLOG_SLUG_SEO_KEYS];
+  }
+  return null;
+}
+
+export function buildBlogBreadcrumbSchema(
+  title: string,
+  canonical: string,
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://stabledpp.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://stabledpp.com/blog",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: title,
+        item: canonical,
+      },
+    ],
+  };
+}
+
+export function buildArticleSchema(input: {
+  headline: string;
+  description: string;
+  url: string;
+  image: string;
+  datePublished: string;
+  dateModified: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: input.headline,
+    description: input.description,
+    image: [input.image],
+    datePublished: input.datePublished,
+    dateModified: input.dateModified,
+    author: {
+      "@type": "Person",
+      name: "Sudhanva Bhandolkar",
+      jobTitle: "Co-founder",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "StableDPP",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://stabledpp.com/logo-transparent.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": input.url,
+    },
+  };
+}
+
+export function buildHowToSchema(input: {
+  name: string;
+  description: string;
+  url: string;
+  steps: readonly { name: string; text: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: input.name,
+    description: input.description,
+    url: input.url,
+    step: input.steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  };
+}
+
 export const DEMO_BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -816,6 +1034,7 @@ export function getSolutionSegmentCrumbName(segment: SolutionSegmentId) {
 
 export function buildRouteMeta(
   pageKey: keyof typeof SEO_CONFIG,
+  options?: { ogType?: "website" | "article" },
 ): MetaDescriptor[] {
   const config = SEO_CONFIG[pageKey];
   const tags: MetaDescriptor[] = [
@@ -823,7 +1042,7 @@ export function buildRouteMeta(
     { name: "description", content: config.description },
     { tagName: "link", rel: "canonical", href: config.canonical },
     { property: "og:url", content: config.canonical },
-    { property: "og:type", content: "website" },
+    { property: "og:type", content: options?.ogType ?? "website" },
   ];
 
   if (config.ogTitle) {
@@ -899,6 +1118,13 @@ function updateBreadcrumbSchema(pageKey: string, config: PageSEO) {
     solutionsRetailers: "Retailers",
     resources: "Resources",
     company: "Company",
+    blog: "Blog",
+    blogWhatIsDpp: "What Is a Digital Product Passport?",
+    blogEsprGuide: "EU ESPR 2024 Explained",
+    blogHowToCreate: "How to Create a Digital Product Passport",
+    blogDppCost: "How Much Does a DPP Cost?",
+    blogTextileManufacturers: "DPP for Textile Manufacturers",
+    blogGs1DigitalLink: "GS1 Digital Link",
     demo: "Book a Demo",
     signin: "Sign In",
     getStarted: "Get Started",
@@ -910,6 +1136,14 @@ function updateBreadcrumbSchema(pageKey: string, config: PageSEO) {
     pageKey === "solutionsFashionBrands" ||
     pageKey === "solutionsManufacturers" ||
     pageKey === "solutionsRetailers";
+
+  const isBlogChild =
+    pageKey === "blogWhatIsDpp" ||
+    pageKey === "blogEsprGuide" ||
+    pageKey === "blogHowToCreate" ||
+    pageKey === "blogDppCost" ||
+    pageKey === "blogTextileManufacturers" ||
+    pageKey === "blogGs1DigitalLink";
 
   const itemListElement = [
     {
@@ -933,14 +1167,29 @@ function updateBreadcrumbSchema(pageKey: string, config: PageSEO) {
             item: config.canonical,
           },
         ]
-      : [
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: breadcrumbMap[pageKey] || pageKey,
-            item: config.canonical,
-          },
-        ]),
+      : isBlogChild
+        ? [
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Blog",
+              item: "https://stabledpp.com/blog",
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: breadcrumbMap[pageKey] || pageKey,
+              item: config.canonical,
+            },
+          ]
+        : [
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: breadcrumbMap[pageKey] || pageKey,
+              item: config.canonical,
+            },
+          ]),
   ];
 
   const breadcrumbSchema = {

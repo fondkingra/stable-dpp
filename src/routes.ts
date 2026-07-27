@@ -7,6 +7,8 @@ export default [
   route("solutions/:segment", "routes/solutions-segment.tsx"),
   route("resources", "routes/resources.tsx"),
   route("company", "routes/company.tsx"),
+  route("blog", "routes/blog.tsx"),
+  route("blog/:slug", "routes/blog-post.tsx"),
   route("book-a-demo", "routes/book-demo.tsx"),
   route("signin", "routes/signin.tsx"),
   route("get-started", "routes/get-started.tsx"),

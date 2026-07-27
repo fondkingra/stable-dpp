@@ -1,4 +1,6 @@
 // Application constants and configuration
+export * from './blogs';
+
 export const APP_CONFIG = {
   name: 'StableDPP',
   logo: import.meta.env.BASE_URL + 'logo-transparent.png',
@@ -13,6 +15,7 @@ export const NAVIGATION_LINKS = [
   { label: 'Product', href: '/product' },
   { label: 'Solutions', href: '/solutions' },
   { label: 'Resources', href: '/resources' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Company', href: '/company' },
 ] as const;
 

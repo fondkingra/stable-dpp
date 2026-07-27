@@ -16,6 +16,7 @@ export function SharedNav() {
     { label: 'Product', path: '/product' },
     { label: 'Solutions', path: '/solutions' },
     { label: 'Resources', path: '/resources' },
+    { label: 'Blog', path: '/blog' },
     { label: 'Company', path: '/company' },
   ];
 
@@ -66,7 +67,9 @@ export function SharedNav() {
 
         <div className="hidden md:flex" style={{ gap: '4px', flex: 1 }}>
           {navLinks.map(link => {
-            const active = location.pathname === link.path;
+            const active =
+              location.pathname === link.path ||
+              (link.path !== '/' && location.pathname.startsWith(`${link.path}/`));
             return (
               <Link
                 key={link.path}
@@ -141,7 +144,9 @@ export function SharedNav() {
       {mobileOpen && (
         <div className="md:hidden flex flex-col" style={{ background: '#0a1f3c', borderTop: '1px solid rgba(26,200,176,0.1)', padding: '16px 24px 20px', gap: '4px' }}>
           {navLinks.map(link => {
-            const active = location.pathname === link.path;
+            const active =
+              location.pathname === link.path ||
+              (link.path !== '/' && location.pathname.startsWith(`${link.path}/`));
             return (
               <Link
                 key={link.path}
@@ -269,7 +274,7 @@ export function SharedFooter() {
             </div>
           </div>
           {[
-            { title: 'Platform', links: [['Product', '/product'], ['Resources', '/resources'], ['Get Started', '/get-started']] as const },
+            { title: 'Platform', links: [['Product', '/product'], ['Resources', '/resources'], ['Blog', '/blog'], ['Get Started', '/get-started']] as const },
             { title: 'Solutions', links: [['Fashion Brands', '/solutions/fashion-brands'], ['Manufacturers', '/solutions/manufacturers'], ['Retailers', '/solutions/retailers']] as const },
             { title: 'Company', links: [['About', '/company'], ['Book a Demo', '/book-a-demo']] as const },
           ].map(col => (

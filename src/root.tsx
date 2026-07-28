@@ -6,63 +6,21 @@ import {
   ScrollRestoration,
 } from "react-router";
 import "./styles/index.css";
-import { HOME_PAGE_FAQ_SCHEMA } from "./app/utils/seo";
+import { ORGANIZATION_SCHEMA } from "./app/utils/seo";
 
-const structuredData = {
+const softwareApplicationSchema = {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://stabledpp.com/#organization",
-      name: "StableDPP",
-      description:
-        "EU ESPR 2024 compliant Digital Product Passport platform for fashion brands",
-      url: "https://stabledpp.com",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://stabledpp.com/logo.png",
-      },
-      contactPoint: {
-        "@type": "ContactPoint",
-        contactType: "customer service",
-        email: "hello@stabledpp.com",
-      },
-      knowsAbout: [
-        "Digital Product Passport",
-        "EU ESPR Regulation",
-        "Blockchain",
-        "Fashion Supply Chain",
-        "GS1 Digital Link",
-      ],
-      sameAs: ["https://www.linkedin.com/company/stabledpp"],
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": "https://stabledpp.com/#software",
-      name: "StableDPP Digital Product Passport Platform",
-      applicationCategory: "BusinessApplication",
-      operatingSystem: "Web",
-      url: "https://stabledpp.com",
-      description:
-        "Blockchain-verified Digital Product Passport platform for fashion brands - EU ESPR 2024 compliant",
-      provider: {
-        "@id": "https://stabledpp.com/#organization",
-      },
-    },
-    HOME_PAGE_FAQ_SCHEMA,
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://stabledpp.com/#breadcrumb",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: "https://stabledpp.com/",
-        },
-      ],
-    },
-  ],
+  "@type": "SoftwareApplication",
+  "@id": "https://stabledpp.com/#software",
+  name: "StableDPP Digital Product Passport Platform",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  url: "https://stabledpp.com",
+  description:
+    "Blockchain-verified Digital Product Passport platform for fashion brands - EU ESPR 2024 compliant",
+  provider: {
+    "@id": "https://stabledpp.com/#organization",
+  },
 };
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -75,15 +33,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="author" content="StableDPP" />
         <meta name="theme-color" content="#1ac8b0" />
         <meta property="og:site_name" content="StableDPP" />
-        <meta property="og:image" content="https://stabledpp.com/logo.png" />
+        <meta property="og:image" content="https://stabledpp.com/og-home.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://stabledpp.com/logo.png" />
+        <meta name="twitter:image" content="https://stabledpp.com/og-home.png" />
         <link rel="icon" type="image/png" href="/icon.png" />
         <link rel="apple-touch-icon" href="/icon.png" />
         <script
           type="application/ld+json"
+          data-organization-schema
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
+            __html: JSON.stringify(ORGANIZATION_SCHEMA),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          data-software-schema
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(softwareApplicationSchema),
           }}
         />
         <Meta />

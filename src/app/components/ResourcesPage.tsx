@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
 import { PageFAQ } from './PageFAQ';
+import { PageBreadcrumb } from './PageBreadcrumb';
 import {
   pageH1OnDark,
   pageH2OnLight,
@@ -42,6 +43,9 @@ export function ResourcesPage() {
         }}
       >
         <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+          <PageBreadcrumb
+            items={[{ label: "Home", href: "/" }, { label: "Resources" }]}
+          />
           <div style={heroEyebrow}>RESOURCES</div>
           <h1 style={{ ...pageH1OnDark, marginBottom: '24px' }}>
             Your Guide to EU Digital Product Passports &amp; ESPR Compliance

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
+import { PageBreadcrumb } from './PageBreadcrumb';
 import { pageH1OnDark, legalH2 } from '../styles/typography';
 
 const s = { color: '#8a9aaa', fontSize: '15px', lineHeight: 1.8, marginBottom: '12px' } as const;
@@ -40,6 +41,12 @@ export function TermsAndConditionsPage({ page }: { page: 'privacy' | 'terms' }) 
 
         {page === 'privacy' && (
         <div id="privacy">
+          <PageBreadcrumb
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Privacy Policy" },
+            ]}
+          />
           <p style={{ color: '#1ac8b0', fontSize: '13px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '12px' }}>Legal</p>
           <h1 style={{ ...pageH1OnDark, fontSize: '36px', marginBottom: '8px' }}>Privacy Policy</h1>
           <p style={{ color: '#1ac8b0', fontSize: '14px', fontStyle: 'italic', marginBottom: '6px' }}>How StableDPP collects, uses, safeguards, and shares information</p>
@@ -120,6 +127,12 @@ export function TermsAndConditionsPage({ page }: { page: 'privacy' | 'terms' }) 
 
         {page === 'terms' && (
         <div id="terms">
+          <PageBreadcrumb
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Terms & Conditions" },
+            ]}
+          />
           <p style={{ color: '#1ac8b0', fontSize: '13px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '12px' }}>Legal</p>
           <h1 style={{ ...pageH1OnDark, fontSize: '36px', marginBottom: '8px' }}>Terms &amp; Conditions</h1>
           <p style={{ color: '#1ac8b0', fontSize: '14px', fontStyle: 'italic', marginBottom: '6px' }}>The agreement governing your use of the StableDPP Platform</p>

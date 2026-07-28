@@ -1,4 +1,5 @@
 import { TermsAndConditionsPage } from "../app/components/TermsAndConditionsPage";
+import { PRIVACY_BREADCRUMB_SCHEMA } from "../app/utils/seo";
 
 export function meta() {
   return [
@@ -12,5 +13,16 @@ export function meta() {
 }
 
 export default function Component() {
-  return <TermsAndConditionsPage page="privacy" />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        data-breadcrumb
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(PRIVACY_BREADCRUMB_SCHEMA),
+        }}
+      />
+      <TermsAndConditionsPage page="privacy" />
+    </>
+  );
 }

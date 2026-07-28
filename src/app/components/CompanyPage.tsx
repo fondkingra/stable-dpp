@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
 import { PageFAQ } from './PageFAQ';
+import { PageBreadcrumb } from './PageBreadcrumb';
 import { Icon } from '../utils/icons';
 import { COMPANY_PAGE_FAQS } from '../utils/seo';
+import { APP_CONFIG } from '../constants';
 import { pageH1OnDark, pageH2OnLight, pageH2OnDark, cardH3, cardBody, heroEyebrow, heroLead } from '../styles/typography';
 
 const values = [
@@ -26,6 +28,13 @@ const values = [
 const team = [
   {
     role: 'Co-Founder',
+    name: 'Sudhanva Bhandolkar',
+    bio: 'Co-founder of StableDPP, building the blockchain infrastructure behind every passport. Sudhanva has pioneered Trust as Infrastructure (TAS), a blockchain-based verification layer that enables one-scan verification of product data provenance through permanently recorded and tamper-resistant audit trails.',
+    initials: 'SB',
+    image: import.meta.env.BASE_URL + 'IMG1.jpg',
+  },
+  {
+    role: 'Co-Founder',
     name: 'Priya Hebbal',
     bio: 'Co-founder of StableDPP, focused on the trust layer for India\'s exports. Priya is building the verifiable proof layer that every producer, consumer and other stakeholders in the circular economy can trust on — enabling each sustainability claim to be verified, never just believed, giving brands, buyers and recyclers a record they can rely on.',
     initials: 'PH',
@@ -34,17 +43,11 @@ const team = [
     imageScale: 1.4,
     imageScaleOrigin: '50% 0%',
   },
-  {
-    role: 'Co-Founder',
-    name: 'Sudhanva Bhandolkar',
-    bio: 'Co-founder of StableDPP, building the blockchain infrastructure behind every passport. Sudhanva has pioneered Trust as Infrastructure (TAS), a blockchain-based verification layer that enables one-scan verification of product data provenance through permanently recorded and tamper-resistant audit trails.',
-    initials: 'SB',
-    image: import.meta.env.BASE_URL + 'IMG1.jpg',
-  },
 ];
 
 export function CompanyPage() {
   const navigate = useNavigate();
+  const contactEmail = APP_CONFIG.supportEmail;
 
   return (
     <div style={{ minHeight: '100vh', background: '#fafaf8', fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}>
@@ -53,15 +56,21 @@ export function CompanyPage() {
       {/* Mission */}
       <section style={{ background: 'linear-gradient(160deg, #071528 0%, #0a1f3c 60%, #0d2a4a 100%)', padding: '96px 24px 80px' }}>
         <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+          <PageBreadcrumb
+            items={[{ label: "Home", href: "/" }, { label: "Company" }]}
+          />
           <div style={heroEyebrow}>
             OUR MISSION
           </div>
           <h1 style={{ ...pageH1OnDark, marginBottom: '28px' }}>
-            Built by Fashion &amp; Blockchain Experts
+            Proof, Not Promises — The Team Behind StableDPP
           </h1>
           <h2 style={{ ...pageH2OnDark, marginBottom: '28px' }}>
-            We Built StableDPP Because Fashion Deserves Proof — Not Just Promises
+            Our Mission
           </h2>
+          <p style={{ ...heroLead, marginBottom: '20px', color: '#fff', fontFamily: "'Space Grotesk', system-ui, sans-serif", fontWeight: 700, fontSize: 'clamp(18px, 2.4vw, 24px)', lineHeight: 1.35 }}>
+            We Built StableDPP Because Fashion Deserves Proof — Not Just Promises
+          </p>
           <p style={{ ...heroLead, marginBottom: '20px' }}>
             The fashion industry generates $2.5 trillion in annual revenue — yet the majority of sustainability claims made by fashion brands remain unverifiable by any buyer, regulator, or consumer who wants to check them.
           </p>
@@ -74,28 +83,12 @@ export function CompanyPage() {
         </div>
       </section>
 
-      {/* Principles */}
-      <section style={{ padding: '80px 24px', maxWidth: '1100px', margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-          <h2 style={{ ...pageH2OnLight, textAlign: 'center' }}>Three Principles That Drive Every Decision We Make</h2>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
-          {values.map((v, i) => (
-            <div key={i} style={{ background: '#fff', border: '1px solid #ede8e3', borderRadius: '16px', padding: '32px' }}>
-              <Icon name={v.icon} className="w-8 h-8 text-slate-600 mb-3" />
-              <h3 style={cardH3}>{v.title}</h3>
-              <p style={cardBody}>{v.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Team */}
+      {/* Founders */}
       <section style={{ background: '#fff', padding: '80px 24px', borderTop: '1px solid #ede8e3' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
             <div className="section-eyebrow">THE TEAM</div>
-            <h2 style={{ ...pageH2OnLight }}>Meet the Co-Founders</h2>
+            <h2 style={{ ...pageH2OnLight }}>Founders</h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px', maxWidth: '800px', margin: '0 auto' }}>
             {team.map((member, i) => (
@@ -152,8 +145,7 @@ export function CompanyPage() {
                     </span>
                   )}
                 </div>
-                <div className="team-member-role">{member.role}</div>
-                <h3 style={cardH3}>{member.name}</h3>
+                <h3 style={cardH3}>{member.name} — {member.role}</h3>
                 <p style={{ color: '#5a6a7a', fontSize: '14px', lineHeight: 1.7 }}>{member.bio}</p>
               </div>
             ))}
@@ -161,16 +153,37 @@ export function CompanyPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Trust principles */}
+      <section style={{ padding: '80px 24px', maxWidth: '1100px', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <h2 style={{ ...pageH2OnLight, textAlign: 'center' }}>Why Brands Trust StableDPP</h2>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+          {values.map((v, i) => (
+            <div key={i} style={{ background: '#fff', border: '1px solid #ede8e3', borderRadius: '16px', padding: '32px' }}>
+              <Icon name={v.icon} className="w-8 h-8 text-slate-600 mb-3" />
+              <h3 style={cardH3}>{v.title}</h3>
+              <p style={cardBody}>{v.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact */}
       <section style={{ background: '#0a1f3c', padding: '72px 24px', textAlign: 'center' }}>
         <div style={{ maxWidth: '580px', margin: '0 auto' }}>
-          <p style={{ ...pageH2OnDark, textAlign: 'center', marginBottom: '14px' }}>
+          <h2 style={{ ...pageH2OnDark, textAlign: 'center', marginBottom: '14px' }}>
+            Contact —{' '}
+            <a href={`mailto:${contactEmail}`} style={{ color: '#1ac8b0', textDecoration: 'none' }}>
+              {contactEmail}
+            </a>
+          </h2>
+          <p style={{ color: '#a8bcc8', fontSize: '16px', lineHeight: 1.6, marginBottom: '12px' }}>
             Want to know more? We love talking DPPs — and the fashion industry&apos;s sustainability future.
           </p>
           <p style={{ color: '#7a8a98', fontSize: '14px', marginBottom: '28px' }}>Our team responds within 24 hours.</p>
           <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <button onClick={() => navigate('/book-a-demo')} style={{ background: 'linear-gradient(135deg, #1ac8b0, #0ea58c)', border: 'none', cursor: 'pointer', color: '#071528', fontFamily: 'Inter, sans-serif', fontSize: '15px', fontWeight: 700, padding: '14px 28px', borderRadius: '100px' }}>Book a Demo →</button>
-            
           </div>
         </div>
       </section>

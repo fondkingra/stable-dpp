@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import emailjs from '@emailjs/browser';
 import { SharedNav, SharedFooter } from './SharedNav';
 import { PageFAQ } from './PageFAQ';
+import { PageBreadcrumb } from './PageBreadcrumb';
 import { DEMO_PAGE_FAQS } from '../utils/seo';
 import { pageH1OnDark, formH2, heroLead, pageH2OnLight } from '../styles/typography';
 
@@ -69,6 +70,9 @@ export function BookDemoPage() {
       {/* Hero */}
       <section style={{ background: 'linear-gradient(160deg, #071528 0%, #0a1f3c 60%, #0d2a4a 100%)', padding: '96px 24px 80px' }}>
         <div style={{ maxWidth: '820px', margin: '0 auto', textAlign: 'center' }}>
+          <PageBreadcrumb
+            items={[{ label: "Home", href: "/" }, { label: "Book a Demo" }]}
+          />
           <h1 style={{ ...pageH1OnDark, marginBottom: '28px' }}>
             See Your Products' Digital Product Passport — Live in 30 Minutes
           </h1>

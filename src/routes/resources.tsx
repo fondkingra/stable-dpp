@@ -1,6 +1,7 @@
 import { ResourcesPage } from "../app/components/ResourcesPage";
 import {
   buildRouteMeta,
+  RESOURCES_BREADCRUMB_SCHEMA,
   RESOURCES_DEFINED_TERM_SET_SCHEMA,
   RESOURCES_PAGE_FAQ_SCHEMA,
 } from "../app/utils/seo";
@@ -12,6 +13,13 @@ export function meta() {
 export default function Component() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        data-breadcrumb
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(RESOURCES_BREADCRUMB_SCHEMA),
+        }}
+      />
       <script
         type="application/ld+json"
         data-resources-faq-schema

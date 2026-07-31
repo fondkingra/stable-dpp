@@ -41,9 +41,9 @@ export const BLOG_POSTS: readonly BlogPostMeta[] = [
     metaDescription:
       "GS1 Digital Link is the QR standard connecting products to their Digital Product Passport data. Learn how it works, why ESPR favors it, and what brands need to use it.",
     excerpt:
-      "GS1 Digital Link turns a product’s barcode or QR code into a structured web link so a single scan can connect to a Digital Product Passport and other product information.",
-    datePublished: "2026-08-18",
-    dateModified: "2026-08-18",
+      "GS1 Digital Link turns a product's barcode or QR code into a structured web link so a single scan can connect to a Digital Product Passport and other product information.",
+    datePublished: "2026-07-30",
+    dateModified: "2026-07-30",
     image: `${BASE}blog/blog-6-gs1-digital-link.png`,
     ogImage: "https://stabledpp.com/blog/blog-6-gs1-digital-link.png",
     imageAlt:
@@ -64,7 +64,7 @@ export const BLOG_POSTS: readonly BlogPostMeta[] = [
       },
       {
         q: "Does StableDPP generate GS1 Digital Link-compliant codes?",
-        a: "Yes. StableDPP generates the compliant Digital Link URL and QR code at the point each passport is created, and handles resolution to that specific product’s passport page.",
+        a: "Yes. StableDPP generates the compliant Digital Link URL and QR code at the point each passport is created, and handles resolution to that specific product's passport page.",
       },
     ],
   },
@@ -79,8 +79,8 @@ export const BLOG_POSTS: readonly BlogPostMeta[] = [
       "A practical guide for textile manufacturers and exporters: what a Digital Product Passport requires, how to prepare supply-chain data, and how to stay ahead of EU ESPR.",
     excerpt:
       "For textile manufacturers, a Digital Product Passport documents materials, origin, and supply-chain journey — passport-ready data before ESPR textile rules phase in from around 2027.",
-    datePublished: "2026-08-15",
-    dateModified: "2026-08-15",
+    datePublished: "2026-07-28",
+    dateModified: "2026-07-28",
     image: `${BASE}blog/blog-5-textile-manufacturers.png`,
     ogImage: "https://stabledpp.com/blog/blog-5-textile-manufacturers.png",
     imageAlt:
@@ -93,11 +93,11 @@ export const BLOG_POSTS: readonly BlogPostMeta[] = [
       },
       {
         q: "What certifications should textile DPP data reference?",
-        a: "Commonly referenced fields include GOTS, OEKO-TEX, and fibre composition — exact requirements depend on the product category’s eventual delegated act.",
+        a: "Commonly referenced fields include GOTS, OEKO-TEX, and fibre composition — exact requirements depend on the product category's eventual delegated act.",
       },
       {
         q: "Does ESPR require blockchain and interoperability for a Digital Product Passport?",
-        a: "Interoperability is a hard requirement. Under Article 10, DPP data must be based on open standards and use interoperable formats, and Article 11 requires passports to be interoperable technically, semantically and organisationally — a passport that only works inside one vendor’s system does not meet the regulation. ESPR also requires the data to be secure, authentic and reliable, and it places that data in a decentralised architecture: the EU holds only the registry of identifiers, not the product data itself. The regulation sets that outcome rather than naming one technology, but tamper-evidence is the hardest part of it to satisfy with a conventional database, which is why the EU’s own reference infrastructure (EBSI) is built on distributed ledger technology. StableDPP is blockchain-native and GS1 Digital Link aligned, so passports meet the interoperability requirement and carry proof a buyer or regulator can verify independently.",
+        a: "Interoperability is a hard requirement. Under Article 10, DPP data must be based on open standards and use interoperable formats, and Article 11 requires passports to be interoperable technically, semantically and organisationally — a passport that only works inside one vendor's system does not meet the regulation. ESPR also requires the data to be secure, authentic and reliable, and it places that data in a decentralised architecture: the EU holds only the registry of identifiers, not the product data itself. The regulation sets that outcome rather than naming one technology, but tamper-evidence is the hardest part of it to satisfy with a conventional database, which is why the EU's own reference infrastructure (EBSI) is built on distributed ledger technology. StableDPP is blockchain-native and GS1 Digital Link aligned, so passports meet the interoperability requirement and carry proof a buyer or regulator can verify independently.",
       },
       {
         q: "Can a manufacturer start with only finished-garment data?",
@@ -115,8 +115,8 @@ export const BLOG_POSTS: readonly BlogPostMeta[] = [
       "Digital Product Passport costs range from free self-serve tiers to enterprise contracts. See what actually drives the price, and how to budget for ESPR compliance in 2026.",
     excerpt:
       "A Digital Product Passport can cost anywhere from a free self-serve starter tier to an enterprise contract — what you pay depends on product volume, data depth, and build-vs-buy.",
-    datePublished: "2026-08-12",
-    dateModified: "2026-08-12",
+    datePublished: "2026-07-25",
+    dateModified: "2026-07-25",
     image: `${BASE}blog/blog-4-dpp-cost.png`,
     ogImage: "https://stabledpp.com/blog/blog-4-dpp-cost.png",
     imageAlt:
@@ -195,7 +195,7 @@ export const BLOG_POSTS: readonly BlogPostMeta[] = [
       },
       {
         name: "Attach the Passport to the Product",
-        text: "Add a GS1 Digital Link QR code on a care label, hang tag, or packaging that resolves to that product’s passport page.",
+        text: "Add a GS1 Digital Link QR code on a care label, hang tag, or packaging that resolves to that product's passport page.",
       },
     ],
   },
@@ -220,7 +220,7 @@ export const BLOG_POSTS: readonly BlogPostMeta[] = [
     faqs: [
       {
         q: "What is EU ESPR 2024 in simple terms?",
-        a: "It is the EU’s Ecodesign for Sustainable Products Regulation (Regulation EU 2024/1781), in force since July 2024. It requires products sold in the EU to be more sustainable and to carry verifiable Digital Product Passports.",
+        a: "It is the EU's Ecodesign for Sustainable Products Regulation (Regulation EU 2024/1781), in force since July 2024. It requires products sold in the EU to be more sustainable and to carry verifiable Digital Product Passports.",
       },
       {
         q: "When is the ESPR deadline for textiles?",
@@ -243,7 +243,7 @@ export const BLOG_POSTS: readonly BlogPostMeta[] = [
     metaTitle:
       "What Is a Digital Product Passport? The Complete Guide | StableDPP",
     metaDescription:
-      "A Digital Product Passport (DPP) is a digital record of a product’s materials, origin, and sustainability data, accessed via QR code. Learn how DPPs work, why the EU requires them, and how to create one.",
+      "A Digital Product Passport (DPP) is a digital record of a product's materials, origin, and sustainability data, accessed via QR code. Learn how DPPs work, why the EU requires them, and how to create one.",
     excerpt:
       "A Digital Product Passport is a structured digital record that travels with a physical product — materials, origin, manufacturing, sustainability, and end-of-life — accessed by scanning a QR code.",
     datePublished: "2026-07-03",
@@ -264,7 +264,7 @@ export const BLOG_POSTS: readonly BlogPostMeta[] = [
       },
       {
         q: "How do customers access a Digital Product Passport?",
-        a: "By scanning a QR code on the product’s label, hang tag, or packaging — typically built on the GS1 Digital Link standard — which opens the product’s passport page.",
+        a: "By scanning a QR code on the product's label, hang tag, or packaging — typically built on the GS1 Digital Link standard — which opens the product's passport page.",
       },
       {
         q: "What makes a DPP trustworthy?",

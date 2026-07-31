@@ -30,7 +30,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     ogTitle: "Digital Product Passport Software for Fashion | StableDPP",
     ogDescription:
       "Issue blockchain-verified, EU ESPR-compliant Digital Product Passports in minutes. Component-level traceability, GS1 Digital Link QR codes, and an auto-validating compliance engine. Free to start.",
-    ogImage: "https://stabledpp.com/og-product.png",
+    ogImage: "https://stabledpp.com/og-home.png",
   },
   solutions: {
     title:
@@ -217,6 +217,7 @@ export const PRODUCT_PAGE_SCHEMA = {
   name: "StableDPP Digital Product Passport Platform",
   description:
     "Issue blockchain-verified, EU ESPR-compliant Digital Product Passports in minutes. Component-level traceability, GS1 Digital Link QR codes, and an auto-validating compliance engine. Free to start.",
+  image: "https://stabledpp.com/og-home.png",
   brand: {
     "@type": "Brand",
     name: "StableDPP",

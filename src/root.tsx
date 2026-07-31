@@ -7,7 +7,6 @@ import {
 } from "react-router";
 import "./styles/index.css";
 import { ORGANIZATION_SCHEMA } from "./app/utils/seo";
-
 const softwareApplicationSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -22,7 +21,6 @@ const softwareApplicationSchema = {
     "@id": "https://stabledpp.com/#organization",
   },
 };
-
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -55,6 +53,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
 
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-N7Z9E3DWBR"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-N7Z9E3DWBR');
+            `,
+          }}
+        />
+
         <style>{`html, body { height: 100%; margin: 0; }`}</style>
       </head>
       <body>
@@ -75,7 +86,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
     </html>
   );
 }
-
 export default function Root() {
   return <Outlet />;
 }

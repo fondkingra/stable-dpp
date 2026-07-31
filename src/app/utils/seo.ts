@@ -106,13 +106,13 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     title:
       "What Is a Digital Product Passport? The Complete Guide | StableDPP",
     description:
-      "A Digital Product Passport (DPP) is a digital record of a product’s materials, origin, and sustainability data, accessed via QR code. Learn how DPPs work, why the EU requires them, and how to create one.",
+      "A Digital Product Passport (DPP) is a digital record of a product's materials, origin, and sustainability data, accessed via QR code. Learn how DPPs work, why the EU requires them, and how to create one.",
     canonical:
       "https://stabledpp.com/blog/what-is-a-digital-product-passport",
     ogTitle:
       "What Is a Digital Product Passport? The Complete Guide | StableDPP",
     ogDescription:
-      "A Digital Product Passport (DPP) is a digital record of a product’s materials, origin, and sustainability data, accessed via QR code. Learn how DPPs work, why the EU requires them, and how to create one.",
+      "A Digital Product Passport (DPP) is a digital record of a product's materials, origin, and sustainability data, accessed via QR code. Learn how DPPs work, why the EU requires them, and how to create one.",
     ogImage: "https://stabledpp.com/blog/blog-1-what-is-dpp.png",
   },
   blogEsprGuide: {
@@ -237,6 +237,7 @@ export const PRODUCT_SOFTWARE_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "StableDPP",
+  url: "https://stabledpp.com/product",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   offers: {
@@ -358,7 +359,7 @@ export const ORGANIZATION_SCHEMA = {
   description:
     "EU ESPR 2024 compliant Digital Product Passport platform for fashion brands",
   url: "https://stabledpp.com",
-  logo: "https://stabledpp.com/logo.png",
+  logo: "https://stabledpp.com/logo-transparent.png",
   email: "info@stabledpp.com",
   contactPoint: {
     "@type": "ContactPoint",
@@ -637,7 +638,7 @@ export const COMPANY_PAGE_SCHEMA = {
       url: "https://stabledpp.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://stabledpp.com/logo.png",
+        url: "https://stabledpp.com/logo-transparent.png",
       },
       contactPoint: {
         "@type": "ContactPoint",
@@ -918,6 +919,7 @@ export function buildArticleSchema(input: {
       "@type": "Person",
       name: "Sudhanva Bhandolkar",
       jobTitle: "Co-founder",
+      url: "https://stabledpp.com/company",
     },
     publisher: {
       "@type": "Organization",

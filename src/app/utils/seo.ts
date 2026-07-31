@@ -913,8 +913,8 @@ export function buildArticleSchema(input: {
     headline: input.headline,
     description: input.description,
     image: [input.image],
-    datePublished: input.datePublished,
-    dateModified: input.dateModified,
+    datePublished: `${input.datePublished}T00:00:00+00:00`,
+    dateModified: `${input.dateModified}T00:00:00+00:00`,
     author: {
       "@type": "Person",
       name: "Sudhanva Bhandolkar",

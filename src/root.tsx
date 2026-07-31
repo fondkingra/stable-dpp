@@ -4,7 +4,9 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from "react-router";
+import { useEffect } from "react";
 import "./styles/index.css";
 import { ORGANIZATION_SCHEMA } from "./app/utils/seo";
 const softwareApplicationSchema = {
@@ -86,6 +88,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
     </html>
   );
 }
+
 export default function Root() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (typeof window.gtag === "function") {
+      window.gtag("config", "G-N7Z9E3DWBR", {
+        page_path: location.pathname + location.search,
+      });
+    }
+  }, [location]);
+
   return <Outlet />;
 }

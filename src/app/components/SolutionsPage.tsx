@@ -104,7 +104,7 @@ export function getSolutionBySegment(segment: string): SolutionAudience | undefi
 const valuePropositions = [
   {
     heading: 'Enhanced Market Access — Through Compliance to EU ESPR',
-    body: 'Since the sale of batteries / textile products in the EU will be mandatory since 2027, non-compliance to DPP embedded products would effectively deny you market access to the EU countries. Compliance to DPP embedded products would help in gaining market access. Act now and gain first mover advantage by adopting StableDPP, a blockchain based Solution for DPPs.',
+    body: 'From 2027, Digital Product Passports become mandatory for batteries sold in the EU, with textiles following as delegated acts roll out. Products without a compliant DPP risk losing access to EU markets — acting now secures first-mover advantage with StableDPP, a blockchain-based solution built for DPP compliance.',
     accent: '#1ac8b0',
     border: '#a7f3d0',
   },

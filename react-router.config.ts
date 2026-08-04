@@ -4,6 +4,9 @@ const SEO_ROUTES = [
   "/",
   "/product",
   "/solutions",
+  "/solutions/fashion-brands",
+  "/solutions/manufacturers",
+  "/solutions/retailers",
   "/resources",
   "/company",
   "/blog",
@@ -19,7 +22,6 @@ const SEO_ROUTES = [
   "/terms",
   "/privacy-policy",
 ] as const;
-
 export default {
   appDirectory: "src",
   ssr: false,

@@ -356,7 +356,7 @@ export const ORGANIZATION_SCHEMA = {
   "@type": "Organization",
   "@id": "https://stabledpp.com/#organization",
   name: "StableDPP",
-  alternateName: ["Stable DPP", "Stable DPP Platform"],
+  alternateName: ["Stabledpp", "Stable DPP", "Stable Dpp", "Stable DPP Platform"],
   description:
     "EU ESPR 2024 compliant Digital Product Passport platform for fashion brands",
   url: "https://stabledpp.com",

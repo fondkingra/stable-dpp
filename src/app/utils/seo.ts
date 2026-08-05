@@ -72,6 +72,26 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     ogDescription:
       "Verify compliance before stock hits the shelf. DPP verification portal, Green Claims compliance, and multi-brand dashboards for fashion retailers.",
   },
+  dppIndia: {
+    title: "Digital Product Passport in India | EU ESPR for Indian Exporters | StableDPP",
+    description:
+      "Indian textile exporters selling into the EU are in scope for EU ESPR 2024. Issue blockchain-verified Digital Product Passports built for Indian multi-tier supply chains. Free to start.",
+    canonical: "https://stabledpp.com/digital-product-passport-india",
+    ogTitle: "Digital Product Passport in India | EU ESPR for Indian Exporters | StableDPP",
+    ogDescription:
+      "Indian textile exporters selling into the EU are in scope for EU ESPR 2024. Issue blockchain-verified Digital Product Passports built for Indian multi-tier supply chains. Free to start.",
+    ogImage: "https://stabledpp.com/og-home.png",
+  },
+  dppTextiles: {
+    title: "Digital Product Passport for Textiles | StableDPP",
+    description:
+      "A Digital Product Passport for textiles documents fibre composition, supply-chain origin, certifications, and end-of-life data. Built for multi-tier textile manufacturing. Free to start.",
+    canonical: "https://stabledpp.com/dpp-for-textiles",
+    ogTitle: "Digital Product Passport for Textiles | StableDPP",
+    ogDescription:
+      "A Digital Product Passport for textiles documents fibre composition, supply-chain origin, certifications, and end-of-life data. Built for multi-tier textile manufacturing. Free to start.",
+    ogImage: "https://stabledpp.com/og-home.png",
+  },
   resources: {
     title:
       "Resources | EU Digital Product Passport & ESPR 2024 Glossary | StableDPP",
@@ -1214,3 +1234,127 @@ function updateBreadcrumbSchema(pageKey: string, config: PageSEO) {
   script.textContent = JSON.stringify(breadcrumbSchema);
   document.head.appendChild(script);
 }
+
+export const DPP_INDIA_PAGE_FAQS = [
+  {
+    q: "Do Indian textile exporters need a Digital Product Passport?",
+    a: "Yes, if your products are sold in the EU. EU ESPR 2024 attaches to placing a product on the EU market, not to where it was manufactured — so Indian exporters shipping into the EU are in scope, the same as an EU-based brand.",
+  },
+  {
+    q: "When do Digital Product Passport requirements apply to Indian exporters?",
+    a: "EU ESPR 2024 has applied since July 2024. Requirements phase in by product category — batteries from 2027, with textiles following as their delegated act is finalised, through a rollout running to 2030. Many EU buyers request passport-ready data well ahead of formal enforcement dates.",
+  },
+  {
+    q: "Is StableDPP suitable for Indian manufacturers with multi-tier supply chains?",
+    a: "Yes. Component-level DPPs let each tier — fabric mills, dye houses, cut-and-sew units — contribute verified data separately, so a passport can be built up in stages as suppliers are onboarded, matching how Indian textile supply chains actually operate.",
+  },
+  {
+    q: "How much does it cost for an Indian exporter to start?",
+    a: "StableDPP offers a free self-serve tier, so an Indian exporter can issue a real, verifiable Digital Product Passport and see the format before committing any budget.",
+  },
+] as const;
+
+export const DPP_INDIA_PAGE_FAQ_SCHEMA = buildFaqSchema(
+  "https://stabledpp.com/digital-product-passport-india#faq",
+  DPP_INDIA_PAGE_FAQS,
+);
+
+export const DPP_INDIA_PAGE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "StableDPP Digital Product Passport for Indian Exporters",
+  description:
+    "Blockchain-verified Digital Product Passport platform for Indian textile manufacturers and exporters selling into the EU, built for EU ESPR 2024 compliance.",
+  provider: {
+    "@type": "Organization",
+    name: "StableDPP",
+    url: "https://stabledpp.com",
+  },
+  url: "https://stabledpp.com/digital-product-passport-india",
+  serviceType: "Digital Product Passport Solutions",
+  areaServed: {
+    "@type": "Country",
+    name: "India",
+  },
+};
+
+export const DPP_INDIA_BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://stabledpp.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Digital Product Passport in India",
+      item: "https://stabledpp.com/digital-product-passport-india",
+    },
+  ],
+};
+
+export const DPP_TEXTILES_PAGE_FAQS = [
+  {
+    q: "What is a Digital Product Passport for textiles?",
+    a: "A structured digital record documenting a textile product's fibre composition, supply-chain origin, certifications (such as GOTS or OEKO-TEX), care and repair information, and end-of-life data — accessed via a GS1 Digital Link QR code.",
+  },
+  {
+    q: "Which textile products need a DPP?",
+    a: "Under EU ESPR 2024, textile and apparel product categories are prioritised for Digital Product Passport requirements as delegated acts are finalised. Exact product scope is set category by category through the rollout running to 2030.",
+  },
+  {
+    q: "When do textile DPP requirements take effect?",
+    a: "EU ESPR 2024 has applied since July 2024. Batteries lead the Digital Product Passport rollout from 2027, with a textiles-specific delegated act following as it is finalised. Many EU buyers already request passport-ready data ahead of formal enforcement.",
+  },
+  {
+    q: "Can a textile DPP protect supplier confidentiality?",
+    a: "Yes. Private Data Collections and role-based access let suppliers share only what compliance requires — pricing, sourcing details, and supplier identities are never automatically exposed on the public passport.",
+  },
+] as const;
+
+export const DPP_TEXTILES_PAGE_FAQ_SCHEMA = buildFaqSchema(
+  "https://stabledpp.com/dpp-for-textiles#faq",
+  DPP_TEXTILES_PAGE_FAQS,
+);
+
+export const DPP_TEXTILES_PAGE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "StableDPP Digital Product Passport for Textiles",
+  description:
+    "Blockchain-verified Digital Product Passport platform for textile manufacturers and brands, covering fibre composition, supply-chain origin, certifications, and EU ESPR 2024 compliance.",
+  provider: {
+    "@type": "Organization",
+    name: "StableDPP",
+    url: "https://stabledpp.com",
+  },
+  url: "https://stabledpp.com/dpp-for-textiles",
+  serviceType: "Digital Product Passport Solutions",
+  areaServed: {
+    "@type": "Place",
+    name: "European Union",
+  },
+};
+
+export const DPP_TEXTILES_BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://stabledpp.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "DPP for Textiles",
+      item: "https://stabledpp.com/dpp-for-textiles",
+    },
+  ],
+};

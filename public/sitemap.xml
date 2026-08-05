@@ -31,6 +31,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://stabledpp.com/digital-product-passport-india</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://stabledpp.com/dpp-for-textiles</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://stabledpp.com/resources</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

@@ -5,6 +5,8 @@ export default [
   route("product", "routes/product.tsx"),
   route("solutions", "routes/solutions.tsx"),
   route("solutions/:segment", "routes/solutions-segment.tsx"),
+  route("digital-product-passport-india", "routes/dpp-india.tsx"),
+  route("dpp-for-textiles", "routes/dpp-textiles.tsx"),
   route("resources", "routes/resources.tsx"),
   route("company", "routes/company.tsx"),
   route("blog", "routes/blog.tsx"),

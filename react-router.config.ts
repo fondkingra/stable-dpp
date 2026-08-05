@@ -7,6 +7,8 @@ const SEO_ROUTES = [
   "/solutions/fashion-brands",
   "/solutions/manufacturers",
   "/solutions/retailers",
+  "/digital-product-passport-india",
+  "/dpp-for-textiles",
   "/resources",
   "/company",
   "/blog",
@@ -22,6 +24,7 @@ const SEO_ROUTES = [
   "/terms",
   "/privacy-policy",
 ] as const;
+
 export default {
   appDirectory: "src",
   ssr: false,

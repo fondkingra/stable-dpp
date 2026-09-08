@@ -293,6 +293,24 @@ export function SharedFooter() {
               ))}
             </div>
           ))}
+          <div>
+            <div style={{ color: '#fff', fontFamily: 'Inter, sans-serif', fontSize: '13px', fontWeight: 600, marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Contact</div>
+            <p style={{ color: '#7a8a98', fontFamily: 'Inter, sans-serif', fontSize: '14px', lineHeight: 1.6, marginBottom: '12px' }}>
+              <span style={{ color: '#fff', fontWeight: 500 }}>Office Address:</span><br />
+              2, 601/B, 5th Floor, Sriven Rag Landmark, Near Marvin Leather, Hosur Main Road, Wilson Garden, Bengaluru, Karnataka 560011
+            </p>
+            <p style={{ color: '#7a8a98', fontFamily: 'Inter, sans-serif', fontSize: '14px', lineHeight: 1.6, margin: 0 }}>
+              <span style={{ color: '#fff', fontWeight: 500 }}>Phone:</span>{' '}
+              <a
+                href="tel:+919686410078"
+                style={{ color: '#7a8a98', textDecoration: 'none', transition: 'color 0.2s' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#fff'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#7a8a98'; }}
+              >
+                +91 9686410078
+              </a>
+            </p>
+          </div>
         </div>
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '24px', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
           <span style={{ color: '#4a5a68', fontFamily: 'Inter, sans-serif', fontSize: '13px' }}>

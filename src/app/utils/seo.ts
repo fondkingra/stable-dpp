@@ -498,6 +498,10 @@ export const RESOURCES_PAGE_FAQS = [
     q: "Where should I start learning about Digital Product Passports?",
     a: "Start with our DPP Glossary and EU ESPR 2024 guide on this page. They explain the key terms, the regulation, deadlines, and what fashion brands need to do to comply.",
   },
+  {
+    q: "How DPP Helps Textile Exports?",
+    a: "DPP helps textile exporters by providing verified product data, end-to-end traceability, and compliance-ready digital records—making it easier to meet international buyer expectations and access global markets.",
+  },
 ] as const;
 
 export const RESOURCES_PAGE_FAQ_SCHEMA = buildFaqSchema(

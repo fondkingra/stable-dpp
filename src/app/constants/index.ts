@@ -1,5 +1,6 @@
 // Application constants and configuration
 export * from './blogs';
+export * from './guides';
 
 export const APP_CONFIG = {
   name: 'StableDPP',
@@ -9,6 +10,13 @@ export const APP_CONFIG = {
   demoUrl: '/book-a-demo',
   signupUrl: '/get-started',
   signinUrl: '/signin',
+} as const;
+
+// EmailJS (used by Book a Demo and guide download forms)
+export const EMAILJS_CONFIG = {
+  serviceId: 'service_ht3l9bf',
+  templateId: 'template_v82jwei',
+  publicKey: 'XnXXIfbHW-tQw42I1',
 } as const;
 
 export const NAVIGATION_LINKS = [

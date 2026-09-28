@@ -103,6 +103,36 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     ogDescription:
       "Learn what the EU Digital Product Passport and ESPR 2024 mean for fashion. Clear explainers and a DPP & blockchain glossary with answers to the questions brands ask.",
   },
+  resourcesGuides: {
+    title: "Free EU DPP Guides for the Asia–EU Textile Supply Chain | StableDPP",
+    description:
+      "Free guides, checklists and templates on the EU Digital Product Passport for Asian textile exporters and suppliers, and for EU importers and brands sourcing from Asia.",
+    canonical: "https://stabledpp.com/resources/guides",
+    ogTitle: "Free EU DPP Guides for the Asia–EU Textile Supply Chain | StableDPP",
+    ogDescription:
+      "Free guides, checklists and templates on the EU Digital Product Passport for Asian textile exporters and suppliers, and for EU importers and brands sourcing from Asia.",
+    ogImage: "https://stabledpp.com/og-home.png",
+  },
+  resourcesGuidesExporters: {
+    title: "EU DPP Guides for Textile Exporters and Suppliers | StableDPP",
+    description:
+      "Free EU Digital Product Passport guides for textile and garment exporters in India, Bangladesh, Vietnam and Sri Lanka: ESPR readiness, data fields, buyer requests and traceability.",
+    canonical: "https://stabledpp.com/resources/guides/exporters",
+    ogTitle: "EU DPP Guides for Textile Exporters and Suppliers | StableDPP",
+    ogDescription:
+      "Free EU Digital Product Passport guides for textile and garment exporters in India, Bangladesh, Vietnam and Sri Lanka: ESPR readiness, data fields, buyer requests and traceability.",
+    ogImage: "https://stabledpp.com/og-home.png",
+  },
+  resourcesGuidesImporters: {
+    title: "EU DPP Guides for Importers and Brands Sourcing from Asia | StableDPP",
+    description:
+      "Free EU Digital Product Passport guides for EU importers and brands: getting DPP data from Asian suppliers, ESPR obligations, supplier onboarding and data requests.",
+    canonical: "https://stabledpp.com/resources/guides/importers",
+    ogTitle: "EU DPP Guides for Importers and Brands Sourcing from Asia | StableDPP",
+    ogDescription:
+      "Free EU Digital Product Passport guides for EU importers and brands: getting DPP data from Asian suppliers, ESPR obligations, supplier onboarding and data requests.",
+    ogImage: "https://stabledpp.com/og-home.png",
+  },
   company: {
     title: "About StableDPP | The Blockchain Digital Product Passport Company",
     description:
@@ -487,20 +517,24 @@ export const SOLUTIONS_PAGE_FAQ_SCHEMA = buildFaqSchema(
 
 export const RESOURCES_PAGE_FAQS = [
   {
-    q: "What is the difference between ESPR and a DPP?",
-    a: "ESPR is the EU regulation (Regulation EU 2024/1781) that sets the rules; a Digital Product Passport (DPP) is the digital record that fulfils those rules by carrying a product's verified data.",
+    q: "Are these guides free to download?",
+    a: "Yes. Every guide, checklist and template on this page is free. Fill in a short form with your name, company and work email, and download the PDF.",
   },
   {
-    q: "Is EU ESPR mandatory?",
-    a: "Yes. EU ESPR 2024 is binding regulation. Products sold in the EU must meet its ecodesign and Digital Product Passport requirements as they phase in by product category through 2030.",
+    q: "Which guides should an exporter read first?",
+    a: "Start with the master guide, A1: EU Digital Product Passport Guide for Asian Textile Exporters. Then use the ESPR Readiness Checklist (A2) and the Textile DPP Data Fields Checklist (A3) to find your gaps, and the guide for the country you export from.",
   },
   {
-    q: "Where should I start learning about Digital Product Passports?",
-    a: "Start with our DPP Glossary and EU ESPR 2024 guide on this page. They explain the key terms, the regulation, deadlines, and what fashion brands need to do to comply.",
+    q: "When will the Digital Product Passport apply to textiles?",
+    a: "ESPR, Regulation (EU) 2024/1781, entered into force on 18 July 2024, and textiles and apparel are a priority product group. The textile delegated act that sets the exact data, format and scope is expected in 2027, and delegated acts usually allow around 18 months between adoption and application. For most exporters, the practical deadline is when their largest EU buyer starts asking.",
   },
   {
-    q: "How DPP Helps Textile Exports?",
-    a: "DPP helps textile exporters by providing verified product data, end-to-end traceability, and compliance-ready digital records—making it easier to meet international buyer expectations and access global markets.",
+    q: "Does the EU require blockchain for Digital Product Passports?",
+    a: "No. ESPR requires passports to be interoperable and requires passport data to be accurate, reliable and protected against unauthorised change, but it does not require any particular technology. Blockchain-based systems are one practical way to meet these requirements because they create a tamper-evident record of who added what data and when. That is the approach StableDPP takes.",
+  },
+  {
+    q: "How often are the guides reviewed?",
+    a: "Each guide shows the date it was last reviewed. We review the guides as the textile delegated act and related EU rules develop, and update expected dates when they change.",
   },
 ] as const;
 
@@ -725,67 +759,51 @@ export const DEMO_PAGE_SCHEMA = {
   ],
 };
 
-export const RESOURCES_ESPR_EXPLAINER = [
-  {
-    q: "What is the EU Digital Product Passport (DPP)?",
-    a: "The EU Digital Product Passport (DPP) is a structured digital record that captures a product's full lifecycle — materials, origin, processes, transformations, certifications, repairability, and sustainability data — accessible through a single QR, NFC, or RFID scan. It is the EU's mechanism for enforcing supply-chain transparency, and it becomes mandatory for textiles and apparel sold in the EU.",
-  },
-  {
-    q: "What is EU ESPR 2024?",
-    a: "EU ESPR 2024 — the Ecodesign for Sustainable Products Regulation, Regulation (EU) 2024/1781 — has been in effect since July 2024. It establishes the legal framework for Digital Product Passports and sets ecodesign requirements that promote sustainable products and circular-economy practices across the EU. The rules roll out in phases: batteries from 2027, followed by textiles, electronics, and further categories through 2030.",
-  },
-] as const;
+export const RESOURCES_ESPR_EXPLAINER = {
+  title: "What is the ESPR, and where do textiles fit?",
+  body: "The Ecodesign for Sustainable Products Regulation (ESPR) sets the EU framework for Digital Product Passports, phased in product group by product group. Textiles are expected to be among the first groups. Dates shown are expected and reviewed regularly.",
+  note: "Correction: batteries fall under the separate EU Battery Regulation, not the ESPR phase-in.",
+  lastReviewed: "September 2026",
+} as const;
 
 export const RESOURCES_GLOSSARY = [
   {
-    q: "What is EU ESPR 2024?",
-    a: "EU ESPR 2024 is the Ecodesign for Sustainable Products Regulation — Regulation (EU) 2024/1781 — effective since July 2024. It establishes the framework for Digital Product Passports and sets ecodesign requirements that promote sustainable products and circular-economy practices across the EU.",
+    q: "ESPR",
+    a: "Ecodesign for Sustainable Products Regulation, the EU law behind the Digital Product Passport.",
   },
   {
-    q: "What is a Digital Product Passport (DPP)?",
-    a: "A Digital Product Passport is a structured digital record capturing a product's full lifecycle — materials, origin, certifications, repairability, and sustainability data — accessible through a single QR, NFC, or RFID scan.",
+    q: "DPP",
+    a: "Digital Product Passport: a digital record of a product's materials, origin and lifecycle data.",
   },
   {
-    q: "What is RWA Tokenization?",
-    a: "RWA (Real-World Asset) tokenization is the process of representing physical or traditional financial assets — such as products, invoices, materials, or carbon credits — as digital tokens on a blockchain. It enables fractional ownership, liquidity, and programmability.",
+    q: "Traceability",
+    a: "The ability to follow a product and its materials back through each stage of the supply chain.",
   },
   {
-    q: "What is an NFT?",
-    a: "An NFT (Non-Fungible Token) is a unique digital token representing ownership or proof of a specific asset. In Digital Product Passport contexts, an NFT is often used as a 'digital twin' for an individual product.",
+    q: "Data provenance",
+    a: "A record of where a piece of data came from and who supplied it.",
   },
   {
-    q: "What is a Soulbound Token?",
-    a: "A Soulbound Token is a non-transferable NFT tied to a specific identity or product. It is ideal for immutable Digital Product Passport records that should not be sold or transferred separately from the asset itself.",
+    q: "Digital twin",
+    a: "A digital representation of a physical product, linked to it through an identifier.",
   },
-  {
-    q: "What is a Digital Twin?",
-    a: "A Digital Twin is a virtual representation of a physical product that mirrors its real-world characteristics, lifecycle events, and data in real time.",
-  },
-  {
-    q: "What is Data Provenance?",
-    a: "Data provenance is the verifiable record of the origin, history, and custody of a product or material throughout its supply chain. Blockchain provides immutable provenance that cannot be altered.",
-  },
-  {
-    q: "What is Traceability?",
-    a: "Traceability is the ability to track a product's journey from raw materials to end user, including all transformations and movements along the way. It is critical for EU compliance and fraud prevention.",
-  },
-  {
-    q: "What is BaaS (Blockchain-as-a-Service)?",
-    a: "BaaS (Blockchain-as-a-Service) refers to cloud-based services that let enterprises deploy and manage blockchain networks without building the infrastructure from scratch.",
-  },
-  {
-    q: "What are Private Data Collections?",
-    a: "Private Data Collections are a blockchain capability that allows a subset of participants to share confidential data among themselves while keeping it hidden from others on the same network.",
-  },
+] as const;
+
+export const RESOURCES_BLOCKCHAIN_TERMS = [
+  "Blockchain",
+  "Distributed ledger",
+  "Hash",
+  "Tamper-evidence",
+  "Smart contract",
 ] as const;
 
 export const RESOURCES_DEFINED_TERM_SET_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "DefinedTermSet",
   "@id": "https://stabledpp.com/resources#glossary",
-  name: "DPP & Blockchain Glossary",
+  name: "DPP terms, explained",
   description:
-    "Clear answers to the key questions behind Digital Product Passports, blockchain, and EU sustainability regulation.",
+    "Short definitions of the terms behind the EU Digital Product Passport.",
   hasDefinedTerm: RESOURCES_GLOSSARY.map(({ q, a }) => ({
     "@type": "DefinedTerm",
     name: q,
@@ -1362,3 +1380,64 @@ export const DPP_TEXTILES_BREADCRUMB_SCHEMA = {
     },
   ],
 };
+
+// ── Resources Hub guides ──
+
+const SITE_ORIGIN = "https://stabledpp.com";
+
+export function buildBreadcrumbSchema(
+  items: readonly { name: string; path: string }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: `${SITE_ORIGIN}${item.path}`,
+    })),
+  };
+}
+
+export function buildGuideMeta(input: {
+  title: string;
+  description: string;
+  path: string;
+}): MetaDescriptor[] {
+  const canonical = `${SITE_ORIGIN}${input.path}`;
+  return [
+    { title: input.title },
+    { name: "description", content: input.description },
+    { tagName: "link", rel: "canonical", href: canonical },
+    { property: "og:url", content: canonical },
+    { property: "og:type", content: "article" },
+    { property: "og:title", content: input.title },
+    { property: "og:description", content: input.description },
+    { property: "og:image", content: `${SITE_ORIGIN}/og-home.png` },
+    { name: "twitter:image", content: `${SITE_ORIGIN}/og-home.png` },
+  ];
+}
+
+export function buildGuideDocumentSchema(input: {
+  name: string;
+  description: string;
+  path: string;
+  pages: string;
+  genre: string;
+  audience: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "DigitalDocument",
+    name: input.name,
+    description: input.description,
+    url: `${SITE_ORIGIN}${input.path}`,
+    genre: input.genre,
+    numberOfPages: input.pages,
+    inLanguage: "en",
+    isAccessibleForFree: true,
+    audience: { "@type": "Audience", audienceType: input.audience },
+    publisher: { "@id": `${SITE_ORIGIN}/#organization` },
+  };
+}

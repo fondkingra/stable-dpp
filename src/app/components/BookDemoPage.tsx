@@ -5,11 +5,9 @@ import { SharedNav, SharedFooter } from './SharedNav';
 import { PageFAQ } from './PageFAQ';
 import { PageBreadcrumb } from './PageBreadcrumb';
 import { DEMO_PAGE_FAQS } from '../utils/seo';
+import { EMAILJS_CONFIG } from '../constants';
 import { pageH1OnDark, formH2, heroLead, pageH2OnLight } from '../styles/typography';
 
-const EMAILJS_SERVICE_ID = 'service_ht3l9bf';
-const EMAILJS_TEMPLATE_ID = 'template_v82jwei';
-const EMAILJS_PUBLIC_KEY = 'XnXXIfbHW-tQw42I1';
 
 export function BookDemoPage() {
   const [formData, setFormData] = useState({
@@ -34,8 +32,8 @@ export function BookDemoPage() {
     setError('');
     try {
       await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
         {
           from_name: `${formData.firstName} ${formData.lastName}`,
           from_email: formData.email,
@@ -46,7 +44,7 @@ export function BookDemoPage() {
           primary_market: formData.primaryMarket || 'Not specified',
           message: formData.message || 'No message provided',
         },
-        EMAILJS_PUBLIC_KEY
+        EMAILJS_CONFIG.publicKey
       );
       setSubmitted(true);
     } catch (err) {

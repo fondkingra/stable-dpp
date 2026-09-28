@@ -16,9 +16,22 @@ export function SharedNav() {
     { label: 'Product', path: '/product' },
     { label: 'Solutions', path: '/solutions' },
     { label: 'Resources', path: '/resources' },
-    { label: 'Blog', path: '/blog' },
     { label: 'Company', path: '/company' },
   ];
+
+  const resourcesMenu = [
+    { label: 'Guides for Exporters', path: '/resources/guides/exporters' },
+    { label: 'Guides for Importers', path: '/resources/guides/importers' },
+    { label: 'Country Guides', path: '/resources/guides/exporters#country-guides' },
+    { label: 'Glossary', path: '/resources#glossary' },
+    { label: 'Blog', path: '/blog' },
+  ];
+
+  // Blog lives under the Resources menu, so highlight Resources while reading it
+  const isActive = (path: string) =>
+    location.pathname === path ||
+    (path !== '/' && location.pathname.startsWith(`${path}/`)) ||
+    (path === '/resources' && (location.pathname === '/blog' || location.pathname.startsWith('/blog/')));
 
   const linkStyle = (active: boolean): CSSProperties => ({
     background: active ? 'rgba(26,200,176,0.12)' : 'none',
@@ -67,10 +80,8 @@ export function SharedNav() {
 
         <div className="hidden md:flex" style={{ gap: '4px', flex: 1 }}>
           {navLinks.map(link => {
-            const active =
-              location.pathname === link.path ||
-              (link.path !== '/' && location.pathname.startsWith(`${link.path}/`));
-            return (
+            const active = isActive(link.path);
+            const item = (
               <Link
                 key={link.path}
                 to={link.path}
@@ -80,6 +91,19 @@ export function SharedNav() {
               >
                 {link.label}
               </Link>
+            );
+            if (link.path !== '/resources') return item;
+            return (
+              <div key={link.path} className="nav-dropdown">
+                {item}
+                <div className="nav-dropdown__menu">
+                  {resourcesMenu.map(sub => (
+                    <Link key={sub.path} to={sub.path} className="nav-dropdown__item">
+                      {sub.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             );
           })}
         </div>
@@ -144,10 +168,8 @@ export function SharedNav() {
       {mobileOpen && (
         <div className="md:hidden flex flex-col" style={{ background: '#0a1f3c', borderTop: '1px solid rgba(26,200,176,0.1)', padding: '16px 24px 20px', gap: '4px' }}>
           {navLinks.map(link => {
-            const active =
-              location.pathname === link.path ||
-              (link.path !== '/' && location.pathname.startsWith(`${link.path}/`));
-            return (
+            const active = isActive(link.path);
+            const item = (
               <Link
                 key={link.path}
                 to={link.path}
@@ -160,6 +182,21 @@ export function SharedNav() {
               >
                 {link.label}
               </Link>
+            );
+            if (link.path !== '/resources') return item;
+            return (
+              <div key={link.path} style={{ display: 'flex', flexDirection: 'column' }}>
+                {item}
+                {resourcesMenu.map(sub => (
+                  <Link
+                    key={sub.path}
+                    to={sub.path}
+                    style={{ ...linkStyle(false), fontSize: '14px', padding: '8px 14px 8px 30px', color: '#94a8bc' }}
+                  >
+                    {sub.label}
+                  </Link>
+                ))}
+              </div>
             );
           })}
           <div style={{ display: 'flex', gap: '10px', marginTop: '12px', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>

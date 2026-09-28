@@ -1,106 +1,343 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { Link } from 'react-router';
 import { SharedNav, SharedFooter } from './SharedNav';
 import { PageFAQ } from './PageFAQ';
-import { PageBreadcrumb } from './PageBreadcrumb';
+import { GuidesHero, GuidesSectionHeader } from './GuideComponents';
 import {
-  pageH1OnDark,
-  pageH2OnLight,
-  pageH2OnDark,
-  heroEyebrow,
-  heroLead,
-} from '../styles/typography';
+  GUIDE_DETAILS,
+  GUIDE_TRACKS,
+  formatGuidePages,
+  getCountryGuides,
+  getGuidePath,
+  getGuidesByTrack,
+  getMasterGuide,
+  type GuideSummary,
+  type GuideTrack,
+  type GuideType,
+} from '../constants/guides';
 import {
+  RESOURCES_BLOCKCHAIN_TERMS,
   RESOURCES_ESPR_EXPLAINER,
   RESOURCES_GLOSSARY,
   RESOURCES_PAGE_FAQS,
 } from '../utils/seo';
+import { heroLead, pageH2OnDark } from '../styles/typography';
+
+const TYPE_BADGE: Record<GuideType, string> = {
+  'Guide': 'Guide',
+  'Guide (master)': 'Guide',
+  'Guide + templates': 'Guide + templates',
+  'Checklist': 'Checklist',
+  'Country guide': 'Country guide',
+  'Brief': 'Brief',
+  'Workbook': 'Workbook',
+  'Template': 'Template',
+};
+
+const TRACK_EYEBROW: Record<GuideTrack, string> = {
+  exporters: 'EXPORTER GUIDES',
+  importers: 'IMPORTER GUIDES',
+};
+
+const SUBNAV = [
+  { label: 'Guides for Exporters', href: '#exporter-guides' },
+  { label: 'Guides for Importers', href: '#importer-guides' },
+  { label: 'Country Guides', href: '#country-guides' },
+  { label: 'Glossary', href: '#glossary' },
+];
+
+function isLive(guide: GuideSummary) {
+  return guide.live && Boolean(GUIDE_DETAILS[guide.id]);
+}
+
+function DownloadIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M8 2v8m0 0L4.5 6.5M8 10l3.5-3.5M3 13h10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function HubGuideCard({ guide }: { guide: GuideSummary }) {
+  const live = isLive(guide);
+  return (
+    <article className={`rh-card rh-card--${guide.track}`}>
+      <div className="rh-card__top">
+        <span className="rh-badge">{TYPE_BADGE[guide.type]}</span>
+      </div>
+      <h3 className="rh-card__title">
+        {live ? <Link to={getGuidePath(guide)}>{guide.title}</Link> : guide.title}
+      </h3>
+      <p className="rh-card__blurb">{guide.blurb}</p>
+      <div className="rh-card__foot">
+        <span>{formatGuidePages(guide.pages)}</span>
+        {live ? (
+          <Link to={`${getGuidePath(guide)}#download`} className="rh-card__action">
+            <DownloadIcon /> Download<span className="sr-only"> {guide.title}</span>
+          </Link>
+        ) : (
+          <span className="rh-card__soon">Coming soon</span>
+        )}
+      </div>
+    </article>
+  );
+}
+
+function MasterGuide({ guide }: { guide: GuideSummary }) {
+  const live = isLive(guide);
+  const detail = GUIDE_DETAILS[guide.id];
+  const path = getGuidePath(guide);
+  return (
+    <article className={`rh-master rh-master--${guide.track}${guide.inside ? ' rh-master--split' : ''}`}>
+      <div className="rh-master__main">
+        <div className="rh-master__meta">
+          <span>{TYPE_BADGE[guide.type]}</span>
+          <span aria-hidden="true">·</span>
+          <span>{formatGuidePages(guide.pages)}</span>
+          {detail && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>Last reviewed {detail.lastReviewed}</span>
+            </>
+          )}
+        </div>
+        <h3 className="rh-master__title">
+          {live ? <Link to={path}>{guide.title}</Link> : guide.title}
+        </h3>
+        <p className="rh-master__blurb">{guide.blurb}</p>
+        <MasterActions guide={guide} />
+      </div>
+      {guide.inside && (
+        <div className="rh-master__inside">
+          <div className="rh-master__inside-label">INSIDE</div>
+          <ol>
+            {guide.inside.map((item, i) => (
+              <li key={item}>
+                <span className="rh-master__num">{i + 1}</span>
+                {item}
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+    </article>
+  );
+}
+
+function MasterActions({ guide }: { guide: GuideSummary }) {
+  if (!isLive(guide)) {
+    return (
+      <div className="rh-master__actions">
+        <span className="rh-btn rh-btn--disabled">Coming soon</span>
+      </div>
+    );
+  }
+  const path = getGuidePath(guide);
+  return (
+    <div className="rh-master__actions">
+      <Link to={`${path}#download`} className={`rh-btn rh-btn--${guide.track}`}>
+        <DownloadIcon /> Download the guide
+      </Link>
+      <Link to={path} className="rh-link">
+        Read overview
+      </Link>
+    </div>
+  );
+}
+
+function CountryCard({ guide }: { guide: GuideSummary }) {
+  const live = isLive(guide);
+  return (
+    <article className="rh-country">
+      <div className="rh-country__meta">
+        Country guide · {formatGuidePages(guide.pages)}
+      </div>
+      <h3 className="rh-country__name">
+        {live ? <Link to={getGuidePath(guide)}>{guide.country}</Link> : guide.country}
+      </h3>
+      <p className="rh-country__blurb">{guide.blurb}</p>
+      {live ? (
+        <Link to={getGuidePath(guide)} className="rh-card__action" aria-label={`Read ${guide.title}`}>
+          Read guide <span aria-hidden="true">→</span>
+        </Link>
+      ) : (
+        <span className="rh-card__soon">Coming soon</span>
+      )}
+    </article>
+  );
+}
+
+function TrackHeader({ track }: { track: GuideTrack }) {
+  const t = GUIDE_TRACKS[track];
+  return (
+    <GuidesSectionHeader
+      eyebrow={TRACK_EYEBROW[track]}
+      title={`For ${t.label}`}
+      subtitle={t.audience}
+    />
+  );
+}
+
+function ViewAll({ track }: { track: GuideTrack }) {
+  return (
+    <p className="guides-section__more">
+      <Link to={GUIDE_TRACKS[track].path}>
+        View all {track === 'exporters' ? 'exporter' : 'importer'} guides <span aria-hidden="true">→</span>
+      </Link>
+    </p>
+  );
+}
 
 export function ResourcesPage() {
-  const navigate = useNavigate();
-  const [openGlossary, setOpenGlossary] = useState<number | null>(null);
-
-  const toggleGlossary = (index: number) => {
-    setOpenGlossary(openGlossary === index ? null : index);
-  };
+  const exporterMaster = getMasterGuide('exporters');
+  const importerMaster = getMasterGuide('importers');
+  const exporterGuides = getGuidesByTrack('exporters').filter(
+    (g) => g.id !== exporterMaster.id && !g.country,
+  );
+  const importerGuides = getGuidesByTrack('importers').filter(
+    (g) => g.id !== importerMaster.id,
+  );
+  const countryGuides = getCountryGuides();
 
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        background: '#fafaf8',
-        fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-      }}
-    >
+    <div className="guides-page rh-page">
       <SharedNav />
 
-      {/* Hero */}
-      <section
-        style={{
-          background:
-            'linear-gradient(160deg, #071528 0%, #0a1f3c 60%, #0d2a4a 100%)',
-          padding: '96px 24px 80px',
-        }}
-      >
-        <div style={{ maxWidth: '820px', margin: '0 auto' }}>
-          <PageBreadcrumb
-            items={[{ label: "Home", href: "/" }, { label: "Resources" }]}
+      <GuidesHero
+        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Resources' }]}
+        eyebrow="FREE RESOURCES"
+        title="Free guides for the Asia–EU textile supply chain: prepare for the EU Digital Product Passport"
+        lead="Practical guides, checklists and templates for both sides of the same trade: the suppliers who provide the data, and the importers who are responsible for the passport."
+      />
+
+      <nav className="rh-subnav" aria-label="Resources">
+        <div className="guides-container rh-subnav__inner">
+          {SUBNAV.map((item) => (
+            <a key={item.href} href={item.href}>
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </nav>
+
+      {/* Choose a track */}
+      <section className="guides-section guides-section--white rh-section--entry">
+        <div className="guides-container">
+          <div className="guide-entry-grid">
+            <a href="#exporter-guides" className="guide-entry">
+              <span className="guide-entry__label">{GUIDE_TRACKS.exporters.entryLabel}</span>
+              <span className="guide-entry__body">
+                For textile and garment exporters in India, Bangladesh, Vietnam,
+                Sri Lanka and beyond, and the councils and associations that
+                support them.
+              </span>
+              <span className="guide-entry__cta">
+                See exporter guides <span aria-hidden="true">→</span>
+              </span>
+            </a>
+            <a href="#importer-guides" className="guide-entry">
+              <span className="guide-entry__label">{GUIDE_TRACKS.importers.entryLabel}</span>
+              <span className="guide-entry__body">
+                For sourcing, sustainability and compliance teams at EU brands,
+                retailers and importers buying textiles from Asia.
+              </span>
+              <span className="guide-entry__cta">
+                See importer guides <span aria-hidden="true">→</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Exporter guides */}
+      <section className="guides-section rh-anchor" id="exporter-guides" aria-label="Guides for exporters">
+        <div className="guides-container">
+          <TrackHeader track="exporters" />
+          <MasterGuide guide={exporterMaster} />
+          <div className="rh-grid">
+            {exporterGuides.map((g) => (
+              <HubGuideCard key={g.id} guide={g} />
+            ))}
+          </div>
+          <ViewAll track="exporters" />
+        </div>
+      </section>
+
+      {/* Country guides */}
+      <section className="guides-section guides-section--white rh-anchor" id="country-guides" aria-label="Country guides">
+        <div className="guides-container">
+          <GuidesSectionHeader
+            eyebrow="COUNTRY GUIDES"
+            title="A step-by-step plan for your country"
           />
-          <div style={heroEyebrow}>RESOURCES</div>
-          <h1 style={{ ...pageH1OnDark, marginBottom: '24px' }}>
-            Your Guide to EU Digital Product Passports &amp; ESPR Compliance
-          </h1>
-          <p style={heroLead}>
-            Clear explainers and a glossary of the terms behind Digital Product
-            Passports, blockchain traceability, and EU sustainability regulation
-            — built for fashion brands navigating ESPR 2024.
-          </p>
-        </div>
-      </section>
-
-      {/* Intro positioning */}
-      <section className="resources-intro-section">
-        <div className="resources-intro-container">
-          <div className="resources-intro-accent" aria-hidden="true" />
-          <h2 style={{ ...pageH2OnLight, marginBottom: '20px' }}>
-            Revolutionising Product Transparency and Circularity
-          </h2>
-          <p className="resources-intro-body">
-            In an era of rising EU regulation and growing consumer demand for
-            sustainable products, the EU Digital Product Passport (DPP) compliant
-            StableDPP is your strategic advantage to prove data provenance in
-            circular economy. Powered by permissioned blockchain technology,
-            StableDPP&apos;s Digital Product Passport solutions deliver unmatched
-            traceability, EU ESPR 2024 compliance, and new circular-economy
-            business opportunities for fashion brands.
-          </p>
-        </div>
-      </section>
-
-      {/* ESPR Explainer */}
-      <section className="resources-explainer-section" id="espr-explainer">
-        <div className="resources-explainer-container">
-          <header className="product-features-header">
-            <div className="section-eyebrow">ESPR EXPLAINER</div>
-            <h2 className="product-features-heading">
-              EU Digital Product Passport &amp; ESPR 2024
-            </h2>
-            <p className="product-features-subheading">
-              Front-loaded answers to the compliance questions fashion brands
-              ask most.
-            </p>
-          </header>
-
-          <div className="resources-explainer-grid">
-            {RESOURCES_ESPR_EXPLAINER.map((item) => (
-              <article key={item.q} className="resources-explainer-card">
-                <h3 className="resources-explainer-card__title">{item.q}</h3>
-                <p className="resources-explainer-card__body">{item.a}</p>
-              </article>
+          <div className="rh-country-grid">
+            {countryGuides.map((g) => (
+              <CountryCard key={g.id} guide={g} />
             ))}
           </div>
         </div>
       </section>
+
+      {/* Importer guides */}
+      <section className="guides-section rh-anchor" id="importer-guides" aria-label="Guides for importers">
+        <div className="guides-container">
+          <TrackHeader track="importers" />
+          <MasterGuide guide={importerMaster} />
+          <div className="rh-grid">
+            {importerGuides.map((g) => (
+              <HubGuideCard key={g.id} guide={g} />
+            ))}
+          </div>
+          <ViewAll track="importers" />
+        </div>
+      </section>
+
+      {/* ESPR explainer */}
+      <section className="rh-explainer rh-anchor" id="espr-explainer" aria-labelledby="espr-explainer-title">
+        <div className="rh-explainer__inner">
+          <header className="rh-explainer__header">
+            <div className="section-eyebrow">ESPR EXPLAINER</div>
+            <h2 id="espr-explainer-title" style={{ ...pageH2OnDark, textAlign: 'center', margin: 0 }}>
+              {RESOURCES_ESPR_EXPLAINER.title}
+            </h2>
+          </header>
+          <p className="rh-explainer__body">{RESOURCES_ESPR_EXPLAINER.body}</p>
+          <p className="rh-explainer__note">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.3" />
+              <path d="M8 7.2v4M8 4.8v.01" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+            {RESOURCES_ESPR_EXPLAINER.note}
+          </p>
+          <p className="rh-explainer__reviewed">
+            Last reviewed {RESOURCES_ESPR_EXPLAINER.lastReviewed}
+          </p>
+        </div>
+      </section>
+
+      {/* Glossary */}
+      <section className="guides-section guides-section--white rh-anchor" id="glossary" aria-label="Glossary">
+        <div className="guides-container">
+          <GuidesSectionHeader eyebrow="GLOSSARY" title="DPP terms, explained" />
+          <dl className="rh-glossary">
+            {RESOURCES_GLOSSARY.map((term) => (
+              <div key={term.q} className="rh-glossary__term">
+                <dt>{term.q}</dt>
+                <dd>{term.a}</dd>
+              </div>
+            ))}
+          </dl>
+          <div className="rh-chips">
+            <span className="rh-chips__label">BLOCKCHAIN TERMS</span>
+            <ul>
+              {RESOURCES_BLOCKCHAIN_TERMS.map((t) => (
+                <li key={t}>{t}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <PageFAQ id="faq" faqs={RESOURCES_PAGE_FAQS} tone="platform" />
 
       {/* CTA */}
       <section
@@ -114,128 +351,20 @@ export function ResourcesPage() {
           <h2 style={{ ...pageH2OnDark, marginBottom: '16px' }}>
             Ready to put DPP compliance into practice?
           </h2>
-          <p
-            style={{
-              ...heroLead,
-              marginBottom: '32px',
-              color: '#94a8bc',
-            }}
-          >
+          <p style={{ ...heroLead, marginBottom: '32px', color: '#94a8bc' }}>
             Start issuing blockchain-verified Digital Product Passports or book
             a personalised demo with our team.
           </p>
-          <div
-            style={{
-              display: 'flex',
-              gap: '16px',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-            }}
-          >
-            <button
-              type="button"
-              onClick={() => navigate('/create-dpp')}
-              style={{
-                background: '#1ac8b0',
-                color: '#071528',
-                border: 'none',
-                borderRadius: '10px',
-                padding: '14px 28px',
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '15px',
-                fontWeight: 600,
-                cursor: 'pointer',
-                transition: 'transform 0.2s, box-shadow 0.2s',
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLButtonElement).style.transform =
-                  'translateY(-2px)';
-                (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                  '0 8px 24px rgba(26,200,176,0.35)';
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLButtonElement).style.transform = 'none';
-                (e.currentTarget as HTMLButtonElement).style.boxShadow = 'none';
-              }}
-            >
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link to="/create-dpp" className="blog-banner-btn blog-banner-btn--primary">
               Get Started Free
-            </button>
-            <button
-              type="button"
-              onClick={() => navigate('/book-a-demo')}
-              style={{
-                background: 'transparent',
-                color: '#c8d8e8',
-                border: '1px solid rgba(200,216,232,0.35)',
-                borderRadius: '10px',
-                padding: '14px 28px',
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '15px',
-                fontWeight: 600,
-                cursor: 'pointer',
-                transition: 'border-color 0.2s, color 0.2s',
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLButtonElement).style.borderColor =
-                  '#1ac8b0';
-                (e.currentTarget as HTMLButtonElement).style.color = '#fff';
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLButtonElement).style.borderColor =
-                  'rgba(200,216,232,0.35)';
-                (e.currentTarget as HTMLButtonElement).style.color = '#c8d8e8';
-              }}
-            >
+            </Link>
+            <Link to="/book-a-demo" className="blog-banner-btn blog-banner-btn--ghost">
               Book a Demo
-            </button>
+            </Link>
           </div>
         </div>
       </section>
-
-      {/* Glossary */}
-      <section className="resources-glossary-section" id="glossary">
-        <div className="resources-glossary-container">
-          <header className="product-features-header">
-            <div className="section-eyebrow">DPP GLOSSARY</div>
-            <h2 className="product-features-heading">
-              DPP &amp; Blockchain Glossary
-            </h2>
-            <p className="product-features-subheading">
-              Clear answers to the key questions behind Digital Product
-              Passports, blockchain, and EU sustainability regulation.
-            </p>
-          </header>
-
-          <div className="resources-glossary__accordion">
-            {RESOURCES_GLOSSARY.map((item, index) => {
-              const isOpen = openGlossary === index;
-              return (
-                <div
-                  key={item.q}
-                  className={`resources-glossary__row${isOpen ? ' is-open' : ''}`}
-                >
-                  <button
-                    type="button"
-                    className="resources-glossary__trigger"
-                    onClick={() => toggleGlossary(index)}
-                    aria-expanded={isOpen}
-                  >
-                    <h3 className="resources-glossary__question">{item.q}</h3>
-                    <span className="resources-glossary__chevron" aria-hidden="true" />
-                  </button>
-                  {isOpen && (
-                    <div className="resources-glossary__panel">
-                      <p className="resources-glossary__answer">{item.a}</p>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <PageFAQ id="faq" faqs={RESOURCES_PAGE_FAQS} />
 
       <SharedFooter />
     </div>

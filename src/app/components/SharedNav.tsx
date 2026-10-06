@@ -221,7 +221,7 @@ export function SharedNav() {
 
 export function SharedFooter() {
   const socialLinks = [
-    { icon: faXTwitter, url: 'https://x.com/stabledpp', label: 'StableDPP on X', visible: 'X' },
+    { icon: faXTwitter, url: 'https://x.com/stable_DPP', label: 'StableDPP on X', visible: 'X' },
     { icon: faInstagram, url: 'https://www.instagram.com/stabledpp/', label: 'StableDPP on Instagram', visible: 'Instagram' },
     { icon: faLinkedinIn, url: 'https://www.linkedin.com/company/stable-dpp/', label: 'StableDPP on LinkedIn', visible: 'LinkedIn' },
   ];

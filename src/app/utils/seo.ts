@@ -425,7 +425,7 @@ export const ORGANIZATION_SCHEMA = {
     "GS1 Digital Link",
   ],
   sameAs: [
-    "https://x.com/stabledpp",
+    "https://x.com/stable_DPP",
     "https://www.instagram.com/stabledpp/",
     "https://www.linkedin.com/company/stable-dpp/",
   ],

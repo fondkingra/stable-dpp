@@ -873,6 +873,438 @@ function Gs1DigitalLinkContent() {
   );
 }
 
+function En1821xStandardsContent() {
+  return (
+    <>
+      <p>
+        Everyone writing about Digital Product Passports is still writing
+        about the delegated act that hasn’t arrived. The more useful story is
+        the one that already has: eight European standards — EN 18216,
+        18219, 18220, 18221, 18222, 18223, 18239 and 18246 — that define how
+        any passport is identified, carried, exchanged, stored, exposed and
+        secured. They are product-agnostic, which means they apply whether
+        the passport is for a battery, a mattress or a garment, and six of
+        them are now cited as{" "}
+        <strong>harmonised standards</strong> in the Official Journal. That
+        single word — harmonised — is the difference between a{" "}
+        <InlineLink to="/blog/what-is-a-digital-product-passport">
+          Digital Product Passport
+        </InlineLink>{" "}
+        build that’s defensible and one that’s a rebuild waiting to happen.
+      </p>
+
+      <h2>The Part of DPP Nobody Covers</h2>
+      <p>
+        Most coverage of Digital Product Passports focuses on disclosure —
+        what a T-shirt must say about its fibres, dyes and supply chain.
+        That’s the wrong layer to be anxious about right now, because it
+        isn’t finished yet. The layer that is finished is the plumbing: how
+        any passport, regardless of product, gets a unique identity, gets
+        attached to a physical item, moves data between systems, gets stored
+        for the long term, gets exposed through an API, interoperates across
+        vendors, and keeps sensitive fields away from people who shouldn’t
+        see them. That plumbing is now specified in eight EN standards, and
+        an exporter who builds against it today is building on ground that
+        won’t move.
+      </p>
+
+      <h2>The Eight Standards, in Plain Language</h2>
+      <p>
+        Each standard answers one exporter-side question:
+      </p>
+      <ul>
+        <li>
+          <strong>EN 18219 — Unique identifiers.</strong> Whether a passport
+          is issued at the model level, the batch level, or the individual
+          item level — a choice with real cost consequences, since
+          item-level identity means tracking serials through production, not
+          just styles.
+        </li>
+        <li>
+          <strong>EN 18220 — Data carriers.</strong> How the identifier is
+          physically attached — 2D codes, RFID, NFC — including encoding,
+          read quality and durability. For garments this is the
+          laundry-durability problem: a care-label QR code has to survive
+          wash cycles the product itself is rated for, which most 2026 pilots
+          still get wrong. See our guide to{" "}
+          <InlineLink to="/blog/gs1-digital-link-digital-product-passport">
+            GS1 Digital Link
+          </InlineLink>{" "}
+          for the identifier format these carriers resolve to.
+        </li>
+        <li>
+          <strong>EN 18216 — Data exchange protocols.</strong> How systems —
+          yours, your supplier’s, your buyer’s — pass passport data to each
+          other without each pair needing a custom integration.
+        </li>
+        <li>
+          <strong>EN 18221 — Storage, archiving, persistence.</strong> The
+          “who keeps this alive for ten years” question. A passport that
+          outlives the vendor who issued it is a requirement, not a nice
+          extra.
+        </li>
+        <li>
+          <strong>EN 18222 — APIs and lifecycle management.</strong> How a
+          passport gets updated — by a repairer, a reseller, a recycler —
+          after it’s first published, without breaking the record’s
+          integrity.
+        </li>
+        <li>
+          <strong>EN 18223 — System interoperability.</strong> Whether a
+          passport built on one vendor’s platform can be read, verified and
+          extended by a system that has never seen that vendor before.
+        </li>
+        <li>
+          <strong>EN 18239 / EN 18246 — Access rights, security and
+          business confidentiality.</strong> The one that answers “will my
+          buyer see my mill’s pricing?” These two were due to publish after
+          clearing a formal vote on 16 July 2026 — confirm current
+          publication status against the CEN-CENELEC register before citing
+          them as final.
+        </li>
+      </ul>
+
+      <h2>Available vs. Harmonised — and Why 15 July Mattered</h2>
+      <p>
+        A standard can exist and still carry no regulatory weight until it is{" "}
+        <strong>cited as harmonised</strong> in the Official Journal. That
+        happened for six of the eight EN 1821x standards on 15 July 2026,
+        via Implementing Decision (EU) 2026/1736. The practical effect:
+        conformity with those cited standards now carries a{" "}
+        <em>presumption of conformity</em> with{" "}
+        <InlineLink to="/blog/espr-regulation-2024-1781-explained">
+          ESPR
+        </InlineLink>{" "}
+        Articles 10 and 11 — but only to the extent the cited standards
+        cover those requirements. That scoping matters: presumption of
+        conformity is not the same claim as “conformance equals compliance,”
+        and no credible reading of the citation stretches it that far.
+      </p>
+
+      <h2>What an Exporter Can Build Today — Without the Textile Act</h2>
+      <p>
+        Four decisions don’t depend on the still-unwritten textile field
+        list, because the EN 1821x standards already answer them:
+      </p>
+      <ul>
+        <li>
+          <strong>Identifier scheme:</strong> model, batch or item level,
+          decided against EN 18219 rather than guessed.
+        </li>
+        <li>
+          <strong>Carrier decision:</strong> which data-carrier technology
+          and placement survives your product’s real-world handling, per EN
+          18220.
+        </li>
+        <li>
+          <strong>Data custody:</strong> where and how passport records are
+          stored and archived long-term, per EN 18221.
+        </li>
+        <li>
+          <strong>Access tiers:</strong> which fields are public, which are
+          buyer-only, and which stay internal, per EN 18239/18246.
+        </li>
+      </ul>
+      <p>
+        Build those four against the standards now, and the eventual textile
+        delegated act only has to supply a field list to slot into
+        infrastructure that already exists — not a reason to rebuild it.
+      </p>
+
+      <h2>The Confidentiality Question, Answered Properly</h2>
+      <p>
+        The question exporters actually ask is narrower than “is my data
+        safe” — it’s “will my buyer see what I pay for yarn.” EN 18239 and
+        EN 18246 exist specifically to make that answerable: access-rights
+        management and business-confidentiality controls are part of the
+        standard, not a feature a vendor bolts on. A passport architecture
+        that separates public, buyer-restricted and internal fields at the
+        access layer — rather than relying on “we just won’t show that
+        field” — is what the standards are asking for.
+      </p>
+
+      <h2>Where Tamper-Evidence Fits</h2>
+      <p>
+        Articles 10 and 11 require interoperability and data that is secure,
+        authentic and reliable — the requirement is the outcome, not a named
+        technology, and no EN 1821x standard mandates blockchain.{" "}
+        <InlineLink to="/product">StableDPP’s architecture</InlineLink> is
+        blockchain-anchored because tamper-evidence is the hardest part of
+        that outcome to demonstrate with a record that can be silently
+        edited after publication — that’s a design position, stated as
+        architecture, not a claim about what the regulation mandates.
+      </p>
+
+      <BlogCta href="/book-a-demo">
+        Talk through standards-readiness → book a demo
+      </BlogCta>
+
+      <Takeaway>
+        Six of eight EN 1821x standards are now cited as harmonised,
+        carrying a scoped presumption of conformity with ESPR Articles 10
+        and 11. An exporter can build identifier scheme, data carriers, data
+        custody and access tiers against them today — the textile delegated
+        act only has to add the field list.
+      </Takeaway>
+    </>
+  );
+}
+
+function BatteryPassportRehearsalContent() {
+  return (
+    <>
+      <p>
+        Textile exporters have anchored their planning on a date that
+        doesn’t exist yet — an indicative 2027 delegated act, then an
+        indicative 18-month transition, landing realistically in late 2028
+        into 2029. That distance is exactly why nothing gets budgeted. There
+        is, however, a date that is fixed:{" "}
+        <strong>18 February 2027</strong>, when the battery passport becomes
+        the EU’s first mandatory sector-specific{" "}
+        <InlineLink to="/blog/what-is-a-digital-product-passport">
+          Digital Product Passport
+        </InlineLink>{" "}
+        under the Battery Regulation. Batteries will run the registry, the
+        identifiers, the carriers, the access-rights model and the
+        supplier-data chase in production, at scale, on the same EU
+        infrastructure textiles will later use. Every failure mode gets
+        discovered there first — and exporters who read that rehearsal get
+        roughly eighteen months of free lessons.
+      </p>
+
+      <h2>The Date Most Textile Exporters Are Waiting For Isn’t a Date</h2>
+      <p>
+        Planning against an indicative delegated act and an indicative
+        transition period compounds two uncertainties into one number that
+        feels solid but isn’t. “2027” gets repeated until it sounds
+        confirmed; it isn’t. That’s not a reason to ignore the timeline — it’s
+        a reason not to build a budget calendar on it.
+      </p>
+
+      <h2>The Date That Is Real</h2>
+      <p>
+        18 February 2027 is set in the Battery Regulation, not indicated by
+        it. Battery passports go live on the same underlying EU DPP
+        infrastructure — registry, identifier architecture, data-carrier and
+        access-rights standards — that every later sector, textiles
+        included, will be built on.
+      </p>
+
+      <h2>Five Things Batteries Will Prove Before Textiles Have To</h2>
+      <ol className="blog-checklist">
+        <li>
+          Whether supplier data actually arrives on time, or arrives late
+          and wrong.
+        </li>
+        <li>How the registry behaves under real production volume.</li>
+        <li>Whether data carriers survive real-world handling and use.</li>
+        <li>
+          How access tiers hold up when a competitor sits downstream in the
+          same supply chain.
+        </li>
+        <li>What buyers actually do to suppliers who can’t produce data on time.</li>
+      </ol>
+      <p>
+        Every one of these is a question a textile exporter will eventually
+        face. The battery sector will answer all five in public, under
+        regulatory scrutiny, roughly eighteen months before textile
+        obligations land.
+      </p>
+
+      <h2>The One Asymmetry That Favours Textiles</h2>
+      <p>
+        There’s a reason not to read this as pure reassurance: a garment’s
+        bill of materials is more fragmented than a battery’s — more
+        suppliers, smaller lots, faster seasons. Data collection is harder
+        for textiles, not easier, which shortens the real runway rather than
+        extending it. Watching batteries stumble through supplier-data
+        delays is useful precisely because textiles start from a worse
+        position on that specific problem.
+      </p>
+
+      <h2>What to Do in the Eighteen Months Between Rehearsal and Performance</h2>
+      <p>
+        A quarter-by-quarter readiness sequence from now through late 2028
+        is more useful than waiting for a confirmed date:
+      </p>
+      <ul>
+        <li>
+          <strong>Now – Q1 2027:</strong> watch the battery passport
+          go-live for the failure modes above, and build the parts of your
+          own infrastructure that{" "}
+          <InlineLink to="/blog/eu-dpp-standards-en-1821x-explained">
+            don’t depend on the textile delegated act
+          </InlineLink>{" "}
+          — identifier scheme, carrier choice, data custody, access tiers.
+        </li>
+        <li>
+          <strong>Through 2027:</strong> run a pilot on one product line so
+          your organisation has already made its data-collection mistakes
+          before the field list is final.
+        </li>
+        <li>
+          <strong>2028:</strong> scale from pilot to rollout as the textile
+          delegated act and its transition period clarify, using the
+          battery sector’s documented failure modes as a checklist rather
+          than discovering them yourselves.
+        </li>
+      </ul>
+
+      <h2>The Cost of Waiting, Expressed Honestly</h2>
+      <p>
+        Not fear — arithmetic. Supplier onboarding for passport-ready data
+        takes real time per tier-2 vendor, and that time doesn’t compress
+        under deadline pressure; it just gets rushed and produces worse
+        data. Multiply a realistic per-supplier onboarding window by the
+        number of tier-2 vendors in a typical export operation, and “we’ll
+        start when the act is final” stops looking like caution and starts
+        looking like the more expensive option. See{" "}
+        <InlineLink to="/blog/digital-product-passport-cost">
+          how Digital Product Passport cost actually breaks down
+        </InlineLink>{" "}
+        for where that spend goes.
+      </p>
+
+      <BlogCta href="/book-a-demo">
+        Get the ESPR Readiness Checklist → book a demo
+      </BlogCta>
+
+      <Takeaway>
+        18 February 2027 — not an indicative textile date — is when the
+        battery passport goes live on the same EU DPP infrastructure
+        textiles will later use. Exporters who treat it as a rehearsal gain
+        roughly eighteen months to fix the failure modes batteries will hit
+        first.
+      </Takeaway>
+    </>
+  );
+}
+
+function EuDppRegistryContent() {
+  return (
+    <>
+      <p>
+        The EU Digital Product Passport Registry went live on 19–20 July
+        2026, and Implementing Regulation (EU) 2026/1778 took effect on 6
+        August. Almost no exporter-facing content explains what a registry
+        actually is in this system: a <strong>lookup layer</strong> holding
+        identifiers and pointers, not a warehouse holding your product data.
+        That misunderstanding produces two opposite, equally wrong
+        reactions — panic that confidential mill data is now sitting on an
+        EU server, and complacency that registration is someone else’s
+        problem. Both are off. The exporter’s actual position in the chain
+        is this: the{" "}
+        <strong>economic operator placing the product on the EU market</strong>{" "}
+        carries the registration obligation, which for most Indian exporters
+        means the buyer — and that’s precisely why buyer data requests have
+        sharpened since July.
+      </p>
+
+      <h2>Two Things Changed in the Same Week of July</h2>
+      <p>
+        Most exporters felt only one of them. The registry quietly went live
+        as infrastructure. At the same time, the Article 25 destruction ban
+        began applying to large fashion undertakings from 19 July 2026 —
+        extending to medium-sized companies from 19 July 2030 — and that’s
+        the change suppliers are actually feeling, as buyers suddenly ask
+        sharper questions about over-production and unsold stock. If a buyer’s
+        questionnaire changed tone this summer, this is why.
+      </p>
+
+      <h2>What a Registry Is, and What It Is Not</h2>
+      <p>
+        Kill the “server in Brussels” myth first: the registry holds
+        identifiers and pointers to where a{" "}
+        <InlineLink to="/blog/what-is-a-digital-product-passport">
+          Digital Product Passport
+        </InlineLink>{" "}
+        record actually lives — not your material composition, your mill
+        pricing, or your supplier list. Your product data stays wherever it’s
+        hosted, under whatever access controls that platform enforces. The
+        registry’s job is resolution — given an identifier, point to the
+        right record — the same role a{" "}
+        <InlineLink to="/blog/gs1-digital-link-digital-product-passport">
+          GS1 Digital Link resolver
+        </InlineLink>{" "}
+        plays at the product level.
+      </p>
+
+      <h2>Who Actually Carries the Obligation</h2>
+      <p>
+        The obligation attaches to the economic operator placing the product
+        on the EU market — in practice, whoever imports or sells it there.
+        When you ship FOB to a European brand, that’s the brand, not you.
+        The regulation does not create a direct ESPR obligation for a
+        supplier shipping into a buyer who then places the product on the
+        market — say this precisely, because it’s easy to overstate in
+        either direction.
+      </p>
+
+      <h2>Why the Obligation Sits With the Buyer but the Work Lands on You</h2>
+      <p>
+        Obligations don’t travel upstream on their own — contracts do. A
+        buyer managing its own ESPR exposure flows the data requirement down
+        through sourcing agreements, which is why the annexe clauses showing
+        up in AW26/SS27 contracts are new even though the underlying
+        regulation isn’t. Reading those clauses as “the buyer’s compliance
+        risk, contractually assigned to you” is more accurate than reading
+        them as your own direct legal exposure.
+      </p>
+
+      <h2>Reading the Data Request You Just Received</h2>
+      <p>
+        Sort incoming fields into three buckets before responding to
+        anything:
+      </p>
+      <ul>
+        <li>
+          <strong>Genuinely regulatory:</strong> fields that map to ESPR
+          Articles 10/11 or the eventual textile delegated act.
+        </li>
+        <li>
+          <strong>The buyer’s own ESG programme:</strong> fields a brand
+          wants for its own sustainability reporting, beyond what regulation
+          requires.
+        </li>
+        <li>
+          <strong>A fishing expedition:</strong> fields that probe your
+          sourcing or costing structure under cover of compliance.
+        </li>
+      </ul>
+      <p>
+        Most questionnaires mix all three without labelling which is which —
+        sorting them is the first useful thing to do with one.
+      </p>
+
+      <h2>Negotiating From a Position of Readiness</h2>
+      <p>
+        This is a short note, not legal counsel: treat an unclear clause as
+        a question to ask the buyer, not a clause to reject outright. The
+        suppliers who can answer a data request cleanly and on time are the
+        ones who keep the order when a buyer is consolidating its vendor
+        base around who can prove readiness. That’s a pricing-of-readiness
+        argument, not an absorb-the-cost-silently one — see{" "}
+        <InlineLink to="/blog/digital-product-passport-cost">
+          how Digital Product Passport cost actually breaks down
+        </InlineLink>{" "}
+        before agreeing to carry it for free.
+      </p>
+
+      <BlogCta href="/book-a-demo">
+        Book a demo — built around answering a buyer data request →
+      </BlogCta>
+
+      <Takeaway>
+        The EU DPP Registry is a lookup layer, not a data warehouse — and
+        the registration obligation sits with whoever places the product on
+        the EU market, usually your buyer, not you. What changed for
+        exporters since July is sharper buyer data requests, not a new
+        direct legal duty.
+      </Takeaway>
+    </>
+  );
+}
+
 const CONTENT_BY_SLUG: Record<BlogSlug, () => ReactNode> = {
   "what-is-a-digital-product-passport": WhatIsDppContent,
   "espr-regulation-2024-1781-explained": EsprGuideContent,
@@ -881,6 +1313,10 @@ const CONTENT_BY_SLUG: Record<BlogSlug, () => ReactNode> = {
   "digital-product-passport-for-textile-manufacturers":
     TextileManufacturersContent,
   "gs1-digital-link-digital-product-passport": Gs1DigitalLinkContent,
+  "eu-dpp-standards-en-1821x-explained": En1821xStandardsContent,
+  "battery-passport-digital-product-passport-rehearsal":
+    BatteryPassportRehearsalContent,
+  "eu-dpp-registry-explained": EuDppRegistryContent,
 };
 
 export function BlogPostContent({ slug }: { slug: BlogSlug }) {

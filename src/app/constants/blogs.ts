@@ -9,7 +9,10 @@ export type BlogSlug =
   | "how-to-create-a-digital-product-passport"
   | "digital-product-passport-cost"
   | "digital-product-passport-for-textile-manufacturers"
-  | "gs1-digital-link-digital-product-passport";
+  | "gs1-digital-link-digital-product-passport"
+  | "eu-dpp-standards-en-1821x-explained"
+  | "battery-passport-digital-product-passport-rehearsal"
+  | "eu-dpp-registry-explained";
 
 export type BlogPostMeta = {
   slug: BlogSlug;
@@ -31,6 +34,117 @@ export type BlogPostMeta = {
 const BASE = import.meta.env.BASE_URL;
 
 export const BLOG_POSTS: readonly BlogPostMeta[] = [
+  {
+    slug: "eu-dpp-standards-en-1821x-explained",
+    title:
+      "The EU Just Published the Rulebook for Digital Product Passports — Here's What It Changes for Textile Exporters",
+    crumbLabel: "EN 1821x DPP Standards",
+    metaTitle:
+      "EU DPP Standards Explained: What EN 18216–18223 Mean for Exporters | StableDPP",
+    metaDescription:
+      "The EU has published eight harmonised standards defining how every Digital Product Passport must be identified, carried, exchanged, stored and secured. Here's what EN 18216–18223 mean for textile exporters.",
+    excerpt:
+      "Six EN 1821x standards are now cited as harmonised in the Official Journal, carrying a presumption of conformity with ESPR Articles 10 and 11. That's the difference between a DPP build that's defensible and one that's a rebuild waiting to happen.",
+    datePublished: "2026-10-05",
+    dateModified: "2026-10-05",
+    image: `${BASE}blog/blog-7-en-1821x-standards.png`,
+    ogImage: "https://stabledpp.com/blog/blog-7-en-1821x-standards.png",
+    imageAlt:
+      "The eight EN 1821x standards governing Digital Product Passport identifiers, carriers, exchange, storage, APIs and security.",
+    readingMinutes: 9,
+    faqs: [
+      {
+        q: "What do the EN 1821x standards actually cover?",
+        a: "Eight European standards define how any Digital Product Passport is identified (EN 18219), carried (EN 18220), exchanged (EN 18216), stored (EN 18221), exposed through APIs (EN 18222), made interoperable (EN 18223), and secured (EN 18239, EN 18246) — product-agnostic rules for how a passport works, not what a T-shirt must disclose.",
+      },
+      {
+        q: "Is a standard being published the same as it being mandatory?",
+        a: "No. Six of the eight standards were cited as harmonised in the Official Journal on 15 July 2026 (Implementing Decision (EU) 2026/1736). Conformity with a harmonised standard carries a presumption of conformity with ESPR Articles 10 and 11, to the extent the cited standards cover those requirements — a meaningfully stronger position than a standard that is merely available.",
+      },
+      {
+        q: "Can an exporter build DPP infrastructure before the textile delegated act arrives?",
+        a: "Yes, for the parts the EN 1821x standards already define: identifier scheme, data-carrier choice, storage and custody, and access tiers. What's still missing is the textile-specific field list, which depends on the delegated act, not on these standards.",
+      },
+      {
+        q: "Does conforming to these standards require blockchain?",
+        a: "No. The standards require tamper-evidence, interoperability and secure access management as outcomes — they don't name a technology. Blockchain-anchored architecture is one way to satisfy that requirement, not a mandate the standards impose.",
+      },
+    ],
+  },
+  {
+    slug: "battery-passport-digital-product-passport-rehearsal",
+    title:
+      "February 2027: The First Mandatory Digital Product Passport Isn't Yours — and That's Exactly Why It Matters",
+    crumbLabel: "The Battery Passport Rehearsal",
+    metaTitle:
+      "Battery Passport 2027: What It Teaches Textile Exporters Early | StableDPP",
+    metaDescription:
+      "On 18 February 2027 the battery passport becomes the EU's first mandatory sector-specific Digital Product Passport. Here's what it will prove — eighteen months before textiles have to find out the same way.",
+    excerpt:
+      "Textile exporters are anchored on a delegated-act date that doesn't exist yet. The date that is fixed is 18 February 2027, when battery passports go live on the same registry infrastructure textiles will later use.",
+    datePublished: "2026-09-28",
+    dateModified: "2026-09-28",
+    image: `${BASE}blog/blog-8-battery-passport-rehearsal.png`,
+    ogImage: "https://stabledpp.com/blog/blog-8-battery-passport-rehearsal.png",
+    imageAlt:
+      "Timeline from the February 2027 battery passport mandate to the indicative textile Digital Product Passport rollout.",
+    readingMinutes: 8,
+    faqs: [
+      {
+        q: "When do Digital Product Passports become mandatory for textiles?",
+        a: "There is no confirmed date yet. The textile delegated act is indicatively expected around 2027, with roughly an 18-month transition after adoption — realistically placing full textile obligations in late 2028 to early 2029. Treat any more specific date as unconfirmed.",
+      },
+      {
+        q: "What becomes mandatory on 18 February 2027?",
+        a: "The battery passport — the EU's first mandatory sector-specific Digital Product Passport, under the Battery Regulation. It is a fixed date, unlike the indicative textile timeline.",
+      },
+      {
+        q: "Does the battery passport mandate apply to textile exporters?",
+        a: "No. Battery rules don't extend to textiles. What transfers is the underlying DPP infrastructure — the registry, identifier scheme, data carriers and access-rights model — which batteries will run in production first, on the same EU architecture textiles will later use.",
+      },
+      {
+        q: "Why should a textile exporter care about a battery deadline?",
+        a: "Because it's a live-fire test of the exact infrastructure textiles depend on, roughly eighteen months before textile obligations land. Supplier-data delays, registry behaviour under volume, and access-tier failures will surface in batteries first — free lessons for anyone paying attention.",
+      },
+    ],
+  },
+  {
+    slug: "eu-dpp-registry-explained",
+    title:
+      "The EU's Digital Product Passport Registry Went Live This Summer — What Changes for Suppliers Outside Europe",
+    crumbLabel: "EU DPP Registry Explained",
+    metaTitle:
+      "EU DPP Registry Explained: What It Means for Non-EU Suppliers | StableDPP",
+    metaDescription:
+      "The EU Digital Product Passport Registry went live in July 2026. It's a lookup layer, not a data warehouse — and the registration obligation usually sits with your EU buyer, not you. Here's how to read it.",
+    excerpt:
+      "The EU DPP Registry is a lookup layer holding identifiers and pointers, not your product data. The obligation to register sits with whoever places the product on the EU market — which is why buyer data requests have sharpened since July.",
+    datePublished: "2026-09-21",
+    dateModified: "2026-09-21",
+    image: `${BASE}blog/blog-9-eu-dpp-registry.png`,
+    ogImage: "https://stabledpp.com/blog/blog-9-eu-dpp-registry.png",
+    imageAlt:
+      "How the EU Digital Product Passport Registry connects identifiers to supplier and brand passport data.",
+    readingMinutes: 8,
+    faqs: [
+      {
+        q: "What does the EU Digital Product Passport Registry actually store?",
+        a: "Identifiers and pointers — not product data. It resolves a passport identifier to where the underlying record lives; your material composition, supplier and certification data stays with whoever hosts the actual passport.",
+      },
+      {
+        q: "Does an Indian or other non-EU exporter have a direct legal obligation to register?",
+        a: "No. The obligation attaches to the economic operator placing the product on the EU market, which for most non-EU exporters shipping FOB is the EU buyer, not the exporter. That obligation flows down contractually, which is why buyer data requests have sharpened since the registry went live.",
+      },
+      {
+        q: "When did the registry go live, and what else changed in July 2026?",
+        a: "The registry went live on 19–20 July 2026 (confirm the exact date against the Commission source before citing it). In the same window, Implementing Regulation (EU) 2026/1778 took effect on 6 August 2026, and the Article 25 destruction ban began applying to large fashion undertakings from 19 July 2026 — the second change is what most suppliers actually felt first.",
+      },
+      {
+        q: "How should a supplier respond to a new buyer data-request clause?",
+        a: "Read it as three categories: fields that are genuinely regulatory, fields that are the buyer's own ESG programme, and fields that are a broader fishing expedition into your sourcing. Treat it as questions to ask the buyer, not as a clause to accept or reject unilaterally.",
+      },
+    ],
+  },
   {
     slug: "gs1-digital-link-digital-product-passport",
     title:

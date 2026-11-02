@@ -101,6 +101,21 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://stabledpp.com/blog/eu-dpp-standards-en-1821x-explained</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://stabledpp.com/blog/battery-passport-digital-product-passport-rehearsal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://stabledpp.com/blog/eu-dpp-registry-explained</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://stabledpp.com/company</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

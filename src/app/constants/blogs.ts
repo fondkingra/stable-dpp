@@ -47,8 +47,8 @@ export const BLOG_POSTS: readonly BlogPostMeta[] = [
       "Six EN 1821x standards are now cited as harmonised in the Official Journal, carrying a presumption of conformity with ESPR Articles 10 and 11. That's the difference between a DPP build that's defensible and one that's a rebuild waiting to happen.",
     datePublished: "2026-10-05",
     dateModified: "2026-10-05",
-    image: `${BASE}blog/blog-7-en-1821x-standards.png`,
-    ogImage: "https://stabledpp.com/blog/blog-7-en-1821x-standards.png",
+    image: `${BASE}blog/blog-7-featured.png`,
+    ogImage: "https://stabledpp.com/blog/blog-7-featured.png",
     imageAlt:
       "The eight EN 1821x standards governing Digital Product Passport identifiers, carriers, exchange, storage, APIs and security.",
     readingMinutes: 9,
@@ -84,8 +84,8 @@ export const BLOG_POSTS: readonly BlogPostMeta[] = [
       "Textile exporters are anchored on a delegated-act date that doesn't exist yet. The date that is fixed is 18 February 2027, when battery passports go live on the same registry infrastructure textiles will later use.",
     datePublished: "2026-09-28",
     dateModified: "2026-09-28",
-    image: `${BASE}blog/blog-8-battery-passport-rehearsal.png`,
-    ogImage: "https://stabledpp.com/blog/blog-8-battery-passport-rehearsal.png",
+    image: `${BASE}blog/blog-8-featured.png`,
+    ogImage: "https://stabledpp.com/blog/blog-8-featured.png",
     imageAlt:
       "Timeline from the February 2027 battery passport mandate to the indicative textile Digital Product Passport rollout.",
     readingMinutes: 8,
@@ -121,8 +121,8 @@ export const BLOG_POSTS: readonly BlogPostMeta[] = [
       "The EU DPP Registry is a lookup layer holding identifiers and pointers, not your product data. The obligation to register sits with whoever places the product on the EU market — which is why buyer data requests have sharpened since July.",
     datePublished: "2026-09-21",
     dateModified: "2026-09-21",
-    image: `${BASE}blog/blog-9-eu-dpp-registry.png`,
-    ogImage: "https://stabledpp.com/blog/blog-9-eu-dpp-registry.png",
+    image: `${BASE}blog/blog-9-featured.png`,
+    ogImage: "https://stabledpp.com/blog/blog-9-featured.png",
     imageAlt:
       "How the EU Digital Product Passport Registry connects identifiers to supplier and brand passport data.",
     readingMinutes: 8,

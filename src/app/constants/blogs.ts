@@ -119,8 +119,8 @@ export const BLOG_POSTS: readonly BlogPostMeta[] = [
       "The EU Digital Product Passport Registry went live in July 2026. It's a lookup layer, not a data warehouse — and the registration obligation usually sits with your EU buyer, not you. Here's how to read it.",
     excerpt:
       "The EU DPP Registry is a lookup layer holding identifiers and pointers, not your product data. The obligation to register sits with whoever places the product on the EU market — which is why buyer data requests have sharpened since July.",
-    datePublished: "2026-09-21",
-    dateModified: "2026-09-21",
+    datePublished: "2026-08-10",
+    dateModified: "2026-08-10",
     image: `${BASE}blog/blog-9-featured.png`,
     ogImage: "https://stabledpp.com/blog/blog-9-featured.png",
     imageAlt:

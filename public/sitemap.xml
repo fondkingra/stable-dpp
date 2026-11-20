@@ -66,6 +66,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://stabledpp.com/resources/guides/exporters/espr-readiness-checklist</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://stabledpp.com/resources/guides/exporters/textile-dpp-data-fields-checklist</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://stabledpp.com/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -112,6 +122,21 @@
   </url>
   <url>
     <loc>https://stabledpp.com/blog/eu-dpp-registry-explained</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://stabledpp.com/blog/espr-textile-deadline-digital-product-passport</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://stabledpp.com/blog/digital-product-passport-software</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://stabledpp.com/blog/blockchain-digital-product-passport</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -85,9 +85,9 @@ export const GUIDES: readonly GuideSummary[] = [
       'Readiness self-check and a 90-day starter plan',
     ],
   },
-  { id: 'A2', track: 'exporters', title: 'ESPR Readiness Checklist for Exporters', type: 'Checklist', pages: '12', slug: 'espr-readiness-checklist', live: false,
-    blurb: 'Tick-box sections on awareness, data, suppliers, systems, buyer communication and team, with a readiness score.' },
-  { id: 'A3', track: 'exporters', title: 'Textile DPP Data Fields Checklist', type: 'Checklist', pages: '16', slug: 'textile-dpp-data-fields-checklist', live: false,
+  { id: 'A2', track: 'exporters', title: 'ESPR Readiness Checklist for Exporters', type: 'Checklist', pages: '12', slug: 'espr-readiness-checklist', live: true,
+    blurb: 'Score your factory against the data EU buyers will ask for under the Digital Product Passport: 60 checkpoints across 10 areas, with a readiness score.' },
+  { id: 'A3', track: 'exporters', title: 'Textile DPP Data Fields Checklist', type: 'Checklist', pages: '16', slug: 'textile-dpp-data-fields-checklist', live: true,
     blurb: 'Every field a textile passport needs, who holds it, the typical source document and a gap check.' },
   { id: 'A4', track: 'exporters', title: "How to Answer Your EU Buyer's DPP Data Request", type: 'Guide + templates', pages: '14', slug: 'answer-eu-buyer-dpp-data-request', live: false,
     blurb: 'What buyer questionnaires are really asking, what to share, what to protect, and three reply templates.' },
@@ -179,6 +179,113 @@ export const GUIDE_DETAILS: Readonly<Record<string, GuideDetail>> = {
     metaTitle: 'EU Digital Product Passport Guide for Asian Textile Exporters | StableDPP',
     metaDescription:
       'Free guide for textile and apparel exporters in India and Asia: what EU ESPR and the Digital Product Passport mean for suppliers, what buyers will ask for, and a 90-day plan.',
+  },
+  A2: {
+    lastReviewed: 'October 2026',
+    summary: [
+      'EU buyers will need product data from their suppliers to build Digital Product Passports under the Ecodesign for Sustainable Products Regulation (ESPR). This checklist helps you test, area by area, whether that data exists in your business today, where it lives, and whether you could prove it.',
+      '60 checkpoints across 10 areas, scored 0 to 2, for about 90 minutes with your export, compliance and production leads in the room. It covers buyer exposure, product identity, materials, traceability, chemicals, certifications, durability, environmental data, claims and labelling, and data systems and governance, with a score sheet, a timeline of the dates driving buyer requests, and next-guide recommendations for your weakest areas.',
+      'This is a readiness tool, not a compliance certificate: the exact passport data for textiles will be set by an ESPR delegated act that has not yet been adopted.',
+    ],
+    audience: [
+      'Export and merchandising heads who know what buyers are asking for.',
+      'Compliance or sustainability leads who hold certificates, test reports and audit records.',
+      'Production or sourcing heads who know the suppliers further up the chain.',
+      'Owners and directors who want a single readiness score across the whole factory.',
+    ],
+    toc: [
+      'Before you start: who should fill it in, and how to score each checkpoint',
+      'A. EU buyer exposure and requests',
+      'B. Product identity and batch records',
+      'C. Materials and fibre composition',
+      'D. Supply chain traceability',
+      'E. Chemicals and substances',
+      'F. Certifications and audit evidence',
+      'G. Durability, care, repair and end of life',
+      'H. Environmental data',
+      'I. Product claims and labelling',
+      'J. Data systems and governance',
+      'Score sheet and what your total means',
+      'Timeline: dates to plan around',
+      'Next steps: which guide to read for your weakest area',
+    ],
+    faqs: [
+      {
+        q: 'How long does the ESPR readiness checklist take to complete?',
+        a: 'About 90 minutes, sat down together with the export or merchandising head, the compliance or sustainability lead, and the production or sourcing head. It has 60 checkpoints across 10 areas, scored 0 (not in place), 1 (partly in place) or 2 (in place, with evidence), for a total out of 120.',
+      },
+      {
+        q: 'What score should an exporter aim for?',
+        a: '81–120 means you could answer most buyer requests with evidence today; 41–80 means the basics exist but are patchy; 0–40 means most of the data buyers will ask for is not yet recorded. Look at your weakest single area as well as the total: any area scoring 4 or below out of 12 is a priority gap, since a buyer request usually needs all ten areas at once.',
+      },
+      {
+        q: 'Which areas are hardest for exporters to score well on?',
+        a: 'Supply chain traceability (D) and environmental data (H) usually take the longest to fix, because they depend on suppliers further up the chain and on months of recorded history. If either is low, start there rather than waiting for a buyer request to force the pace.',
+      },
+      {
+        q: 'Does a high score mean our products comply with EU regulations?',
+        a: 'No. This is a readiness tool, not a compliance certificate. The exact passport data for textiles will be set by an ESPR delegated act that has not yet been adopted, expected in 2027. A full score means you are well placed to answer buyers when that happens, not that your products already comply with rules still being written.',
+      },
+    ],
+    related: ['A1', 'A3', 'A4', 'A5'],
+    pdfPath: '/downloads/espr-readiness-checklist.pdf',
+    metaTitle: 'ESPR Readiness Checklist for Exporters | StableDPP',
+    metaDescription:
+      'Free 60-point checklist for textile and apparel exporters in India and Asia: score your readiness for EU Digital Product Passport data requests across 10 areas, with a score sheet and timeline.',
+  },
+  A3: {
+    lastReviewed: 'October 2026',
+    summary: [
+      'A textile Digital Product Passport is a structured data record that sits behind a code on each garment, label or carton. Most of the data in it starts life with you and your suppliers in India, not with the EU brand.',
+      'This checklist lists every field a textile passport is expected to need, names who in a typical Indian export chain actually holds each one, points to the document where it usually lives, and gives you a box to mark whether you can produce it today — across 10 sections from product identity to data governance, 66 fields in total.',
+      'Each field carries a tag showing how firm it is: Core (set by ESPR for every passport, build now), Existing law (already required today under textile labelling or REACH, a risk now not in 2028), Expected (named in preparatory work, start collecting the raw data), or Supporting (evidence buyers use to verify other fields). A gap scorecard and a 90-day plan to close the gaps that matter most are included.',
+    ],
+    audience: [
+      'Garment exporters and merchandising teams who end up as the data aggregator for EU buyer questionnaires, even when the data sits two tiers upstream.',
+      'Compliance and QA leads who hold test reports, certificates and chemical declarations.',
+      'Sourcing and production heads who need to map fabric mills, spinners, fibre suppliers and trim suppliers by style.',
+      'Owners and directors who want a single working document to take to merchandising, QA and sourcing together.',
+    ],
+    toc: [
+      'What this checklist does, and where the rules stand in October 2026',
+      'How firm is each field: Core, Existing law, Expected, Supporting',
+      'Who holds what in a textile chain, tier by tier',
+      'A. Product identity and identifiers',
+      'B. Operators and facilities',
+      'C. Material composition',
+      'D. Substances and chemicals',
+      'E. Supply chain traceability',
+      'F. Environmental performance',
+      'G. Durability, care and repair',
+      'H. End of life',
+      'I. Compliance documents and user information',
+      'J. Data governance and access',
+      'Gap scorecard and reading your score',
+      'A 90-day plan to close the gaps',
+    ],
+    faqs: [
+      {
+        q: 'How many data fields does a textile Digital Product Passport need?',
+        a: 'This checklist lists 66 fields across 10 sections, from product identifiers and operator data through to material composition, chemicals, traceability, environmental performance, durability, end of life, compliance documents and data governance. The textile delegated act has not yet been adopted, so the final list may change — each field is tagged by how firm it is.',
+      },
+      {
+        q: 'What do the Core, Existing law, Expected and Supporting tags mean?',
+        a: 'Core fields are set by ESPR for every passport regardless of product and should be built now. Existing law fields are already required for textiles sold in the EU today, under rules like textile fibre labelling or REACH, so gaps here are risks today, not in 2028. Expected fields are named in the Commission’s textile preparatory work but not finalised. Supporting fields are not passport fields themselves, but the evidence buyers use to verify the others.',
+      },
+      {
+        q: 'Who actually holds the data behind a textile passport?',
+        a: 'It is scattered across four or five tiers: the brand or EU importer, the garment exporter, the fabric mill or processor, the yarn spinner, the fibre supplier, chemical and trim suppliers, labs and certifiers, and the customs broker. EU buyers usually ask the garment exporter for everything, because that is the tier they pay, which makes the exporter the natural data aggregator even when the data sits two tiers upstream.',
+      },
+      {
+        q: 'Where do most exporters find gaps when they fill this in?',
+        a: 'Common gaps are lot identity that survives from the cutting floor to the carton, Tier-2 facility details for dyeing and spinning sites, finished-garment composition rather than just shell fabric, and turning delivery challans into a searchable lot-to-lot chain. The checklist’s gap tips flag the usual weak point in each section.',
+      },
+    ],
+    related: ['A1', 'A2', 'A4', 'A13'],
+    pdfPath: '/downloads/textile-dpp-data-fields-checklist.pdf',
+    metaTitle: 'Textile DPP Data Fields Checklist | StableDPP',
+    metaDescription:
+      'Free 66-field checklist for textile and apparel exporters: every data field a Digital Product Passport needs, who holds it in a typical Indian export chain, the source document, and a gap check.',
   },
 };
 

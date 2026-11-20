@@ -12,7 +12,10 @@ export type BlogSlug =
   | "gs1-digital-link-digital-product-passport"
   | "eu-dpp-standards-en-1821x-explained"
   | "battery-passport-digital-product-passport-rehearsal"
-  | "eu-dpp-registry-explained";
+  | "eu-dpp-registry-explained"
+  | "digital-product-passport-software"
+  | "espr-textile-deadline-digital-product-passport"
+  | "blockchain-digital-product-passport";
 
 export type BlogPostMeta = {
   slug: BlogSlug;
@@ -34,6 +37,113 @@ export type BlogPostMeta = {
 const BASE = import.meta.env.BASE_URL;
 
 export const BLOG_POSTS: readonly BlogPostMeta[] = [
+  {
+    slug: "blockchain-digital-product-passport",
+    title:
+      "Blockchain and the Digital Product Passport: What ESPR Requires, and What It Doesn't",
+    crumbLabel: "Blockchain and the DPP",
+    metaTitle: "Blockchain Digital Product Passport: Is It Required?",
+    metaDescription:
+      "Does ESPR require blockchain for a Digital Product Passport? No. Here is what the law actually asks for, and where blockchain fits for tamper-evident data.",
+    excerpt:
+      "ESPR is technology-neutral and never names blockchain. It requires interoperable, secure, tamper-evident passport data — blockchain is one practical way to prove the last of those, not a legal mandate.",
+    datePublished: "2026-10-26",
+    dateModified: "2026-10-26",
+    image: `${BASE}blog/blog-12-blockchain-dpp.png`,
+    ogImage: "https://stabledpp.com/blog/blog-12-blockchain-dpp.png",
+    imageAlt:
+      "Stacked Digital Product Passport records linked by a tamper-evident blockchain fingerprint.",
+    readingMinutes: 6,
+    faqs: [
+      {
+        q: "Is blockchain mandatory for the EU Digital Product Passport?",
+        a: "No. ESPR is technology-neutral. It requires interoperable, secure passport data with integrity and access controls, but does not specify blockchain or any other technology.",
+      },
+      {
+        q: "Why do some DPP platforms use blockchain?",
+        a: "To make passport records tamper-evident. A cryptographic fingerprint on a ledger lets anyone prove a record has not been changed since it was written, including by the platform provider.",
+      },
+      {
+        q: "Is passport data stored on the blockchain?",
+        a: "In well-designed systems, no. The data sits off-chain in a standard format; only a fingerprint of each version goes on-chain. This keeps costs down and avoids storing personal data on a ledger.",
+      },
+      {
+        q: "Can a blockchain DPP work with GS1 Digital Link?",
+        a: "Yes. The identifier and QR code follow GS1 Digital Link or another open scheme, and the ledger sits underneath as the integrity layer. The two solve different problems.",
+      },
+    ],
+  },
+  {
+    slug: "digital-product-passport-software",
+    title: "How to Choose Digital Product Passport Software: A 12-Point Buyer's Checklist",
+    crumbLabel: "Software Buyer's Checklist",
+    metaTitle: "Digital Product Passport Software: A Buyer's Checklist",
+    metaDescription:
+      "Choosing digital product passport software? Compare ESPR compliance platforms on data, standards, security and cost with this 12-point checklist.",
+    excerpt:
+      "Every DPP platform demo shows a QR code and a dashboard. The differences sit underneath — in supplier data collection, open standards and tamper-evidence. Here's the checklist to use on your next demo.",
+    datePublished: "2026-10-19",
+    dateModified: "2026-10-19",
+    image: `${BASE}blog/blog-10-software-checklist.png`,
+    ogImage: "https://stabledpp.com/blog/blog-10-software-checklist.png",
+    imageAlt:
+      "Twelve-point checklist for choosing Digital Product Passport software, covering data, standards, trust and cost.",
+    readingMinutes: 7,
+    faqs: [
+      {
+        q: "What is digital product passport software?",
+        a: "It is a platform that collects, structures, publishes and protects the product data required for a Digital Product Passport under the EU's ESPR regulation, and links it to a data carrier on the product.",
+      },
+      {
+        q: "Is ESPR compliance software mandatory?",
+        a: "No specific software is mandatory. What becomes mandatory is a compliant passport for your product group once its delegated act applies. Software is how most businesses produce and maintain one.",
+      },
+      {
+        q: "Can I build a DPP in-house instead of buying software?",
+        a: "Yes, but you must still meet ESPR's interoperability, identifier, access and backup expectations. For most exporters, the supplier-data work alone makes a specialist platform faster.",
+      },
+      {
+        q: "How long does it take to set up DPP software?",
+        a: "The platform can be live in days. Collecting verified supplier data usually takes weeks per product line, which is why starting before the textile deadline matters.",
+      },
+    ],
+  },
+  {
+    slug: "espr-textile-deadline-digital-product-passport",
+    title:
+      "EU ESPR Textile Deadline: When Does the Digital Product Passport Become Mandatory?",
+    crumbLabel: "ESPR Textile Deadline",
+    metaTitle: "EU ESPR Textile Deadline: When Is the DPP Mandatory?",
+    metaDescription:
+      "When is the Digital Product Passport mandatory for textiles? The ESPR textile deadline explained: what's fixed, what's expected, and what to do now.",
+    excerpt:
+      "Some ESPR dates are fixed in law; the one that matters most for textiles — the delegated act — is still expected, not confirmed. Here's how to plan against facts instead of estimates.",
+    datePublished: "2026-10-12",
+    dateModified: "2026-10-12",
+    image: `${BASE}blog/blog-11-espr-textile-deadline.png`,
+    ogImage: "https://stabledpp.com/blog/blog-11-espr-textile-deadline.png",
+    imageAlt:
+      "Timeline of fixed and expected EU ESPR dates leading to the mandatory textile Digital Product Passport.",
+    readingMinutes: 6,
+    faqs: [
+      {
+        q: "When is the digital product passport mandatory in the EU?",
+        a: "It depends on the product group. For textiles, it becomes mandatory once the textile delegated act applies. The act is expected in 2027, with requirements likely applying from 2028–2029.",
+      },
+      {
+        q: "Is the EU ESPR textile deadline 2027?",
+        a: "2027 is the expected year for adopting the textile delegated act, not the date passports are required on products. A transition of at least 18 months is expected after that.",
+      },
+      {
+        q: "Do Indian exporters have to comply with ESPR?",
+        a: "The legal duty sits with whoever places the product on the EU market, usually the EU importer or brand. But that business needs your supply-chain data, so exporters are expected to supply it.",
+      },
+      {
+        q: "Does the destruction ban apply to Indian manufacturers?",
+        a: "The ban applies to businesses in the EU that hold unsold apparel and footwear, starting with large companies from 19 July 2026. It does not apply directly to Indian factories, but it changes how EU buyers plan orders and stock.",
+      },
+    ],
+  },
   {
     slug: "eu-dpp-standards-en-1821x-explained",
     title:

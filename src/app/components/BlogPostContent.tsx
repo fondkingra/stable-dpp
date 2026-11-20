@@ -1305,6 +1305,531 @@ function EuDppRegistryContent() {
   );
 }
 
+function DppSoftwareChecklistContent() {
+  return (
+    <>
+      <p>
+        Most exporters we speak to have already had three or four software
+        demos. Every platform shows a QR code, a nice product page and a
+        dashboard. From the outside they look the same.
+      </p>
+      <p>
+        They are not the same. The differences sit underneath, in how a
+        platform collects supplier data, which standards it follows and
+        whether its records can be trusted by an EU buyer. This checklist is
+        the set of questions we would ask if we were on your side of the
+        table.
+      </p>
+
+      <h2>What Does Digital Product Passport Software Actually Do?</h2>
+      <p>
+        A{" "}
+        <InlineLink to="/blog/what-is-a-digital-product-passport">
+          Digital Product Passport
+        </InlineLink>{" "}
+        is a structured, machine-readable record of a product, reached by
+        scanning a data carrier such as a QR code. The software behind it
+        does four jobs: it collects product data from your team and your
+        suppliers, structures it into the fields EU rules will require for
+        your product group, publishes it behind a unique identifier and a
+        data carrier on the product, and protects it so the record stays
+        accurate, available and access-controlled for as long as the product
+        is on the market. If a tool only does the third job, it is a QR
+        generator, not ESPR compliance software.
+      </p>
+
+      <h2>Which Data Questions Should You Ask First?</h2>
+      <p>Data is where most DPP projects stall, so start here.</p>
+      <ol className="blog-checklist">
+        <li>
+          <strong>How do suppliers enter data?</strong> Your spinner, dyer
+          and processor will not log in to a complex portal. Ask whether
+          suppliers can contribute through a simple form, a spreadsheet
+          upload or a mobile link, and whether they need a paid seat.
+        </li>
+        <li>
+          <strong>Can it reuse the certificates you already hold?</strong>{" "}
+          GOTS, OEKO-TEX, GRS and test reports already contain much of what a
+          textile passport will need. Good software attaches them as
+          evidence rather than asking you to retype them.
+        </li>
+        <li>
+          <strong>Does it work at batch level as well as product level?</strong>{" "}
+          Many Indian mills produce by lot, not by SKU. The platform should
+          let you link a finished garment back to the fabric and yarn
+          batches it came from.
+        </li>
+        <li>
+          <strong>How does it handle missing data?</strong> You will not
+          have every field on day one. Ask how gaps are flagged, and whether
+          you can publish a partial record internally while you close them.
+        </li>
+      </ol>
+
+      <h2>Which Standards Should DPP Software Follow?</h2>
+      <p>
+        The EU wants passports from different providers to work together.
+        The European standardisation bodies have published a family of DPP
+        standards covering identifiers, data carriers, data exchange and
+        access rights — our{" "}
+        <InlineLink to="/blog/eu-dpp-standards-en-1821x-explained">
+          earlier post on those standards
+        </InlineLink>{" "}
+        explains them in detail.
+      </p>
+      <ol className="blog-checklist">
+        <li>
+          <strong>
+            Does it use GS1 Digital Link or an equivalent open identifier
+            scheme?
+          </strong>{" "}
+          A passport tied to a vendor's private URL format is a risk. Ask
+          how identifiers are issued and whether they resolve without the
+          vendor. See our guide to{" "}
+          <InlineLink to="/blog/gs1-digital-link-digital-product-passport">
+            GS1 Digital Link
+          </InlineLink>
+          .
+        </li>
+        <li>
+          <strong>
+            Can your data be exported in an open, machine-readable format?
+          </strong>{" "}
+          ESPR requires passports to be interoperable. If you cannot move
+          your records to another provider, you do not fully control them.
+        </li>
+        <li>
+          <strong>Does it separate public and restricted data?</strong>{" "}
+          Consumers, repairers, recyclers and authorities will see different
+          fields. The software should support role-based access, not one
+          public page for everyone.
+        </li>
+      </ol>
+
+      <h2>How Do You Know the Data Can Be Trusted?</h2>
+      <p>
+        An EU importer carries the legal responsibility for what it places
+        on the market. It will want proof that your passport data has not
+        been quietly changed after the fact.
+      </p>
+      <ol className="blog-checklist">
+        <li>
+          <strong>Is every change recorded with who, what and when?</strong>{" "}
+          A full audit trail is the minimum.
+        </li>
+        <li>
+          <strong>Is the record tamper-evident?</strong> An audit log stored
+          in the same database the vendor controls can itself be edited. Ask
+          how the platform proves a record is unchanged. Blockchain
+          anchoring is one practical answer; we explain where it fits, and
+          where it does not, in{" "}
+          <InlineLink to="/blog/blockchain-digital-product-passport">
+            our post on blockchain and the DPP
+          </InlineLink>
+          .
+        </li>
+        <li>
+          <strong>Where is data hosted, and how is it backed up?</strong>{" "}
+          Ask about hosting region, backup frequency and what happens to
+          live passports if the vendor stops trading.
+        </li>
+      </ol>
+
+      <h2>What Should You Check on Cost and Support?</h2>
+      <ol className="blog-checklist">
+        <li>
+          <strong>How is pricing structured?</strong> Per product, per SKU,
+          per scan or per supplier seat can produce very different bills at
+          export volumes. Model your real catalogue before you sign. Our
+          breakdown of{" "}
+          <InlineLink to="/blog/digital-product-passport-cost">
+            Digital Product Passport cost
+          </InlineLink>{" "}
+          covers the main pricing models.
+        </li>
+        <li>
+          <strong>Who helps you onboard suppliers?</strong> Software alone
+          does not fill a passport. Ask whether the vendor offers onboarding
+          support, supplier training in regional languages, or a managed
+          service.
+        </li>
+      </ol>
+
+      <h2>Which Red Flags Should End a Demo Early?</h2>
+      <ul>
+        <li>The vendor says the EU requires blockchain. It does not.</li>
+        <li>
+          The vendor claims to be "ESPR certified." No such certification
+          exists for software today.
+        </li>
+        <li>
+          Final textile data fields are presented as settled. The textile
+          delegated act has not yet been adopted.
+        </li>
+        <li>There is no export function, or export costs extra.</li>
+      </ul>
+
+      <h2>What Should Indian Exporters Do Next?</h2>
+      <p>
+        Pick three products that go to your largest EU buyer. Run them
+        through two shortlisted platforms with real supplier data, not demo
+        data. The platform that gets your suppliers to contribute without a
+        phone call from you is usually the right one. If you want to see
+        how StableDPP handles these twelve questions, you can{" "}
+        <InlineLink to="/create-dpp">
+          create a sample passport for one of your products
+        </InlineLink>
+        , or read how the platform works on our{" "}
+        <InlineLink to="/product">product page</InlineLink>.
+      </p>
+
+      <BlogCta href="/book-a-demo">
+        Book a demo — see how StableDPP answers these twelve questions →
+      </BlogCta>
+
+      <Takeaway>
+        Judge digital product passport software on four things: how it gets
+        data out of your supply chain, whether it follows the EU's open
+        standards, whether its records are tamper-evident, and whether you
+        can leave with your data. The QR page is the least important part.
+      </Takeaway>
+    </>
+  );
+}
+
+function EsprTextileDeadlineContent() {
+  return (
+    <>
+      <p>
+        "When exactly do we need it?" is the first question every exporter
+        asks us. The honest answer has two parts: some dates are fixed in
+        law, and the one that matters most for textiles is still expected,
+        not confirmed. This post separates the two, so you can plan against
+        facts and treat estimates as estimates.
+      </p>
+
+      <h2>Is the Digital Product Passport Mandatory for Textiles Today?</h2>
+      <p>
+        No. The Ecodesign for Sustainable Products Regulation (ESPR,
+        Regulation (EU) 2024/1781) is in force, and it creates the legal
+        basis for the passport. But ESPR does not set passport duties for
+        any single product group by itself. Those duties arrive through a
+        delegated act for each product group, which fixes which products are
+        covered, which data fields are required and from what date. Until
+        the textile act is adopted and applies, there is no legal passport
+        deadline for a shirt, a towel or a length of fabric.
+      </p>
+
+      <h2>Which ESPR Dates Are Already Fixed?</h2>
+      <ol className="blog-timeline">
+        <li>
+          <strong>18 July 2024:</strong> ESPR enters into force, naming
+          textiles a priority product group. Fixed.
+        </li>
+        <li>
+          <strong>April 2025:</strong> The first ESPR Working Plan lists
+          textiles and apparel for a delegated act, indicative 2027. Fixed
+          plan, indicative date.
+        </li>
+        <li>
+          <strong>19 July 2026:</strong> The ban on destroying unsold
+          apparel and footwear applies to large companies. Fixed.
+        </li>
+        <li>
+          <strong>July 2026:</strong> The EU Digital Product Passport
+          registry goes live. Fixed.
+        </li>
+        <li>
+          <strong>2027:</strong> Textile delegated act adopted. Expected.
+        </li>
+        <li>
+          <strong>2028–2029:</strong> Textile passport required on products
+          placed on the EU market. Expected, set by the act.
+        </li>
+      </ol>
+      <p>
+        The destruction ban matters here even though it is not a passport
+        rule. It shows the EU is already enforcing ESPR on apparel, and it
+        puts reporting on unsold stock in front of your largest EU customers
+        now.
+      </p>
+
+      <h2>When Will the Textile Delegated Act Be Adopted?</h2>
+      <p>
+        The Commission's Working Plan gives 2027 as the indicative year.
+        Preparatory work by the Joint Research Centre on passport content
+        for textile apparel is already published, so the act will not
+        arrive from nowhere. "Indicative" is the key word — delegated acts
+        go through consultation and scrutiny, and dates can move. We will
+        update this post when a draft is published.
+      </p>
+
+      <h2>How Long Is the Transition After the Act?</h2>
+      <p>
+        ESPR sets a minimum gap between a delegated act entering into force
+        and its requirements applying: generally no less than 18 months.
+        The act itself can set a longer period, or phase requirements in
+        stages. So if the textile act is adopted in 2027, the earliest
+        realistic date for a mandatory textile passport on products is
+        2028, and 2029 is equally plausible. The act will give the exact
+        date.
+      </p>
+
+      <h2>Why Are Exporters Being Asked for DPP Data Before the Deadline?</h2>
+      <p>
+        Because the legal deadline falls on the EU brand, and the brand's
+        data comes from you. An EU importer or brand placing a garment on
+        the market will be responsible for its passport. The fibre origin,
+        processing steps, chemical declarations and certificates sit with
+        the mills and processors upstream. Brands that want to be ready in
+        2028 are collecting that data during 2026 and 2027. Suppliers who
+        can provide it in a structured form become easier to keep; suppliers
+        who cannot become a risk. The practical point is simple: your
+        deadline is your buyer's data request, not the Official Journal.
+      </p>
+
+      <h2>What Should a Textile Exporter Do in Each Window?</h2>
+      <p>
+        <strong>Now to mid-2027, before the act:</strong>
+      </p>
+      <ul>
+        <li>
+          Map your supply chain for your top EU products, down to fibre and
+          yarn where you can.
+        </li>
+        <li>
+          Collect the certificates and test reports you already hold in one
+          place.
+        </li>
+        <li>Assign each product and batch a stable identifier.</li>
+        <li>Pilot a passport for two or three products with one EU buyer.</li>
+      </ul>
+      <p>
+        <strong>When the draft act is published:</strong>
+      </p>
+      <ul>
+        <li>
+          Compare its proposed data fields with what you have collected, and
+          list the gaps.
+        </li>
+        <li>
+          Ask your EU buyers which fields they will need from you, and by
+          when.
+        </li>
+      </ul>
+      <p>
+        <strong>During the transition period:</strong>
+      </p>
+      <ul>
+        <li>Close data gaps product line by product line.</li>
+        <li>
+          Move from pilot to full catalogue, with supplier data flowing in
+          routinely, not by email.
+        </li>
+      </ul>
+      <p>
+        Our step-by-step guide on{" "}
+        <InlineLink to="/blog/how-to-create-a-digital-product-passport">
+          how to create a Digital Product Passport
+        </InlineLink>{" "}
+        walks through the build itself, and{" "}
+        <InlineLink to="/blog/digital-product-passport-for-textile-manufacturers">
+          Digital Product Passports for textile manufacturers
+        </InlineLink>{" "}
+        covers the data a mill should prepare.
+      </p>
+
+      <h2>What Happens if You Miss the Deadline?</h2>
+      <p>
+        Once the textile requirements apply, a product without a valid
+        passport cannot be placed on the EU market. In practice your
+        importer will not accept the goods. Enforcement sits with market
+        surveillance and customs authorities in each EU country. The bigger
+        commercial risk comes earlier: losing a buyer who needs
+        passport-ready suppliers in 2027, not 2029. See our{" "}
+        <InlineLink to="/dpp-for-textiles">
+          guide to DPP for textiles
+        </InlineLink>{" "}
+        for the practical view.
+      </p>
+
+      <BlogCta href="/book-a-demo">
+        Get the ESPR Readiness Checklist — book a demo →
+      </BlogCta>
+
+      <Takeaway>
+        The Digital Product Passport is not yet mandatory for textiles. It
+        becomes mandatory once the EU adopts the textile delegated act,
+        expected in 2027, plus a transition period of at least 18 months —
+        pointing to 2028–2029 on the product. EU buyers are already asking
+        for the data sooner.
+      </Takeaway>
+    </>
+  );
+}
+
+function BlockchainDppContent() {
+  return (
+    <>
+      <p>
+        We build StableDPP on blockchain, so you might expect this post to
+        say the EU requires it. It does not, and any vendor who tells you
+        otherwise is overselling.
+      </p>
+      <p>
+        What the EU requires is passport data that is interoperable, secure
+        and hard to alter without detection. Blockchain is one practical way
+        to meet the last of those. This post explains where the line sits.
+      </p>
+
+      <h2>Does the EU Require Blockchain for a Digital Product Passport?</h2>
+      <p>
+        No. The Ecodesign for Sustainable Products Regulation sets out what
+        a passport must do, mainly in Articles 9 to 11. It does not name any
+        storage technology. That is deliberate: the EU wants passports from
+        different providers, built on different systems, to work together.
+        So a passport on a conventional database can be fully compliant. A
+        passport on a blockchain can be non-compliant, if it ignores the
+        standards below.
+      </p>
+
+      <h2>What Does ESPR Actually Require From Passport Data?</h2>
+      <p>In plain terms, a compliant passport must:</p>
+      <ul>
+        <li>
+          Be linked to a unique product identifier, carried on the product
+          by a data carrier such as a QR code.
+        </li>
+        <li>
+          Use open, interoperable standards, so any authorised system can
+          read it without a proprietary tool.
+        </li>
+        <li>
+          Control access by role, so consumers, repairers, recyclers and
+          authorities see the fields meant for them.
+        </li>
+        <li>
+          Keep data accurate, complete and up to date, with integrity
+          protected against unauthorised change.
+        </li>
+        <li>
+          Stay available for the period set by the product group's
+          delegated act, including through a backup held by an independent
+          service provider.
+        </li>
+      </ul>
+      <p>
+        Notice that only the fourth point is about trust in the record
+        itself. That is where blockchain earns its place.
+      </p>
+
+      <h2>What Does "Tamper-Evident" Mean for a Passport?</h2>
+      <p>
+        A tamper-evident record is one where any change after the fact can
+        be detected. It does not stop someone editing data. It makes an
+        edit impossible to hide. That matters because a passport passes
+        through many hands. A mill enters fibre data. A processor adds
+        dyeing details. A brand publishes the final record. An auditor or
+        customs officer may check it years later. Each party needs
+        confidence that what they see is what was entered, by whom and
+        when.
+      </p>
+
+      <h2>Where Does Blockchain Help a Digital Product Passport?</h2>
+      <ul>
+        <li>
+          <strong>Proof that a record is unchanged.</strong> The usual
+          design stores the passport data off-chain in a standard format,
+          and writes a cryptographic fingerprint of each version to a
+          blockchain. Anyone can recompute the fingerprint and compare — if
+          one character has changed, the fingerprints will not match.
+        </li>
+        <li>
+          <strong>A shared record with no single owner.</strong> In a
+          textile chain, no single company should be able to rewrite
+          everyone else's contributions. A blockchain ledger gives each
+          party a timestamped entry that none of the others can quietly
+          alter, including the software vendor.
+        </li>
+        <li>
+          <strong>Verifiable history over time.</strong> Passports outlive
+          transactions. Repairs, resale and recycling add events for years.
+          An append-only ledger keeps that history in order.
+        </li>
+      </ul>
+
+      <h2>Where Does Blockchain Not Help?</h2>
+      <p>
+        It does not make data true. If a supplier enters the wrong fibre
+        content, blockchain will faithfully protect the wrong answer.
+        Verification still depends on certificates, test reports and
+        audits. It is not an interoperability standard — readability across
+        systems comes from open identifiers and data formats, such as{" "}
+        <InlineLink to="/blog/gs1-digital-link-digital-product-passport">
+          GS1 Digital Link
+        </InlineLink>{" "}
+        and the European DPP standards, not from the ledger. And it is the
+        wrong place for bulk or personal data: storing full passports or
+        any personal data on a public chain creates cost and GDPR problems.
+        Fingerprints on-chain, data off-chain is the sensible pattern.
+      </p>
+
+      <h2>How Should You Evaluate a Blockchain-Based DPP Platform?</h2>
+      <p>Ask the vendor five questions:</p>
+      <ol className="blog-checklist">
+        <li>
+          What exactly is written to the blockchain: full data, or
+          fingerprints only?
+        </li>
+        <li>Can a third party verify a record without using your software?</li>
+        <li>Is the passport data itself stored in an open, exportable format?</li>
+        <li>
+          How do you meet ESPR's backup and availability expectations if
+          your company or your chain changes?
+        </li>
+        <li>
+          Do you describe blockchain as legally required? The correct
+          answer is no.
+        </li>
+      </ol>
+      <p>
+        Our{" "}
+        <InlineLink to="/blog/digital-product-passport-software">
+          software buyer's checklist
+        </InlineLink>{" "}
+        puts these alongside the other questions worth asking.
+      </p>
+
+      <h2>How Does StableDPP Use Blockchain?</h2>
+      <p>
+        StableDPP is blockchain-native: every passport version is anchored
+        so its integrity can be checked independently. The passport data
+        follows open identifier and data standards, so it stays
+        interoperable with EU systems and portable if you ever leave. We
+        treat blockchain as the answer to ESPR's integrity requirement, not
+        as the compliance requirement itself. You can see how this works on
+        our <InlineLink to="/product">product page</InlineLink>, or{" "}
+        <InlineLink to="/create-dpp">
+          create a sample passport for one of your own products
+        </InlineLink>
+        .
+      </p>
+
+      <BlogCta href="/book-a-demo">
+        Book a demo — see how StableDPP anchors passport integrity →
+      </BlogCta>
+
+      <Takeaway>
+        ESPR is technology-neutral. It does not mandate blockchain. It
+        requires open, interoperable passport data with controlled access,
+        integrity and a backup. Blockchain is useful for one job in that
+        list: proving a record has not been changed. Everything else still
+        depends on good data and open standards.
+      </Takeaway>
+    </>
+  );
+}
+
 const CONTENT_BY_SLUG: Record<BlogSlug, () => ReactNode> = {
   "what-is-a-digital-product-passport": WhatIsDppContent,
   "espr-regulation-2024-1781-explained": EsprGuideContent,
@@ -1317,6 +1842,9 @@ const CONTENT_BY_SLUG: Record<BlogSlug, () => ReactNode> = {
   "battery-passport-digital-product-passport-rehearsal":
     BatteryPassportRehearsalContent,
   "eu-dpp-registry-explained": EuDppRegistryContent,
+  "digital-product-passport-software": DppSoftwareChecklistContent,
+  "espr-textile-deadline-digital-product-passport": EsprTextileDeadlineContent,
+  "blockchain-digital-product-passport": BlockchainDppContent,
 };
 
 export function BlogPostContent({ slug }: { slug: BlogSlug }) {

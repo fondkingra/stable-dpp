@@ -6,16 +6,27 @@ import {
   buildBlogBreadcrumbSchema,
   buildFaqSchema,
   buildHowToSchema,
+  buildMetaFromConfig,
   buildRouteMeta,
-  getBlogSeoKey,
-  SEO_CONFIG,
 } from "../app/utils/seo";
 
 export function meta({ params }: { params: { slug?: string } }) {
-  const seoKey = getBlogSeoKey(params.slug ?? "");
-  return buildRouteMeta(seoKey ?? "blog", {
-    ogType: seoKey ? "article" : "website",
-  });
+  const post = getBlogBySlug(params.slug ?? "");
+  if (!post) {
+    return buildRouteMeta("blog", { ogType: "website" });
+  }
+  const canonical = `https://stabledpp.com/blog/${post.slug}`;
+  return buildMetaFromConfig(
+    {
+      title: post.metaTitle,
+      description: post.metaDescription,
+      canonical,
+      ogTitle: post.metaTitle,
+      ogDescription: post.metaDescription,
+      ogImage: post.ogImage,
+    },
+    { ogType: "article" },
+  );
 }
 
 export default function Component() {
@@ -30,10 +41,7 @@ export default function Component() {
     return <Navigate to="/blog" replace />;
   }
 
-  const seoKey = getBlogSeoKey(slug);
-  const canonical = seoKey
-    ? SEO_CONFIG[seoKey].canonical
-    : `https://stabledpp.com/blog/${slug}`;
+  const canonical = `https://stabledpp.com/blog/${slug}`;
 
   const breadcrumbSchema = buildBlogBreadcrumbSchema(post.title, canonical);
   const articleSchema = buildArticleSchema({

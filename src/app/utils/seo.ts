@@ -1081,7 +1081,13 @@ export function buildRouteMeta(
   pageKey: keyof typeof SEO_CONFIG,
   options?: { ogType?: "website" | "article" },
 ): MetaDescriptor[] {
-  const config = SEO_CONFIG[pageKey];
+  return buildMetaFromConfig(SEO_CONFIG[pageKey], options);
+}
+
+export function buildMetaFromConfig(
+  config: PageSEO,
+  options?: { ogType?: "website" | "article" },
+): MetaDescriptor[] {
   const tags: MetaDescriptor[] = [
     { title: config.title },
     { name: "description", content: config.description },
